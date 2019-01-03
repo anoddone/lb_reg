@@ -1,0 +1,22 @@
+CSR
+Table 159.  PHY Register Definitions
+
+RE
+Table 267.  Register Map for Switching Transmitter PLLs
+Table 269.  Register Map for Switching ATX PLL Reference Clock Inputs
+Table 270.  Register Map for Switching fPLL Reference Clock Inputs
+Table 271.  Register Map for Switching CDR Reference Clock Inputs
+Table 274.  Register Map for PMA Analog Feature
+Table 275.  Register Map for CTLE Settings
+Table 276.  Register Map for CTLE triggered and CTLE manual settings
+Table 284.  Capability Registers for the Native PHY IP Core
+Table 285.  Capability Registers for the PLL IP Cores
+Table 286.  Control Registers for the Native PHY IP Core
+Table 287.  Status Registers for the Native PHY IP Core
+Table 288.  Control Registers for the PLL IP Cores
+Table 289.  Status Registers for the PLL IP Cores
+Table 290.  PRBS Accumulator Registers
+Table 292.   Register Map for PRBS Generators for bonded and non bonded designs 
+Table 293.  Register Map for PRBS Checker for bonded and non bonded designs
+Table 294.  Register Map for PRBS Pattern Inversion
+Table 295.   Register Map for Pseudo Random Pattern Mode

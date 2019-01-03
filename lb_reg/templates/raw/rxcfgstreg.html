@@ -1,0 +1,706 @@
+        <section class="tab-2 section-overflow">
+
+        <header class="anchor" id="bhc1395127776803">
+          <h1>
+          
+            RX Configuration and Status Registers 
+          </h1>
+        </header> 
+        <div class="rich-text text parbase"><div class="container top-padding bottom-padding">
+  
+  <div class="body refbody">
+		    <div class="section" id="bhc1395127776803__section_N10012_N1000F_N10001">
+			      
+<div class="tablenoborder"><table class="table" frame="border" id="bhc1395127776803__table_BF4299C6431C4AA0B12597352F407442" rules="all" summary="" cellspacing="0" cellpadding="4" border="1"><caption xmlns="http://www.w3.org/1999/xhtml"><span class="tablecap"><span class="tablecap"><span class="enumeration table-enumeration">Table 28.  </span>RX Configuration and Status Registers</span></span></caption>
+					          
+					          
+					          
+					          
+					          
+					          <thead class="thead" align="left">
+						            <tr class="row">
+							              <th class="entry" id="d42673e183" width="10.416666666666666%" valign="top" align="center">Word Offset </th>
+
+							              <th class="entry" id="d42673e186" width="31.249999999999993%" valign="top" align="center">Register Name </th>
+
+							              <th class="entry" id="d42673e189" width="41.666666666666664%" valign="top" align="center">Description </th>
+
+							              <th class="entry" id="d42673e192" width="8.333333333333332%" valign="top" align="center">Access </th>
+
+							              <th class="entry" id="d42673e195" width="8.333333333333332%" valign="top" align="center">HW Reset Value
+							</th>
+
+						            </tr>
+
+					          </thead>
+
+					          <tbody class="tbody">
+						            <tr class="row">
+							              <td class="entry" headers="d42673e183 " width="10.416666666666666%" valign="top" align="center">0x00A0 </td>
+
+							              <td class="entry" headers="d42673e186 " width="31.249999999999993%" valign="top" align="left">
+                        <samp class="ph codeph">rx_transfer_control</samp>
+							              </td>
+
+							              <td class="entry" headers="d42673e189 " width="41.666666666666664%" valign="top" align="left">
+								                <ul class="ul" id="bhc1395127776803__ul_E640607F6AF6492EB843ECD0C8AB124B">
+									                  <li class="li" id="bhc1395127776803__li_74312CF7BE674088A11B7053CFDE34BB">Bit 0—RX path enable. <p class="p">0: Enables the RX
+											path. </p>
+
+                              <p class="p">1: Disables the RX path.
+											The MAC IP core drops all incoming frames. </p>
+
+                           </li>
+
+									                  <li class="li" id="bhc1395127776803__li_ED0938354698418EB172F3F9BEF498E4">Bits 31:1—reserved. </li>
+
+								                </ul>
+
+								                <p class="p">A change of value in this register takes effect
+									at a packet boundary. Any transfer in progress is not affected.
+								</p>
+
+							              </td>
+
+							              <td class="entry" headers="d42673e192 " width="8.333333333333332%" valign="top" align="center">RW </td>
+
+							              <td class="entry" headers="d42673e195 " width="8.333333333333332%" valign="top" align="center">0x0 </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d42673e183 " width="10.416666666666666%" valign="top" align="center">0x00A2 </td>
+
+							              <td class="entry" headers="d42673e186 " width="31.249999999999993%" valign="top" align="left">
+                        <samp class="ph codeph">rx_transfer_status</samp>
+							              </td>
+
+							              <td class="entry" headers="d42673e189 " width="41.666666666666664%" valign="top" align="left">
+								                <p class="p">The MAC sets the following bits to indicate the
+									status of the RX datapath.</p>
+
+								                <ul class="ul" id="bhc1395127776803__ul_74B114B5E89A40DD9315F66700E09125">
+									                  <li class="li" id="bhc1395127776803__li_3A2F0C2F9F8F4D2E86A4BC8A6262D673">Bits 7:0—reserved. </li>
+
+									                  <li class="li">Bit 8: RX datapath status.<p class="p">0: The RX datapath is idle.</p>
+
+                              <p class="p">1: An RX data transfer is in
+											progress.</p>
+
+                           </li>
+
+									                  <li class="li">Bits 11:9—reserved. </li>
+
+									                  <li class="li">Bit 12: RX datapath reset status. <p class="p">0: The RX datapath is not in
+											reset.</p>
+
+                              <p class="p">1: The RX datapath is in
+											reset.</p>
+
+                           </li>
+
+								                </ul>
+
+							              </td>
+
+							              <td class="entry" headers="d42673e192 " width="8.333333333333332%" valign="top" align="center">RO </td>
+
+							              <td class="entry" headers="d42673e195 " width="8.333333333333332%" valign="top" align="center">0x0 </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d42673e183 " width="10.416666666666666%" valign="top" align="center">0x00A4 </td>
+
+							              <td class="entry" headers="d42673e186 " width="31.249999999999993%" valign="top" align="left">
+                        <samp class="ph codeph">rx_padcrc_control</samp>
+							              </td>
+
+							              <td class="entry" headers="d42673e189 " width="41.666666666666664%" valign="top" align="left">
+								                <ul class="ul" id="bhc1395127776803__ul_808CB5679FD94B1CBB8BEFB7BD1037E9">
+									                  <li class="li" id="bhc1395127776803__li_A11C93A5D4B94EA896202009E7876D68">Bits [1:0]—Padding and CRC removal on receive. <p class="p">00: Retains the padding bytes and CRC
+											field, and forwards them to the client. </p>
+
+                              <p class="p">01: Retains only the padding bytes. The
+											MAC IP core removes the CRC field before it forwards the
+											RX frame to the client. </p>
+
+                              <p class="p">11:
+											Removes the padding bytes and CRC field before the RX
+											frame is forwarded to the client. </p>
+
+                              <p class="p">10: Reserved. </p>
+
+									                  </li>
+
+									                  <li class="li" id="bhc1395127776803__li_3135EC20D7B64623A9CA36F73D277B52">Bits 31:2—reserved. </li>
+
+								                </ul>
+
+								                <p class="p">Configure this register before you enable the
+									MAC IP core for operations. </p>
+
+							              </td>
+
+							              <td class="entry" headers="d42673e192 " width="8.333333333333332%" valign="top" align="center">RW </td>
+
+							              <td class="entry" headers="d42673e195 " width="8.333333333333332%" valign="top" align="center">0x1 </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d42673e183 " width="10.416666666666666%" valign="top" align="center">0x00A6 </td>
+
+							              <td class="entry" headers="d42673e186 " width="31.249999999999993%" valign="top" align="left">
+                        <samp class="ph codeph">rx_crccheck_control</samp>
+							              </td>
+
+							              <td class="entry" headers="d42673e189 " width="41.666666666666664%" valign="top" align="left">CRC checking on receive. <ul class="ul" id="bhc1395127776803__ul_43DC1D52E1AC495F92CAC9BB5420333B">
+									                  <li class="li" id="bhc1395127776803__li_19F30655CE8D403FA09802E4E79FD67B">Bit 0—always set this bit to 0. </li>
+
+									                  <li class="li" id="bhc1395127776803__li_A8D7671A6EDF4F55BA1A35E8BE6F3721">Bit 1—CRC checking enable. <p class="p">0: Ignores
+											the CRC field. </p>
+
+                              <p class="p">1: Checks the CRC
+											field and reports the status to <samp class="ph codeph">avalon_st_rx_error[1]</samp> and <samp class="ph codeph">avalon_st_rxstatus_error</samp>.
+										</p>
+
+									                  </li>
+
+									                  <li class="li" id="bhc1395127776803__li_78B8F8E8B673409A91686E52AAD1517E">Bits 31:2—reserved. </li>
+
+								                </ul>
+
+                        <p class="p">Configure this register before you enable
+									the MAC IP core for operations. </p>
+
+                     </td>
+
+							              <td class="entry" headers="d42673e192 " width="8.333333333333332%" valign="top" align="center">RW </td>
+
+							              <td class="entry" headers="d42673e195 " width="8.333333333333332%" valign="top" align="center">0x2 </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d42673e183 " width="10.416666666666666%" valign="top" align="center">0x00A8 </td>
+
+							              <td class="entry" headers="d42673e186 " width="31.249999999999993%" valign="top" align="left">
+                        <samp class="ph codeph">rx_custom_preamble_forward</samp>
+                        
+								                <a xmlns="http://www.w3.org/1999/xhtml" class="xref" href="/content/altera-www/global/en_us/index/documentation/bhc1395127830032.html#bhc1395127776803__fn_rx_preamble"><sup><span class="enumeration fn-enumeration">10</span></sup></a>
+                     </td>
+
+							              <td class="entry" headers="d42673e189 " width="41.666666666666664%" valign="top" align="left">
+								                <ul class="ul" id="bhc1395127776803__ul_9BAEF0256B534853A99C02338D86DB2A">
+									                  <li class="li" id="bhc1395127776803__li_D6838B0B1E8F49BE92892770DEE5D15F">Bit 0—configures the forwarding of the custom preamble to
+										the client. <p class="p">0: Removes the custom
+											preamble from the RX frame. </p>
+
+                              <p class="p">1:
+											Retains and forwards the custom preamble to the client.
+										</p>
+
+									                  </li>
+
+									                  <li class="li" id="bhc1395127776803__li_F175AFA8069F4BB48261071232097D20">Bits 31:1—reserved. </li>
+
+								                </ul>
+
+								                <p class="p">Configure this register before you enable the
+									MAC IP core for operations. </p>
+
+							              </td>
+
+							              <td class="entry" headers="d42673e192 " width="8.333333333333332%" valign="top" align="center">RW </td>
+
+							              <td class="entry" headers="d42673e195 " width="8.333333333333332%" valign="top" align="center">0x0 </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d42673e183 " width="10.416666666666666%" valign="top" align="center">0x00AA </td>
+
+							              <td class="entry" headers="d42673e186 " width="31.249999999999993%" valign="top" align="left">
+                        <samp class="ph codeph">rx_preamble_control</samp>
+                        <a xmlns="http://www.w3.org/1999/xhtml" class="xref" href="/content/altera-www/global/en_us/index/documentation/bhc1395127830032.html#bhc1395127776803__fn_rx_preamble"><sup><span class="enumeration fn-enumeration">10</span></sup></a>
+							              </td>
+
+							              <td class="entry" headers="d42673e189 " width="41.666666666666664%" valign="top" align="left">
+								                <ul class="ul" id="bhc1395127776803__ul_074EC8EB711F4608B3180C250E723016">
+									                  <li class="li" id="bhc1395127776803__li_D5FDE071D72946118F625054FB0537EA">Bit 0—preamble passthrough enable on receive. <p class="p">0: Disables preamble passthrough. The
+											MAC IP core checks for START and SFD during packet
+											decapsulation process. </p>
+
+                              <p class="p">1:
+											Enables preamble passthrough. The MAC IP core checks
+											only for START during packet decapsulation process.
+										</p>
+
+                           </li>
+
+									                  <li class="li" id="bhc1395127776803__li_56F9FEDE73374625989A24383469F1A1">Bits 31:1—reserved. </li>
+
+								                </ul>
+
+								                <p class="p">Configure this register before you enable the
+									MAC IP core for operations. </p>
+
+							              </td>
+
+							              <td class="entry" headers="d42673e192 " width="8.333333333333332%" valign="top" align="center">RW </td>
+
+							              <td class="entry" headers="d42673e195 " width="8.333333333333332%" valign="top" align="center">0x0 </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d42673e183 " rowspan="13" width="10.416666666666666%" valign="top" align="center">0x00AC</td>
+
+							              <td class="entry" headers="d42673e186 " rowspan="13" width="31.249999999999993%" valign="top" align="left">
+                        <samp class="ph codeph">rx_frame_control</samp>
+                     </td>
+
+							              <td class="entry" headers="d42673e189 " width="41.666666666666664%" valign="top" align="left">
+								                <p class="p">Configure this register before you enable the
+									MAC IP core for operations. </p>
+
+							              </td>
+
+							              <td class="entry" headers="d42673e192 " rowspan="13" width="8.333333333333332%" valign="top" align="center">RW</td>
+
+							              <td class="entry" headers="d42673e195 " rowspan="13" width="8.333333333333332%" valign="top" align="center">0x3</td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d42673e189 " width="41.666666666666664%" valign="top" align="left">Bit 0—<samp class="ph codeph">EN_ALLUCAST</samp>
+								                <p class="p">0: Filters RX unicast frames using the primary
+									MAC address. The MAC IP core drops unicast frames with a
+									destination address other than the primary MAC address. </p>
+
+                        <p class="p">1: Accepts all RX unicast frames. </p>
+
+                        <p class="p">Setting this bit and the <samp class="ph codeph">EN_ALLMCAST</samp> to 1 puts the MAC IP
+									core in the promiscuous mode. </p>
+
+                     </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d42673e189 " width="41.666666666666664%" valign="top" align="left">Bit 1—<samp class="ph codeph">EN_ALLMCAST</samp>
+								                <p class="p">0: Drops all RX multicast frames. </p>
+
+                        <p class="p">1: Accepts all RX multicast frames. </p>
+
+                        <p class="p">Setting this bit and the <samp class="ph codeph">EN_ALLUCAST</samp> bit to 1 is equivalent
+									to setting the MAC IP core to the promiscuous mode. </p>
+
+                     </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d42673e189 " width="41.666666666666664%" valign="top" align="left">Bit 2—reserved.
+							</td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d42673e189 " width="41.666666666666664%" valign="top" align="left">Bit 3—<samp class="ph codeph">FWD_CONTROL</samp>. When you turn on the <strong class="ph b">Priority-based Flow Control</strong> parameter, this
+								bit affects all control frames except the IEEE 802.3 pause frames
+								and priority-based control frames. When the <strong class="ph b">Priority-based Flow Control</strong> parameter is not enabled, this
+								bit affects all control frames except the IEEE 802.3 pause frames.
+									<p class="p">0: Drops the control frames. </p>
+
+                        <p class="p">1: Forwards the control frames to the client.
+								</p>
+
+                     </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d42673e189 " width="41.666666666666664%" valign="top" align="left">Bit 4—<samp class="ph codeph">FWD_PAUSE</samp>
+								                <p class="p">0: Drops pause frames. </p>
+
+                        <p class="p">1: Forwards pause frames to the client. </p>
+
+                     </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d42673e189 " width="41.666666666666664%" valign="top" align="left">Bit 5—<samp class="ph codeph">IGNORE_PAUSE</samp>
+								                <p class="p">0: Processes pause frames. </p>
+
+                        <p class="p">1: Ignores pause frames. </p>
+
+                     </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d42673e189 " width="41.666666666666664%" valign="top" align="left">Bits 15:6—reserved.
+							</td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d42673e189 " width="41.666666666666664%" valign="top" align="left">Bit 16—<samp class="ph codeph">EN_SUPP0</samp>
+								                <p class="p">0: Disables the use of supplementary address 0.
+									</p>
+
+                        <p class="p">1: Enables the use of supplementary
+									address 0. </p>
+
+                     </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d42673e189 " width="41.666666666666664%" valign="top" align="left">Bit 17—<samp class="ph codeph">EN_SUPP1</samp>
+								                <p class="p">0: Disables the use of supplementary address 1.
+									</p>
+
+                        <p class="p">1: Enables the use of supplementary
+									address 1. </p>
+
+                     </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d42673e189 " width="41.666666666666664%" valign="top" align="left">Bit 18—<samp class="ph codeph">EN_SUPP2</samp>
+								                <p class="p">0: Disables the use of supplementary address 2.
+									</p>
+
+                        <p class="p">1: Enables the use of supplementary
+									address 2. </p>
+
+                     </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d42673e189 " width="41.666666666666664%" valign="top" align="left">Bit 19—<samp class="ph codeph">EN_SUPP3</samp>
+								                <p class="p">0: Disables the use of supplementary address 3.
+									</p>
+
+                        <p class="p">1: Enables the use of supplementary
+									address 3. </p>
+
+                     </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d42673e189 " width="41.666666666666664%" valign="top" align="left">Bits 31:20—reserved.
+							</td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d42673e183 " width="10.416666666666666%" valign="top" align="center">0x00AE </td>
+
+							              <td class="entry" headers="d42673e186 " width="31.249999999999993%" valign="top" align="left">
+                        <samp class="ph codeph">rx_frame_maxlength</samp>
+							              </td>
+
+							              <td class="entry" headers="d42673e189 " width="41.666666666666664%" valign="top" align="left">
+                        <ul class="ul" id="bhc1395127776803__ul_4FFABFAE6C664EDD9F2A2101636E43FB">
+									                  <li class="li" id="bhc1395127776803__li_48B91A71FBBC4D4FA6DF0AA2F8CF3011">Bits 15:0—specify the maximum allowable frame length. The
+										MAC asserts the <samp class="ph codeph">avalon_st_rx_error[3]</samp> signal when the length
+										of the RX frame exceeds the value of this register. </li>
+
+									                  <li class="li" id="bhc1395127776803__li_3D01FEF64EAA4E1B98808186EE085471">Bits 16:31—reserved. </li>
+
+								                </ul>
+Configure this register before you enable the MAC IP core for
+								operations. </td>
+
+							              <td class="entry" headers="d42673e192 " width="8.333333333333332%" valign="top" align="center">RW </td>
+
+							              <td class="entry" headers="d42673e195 " width="8.333333333333332%" valign="top" align="center">1518 </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d42673e183 " width="10.416666666666666%" valign="top" align="center">0x00AF</td>
+
+							              <td class="entry" headers="d42673e186 " width="31.249999999999993%" valign="top" align="left">
+                        <samp class="ph codeph">rx_vlan_detection</samp>
+                     </td>
+
+							              <td class="entry" headers="d42673e189 " width="41.666666666666664%" valign="top" align="left">
+								                <ul class="ul" id="bhc1395127776803__ul_hxk_tgj_qr">
+									                  <li class="li">Bit 0—RX VLAN detection disable.<p class="p">0: The MAC detects VLAN and stacked
+											VLAN frames. </p>
+
+                              <p class="p">1: The MAC does not
+											detect VLAN and stacked VLAN frames. When received, the
+											MAC treats them as basic frames and considers their tags
+											as payload bytes.</p>
+
+                           </li>
+
+									                  <li class="li">Bits 31:1—reserved.</li>
+
+								                </ul>
+
+							              </td>
+
+							              <td class="entry" headers="d42673e192 " width="8.333333333333332%" valign="top" align="center">RW</td>
+
+							              <td class="entry" headers="d42673e195 " width="8.333333333333332%" valign="top" align="center">0x0</td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d42673e183 " width="10.416666666666666%" valign="top" align="center">0x00B0 </td>
+
+							              <td class="entry" headers="d42673e186 " width="31.249999999999993%" valign="top" align="left">
+                        <samp class="ph codeph">rx_frame_spaddr0_0</samp>
+							              </td>
+
+							              <td class="entry" headers="d42673e189 " rowspan="8" width="41.666666666666664%" valign="top" align="left">You can
+								specify up to four 6-byte supplementary addresses: <ul class="ul" id="bhc1395127776803__ul_DC518B142F664B679531B3DEEBE53030">
+									                  <li class="li" id="bhc1395127776803__li_67D6977FB64C48259F0501C61DC45B4A">
+                              <samp class="ph codeph">rx_framedecoder_spaddr0_0/1</samp>
+									                  </li>
+
+									                  <li class="li" id="bhc1395127776803__li_9FBEA0BFF27843A6B2617BCA3E1DD7F8">
+                              <samp class="ph codeph">rx_framedecoder_spaddr1_0/1</samp>
+									                  </li>
+
+									                  <li class="li" id="bhc1395127776803__li_75F8E23310B849BE804CE6E9E75F1552">
+                              <samp class="ph codeph">rx_framedecoder_spaddr2_0/1</samp>
+									                  </li>
+
+									                  <li class="li" id="bhc1395127776803__li_DBB48DD982D64CA18C3B15A3A5834775">
+                              <samp class="ph codeph">rx_framedecoder_spaddr3_0/1</samp>
+									                  </li>
+
+								                </ul>
+Configure the supplementary addresses before you enable the MAC
+								RX datapath. Map the supplementary addresses to the respective
+								registers in the same manner as the primary MAC address. Refer to
+								the description of <samp class="ph codeph">primary_mac_addr0</samp> and <samp class="ph codeph">primary_mac__addr1</samp>.The MAC IP core uses the
+								supplementary addresses to filter unicast frames when the following
+								conditions are set: <ul class="ul" id="bhc1395127776803__ul_48838C5EB5A54055A1C6BF12B0D65658">
+									                  <li class="li" id="bhc1395127776803__li_C855FB4A996A49F8BC9566AA2CE69CFC">The use of the supplementary addresses are enabled using
+										the respective bits in the <samp class="ph codeph">rx_frame_control</samp> register. </li>
+
+									                  <li class="li" id="bhc1395127776803__li_85AF95BBE3BD482FB51F9F945FB652B1">The <samp class="ph codeph">en_allucast</samp> bit of
+										the <samp class="ph codeph">rx_frame_control</samp>
+										register is set to 0. </li>
+
+								                </ul>
+
+                     </td>
+
+							              <td class="entry" headers="d42673e192 " rowspan="8" width="8.333333333333332%" valign="top" align="center">RW </td>
+
+							              <td class="entry" headers="d42673e195 " rowspan="8" width="8.333333333333332%" valign="top" align="center">0x0
+							</td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d42673e183 " width="10.416666666666666%" valign="top" align="center">0x00B1 </td>
+
+							              <td class="entry" headers="d42673e186 " width="31.249999999999993%" valign="top" align="left">
+                        <samp class="ph codeph">rx_frame_spaddr0_1</samp>
+							              </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d42673e183 " width="10.416666666666666%" valign="top" align="center">0x00B2 </td>
+
+							              <td class="entry" headers="d42673e186 " width="31.249999999999993%" valign="top" align="left">
+                        <samp class="ph codeph">rx_frame_spaddr1_0</samp>
+							              </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d42673e183 " width="10.416666666666666%" valign="top" align="center">0x00B3 </td>
+
+							              <td class="entry" headers="d42673e186 " width="31.249999999999993%" valign="top" align="left">
+                        <samp class="ph codeph">rx_frame_spaddr1_1</samp>
+							              </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d42673e183 " width="10.416666666666666%" valign="top" align="center">0x00B4 </td>
+
+							              <td class="entry" headers="d42673e186 " width="31.249999999999993%" valign="top" align="left">
+                        <samp class="ph codeph">rx_frame_spaddr2_0</samp>
+							              </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d42673e183 " width="10.416666666666666%" valign="top" align="center">0x00B5 </td>
+
+							              <td class="entry" headers="d42673e186 " width="31.249999999999993%" valign="top" align="left">
+                        <samp class="ph codeph">rx_frame_spaddr2_1</samp>
+							              </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d42673e183 " width="10.416666666666666%" valign="top" align="center">0x00B6 </td>
+
+							              <td class="entry" headers="d42673e186 " width="31.249999999999993%" valign="top" align="left">
+                        <samp class="ph codeph">rx_frame_spaddr3_0</samp>
+							              </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d42673e183 " width="10.416666666666666%" valign="top" align="center">0x00B7 </td>
+
+							              <td class="entry" headers="d42673e186 " width="31.249999999999993%" valign="top" align="left">
+                        <samp class="ph codeph">rx_frame_spaddr3_1</samp>
+							              </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d42673e183 " width="10.416666666666666%" valign="top" align="center">0x00C0 </td>
+
+							              <td class="entry" headers="d42673e186 " width="31.249999999999993%" valign="top" align="left">
+                        <samp class="ph codeph">rx_pfc_control</samp>
+                        <a xmlns="http://www.w3.org/1999/xhtml" href="#fntarg_11" name="fnsrc_11"><sup>11</sup></a>
+                     </td>
+
+							              <td class="entry" headers="d42673e189 " width="41.666666666666664%" valign="top" align="left">
+                        <ul class="ul" id="bhc1395127776803__ul_ECA7F8A98A624E709DB476AF302CB2CA">
+									                  <li class="li" id="bhc1395127776803__li_5E86A7BF098C4441BFB0A096CBFD0F5E">Bits 7:0—enables priority-based flow control on the RX
+										datapath. Setting bit <em class="ph i">n</em> to 0 enables
+										priority-based flow control for priority queue <em class="ph i">n</em>. For example, setting <samp class="ph codeph">rx_pfc_control[0]</samp> to 0 enables
+										queue 0. </li>
+
+									                  <li class="li" id="bhc1395127776803__li_693643DF27BD4BFFA38380710A527085">Bits 15:9—reserved. </li>
+
+									                  <li class="li" id="bhc1395127776803__li_94ACC212AE414579A1E5D332A88D995B">Bit 16—configures the forwarding of priority-based control
+										frames to the client. <p class="p">0: Drops the
+											control frames. </p>
+
+                              <p class="p">1: Forwards the
+											control frames to the client. </p>
+
+									                  </li>
+
+									                  <li class="li" id="bhc1395127776803__li_6345CB33A016426A829D0959AFECD46B">Bits 31:17—reserved. </li>
+
+								                </ul>
+ Configure this register before you enable the MAC IP core for
+								operations. </td>
+
+							              <td class="entry" headers="d42673e192 " width="8.333333333333332%" valign="top" align="center">RW </td>
+
+							              <td class="entry" headers="d42673e195 " width="8.333333333333332%" valign="top" align="center">0x1 </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d42673e183 " width="10.416666666666666%" valign="top" align="center">0x00FC </td>
+
+							              <td class="entry" headers="d42673e186 " rowspan="2" width="31.249999999999993%" valign="top" align="left">
+                        <samp class="ph codeph">rx_pktovrflow_error</samp>
+							              </td>
+
+							              <td class="entry" headers="d42673e189 " rowspan="2" width="41.666666666666664%" valign="top" align="left">36-bit error counter
+								that collects the number of RX frames that are truncated when a FIFO
+								buffer overflow persists: <ul class="ul" id="bhc1395127776803__ul_jl5_fsh_zq">
+									                  <li class="li">0x00FC = Lower 32 bits of the error
+										counter. </li>
+
+									                  <li class="li">0x00FD = Upper 4 bits of the error counter
+										occupy bits [3:0]. Bits [31:4] are unused. </li>
+
+								                </ul>
+
+                        <p class="p">To read the counter, read the lower 32 bits
+									followed by the upper 4 bits. The IP core clears the counter
+									after a read.</p>
+
+                     </td>
+
+							              <td class="entry" headers="d42673e192 " rowspan="2" width="8.333333333333332%" valign="top" align="center">RO </td>
+
+							              <td class="entry" headers="d42673e195 " rowspan="2" width="8.333333333333332%" valign="top" align="center">0x0
+							</td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d42673e183 " width="10.416666666666666%" valign="top" align="center">0x00FD </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d42673e183 " width="10.416666666666666%" valign="top" align="center">0x00FE </td>
+
+							              <td class="entry" headers="d42673e186 " rowspan="2" width="31.249999999999993%" valign="top" align="left">
+                        <samp class="ph codeph">rx_pktovrflow_etherStatsDropEvents</samp>
+							              </td>
+
+							              <td class="entry" headers="d42673e189 " rowspan="2" width="41.666666666666664%" valign="top" align="left">36-bit error counter
+								that collects the number of RX frames that are dropped when FIFO
+								buffer overflow persists: <ul class="ul" id="bhc1395127776803__ul_lx5_gsh_zq">
+									                  <li class="li">0x00FE = Lower 32 bits of the error
+										counter. </li>
+
+									                  <li class="li">0x00FF = Upper 4 bits of the error counter
+										occupy bits [3:0]. Bits [31:4] are unused. </li>
+
+								                </ul>
+
+                        <p class="p">To read the counter, read the lower 32 bits
+									followed by the upper 4 bits. The IP core clears the counter
+									after a read.</p>
+
+                     </td>
+
+							              <td class="entry" headers="d42673e192 " rowspan="2" width="8.333333333333332%" valign="top" align="center">RO </td>
+
+							              <td class="entry" headers="d42673e195 " rowspan="2" width="8.333333333333332%" valign="top" align="center">0x0
+							</td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d42673e183 " width="10.416666666666666%" valign="top" align="center">0x00FF </td>
+
+						            </tr>
+
+					          </tbody>
+
+				        </table>
+</div>
+
+			      
+		    </div>
+ 
+  </div>
+ 
+<div class="related-links"><div class="relinfo"><strong>Related Information</strong><br>
+<div><a class="link" href="#bhc1395127687746">Length Checking</a></div>
+<div><a class="link" href="#bhc1395127785135">Statistics Registers</a></div>
+</div>
+</div>
+<div xmlns="http://www.w3.org/1999/xhtml" class="fn"><a id="bhc1395127776803__fn_rx_preamble"><sup>10</sup></a>  This register is used only when you turn on the
+										<span xmlns="" class="ph uicontrol">Enable preamble pass-through
+										mode</span> option. It is reserved when not used.</div><div xmlns="http://www.w3.org/1999/xhtml" class="fn"><a href="#fnsrc_11" name="fntarg_11"><sup>11</sup></a>  This register is
+									used only when you turn on the <span xmlns="" class="ph uicontrol">Enable priority-based flow control (PFC)</span>
+									option. It is reserved when not used.</div>
+</div>
+</div>
+ 
+      </section> 

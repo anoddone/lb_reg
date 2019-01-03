@@ -1,0 +1,1163 @@
+<div class="tablenoborder"><table class="table" frame="border" id="bhc1395127785135__table_BF4299C6431C4AA0B12597352F407442" rules="all" summary="" cellspacing="0" cellpadding="4" border="1"><caption xmlns="http://www.w3.org/1999/xhtml"><span class="tablecap"><span class="tablecap"><span class="enumeration table-enumeration">Table 34.  </span>TX and RX Statistics Registers</span></span></caption>
+				
+				
+				        
+				
+				        
+				
+				        
+				
+				        
+				
+				        <thead class="thead" align="left">
+					          <tr class="row">
+						            <th class="entry" id="d50820e252" width="9.84848484848485%" valign="top" align="center">Word Offset </th>
+
+						            <th class="entry" id="d50820e255" width="40.56473829201102%" valign="top" align="center">Register Name </th>
+
+						            <th class="entry" id="d50820e258" width="33.057851239669425%" valign="top" align="center">Description </th>
+
+						            <th class="entry" id="d50820e261" width="8.264462809917356%" valign="top" align="center">Access </th>
+
+						            <th class="entry" id="d50820e264" width="8.264462809917356%" valign="top" align="center">HW Reset Value </th>
+
+					          </tr>
+
+				        </thead>
+
+				        <tbody class="tbody">
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x0140 </td>
+
+						            <td class="entry" headers="d50820e255 " width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">tx_stats_clr</samp>
+						            </td>
+
+						            <td class="entry" headers="d50820e258 " width="33.057851239669425%" valign="top" align="left">
+							              <ul class="ul" id="bhc1395127785135__ul_C84DB771D54E4C788FD30C3A809865BA">
+								                <li class="li" id="bhc1395127785135__li_110AAAA689C74CACAEB2857333D6901C">Bit
+									0—Set this register to 1 to clear all TX statistics counters.
+									The IP core clears this bit when all counters are cleared. </li>
+
+								                <li class="li" id="bhc1395127785135__li_ADCC8D8D0DFF4BD8BFEE4CAEAD737CE6">Bits
+									31:1—reserved. </li>
+
+							              </ul>
+
+						            </td>
+
+						            <td class="entry" headers="d50820e261 " width="8.264462809917356%" valign="top" align="center">RWC </td>
+
+						            <td class="entry" headers="d50820e264 " width="8.264462809917356%" valign="top" align="center">0x0 </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01C0 </td>
+
+						            <td class="entry" headers="d50820e255 " width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">rx_stats_clr</samp>
+						            </td>
+
+						            <td class="entry" headers="d50820e258 " width="33.057851239669425%" valign="top" align="left">
+							              <ul class="ul" id="bhc1395127785135__ul_AFCEFB0AB3B9444AA7B179DEA84EF8DF">
+								                <li class="li" id="bhc1395127785135__li_58A21980023C4B12BCD845EE3CCE47A9">Bit
+									0—Set this register to 1 to clear all RX statistics counters.
+									The IP core clears this bit when all counters are cleared. </li>
+
+								                <li class="li" id="bhc1395127785135__li_DFFD2383FA944B8897E3B1EA452A2304">Bits
+									31:1—reserved. </li>
+
+							              </ul>
+
+						            </td>
+
+						            <td class="entry" headers="d50820e261 " width="8.264462809917356%" valign="top" align="center">RWC </td>
+
+						            <td class="entry" headers="d50820e264 " width="8.264462809917356%" valign="top" align="center">0x0 </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x0142 </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">tx_stats_framesOK</samp>
+						            </td>
+
+						            <td class="entry" headers="d50820e258 " rowspan="4" width="33.057851239669425%" valign="top" align="left">36-bit
+							statistics counter that collects the number of frames that are
+							successfully received or transmitted, including control frames. </td>
+
+						            <td class="entry" headers="d50820e261 " rowspan="4" width="8.264462809917356%" valign="top" align="center">RO </td>
+
+						            <td class="entry" headers="d50820e264 " rowspan="4" width="8.264462809917356%" valign="top" align="center">0x0
+						</td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x0143 </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01C2 </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">rx_stats_framesOK</samp>
+						            </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01C3 </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x0144 </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">tx_stats_framesErr</samp>
+						            </td>
+
+						            <td class="entry" headers="d50820e258 " rowspan="4" width="33.057851239669425%" valign="top" align="left">36-bit
+							statistics counter that collects the number of frames received or
+							transmitted with error, including control frames. </td>
+
+						            <td class="entry" headers="d50820e261 " rowspan="4" width="8.264462809917356%" valign="top" align="center">RO </td>
+
+						            <td class="entry" headers="d50820e264 " rowspan="4" width="8.264462809917356%" valign="top" align="center">0x0
+						</td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x0145 </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01C4 </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">rx_stats_framesErr</samp>
+						            </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01C5 </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center"> 0x01C6 </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+							              <samp class="ph codeph">rx_stats_framesCRCErr</samp>
+                     
+						</td>
+
+						            <td class="entry" headers="d50820e258 " rowspan="2" width="33.057851239669425%" valign="top" align="left">36-bit
+							statistics counter that collects the number of RX frames with CRC error. </td>
+
+						            <td class="entry" headers="d50820e261 " rowspan="2" width="8.264462809917356%" valign="top" align="center">RO </td>
+
+						            <td class="entry" headers="d50820e264 " rowspan="2" width="8.264462809917356%" valign="top" align="center">0x0
+						</td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01C7 </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x0148 </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">tx_stats_octetsOK</samp>
+						            </td>
+
+						            <td class="entry" headers="d50820e258 " rowspan="4" width="33.057851239669425%" valign="top" align="left">64-bit
+							statistics counter that collects the payload length, including the bytes
+							in control frames. The payload length is the number of data and padding
+							bytes received or transmitted. If the <samp class="ph codeph">tx_vlan_detection[0]</samp> or <samp class="ph codeph">rx_vlan_detection[0]</samp> register bit is set to 1, the VLAN
+							and stacked VLAN tags are counted as part of the TX payload or RX
+							payload respectively. </td>
+
+						            <td class="entry" headers="d50820e261 " rowspan="4" width="8.264462809917356%" valign="top" align="center">RO </td>
+
+						            <td class="entry" headers="d50820e264 " rowspan="4" width="8.264462809917356%" valign="top" align="center">0x0
+						</td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x0149 </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01C8 </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">rx_stats_octetsOK</samp>
+						            </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01C9 </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x014A </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">tx_stats_pauseMACCtrl_Frames</samp>
+						            </td>
+
+						            <td class="entry" headers="d50820e258 " rowspan="4" width="33.057851239669425%" valign="top" align="left">36-bit
+							statistics counter that collects the number of valid pause frames
+							received or transmitted. </td>
+
+						            <td class="entry" headers="d50820e261 " rowspan="4" width="8.264462809917356%" valign="top" align="center">RO </td>
+
+						            <td class="entry" headers="d50820e264 " rowspan="4" width="8.264462809917356%" valign="top" align="center">0x0
+						</td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x014B </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01CA </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">rx_stats_pauseMACCtrl_Frames</samp>
+						            </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01CB </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x014C </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">tx_stats_ifErrors</samp>
+						            </td>
+
+						            <td class="entry" headers="d50820e258 " rowspan="4" width="33.057851239669425%" valign="top" align="left">36-bit
+							statistics counter that collects the number of frames received or
+							transmitted that are invalid and with error. </td>
+
+						            <td class="entry" headers="d50820e261 " rowspan="4" width="8.264462809917356%" valign="top" align="center">RO </td>
+
+						            <td class="entry" headers="d50820e264 " rowspan="4" width="8.264462809917356%" valign="top" align="center">0x0
+						</td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x014D </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01CC </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">rx_stats_ifErrors</samp>
+						            </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01CD </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x014E </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">tx_stats_unicast_FramesOK</samp>
+						            </td>
+
+						            <td class="entry" headers="d50820e258 " rowspan="4" width="33.057851239669425%" valign="top" align="left">36-bit
+							statistics counter that collects the number of good unicast frames
+							received or transmitted, excluding control frames. </td>
+
+						            <td class="entry" headers="d50820e261 " rowspan="4" width="8.264462809917356%" valign="top" align="center">RO </td>
+
+						            <td class="entry" headers="d50820e264 " rowspan="4" width="8.264462809917356%" valign="top" align="center">0x0
+						</td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x014F </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01CE </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">rx_stats_unicast_FramesOK</samp>
+						            </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01CF </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x0150 </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">tx_stats_unicast_FramesErr</samp>
+						            </td>
+
+						            <td class="entry" headers="d50820e258 " rowspan="4" width="33.057851239669425%" valign="top" align="left">36-bit
+							statistics counter that collects the number of unicast frames received
+							or transmitted with error, excluding control frames. </td>
+
+						            <td class="entry" headers="d50820e261 " rowspan="4" width="8.264462809917356%" valign="top" align="center">RO </td>
+
+						            <td class="entry" headers="d50820e264 " rowspan="4" width="8.264462809917356%" valign="top" align="center">0x0
+						</td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x0151 </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01D0 </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">rx_stats_unicast_FramesErr</samp>
+						            </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01D1 </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x0152 </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">tx_stats_multicast_FramesOK</samp>
+						            </td>
+
+						            <td class="entry" headers="d50820e258 " rowspan="4" width="33.057851239669425%" valign="top" align="left">36-bit
+							statistics counter that collects the number of good multicast frames
+							received or transmitted, excluding control frames. </td>
+
+						            <td class="entry" headers="d50820e261 " rowspan="4" width="8.264462809917356%" valign="top" align="center">RO </td>
+
+						            <td class="entry" headers="d50820e264 " rowspan="4" width="8.264462809917356%" valign="top" align="center">0x0
+						</td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x0153 </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01D2 </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">rx_stats_multicast_FramesOK</samp>
+						            </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01D3 </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x0154 </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">tx_stats_multicast_FramesErr</samp>
+						            </td>
+
+						            <td class="entry" headers="d50820e258 " rowspan="4" width="33.057851239669425%" valign="top" align="left">36-bit
+							statistics counter that collects the number of multicast frames received
+							or transmitted with error, excluding control frames. </td>
+
+						            <td class="entry" headers="d50820e261 " rowspan="4" width="8.264462809917356%" valign="top" align="center">RO </td>
+
+						            <td class="entry" headers="d50820e264 " rowspan="4" width="8.264462809917356%" valign="top" align="center">0x0
+						</td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x0155 </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01D4 </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">rx_stats_multicast_FramesErr</samp>
+						            </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01D5 </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x0156 </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">tx_stats_broadcast_FramesOK</samp>
+						            </td>
+
+						            <td class="entry" headers="d50820e258 " rowspan="4" width="33.057851239669425%" valign="top" align="left">36-bit
+							statistics counter that collects the number of good broadcast frames
+							received or transmitted, excluding control frames. </td>
+
+						            <td class="entry" headers="d50820e261 " rowspan="4" width="8.264462809917356%" valign="top" align="center">RO </td>
+
+						            <td class="entry" headers="d50820e264 " rowspan="4" width="8.264462809917356%" valign="top" align="center">0x0
+						</td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x0157 </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01D6 </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">rx_stats_broadcast_FramesOK</samp>
+						            </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01D7 </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x0158 </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">tx_stats_broadcast_FramesErr</samp>
+						            </td>
+
+						            <td class="entry" headers="d50820e258 " rowspan="4" width="33.057851239669425%" valign="top" align="left">36-bit
+							statistics counter that collects the number of broadcast frames received
+							or transmitted with error, excluding control frames. </td>
+
+						            <td class="entry" headers="d50820e261 " rowspan="4" width="8.264462809917356%" valign="top" align="center">RO </td>
+
+						            <td class="entry" headers="d50820e264 " rowspan="4" width="8.264462809917356%" valign="top" align="center">0x0
+						</td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x0159 </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01D8 </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">rx_stats_broadcast_FramesErr</samp>
+						            </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01D9 </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x015A </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">tx_stats_etherStatsOctets</samp>
+						            </td>
+
+						            <td class="entry" headers="d50820e258 " rowspan="4" width="33.057851239669425%" valign="top" align="left">64-bit
+							statistics counter that collects the total number of octets received or
+							transmitted. This count includes good, errored, and invalid frames. </td>
+
+						            <td class="entry" headers="d50820e261 " rowspan="4" width="8.264462809917356%" valign="top" align="center">RO </td>
+
+						            <td class="entry" headers="d50820e264 " rowspan="4" width="8.264462809917356%" valign="top" align="center">0x0
+						</td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x015B </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01DA </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">rx_stats_etherStatsOctets</samp>
+						            </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01DB </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x015C </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">tx_stats_etherStatsPkts</samp>
+						            </td>
+
+						            <td class="entry" headers="d50820e258 " rowspan="4" width="33.057851239669425%" valign="top" align="left">36-bit
+							statistics counter that collects the total number of good, errored, and
+							invalid frames received or transmitted. </td>
+
+						            <td class="entry" headers="d50820e261 " rowspan="4" width="8.264462809917356%" valign="top" align="center">RO </td>
+
+						            <td class="entry" headers="d50820e264 " rowspan="4" width="8.264462809917356%" valign="top" align="center">0x0
+						</td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x015D </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01DC </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">rx_stats_etherStatsPkts</samp>
+						            </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01DD </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x015E </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">tx_stats_etherStatsUndersizePkts </samp>
+						            </td>
+
+						            <td class="entry" headers="d50820e258 " rowspan="4" width="33.057851239669425%" valign="top" align="left">36-bit
+							statistics counter that collects the number of undersized TX or RX
+							frames. </td>
+
+						            <td class="entry" headers="d50820e261 " rowspan="4" width="8.264462809917356%" valign="top" align="center">RO </td>
+
+						            <td class="entry" headers="d50820e264 " rowspan="4" width="8.264462809917356%" valign="top" align="center">0x0
+						</td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x015F </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01DE </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">rx_stats_etherStatsUndersizePkts </samp>
+						            </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01DF </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x0160 </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">tx_stats_etherStatsOversizePkts </samp>
+						            </td>
+
+						            <td class="entry" headers="d50820e258 " rowspan="4" width="33.057851239669425%" valign="top" align="left">36-bit
+							statistics counter that collects the number of TX or RX frames whose
+							length exceeds the maximum frame length specified. </td>
+
+						            <td class="entry" headers="d50820e261 " rowspan="4" width="8.264462809917356%" valign="top" align="center">RO </td>
+
+						            <td class="entry" headers="d50820e264 " rowspan="4" width="8.264462809917356%" valign="top" align="center">0x0
+						</td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x0161 </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01E0 </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">rx_stats_etherStatsOversizePkts </samp>
+						            </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01E1 </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x0162 </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">tx_stats_etherStatsPkts64Octets </samp>
+						            </td>
+
+						            <td class="entry" headers="d50820e258 " rowspan="4" width="33.057851239669425%" valign="top" align="left">36-bit
+							statistics counter that collects the number of 64-byteTX or RX frames,
+							including the CRC field but excluding the preamble and SFD bytes. This
+							count includes good, errored, and invalid frames. </td>
+
+						            <td class="entry" headers="d50820e261 " rowspan="4" width="8.264462809917356%" valign="top" align="center">RO </td>
+
+						            <td class="entry" headers="d50820e264 " rowspan="4" width="8.264462809917356%" valign="top" align="center">0x0
+						</td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x0163 </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01E2 </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">rx_stats_etherStatsPkts64Octets </samp>
+						            </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01E3 </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x0164 </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">tx_stats_etherStatsPkts65to127Octets </samp>
+						            </td>
+
+						            <td class="entry" headers="d50820e258 " rowspan="4" width="33.057851239669425%" valign="top" align="left">36-bit
+							statistics counter that collects the number of TX or RX frames between
+							the length of 65 and 127 bytes, including the CRC field but excluding
+							the preamble and SFD bytes. This count includes good, errored, and
+							invalid frames. </td>
+
+						            <td class="entry" headers="d50820e261 " rowspan="4" width="8.264462809917356%" valign="top" align="center">RO </td>
+
+						            <td class="entry" headers="d50820e264 " rowspan="4" width="8.264462809917356%" valign="top" align="center">0x0
+						</td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x0165 </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01E4 </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">rx_stats_etherStatsPkts65to127Octets </samp>
+						            </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01E5 </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x0166 </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">tx_stats_etherStatsPkts128to255Octets </samp>
+						            </td>
+
+						            <td class="entry" headers="d50820e258 " rowspan="4" width="33.057851239669425%" valign="top" align="left">36-bit
+							statistics counter that collects the number of TX or RX frames between
+							the length of 128 and 255 bytes, including the CRC field but excluding
+							the preamble and SFD bytes. This count includes good, errored, and
+							invalid frames. </td>
+
+						            <td class="entry" headers="d50820e261 " rowspan="4" width="8.264462809917356%" valign="top" align="center">RO </td>
+
+						            <td class="entry" headers="d50820e264 " rowspan="4" width="8.264462809917356%" valign="top" align="center">0x0
+						</td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x0167 </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01E6 </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">rx_stats_etherStatsPkts128to255Octets </samp>
+						            </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01E7 </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x0168 </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">tx_stats_etherStatsPkts256to511Octets </samp>
+						            </td>
+
+						            <td class="entry" headers="d50820e258 " rowspan="4" width="33.057851239669425%" valign="top" align="left">36-bit
+							statistics counter that collects the number of TX or RX frames between
+							the length of 256 and 511 bytes, including the CRC field but excluding
+							the preamble and SFD bytes. This count includes good, errored, and
+							invalid frames. </td>
+
+						            <td class="entry" headers="d50820e261 " rowspan="4" width="8.264462809917356%" valign="top" align="center">RO </td>
+
+						            <td class="entry" headers="d50820e264 " rowspan="4" width="8.264462809917356%" valign="top" align="center">0x0
+						</td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x0169 </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01E8 </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">rx_stats_etherStatsPkts256to511Octets </samp>
+						            </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01E9 </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x016A </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">tx_stats_etherStatsPkts512to1023Octets </samp>
+						            </td>
+
+						            <td class="entry" headers="d50820e258 " rowspan="4" width="33.057851239669425%" valign="top" align="left">36-bit
+							statistics counter that collects the number of TX or RX frames between
+							the length of 512 and 1,023 bytes, including the CRC field but excluding
+							the preamble and SFD bytes. This count includes good, errored, and
+							invalid frames. </td>
+
+						            <td class="entry" headers="d50820e261 " rowspan="4" width="8.264462809917356%" valign="top" align="center">RO </td>
+
+						            <td class="entry" headers="d50820e264 " rowspan="4" width="8.264462809917356%" valign="top" align="center">0x0
+						</td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x016B </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01EA </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">rx_stats_etherStatsPkts512to1023Octets </samp>
+						            </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01EB </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x016C </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">tx_stats_etherStatPkts1024to1518Octets </samp>
+						            </td>
+
+						            <td class="entry" headers="d50820e258 " rowspan="4" width="33.057851239669425%" valign="top" align="left">36-bit
+							statistics counter that collects the number of TX or RX frames between
+							the length of 1,024 and 1,518 bytes, including the CRC field but
+							excluding the preamble and SFD bytes. This count includes good, errored,
+							and invalid frames. </td>
+
+						            <td class="entry" headers="d50820e261 " rowspan="4" width="8.264462809917356%" valign="top" align="center">RO </td>
+
+						            <td class="entry" headers="d50820e264 " rowspan="4" width="8.264462809917356%" valign="top" align="center">0x0
+						</td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x016D </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01EC </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">rx_stats_etherStatPkts1024to1518Octets </samp>
+						            </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01ED </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x016E </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">tx_stats_etherStatsPkts1519toXOctets </samp>
+						            </td>
+
+						            <td class="entry" headers="d50820e258 " rowspan="4" width="33.057851239669425%" valign="top" align="left">36-bit
+							statistics counter that collects the number of TX or RX frames equal or
+							more than the length of 1,519 bytes, including the CRC field but
+							excluding the preamble and SFD bytes. This count includes good, errored,
+							and invalid frames. </td>
+
+						            <td class="entry" headers="d50820e261 " rowspan="4" width="8.264462809917356%" valign="top" align="center">RO </td>
+
+						            <td class="entry" headers="d50820e264 " rowspan="4" width="8.264462809917356%" valign="top" align="center">0x0
+						</td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x016F </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01EE </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">rx_stats_etherStatsPkts1519toXOctets </samp>
+						            </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01EF </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01F0 </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+							              <samp class="ph codeph">rx_stats_etherStatsFragments </samp>
+							              </td>
+
+						            <td class="entry" headers="d50820e258 " rowspan="2" width="33.057851239669425%" valign="top" align="left">36-bit
+							statistics counter that collects the total number of RX frames with
+							length less than 64 bytes and CRC error. The MAC does not drop these
+							frames.
+						</td>
+
+						            <td class="entry" headers="d50820e261 " rowspan="2" width="8.264462809917356%" valign="top" align="center">RO </td>
+
+						            <td class="entry" headers="d50820e264 " rowspan="2" width="8.264462809917356%" valign="top" align="center">0x0
+						</td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01F1 </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01F2 </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+							              <samp class="ph codeph">rx_stats_etherStatsJabbers
+							</samp>
+                     
+						</td>
+
+						            <td class="entry" headers="d50820e258 " rowspan="2" width="33.057851239669425%" valign="top" align="left">36-bit
+							statistics counter that collects the number of oversized RX frames with
+							CRC error. The MAC does not drop these frames.
+						</td>
+
+						            <td class="entry" headers="d50820e261 " rowspan="2" width="8.264462809917356%" valign="top" align="center">RO </td>
+
+						            <td class="entry" headers="d50820e264 " rowspan="2" width="8.264462809917356%" valign="top" align="center">0x0
+						</td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01F3 </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center"> 0x01F4 </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+							              <samp class="ph codeph">rx_stats_etherStatsCRCErr
+							</samp>
+                     
+						</td>
+
+						            <td class="entry" headers="d50820e258 " rowspan="2" width="33.057851239669425%" valign="top" align="left">36-bit
+							statistics counter that collects the number of RX frames with CRC error,
+							whose length is between 64 and the maximum frame length specified in the
+							register. The MAC does not drop these frames.
+						</td>
+
+						            <td class="entry" headers="d50820e261 " rowspan="2" width="8.264462809917356%" valign="top" align="center">RO </td>
+
+						            <td class="entry" headers="d50820e264 " rowspan="2" width="8.264462809917356%" valign="top" align="center">0x0
+						</td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01F5 </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x0176 </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">tx_stats_unicastMACCtrlFrames </samp>
+						            </td>
+
+						            <td class="entry" headers="d50820e258 " rowspan="4" width="33.057851239669425%" valign="top" align="left">36-bit
+							statistics counter that collects the number of valid TX or RX unicast
+							control frames. </td>
+
+						            <td class="entry" headers="d50820e261 " rowspan="4" width="8.264462809917356%" valign="top" align="center">RO </td>
+
+						            <td class="entry" headers="d50820e264 " rowspan="4" width="8.264462809917356%" valign="top" align="center">0x0
+						</td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x0177 </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01F6 </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">rx_stats_unicastMACCtrlFrames </samp>
+						            </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01F7 </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x0178 </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">tx_stats_multicastMACCtrlFrames </samp>
+						            </td>
+
+						            <td class="entry" headers="d50820e258 " rowspan="4" width="33.057851239669425%" valign="top" align="left">36-bit
+							statistics counter that collects the number of valid TX or RX multicast
+							control frames. </td>
+
+						            <td class="entry" headers="d50820e261 " rowspan="4" width="8.264462809917356%" valign="top" align="center">RO </td>
+
+						            <td class="entry" headers="d50820e264 " rowspan="4" width="8.264462809917356%" valign="top" align="center">0x0
+						</td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x0179 </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01F8 </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">rx_stats_multicastMACCtrlFrames </samp>
+						            </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01F9 </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x017A </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">tx_stats_broadcastMACCtrlFrames </samp>
+						            </td>
+
+						            <td class="entry" headers="d50820e258 " rowspan="4" width="33.057851239669425%" valign="top" align="left">36-bit
+							statistics counter that collects the number of valid TX or RX broadcast
+							control frames. </td>
+
+						            <td class="entry" headers="d50820e261 " rowspan="4" width="8.264462809917356%" valign="top" align="center">RO </td>
+
+						            <td class="entry" headers="d50820e264 " rowspan="4" width="8.264462809917356%" valign="top" align="center">0x0
+						</td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x017B </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01FA </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">rx_stats_broadcastMACCtrlFrames </samp>
+						            </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01FB </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x017C </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">tx_stats_PFCMACCtrlFrames </samp>
+						            </td>
+
+						            <td class="entry" headers="d50820e258 " rowspan="4" width="33.057851239669425%" valign="top" align="left">36-bit
+							statistics counter that collects the number of valid TX or RX PFC
+							frames. </td>
+
+						            <td class="entry" headers="d50820e261 " rowspan="4" width="8.264462809917356%" valign="top" align="center">RO </td>
+
+						            <td class="entry" headers="d50820e264 " rowspan="4" width="8.264462809917356%" valign="top" align="center">0x0
+						</td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x017D </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01FC </td>
+
+						            <td class="entry" headers="d50820e255 " rowspan="2" width="40.56473829201102%" valign="top" align="left">
+                     <samp class="ph codeph">rx_stats_PFCMACCtrlFrames </samp>
+						            </td>
+
+					          </tr>
+
+					          <tr class="row">
+						            <td class="entry" headers="d50820e252 " width="9.84848484848485%" valign="top" align="center">0x01FD </td>
+
+					          </tr>
+
+				        </tbody>
+
+			      </table>
+</div>

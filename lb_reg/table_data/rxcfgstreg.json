@@ -1,0 +1,149 @@
+[
+    [
+        "Word Offset", 
+        "Register Name", 
+        "Description", 
+        "Access", 
+        "HW Reset Value"
+    ], 
+    [
+        "0x00A0", 
+        "rx_transfer_control", 
+        "Bit 0RX path enable. 0: Enables the RX\npath. \n1: Disables the RX path.\nThe MAC IP core drops all incoming frames. \n\nBits 31:1reserved. \n\nA change of value in this register takes effect\nat a packet boundary. Any transfer in progress is not affected.", 
+        "RW", 
+        "0x0"
+    ], 
+    [
+        "0x00A2", 
+        "rx_transfer_status", 
+        "The MAC sets the following bits to indicate the\nstatus of the RX datapath.\n\nBits 7:0reserved. \nBit 8: RX datapath status.0: The RX datapath is idle.\n1: An RX data transfer is in\nprogress.\n\nBits 11:9reserved. \nBit 12: RX datapath reset status. 0: The RX datapath is not in\nreset.\n1: The RX datapath is in\nreset.", 
+        "RO", 
+        "0x0"
+    ], 
+    [
+        "0x00A4", 
+        "rx_padcrc_control", 
+        "Bits [1:0]Padding and CRC removal on receive. 00: Retains the padding bytes and CRC\nfield, and forwards them to the client. \n01: Retains only the padding bytes. The\nMAC IP core removes the CRC field before it forwards the\nRX frame to the client. \n11:\nRemoves the padding bytes and CRC field before the RX\nframe is forwarded to the client. \n10: Reserved. \n\nBits 31:2reserved. \n\nConfigure this register before you enable the\nMAC IP core for operations.", 
+        "RW", 
+        "0x1"
+    ], 
+    [
+        "0x00A6", 
+        "rx_crccheck_control", 
+        "CRC checking on receive. \nBit 0always set this bit to 0. \nBit 1CRC checking enable. 0: Ignores\nthe CRC field. \n1: Checks the CRC\nfield and reports the status to avalon_st_rx_error[1] and avalon_st_rxstatus_error.\n\n\nBits 31:2reserved. \n\nConfigure this register before you enable\nthe MAC IP core for operations.", 
+        "RW", 
+        "0x2"
+    ], 
+    [
+        "0x00A8", 
+        "rx_custom_preamble_forward\n10", 
+        "Bit 0configures the forwarding of the custom preamble to\nthe client. 0: Removes the custom\npreamble from the RX frame. \n1:\nRetains and forwards the custom preamble to the client.\n\n\nBits 31:1reserved. \n\nConfigure this register before you enable the\nMAC IP core for operations.", 
+        "RW", 
+        "0x0"
+    ], 
+    [
+        "0x00AA", 
+        "rx_preamble_control\n10", 
+        "Bit 0preamble passthrough enable on receive. 0: Disables preamble passthrough. The\nMAC IP core checks for START and SFD during packet\ndecapsulation process. \n1:\nEnables preamble passthrough. The MAC IP core checks\nonly for START during packet decapsulation process.\n\n\nBits 31:1reserved. \n\nConfigure this register before you enable the\nMAC IP core for operations.", 
+        "RW", 
+        "0x0"
+    ], 
+    [
+        "0x00AC", 
+        "rx_frame_control", 
+        "Configure this register before you enable the\nMAC IP core for operations.", 
+        "RW", 
+        "0x3"
+    ], 
+    [
+        "0x00AE", 
+        "rx_frame_maxlength", 
+        "Bits 15:0specify the maximum allowable frame length. The\nMAC asserts the avalon_st_rx_error[3] signal when the length\nof the RX frame exceeds the value of this register. \nBits 16:31reserved. \n\nConfigure this register before you enable the MAC IP core for\noperations.", 
+        "RW", 
+        "1518"
+    ], 
+    [
+        "0x00AF", 
+        "rx_vlan_detection", 
+        "Bit 0RX VLAN detection disable.0: The MAC detects VLAN and stacked\nVLAN frames. \n1: The MAC does not\ndetect VLAN and stacked VLAN frames. When received, the\nMAC treats them as basic frames and considers their tags\nas payload bytes.\n\nBits 31:1reserved.", 
+        "RW", 
+        "0x0"
+    ], 
+    [
+        "0x00B0", 
+        "rx_frame_spaddr0_0", 
+        "You can\nspecify up to four 6-byte supplementary addresses: \n\nrx_framedecoder_spaddr0_0/1\n\n\nrx_framedecoder_spaddr1_0/1\n\n\nrx_framedecoder_spaddr2_0/1\n\n\nrx_framedecoder_spaddr3_0/1\n\n\nConfigure the supplementary addresses before you enable the MAC\nRX datapath. Map the supplementary addresses to the respective\nregisters in the same manner as the primary MAC address. Refer to\nthe description of primary_mac_addr0 and primary_mac__addr1.The MAC IP core uses the\nsupplementary addresses to filter unicast frames when the following\nconditions are set: \nThe use of the supplementary addresses are enabled using\nthe respective bits in the rx_frame_control register. \nThe en_allucast bit of\nthe rx_frame_control\nregister is set to 0.", 
+        "RW", 
+        "0x0"
+    ], 
+    [
+        "0x00B1", 
+        "rx_frame_spaddr0_1",
+        "supplementary addresse",
+        "RW",
+        "0x0"
+    ], 
+    [
+        "0x00B2", 
+        "rx_frame_spaddr1_0",
+        "supplementary addresse",
+        "RW",
+        "0x0"
+    ], 
+    [
+        "0x00B3", 
+        "rx_frame_spaddr1_1",
+        "supplementary addresse",
+        "RW",
+        "0x0"
+    ], 
+    [
+        "0x00B4", 
+        "rx_frame_spaddr2_0",
+        "supplementary addresse",
+        "RW",
+        "0x0"
+    ], 
+    [
+        "0x00B5", 
+        "rx_frame_spaddr2_1",
+        "supplementary addresse",
+        "RW",
+        "0x0"
+    ], 
+    [
+        "0x00B6", 
+        "rx_frame_spaddr3_0",
+        "supplementary addresse",
+        "RW",
+        "0x0"
+    ], 
+    [
+        "0x00B7", 
+        "rx_frame_spaddr3_1",
+        "supplementary addresse",
+        "RW",
+        "0x0"
+    ], 
+    [
+        "0x00C0", 
+        "rx_pfc_control\n11", 
+        "Bits 7:0enables priority-based flow control on the RX\ndatapath. Setting bit n to 0 enables\npriority-based flow control for priority queue n. For example, setting rx_pfc_control[0] to 0 enables\nqueue 0. \nBits 15:9reserved. \nBit 16configures the forwarding of priority-based control\nframes to the client. 0: Drops the\ncontrol frames. \n1: Forwards the\ncontrol frames to the client. \n\nBits 31:17reserved. \n\n Configure this register before you enable the MAC IP core for\noperations.", 
+        "RW", 
+        "0x1"
+    ], 
+    [
+        "0x00FC", 
+        "rx_pktovrflow_error", 
+        "36-bit error counter\nthat collects the number of RX frames that are truncated when a FIFO\nbuffer overflow persists: \n0x00FC = Lower 32 bits of the error\ncounter. \n0x00FD = Upper 4 bits of the error counter\noccupy bits [3:0]. Bits [31:4] are unused. \n\nTo read the counter, read the lower 32 bits\nfollowed by the upper 4 bits. The IP core clears the counter\nafter a read.", 
+        "RO", 
+        "0x0"
+    ], 
+    [
+        "0x00FE", 
+        "rx_pktovrflow_etherStatsDropEvents", 
+        "36-bit error counter\nthat collects the number of RX frames that are dropped when FIFO\nbuffer overflow persists: \n0x00FE = Lower 32 bits of the error\ncounter. \n0x00FF = Upper 4 bits of the error counter\noccupy bits [3:0]. Bits [31:4] are unused. \n\nTo read the counter, read the lower 32 bits\nfollowed by the upper 4 bits. The IP core clears the counter\nafter a read.", 
+        "RO", 
+        "0x0"
+    ], 
+]

@@ -1,0 +1,88 @@
+<div class="tablenoborder"><table class="table" frame="border" id="bhc1395127769014__table_BF4299C6431C4AA0B12597352F407442" rules="all" summary="" cellspacing="0" cellpadding="4" border="1"><caption xmlns="http://www.w3.org/1999/xhtml"><span class="tablecap"><span class="tablecap"><span class="enumeration table-enumeration">Table 23.  </span>Primary MAC Address</span></span></caption>
+					          
+					          
+					          
+					          
+					          
+					          <thead class="thead" align="left">
+						            <tr class="row">
+							              <th class="entry" id="d38462e183" width="10.416666666666666%" valign="top" align="center">Word Offset </th>
+
+							              <th class="entry" id="d38462e186" width="31.249999999999993%" valign="top" align="center">Register Name </th>
+
+							              <th class="entry" id="d38462e189" width="41.666666666666664%" valign="top" align="center">Description </th>
+
+							              <th class="entry" id="d38462e192" width="8.333333333333332%" valign="top" align="center">Access </th>
+
+							              <th class="entry" id="d38462e195" width="8.333333333333332%" valign="top" align="center">HW Reset Value
+							</th>
+
+						            </tr>
+
+					          </thead>
+
+					          <tbody class="tbody">
+						            <tr class="row">
+							              <td class="entry" headers="d38462e183 " width="10.416666666666666%" valign="top" align="center">0x0010 </td>
+
+							              <td class="entry" headers="d38462e186 " width="31.249999999999993%" valign="top" align="left">
+                        <samp class="ph codeph">primary_mac_addr0</samp>
+							              </td>
+
+							              <td class="entry" headers="d38462e189 " rowspan="2" width="41.666666666666664%" valign="top" align="left">6-byte
+								primary MAC address. Configure this register with a non-zero value
+								before you enable the MAC IP core for operations. <p class="p">Map the primary MAC address as follows: </p>
+
+                        <ul class="ul" id="bhc1395127769014__ul_73C75C0B19E64E76B347305D19B7E956">
+									                  <li class="li" id="bhc1395127769014__li_CB1D7AE2307742FC8650A3EB76F85D32">
+                              <samp class="ph codeph">primary_mac_addr0</samp>:
+										Lower four bytes of the address. </li>
+
+									                  <li class="li" id="bhc1395127769014__li_C5E6ADBA11C940CFA41B29C156F66ECA">
+                              <samp class="ph codeph">primary_mac_addr1[15:0]</samp>: Upper two bytes of
+										the address. </li>
+
+									                  <li class="li" id="bhc1395127769014__li_92459EA7571048EE9C803BA21F8F54A2">
+                              <samp class="ph codeph">primary_mac_addr1[31:16]</samp>: Reserved. </li>
+
+								                </ul>
+
+                        <u class="ph u">Example</u>
+								                <p class="p">If the primary MAC address is 00-1C-23-17-4A-CB,
+									set <samp class="ph codeph">primary_mac_addr0</samp> to
+									0x23174ACB and <samp class="ph codeph">primary_mac_addr1</samp> to 0x0000001C. </p>
+
+                        <u class="ph u">Usage</u>
+								                <p class="p">On transmit, the MAC IP core uses this address to
+									fill the source address field in control frames. For data frames
+									from the client, the MAC IP core replaces the source address
+									field with the primary MAC address when the <samp class="ph codeph">tx_src_addr_override</samp> register is
+									set to 1. </p>
+
+                        <p class="p">On receive, the MAC IP core
+									uses this address to filter unicast frames when the <samp class="ph codeph">EN_ALLUCAST</samp> bit of the <samp class="ph codeph">rx_frame_control</samp> register is set to
+									0. The MAC IP core drops frames whose destination address is
+									different from the value of the primary MAC address.
+								</p>
+
+                     </td>
+
+							              <td class="entry" headers="d38462e192 " rowspan="2" width="8.333333333333332%" valign="top" align="center">RW </td>
+
+							              <td class="entry" headers="d38462e195 " rowspan="2" width="8.333333333333332%" valign="top" align="center">0x0
+							</td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d38462e183 " width="10.416666666666666%" valign="top" align="center">0x0011 </td>
+
+							              <td class="entry" headers="d38462e186 " width="31.249999999999993%" valign="top" align="left">
+                        <samp class="ph codeph">primary_mac_addr1</samp>
+							              </td>
+
+						            </tr>
+
+					          </tbody>
+
+				        </table>

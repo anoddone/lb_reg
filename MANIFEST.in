@@ -1,0 +1,5 @@
+include lb_reg/static/style.css
+include lb_reg/templates/*
+include lb_reg/*.json
+include lb_reg/*.py
+

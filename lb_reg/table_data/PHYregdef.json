@@ -1,0 +1,107 @@
+[
+    [
+        "Addr", 
+        "Name", 
+        "Description", 
+        "Access", 
+        "HW Reset Value"
+    ], 
+    [
+        "0x00", 
+        "control", 
+        "Bit [15]: RESET. Set this bit to 1 to trigger a soft reset. The PHY clears the bit when the reset is completed. The register values remain intact during the reset.", 
+        "RWC", 
+        "0"
+    ], 
+    [
+        "0x02", 
+        "phy_identifier", 
+        "The value set in the PHY_IDENTIFIER parameter.", 
+        "RO", 
+        "Value of PHY_IDENTIFIER parameter"
+    ], 
+    [
+        "0x04", 
+        "dev_ability", 
+        "Use this register to advertise the device abilities during auto-negotiation.", 
+        "", 
+        ""
+    ], 
+    [
+        "0x06", 
+        "an_expansion", 
+        "The PCS capabilities and auto-negotiation status.", 
+        "", 
+        ""
+    ], 
+    [
+        "0x07", 
+        "device_next_page", 
+        "The PHY does not support the next page feature. These registers are always set to 0.", 
+        "RO", 
+        "0"
+    ], 
+    [
+        "0x08", 
+        "partner_next_page",
+         "",
+        "RO", 
+        "0"
+    ], 
+    [
+        "0x10", 
+        "scratch", 
+        "Provides a memory location to test read and write operations.", 
+        "RW", 
+        "0"
+    ], 
+    [
+        "0x11", 
+        "rev", 
+        "The current version of the PHY IP core.", 
+        "RO", 
+        ""
+    ], 
+    [
+        "0x12", 
+        "link_timer", 
+        "21-bit auto-negotiation link timer. \nOffset 0x12: link_timer[15:0]. Bits [8:0] are always be set to 0.\nOffset 0x13: link_timer[20:16] occupies the lower 5 bits. The remaining 11 bits are reserved and must always be set to 0.", 
+        "RW", 
+        "0"
+    ], 
+    [
+        "0x400", 
+        "usxgmii_control", 
+        "Control Register", 
+        "", 
+        ""
+    ], 
+    [
+        "0x401", 
+        "usxgmii_status", 
+        "Status Register", 
+        "", 
+        ""
+    ], 
+    [
+        "0x405", 
+        "usxgmii_partner_ability", 
+        "Device abilities advertised to the link partner during Auto-Negotiation", 
+        "", 
+        ""
+    ], 
+    [
+        "0x412", 
+        "usxgmii_link_timer", 
+        "Auto-Negotiation link timer. Sets the link timer value in bit [19:14] from 0 to 2 ms in approximately 0.05 ms steps. You must program the link timer to ensure that it matches the link timer value of the external NBASE-T PHY IP Core.\nThe reset value sets the link timer to approximately 1.6 ms.\nBits [13:0] are reserved and always set to 0.", 
+        "[19:14]: RW\n [13:0]: RO", 
+        "[19:14]: 0x1F\n [13:0]: 0x0"
+    ], 
+    [
+        "0x461", 
+        "phy_serial_loopback", 
+        "Configures the transceiver serial loopback in the PMA from TX to RX.", 
+        "", 
+        ""
+    ], 
+]

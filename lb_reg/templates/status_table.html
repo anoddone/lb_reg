@@ -1,0 +1,143 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+
+<h1>CSS-Test</h1>
+<table id="ports" class="table table-hover">
+    <caption>Port Status</caption>
+    <tbody>
+    <tr>
+    <th>Port</th>
+    <th>Active</th>
+    <th>Lock</th>
+    <th>SFP</th>
+    <th>Rate</th>
+    <th>Ave Rate</th>
+    <th>
+    <p>Dropped Packets</p>
+    </th>
+    <th>Average Packet Delay</th>
+    </tr>
+    <tr id="portA" >
+    <td>A</td>
+    <td id="Aactive"></td>
+    <td id="Alock">Al</td>
+    <td id="Asfp">As</td>
+    <td id="Arate">Az</td>
+    <td id="Aaverate">Ar</td>
+    <td id="Adropped">Ad</td>
+    <td id ="Aavedelay">Ap</td>
+    </tr>
+    <tr id = "portB">
+    <td>B</td>
+    <td id="Bactive">Ba</td>
+    <td id="Block">Bl</td>
+    <td id="Bsfp">Bs</td>
+    <td id="Brate">Bz</td>
+    <td id="Baverate">Br</td>
+    <td id="Bdropped">Bd</td>
+    <td id ="Bavedelay">Bp</td>
+    </tr>
+    <tr id = "portC">
+    <td>C</td>
+    <td id="Cactive">Ca</td>
+    <td id="Clock">Cl</td>
+    <td id="Csfp">Cs</td>
+    <td id="Crate">Cz</td>
+    <td id="Caverate">Cr</td>
+    <td id="Cdropped">Cd</td>
+    <td id ="Cavedelay">Cp</td>
+    </tr>
+    <tr id= "portD">
+    <td>D</td>
+    <td id="Dactive">Da</td>
+    <td id="Dlock">Dl</td>
+    <td id="Dsfp">Ds</td>
+    <td id="Drate">Dz</td>
+    <td id="Daverate">Dr</td>
+    <td id="Ddropped">Dd</td>
+    <td id ="Davedelay">Dp</td>
+    </tr>
+    <tr id = "portE">
+    <td>E</td>
+    <td id="Eactive">Ea</td>
+    <td id="Elock">El</td>
+    <td id="Esfp">Es</td>
+    <td id="Erate">Ez</td>
+    <td id="Eaverate">Er</td>
+    <td id="Edropped">Ed</td>
+    <td id ="Eavedelay">Ep</td>
+    </tr>
+    </tbody>
+</table>
+
+    <p>In what cities other than DC have you gone to Python meetups?</p>
+    <form method="post" action="#" id="cityform">
+        <label>City</label>
+        <input type="text" id="city"></input>
+        <input type="submit" value="Submit"></input>
+    </form>
+    <div id="cities-list"></div>
+
+    <p>Panic</p>
+    <button type="button"  id="panicbutton">BUTTON!</button>
+ </div >  
+    
+    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var url = "http://" + document.domain + ":" + location.port;
+            console.log( url);
+            var socket = io.connect(url + "/dd");
+            console.log("connected");
+
+            $("#cityform").submit(function(event) {
+                console.log("submit")
+                socket.emit('city', {'city': $('#city').val()});
+                $('#city').val('');
+                return false;
+            });
+            
+            $("#panicbutton").click(function(event) {
+                console.log("panic button")
+                socket.emit("panic",{"panic": "some hell is breaking loose!"});
+                return false
+            });
+
+            socket.on('portstatus', function(port_obj) {
+                update_portstatus(port_obj);
+                console.log("got port_obj");
+
+            });
+            
+            socket.on('city', function(msg) {
+                $("#cities-list").prepend('<h3>' + msg.city + '<h3>');
+            });
+            
+
+        });
+    </script>
+    
+
+<script type="text/javascript">
+    function update_portstatus( data ){
+         port_obj = JSON.parse(data)
+//         console.log("update_portstatus()");
+//         console.log(port_obj);
+        for (portn in port_obj) {
+            port = port_obj[portn]
+//            console.log("port " + portn)
+            for (x in port) { 
+//                console.log(x)
+                document.getElementById(portn+x).innerHTML = port[x];
+            }
+        }
+    }
+
+</script>
+
+
+{% endblock %}
+

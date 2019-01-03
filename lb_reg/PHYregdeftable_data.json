@@ -1,0 +1,390 @@
+[
+    [
+        "Addr", 
+        "Name", 
+        "Description", 
+        "Access", 
+        "HW Reset Value"
+    ], 
+    [], 
+    [], 
+    [], 
+    [], 
+    [], 
+    [
+        "0x00", 
+        "control", 
+        "Bit [15]: RESET. Set this bit to 1 to trigger a soft reset. The PHY clears the bit when the reset is completed. The register values remain intact during the reset.", 
+        "RWC", 
+        "0"
+    ], 
+    [
+        "Bit[14]: LOOPBACK. Set this bit to 1 to enable loopback on the serial interface.", 
+        "RW", 
+        "0"
+    ], 
+    [
+        "Bit [12]: AUTO_NEGOTIATION_ENABLE. Set this bit to 1 to enable auto-negotiation. Auto-negotiation is supported only in 1GbE. Therefore, set this bit to 0 when you switch to a speed other than 1GbE.", 
+        "RW", 
+        "0"
+    ], 
+    [
+        "Bit [9]: RESTART_AUTO_NEGOTIATION. Set this bit to 1 to restart auto-negotiation.The PHY clears the bit as soon as auto-negotiation is restarted.", 
+        "RWC", 
+        "0"
+    ], 
+    [
+        "The rest of the bits are reserved.", 
+        "", 
+        ""
+    ], 
+    [
+        "0x01", 
+        "status", 
+        "Bit [5]: AUTO_NEGOTIATION_COMPLETE. A value of \"1\" indicates that the auto-negotiation is completed.", 
+        "RO", 
+        "0"
+    ], 
+    [
+        "Bit [3]: AUTO_NEGOTIATION_ABILITY. A value of \"1\" indicates that the PCS function supports auto-negotiation.", 
+        "RO", 
+        "1"
+    ], 
+    [
+        "Bit [2]: LINK_STATUS. A value of \"0\" indicates that the link is lost. Value of 1 indicates that the link is established.", 
+        "RO", 
+        "0"
+    ], 
+    [
+        "The rest of the bits are reserved.", 
+        "", 
+        ""
+    ], 
+    [
+        "0x02:0x03", 
+        "phy_identifier", 
+        "The value set in the PHY_IDENTIFIER parameter.", 
+        "RO", 
+        "Value of PHY_IDENTIFIER parameter"
+    ], 
+    [
+        "0x04", 
+        "dev_ability", 
+        "Use this register to advertise the device abilities during auto-negotiation.", 
+        "", 
+        ""
+    ], 
+    [
+        "Bits [13:12]: RF. Specify the remote fault. \n00: No error.\n01: Link failure.\n10: Offline.\n11: Auto-negotiation error.", 
+        "RW", 
+        "00"
+    ], 
+    [
+        "Bits [8:7]: PS. Specify the PAUSE support. \n00: No PAUSE.\n01: Symmetric PAUSE.\n10: Asymmetric PAUSE towards the link partner.\n11: Asymmetric and symmetric PAUSE towards the link device.", 
+        "RW", 
+        "11"
+    ], 
+    [
+        "Bit [5]: FD. Ensure that this bit is always set to 1.", 
+        "RW", 
+        "1"
+    ], 
+    [
+        "The rest of the bits are reserved.", 
+        "", 
+        ""
+    ], 
+    [
+        "0x05", 
+        "partner_ability", 
+        "The device abilities of the link partner during auto-negotiation.", 
+        "", 
+        ""
+    ], 
+    [
+        "Bit [14]: ACK. A value of \"1\" indicates that the link partner has received three consecutive matching ability values from the device.", 
+        "RO", 
+        "0"
+    ], 
+    [
+        "Bits [13:12]: RF. The remote fault. \n00: No error.\n01: Link failure.\n10: Offline.\n11: Auto-negotiation error.", 
+        "RO", 
+        "0"
+    ], 
+    [
+        "Bits [8:7]: PS. The PAUSE support. \n00: No PAUSE.\n01: Symmetric PAUSE.\n10: Asymmetric PAUSE towards the link partner.\n11: Asymmetric and symmetric PAUSE towards the link device.", 
+        "RO", 
+        "0"
+    ], 
+    [
+        "Bit [6]: HD. A value of \"1\" indicates that half-duplex is supported.", 
+        "RO", 
+        "0"
+    ], 
+    [
+        "Bit [5]: FD. A value of \"1\" indicates that full-duplex is supported.", 
+        "RO", 
+        "0"
+    ], 
+    [
+        "The rest of the bits are reserved.", 
+        "", 
+        ""
+    ], 
+    [
+        "0x06", 
+        "an_expansion", 
+        "The PCS capabilities and auto-negotiation status.", 
+        "", 
+        ""
+    ], 
+    [
+        "Bit [1]: PAGE_RECEIVE. A value of \"1\" indicates that the partner_ability register has been updated. This bit is automatically cleared once it is read.", 
+        "RO", 
+        "0"
+    ], 
+    [
+        "Bit [0]: LINK_PARTNER_AUTO_NEGOTIATION_ABLE. A value of \"1\" indicates that the link partner supports auto-negotiation.", 
+        "RO", 
+        "0"
+    ], 
+    [
+        "0x07", 
+        "device_next_page", 
+        "The PHY does not support the next page feature. These registers are always set to 0.", 
+        "RO", 
+        "0"
+    ], 
+    [
+        "0x08", 
+        "partner_next_page", 
+        "RO", 
+        "0"
+    ], 
+    [
+        "0x09:0x0F", 
+        "Reserved", 
+        "", 
+        "", 
+        ""
+    ], 
+    [
+        "0x10", 
+        "scratch", 
+        "Provides a memory location to test read and write operations.", 
+        "RW", 
+        "0"
+    ], 
+    [
+        "0x11", 
+        "rev", 
+        "The current version of the PHY IP core.", 
+        "RO", 
+        "Current version of the PHY"
+    ], 
+    [
+        "0x12:0x13", 
+        "link_timer", 
+        "21-bit auto-negotiation link timer. \nOffset 0x12: link_timer[15:0]. Bits [8:0] are always be set to 0.\nOffset 0x13: link_timer[20:16] occupies the lower 5 bits. The remaining 11 bits are reserved and must always be set to 0.", 
+        "RW", 
+        "0"
+    ], 
+    [
+        "0x14:0x1F", 
+        "Reserved", 
+        "", 
+        "", 
+        ""
+    ], 
+    [
+        "0x400", 
+        "usxgmii_control", 
+        "Control Register", 
+        "", 
+        ""
+    ], 
+    [
+        "Bit [0]: USXGMII_ENA:\n0: 10GBASE-R mode\n1: USXGMII mode", 
+        "RW", 
+        "0x0"
+    ], 
+    [
+        "Bit [1]: USXGMII_AN_ENA is used when USXGMII_ENA is set to 1:\n0: Disables USXGMII Auto-Negotiation and manually configures the operating speed with the USXGMII_SPEED register.\n1: Enables USXGMII Auto-Negotiation, and automatically configures operating speed with link partner ability advertised during USXGMII Auto-Negotiation.", 
+        "RW", 
+        "0x1"
+    ], 
+    [
+        "Bit [4:2]: USXGMII_SPEED is the operating speed of the PHY in USXGMII mode and USE_USXGMII_AN is set to 0.\n3b000: \n                              10M\n\n3b001: \n                              100M\n\n3b010: 1G\n3b011: 10G\n3b100: 2.5G\n3b101: 5G\n3b110: Reserved\n3b111: Reserved", 
+        "RW", 
+        "0x0"
+    ], 
+    [
+        "Bit [8:5]: Reserved", 
+        "", 
+        ""
+    ], 
+    [
+        "Bit [9]: RESTART_AUTO_NEGOTIATION Write 1 to restart Auto-Negotiation sequence The bit is cleared by hardware when Auto-Negotiation is restarted.", 
+        "RWC (hardware self-clear)", 
+        "0x0"
+    ], 
+    [
+        "Bit [15:10]: Reserved", 
+        "", 
+        ""
+    ], 
+    [
+        "Bit [30:16]: Reserved", 
+        "", 
+        ""
+    ], 
+    [
+        "0x401", 
+        "usxgmii_status", 
+        "Status Register", 
+        "", 
+        ""
+    ], 
+    [
+        "Bit [1:0]: Reserved", 
+        "", 
+        ""
+    ], 
+    [
+        "Bit [2]: LINK_STATUS indicates link status for USXGMII all speeds\n1: Link is established\n0: Link synchronization is lost, a 0 is latched", 
+        "RO", 
+        "0x0"
+    ], 
+    [
+        "Bit [3]: Reserved", 
+        "", 
+        ""
+    ], 
+    [
+        "Bit [4]: Reserved", 
+        "", 
+        ""
+    ], 
+    [
+        "Bit [5]: AUTO_NEGOTIATION_COMPLETE\nA value of 1 indicates the Auto-Negotiation process is completed.", 
+        "RO", 
+        "0x0"
+    ], 
+    [
+        "Bit [15:6]: Reserved", 
+        "", 
+        ""
+    ], 
+    [
+        "Bit [31:16]: Reserved", 
+        "", 
+        ""
+    ], 
+    [
+        "0x402:0x404", 
+        "Reserved", 
+        "", 
+        "", 
+        ""
+    ], 
+    [
+        "0x405", 
+        "usxgmii_partner_ability", 
+        "Device abilities advertised to the link partner during Auto-Negotiation", 
+        "", 
+        ""
+    ], 
+    [
+        "Bit [0]: Reserved", 
+        "", 
+        ""
+    ], 
+    [
+        "Bit [6:1]: Reserved", 
+        "", 
+        ""
+    ], 
+    [
+        "Bit [7]: EEE_CLOCK_STOP_CAPABILITY\nIndicates whether or not energy efficient ethernet (EEE) clock stop is supported.\n0: Not supported\n1: Supported", 
+        "RO", 
+        "0x0"
+    ], 
+    [
+        "Bit [8]: EEE_CAPABILITY\nIndicates whether or not EEE is supported.\n0: Not supported\n1: Supported", 
+        "RO", 
+        "0x0"
+    ], 
+    [
+        "Bit [11:9]: SPEED\n\n\n3'b000: 10M\n3'b001: 100M\n3'b010: 1G\n3'b011: 10G\n3'b100: 2.5G\n3'b101: 5G\n3'b110: Reserved\n3'b111: Reserved", 
+        "RO", 
+        "0x0"
+    ], 
+    [
+        "Bit [12]: DUPLEX\nIndicates the duplex mode.\n0: Half duplex\n1: Full duplex", 
+        "RO", 
+        "0x0"
+    ], 
+    [
+        "Bit [13]: Reserved", 
+        "", 
+        ""
+    ], 
+    [
+        "Bit [14]: ACKNOWLEDGE\nA value of 1 indicates that the device has received three consecutive matching ability values from its link partner.", 
+        "RO", 
+        "0x0"
+    ], 
+    [
+        "Bit [15]: LINK\nIndicates the link status.\n0: Link down\n1: Link up", 
+        "RO", 
+        "0x0"
+    ], 
+    [
+        "Bit [31:16]: Reserved", 
+        "", 
+        ""
+    ], 
+    [
+        "0x406:0x411", 
+        "Reserved", 
+        "", 
+        "", 
+        ""
+    ], 
+    [
+        "0x412", 
+        "usxgmii_link_timer", 
+        "Auto-Negotiation link timer. Sets the link timer value in bit [19:14] from 0 to 2 ms in approximately 0.05 ms steps. You must program the link timer to ensure that it matches the link timer value of the external NBASE-T PHY IP Core.\nThe reset value sets the link timer to approximately 1.6 ms.\nBits [13:0] are reserved and always set to 0.", 
+        "[19:14]: RW\n [13:0]: RO", 
+        "[19:14]: 0x1F\n [13:0]: 0x0"
+    ], 
+    [
+        "0x413:0x41F", 
+        "Reserved", 
+        "", 
+        "", 
+        ""
+    ], 
+    [
+        "0x461", 
+        "phy_serial_loopback", 
+        "Configures the transceiver serial loopback in the PMA from TX to RX.", 
+        "", 
+        ""
+    ], 
+    [
+        "Bit [0]\n0: Disables the PHY serial loopback\n1: Enables the PHY serial loopback", 
+        "RW", 
+        "0x0"
+    ], 
+    [
+        "Bit [15:1]: Reserved", 
+        "", 
+        ""
+    ], 
+    [
+        "Bit [31:16]: Reserved", 
+        "", 
+        ""
+    ]
+]

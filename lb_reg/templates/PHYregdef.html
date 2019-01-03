@@ -1,0 +1,181 @@
+<h1>Table 159.  PHY Register Definitions</h1>
+<table class="table">
+<tbody>
+<tr>
+<th class="col0">Current Value</th>
+<th class="col1">Register Name</th>
+<th class="col2">HW Reset Value</th>
+<th class="col3">Description<button type="button"  class="btn btn-default hideclass" ><span class="glyphicon glyphicon-resize-vertical"></span></th>
+</th>
+<tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="control" value="0" ></input>
+</form>
+</td>
+<td>control</td
+><td>0</td
+><td >Bit [15]: RESET. Set this bit to 1 to trigger a soft reset. The PHY clears the bit when the reset is completed. The register values remain intact during the reset.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="status" value="0" disabled ></input>
+</form>
+</td>
+<td>status</td
+><td>0</td
+><td >Bit [5]: AUTO_NEGOTIATION_COMPLETE. A value of "1" indicates that the auto-negotiation is completed.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="phy_identifier" value="Value of PHY_IDENTIFIER parameter" disabled ></input>
+</form>
+</td>
+<td>phy_identifier</td
+><td>Value of PHY_IDENTIFIER parameter</td
+><td >The value set in the PHY_IDENTIFIER parameter.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="dev_ability" value="" ></input>
+</form>
+</td>
+<td>dev_ability</td
+><td></td
+><td >Use this register to advertise the device abilities during auto-negotiation.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="partner_ability" value="" ></input>
+</form>
+</td>
+<td>partner_ability</td
+><td></td
+><td >The device abilities of the link partner during auto-negotiation.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="an_expansion" value="" ></input>
+</form>
+</td>
+<td>an_expansion</td
+><td></td
+><td >The PCS capabilities and auto-negotiation status.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="device_next_page" value="0" disabled ></input>
+</form>
+</td>
+<td>device_next_page</td
+><td>0</td
+><td >The PHY does not support the next page feature. These registers are always set to 0.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="partner_next_page" value="" ></input>
+</form>
+</td>
+<td>partner_next_page</td
+><td></td
+><td >RO</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="scratch" value="0" ></input>
+</form>
+</td>
+<td>scratch</td
+><td>0</td
+><td >Provides a memory location to test read and write operations.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rev" value="Current version of the PHY" disabled ></input>
+</form>
+</td>
+<td>rev</td
+><td>Current version of the PHY</td
+><td >The current version of the PHY IP core.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="link_timer" value="0" ></input>
+</form>
+</td>
+<td>link_timer</td
+><td>0</td
+><td >21-bit auto-negotiation link timer. 
+<br>Offset 0x12: link_timer[15:0]. Bits [8:0] are always be set to 0.
+<br>Offset 0x13: link_timer[20:16] occupies the lower 5 bits. The remaining 11 bits are reserved and must always be set to 0.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="usxgmii_control" value="" ></input>
+</form>
+</td>
+<td>usxgmii_control</td
+><td></td
+><td >Control Register</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="usxgmii_status" value="" ></input>
+</form>
+</td>
+<td>usxgmii_status</td
+><td></td
+><td >Status Register</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="usxgmii_partner_ability" value="" ></input>
+</form>
+</td>
+<td>usxgmii_partner_ability</td
+><td></td
+><td >Device abilities advertised to the link partner during Auto-Negotiation</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="usxgmii_link_timer" value="
+[19:14]: 0x1F
+ [13:0]: 0x0
+" ></input>
+</form>
+</td>
+<td>usxgmii_link_timer</td
+><td>
+[19:14]: 0x1F
+ [13:0]: 0x0
+</td
+><td >Auto-Negotiation link timer. Sets the link timer value in bit [19:14] from 0 to 2 ms in approximately 0.05 ms steps. You must program the link timer to ensure that it matches the link timer value of the external NBASE-T PHY IP Core.
+<br>The reset value sets the link timer to approximately 1.6 ms.
+<br>Bits [13:0] are reserved and always set to 0.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="phy_serial_loopback" value="" ></input>
+</form>
+</td>
+<td>phy_serial_loopback</td
+><td></td
+><td >Configures the transceiver serial loopback in the PMA from TX to RX.</td
+></tr>
+</tbody></table>

@@ -1,0 +1,355 @@
+<h1>Table 28.  MAC RX Configuration and Status Register</h1>
+<table class="table">
+<tbody>
+<tr>
+<th class="col0">Current Value</th>
+<th class="col1">Register Name</th>
+<th class="col2">HW Reset Value</th>
+<th class="col3">Description<button type="button"  class="btn btn-default hideclass" ><span class="glyphicon glyphicon-resize-vertical"></span></th>
+</th>
+<tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_transfer_control" value="0x0 " ></input>
+</form>
+</td>
+<td>rx_transfer_control</td
+><td>0x0 </td
+><td >Bit 0RX path enable. 0: Enables the RX
+<br>path. 
+<br>1: Disables the RX path.
+<br>The MAC IP core drops all incoming frames. 
+<br>
+<br>Bits 31:1reserved. 
+<br>
+<br>A change of value in this register takes effect
+<br>at a packet boundary. Any transfer in progress is not affected.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_transfer_status" value="0x0 " disabled ></input>
+</form>
+</td>
+<td>rx_transfer_status</td
+><td>0x0 </td
+><td >The MAC sets the following bits to indicate the
+<br>status of the RX datapath.
+<br>
+<br>Bits 7:0reserved. 
+<br>Bit 8: RX datapath status.0: The RX datapath is idle.
+<br>1: An RX data transfer is in
+<br>progress.
+<br>
+<br>Bits 11:9reserved. 
+<br>Bit 12: RX datapath reset status. 0: The RX datapath is not in
+<br>reset.
+<br>1: The RX datapath is in
+<br>reset.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_padcrc_control" value="0x1 " ></input>
+</form>
+</td>
+<td>rx_padcrc_control</td
+><td>0x1 </td
+><td >Bits [1:0]Padding and CRC removal on receive. 00: Retains the padding bytes and CRC
+<br>field, and forwards them to the client. 
+<br>01: Retains only the padding bytes. The
+<br>MAC IP core removes the CRC field before it forwards the
+<br>RX frame to the client. 
+<br>11:
+<br>Removes the padding bytes and CRC field before the RX
+<br>frame is forwarded to the client. 
+<br>10: Reserved. 
+<br>
+<br>Bits 31:2reserved. 
+<br>
+<br>Configure this register before you enable the
+<br>MAC IP core for operations.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_crccheck_control" value="0x2 " ></input>
+</form>
+</td>
+<td>rx_crccheck_control</td
+><td>0x2 </td
+><td >CRC checking on receive. 
+<br>Bit 0always set this bit to 0. 
+<br>Bit 1CRC checking enable. 0: Ignores
+<br>the CRC field. 
+<br>1: Checks the CRC
+<br>field and reports the status to avalon_st_rx_error[1] and avalon_st_rxstatus_error.
+<br>
+<br>
+<br>Bits 31:2reserved. 
+<br>
+<br>Configure this register before you enable
+<br>the MAC IP core for operations.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_custom_preamble_forward" value="0x0 " ></input>
+</form>
+</td>
+<td>rx_custom_preamble_forward</td
+><td>0x0 </td
+><td >Bit 0configures the forwarding of the custom preamble to
+<br>the client. 0: Removes the custom
+<br>preamble from the RX frame. 
+<br>1:
+<br>Retains and forwards the custom preamble to the client.
+<br>
+<br>
+<br>Bits 31:1reserved. 
+<br>
+<br>Configure this register before you enable the
+<br>MAC IP core for operations.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_preamble_control" value="0x0 " ></input>
+</form>
+</td>
+<td>rx_preamble_control</td
+><td>0x0 </td
+><td >Bit 0preamble passthrough enable on receive. 0: Disables preamble passthrough. The
+<br>MAC IP core checks for START and SFD during packet
+<br>decapsulation process. 
+<br>1:
+<br>Enables preamble passthrough. The MAC IP core checks
+<br>only for START during packet decapsulation process.
+<br>
+<br>
+<br>Bits 31:1reserved. 
+<br>
+<br>Configure this register before you enable the
+<br>MAC IP core for operations.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_frame_control" value="0x3" ></input>
+</form>
+</td>
+<td>rx_frame_control</td
+><td>0x3</td
+><td >Configure this register before you enable the
+<br>MAC IP core for operations.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_frame_maxlength" value="1518 " ></input>
+</form>
+</td>
+<td>rx_frame_maxlength</td
+><td>1518 </td
+><td >Bits 15:0specify the maximum allowable frame length. The
+<br>MAC asserts the avalon_st_rx_error[3] signal when the length
+<br>of the RX frame exceeds the value of this register. 
+<br>Bits 16:31reserved. 
+<br>
+<br>Configure this register before you enable the MAC IP core for
+<br>operations.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_vlan_detection" value="0x0" ></input>
+</form>
+</td>
+<td>rx_vlan_detection</td
+><td>0x0</td
+><td >Bit 0RX VLAN detection disable.0: The MAC detects VLAN and stacked
+<br>VLAN frames. 
+<br>1: The MAC does not
+<br>detect VLAN and stacked VLAN frames. When received, the
+<br>MAC treats them as basic frames and considers their tags
+<br>as payload bytes.
+<br>
+<br>Bits 31:1reserved.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_frame_spaddr0_0" value="0x0
+" ></input>
+</form>
+</td>
+<td>rx_frame_spaddr0_0</td
+><td>0x0
+</td
+><td >You can
+<br>specify up to four 6-byte supplementary addresses: 
+<br>
+<br>rx_framedecoder_spaddr0_0/1
+<br>
+<br>
+<br>rx_framedecoder_spaddr1_0/1
+<br>
+<br>
+<br>rx_framedecoder_spaddr2_0/1
+<br>
+<br>
+<br>rx_framedecoder_spaddr3_0/1
+<br>
+<br>
+<br>Configure the supplementary addresses before you enable the MAC
+<br>RX datapath. Map the supplementary addresses to the respective
+<br>registers in the same manner as the primary MAC address. Refer to
+<br>the description of primary_mac_addr0 and primary_mac__addr1.The MAC IP core uses the
+<br>supplementary addresses to filter unicast frames when the following
+<br>conditions are set: 
+<br>The use of the supplementary addresses are enabled using
+<br>the respective bits in the rx_frame_control register. 
+<br>The en_allucast bit of
+<br>the rx_frame_control
+<br>register is set to 0.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_frame_spaddr0_1" value="" ></input>
+</form>
+</td>
+<td>rx_frame_spaddr0_1</td
+><td></td
+><td ></td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_frame_spaddr1_0" value="" ></input>
+</form>
+</td>
+<td>rx_frame_spaddr1_0</td
+><td></td
+><td ></td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_frame_spaddr1_1" value="" ></input>
+</form>
+</td>
+<td>rx_frame_spaddr1_1</td
+><td></td
+><td ></td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_frame_spaddr2_0" value="" ></input>
+</form>
+</td>
+<td>rx_frame_spaddr2_0</td
+><td></td
+><td ></td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_frame_spaddr2_1" value="" ></input>
+</form>
+</td>
+<td>rx_frame_spaddr2_1</td
+><td></td
+><td ></td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_frame_spaddr3_0" value="" ></input>
+</form>
+</td>
+<td>rx_frame_spaddr3_0</td
+><td></td
+><td ></td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_frame_spaddr3_1" value="" ></input>
+</form>
+</td>
+<td>rx_frame_spaddr3_1</td
+><td></td
+><td ></td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_pfc_control" value="0x1 " ></input>
+</form>
+</td>
+<td>rx_pfc_control</td
+><td>0x1 </td
+><td >Bits 7:0enables priority-based flow control on the RX
+<br>datapath. Setting bit n to 0 enables
+<br>priority-based flow control for priority queue n. For example, setting rx_pfc_control[0] to 0 enables
+<br>queue 0. 
+<br>Bits 15:9reserved. 
+<br>Bit 16configures the forwarding of priority-based control
+<br>frames to the client. 0: Drops the
+<br>control frames. 
+<br>1: Forwards the
+<br>control frames to the client. 
+<br>
+<br>Bits 31:17reserved. 
+<br>
+<br> Configure this register before you enable the MAC IP core for
+<br>operations.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_pktovrflow_error" value="0x0
+" disabled ></input>
+</form>
+</td>
+<td>rx_pktovrflow_error</td
+><td>0x0
+</td
+><td >36-bit error counter
+<br>that collects the number of RX frames that are truncated when a FIFO
+<br>buffer overflow persists: 
+<br>0x00FC = Lower 32 bits of the error
+<br>counter. 
+<br>0x00FD = Upper 4 bits of the error counter
+<br>occupy bits [3:0]. Bits [31:4] are unused. 
+<br>
+<br>To read the counter, read the lower 32 bits
+<br>followed by the upper 4 bits. The IP core clears the counter
+<br>after a read.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_pktovrflow_etherStatsDropEvents" value="0x0
+" disabled ></input>
+</form>
+</td>
+<td>rx_pktovrflow_etherStatsDropEvents</td
+><td>0x0
+</td
+><td >36-bit error counter
+<br>that collects the number of RX frames that are dropped when FIFO
+<br>buffer overflow persists: 
+<br>0x00FE = Lower 32 bits of the error
+<br>counter. 
+<br>0x00FF = Upper 4 bits of the error counter
+<br>occupy bits [3:0]. Bits [31:4] are unused. 
+<br>
+<br>To read the counter, read the lower 32 bits
+<br>followed by the upper 4 bits. The IP core clears the counter
+<br>after a read.</td
+></tr>
+</tbody></table>

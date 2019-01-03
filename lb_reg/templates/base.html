@@ -1,0 +1,47 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}
+    {% if title %}{{ title }}{% else %}Welcome to Microblog{% endif %}
+{% endblock %}
+{% block navbar %}
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="mac_config">MAC Config</a>
+            </div>
+            <div class="navbar-header">
+                <a class="navbar-brand" href="phy_config">PHY Config</a>
+            </div>
+            <div class="navbar-header">
+                <a class="navbar-brand" href="mac_statistics">MAC Statistics</a>
+            </div>
+        </div>
+
+        <div class="container">
+          <form id="myForm">
+            <label class="radio-inline">
+              <input type="radio" name="optradio" value="portA" checked>portA
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="optradio" value="portB" >portB
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="optradio" value="portC" >portC
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="optradio" value="portD" >portD
+            </label>
+            <label class="radio-inline">
+              <input type="radio" name="optradio" value="portE" >portE
+            </label>
+          </form>
+        </div>
+    </nav>
+{% endblock %}
+<!-- Content Block -->
+{% block page_title %} {% endblock %}
+
+<!-- Content -->
+{% block content %} {% endblock %}
+
+

@@ -1,0 +1,82 @@
+{
+    "rx_preamble_control": [
+        "0x00AA", 
+        32
+    ], 
+    "rx_pktovrflow_error": [
+        "0x00FC", 
+        32
+    ], 
+    "rx_pktovrflow_etherStatsDropEvents": [
+        "0x00FE", 
+        32
+    ], 
+    "rx_custom_preamble_forward": [
+        "0x00A8", 
+        32
+    ], 
+    "rx_frame_spaddr0_0": [
+        "0x00B0", 
+        32
+    ], 
+    "rx_frame_spaddr0_1": [
+        "0x00B1", 
+        32
+    ], 
+    "rx_transfer_control": [
+        "0x00A0", 
+        32
+    ], 
+    "rx_frame_spaddr1_1": [
+        "0x00B3", 
+        32
+    ], 
+    "rx_vlan_detection": [
+        "0x00AF", 
+        32
+    ], 
+    "rx_frame_spaddr2_0": [
+        "0x00B4", 
+        32
+    ], 
+    "rx_frame_spaddr2_1": [
+        "0x00B5", 
+        32
+    ], 
+    "rx_crccheck_control": [
+        "0x00A6", 
+        32
+    ], 
+    "rx_transfer_status": [
+        "0x00A2", 
+        32
+    ], 
+    "rx_padcrc_control": [
+        "0x00A4", 
+        32
+    ], 
+    "rx_frame_spaddr3_1": [
+        "0x00B7", 
+        32
+    ], 
+    "rx_frame_spaddr3_0": [
+        "0x00B6", 
+        32
+    ], 
+    "rx_pfc_control": [
+        "0x00C0", 
+        32
+    ], 
+    "rx_frame_spaddr1_0": [
+        "0x00B2", 
+        32
+    ], 
+    "rx_frame_control": [
+        "0x00AC", 
+        32
+    ], 
+    "rx_frame_maxlength": [
+        "0x00AE", 
+        32
+    ]
+}

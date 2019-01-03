@@ -1,0 +1,670 @@
+        <section class="tab-2 section-overflow">
+
+        <header class="anchor" id="bhc1395127781203">
+          <h1>
+          
+            Timestamp Registers 
+          </h1>
+        </header> 
+        <div class="rich-text text parbase"><div class="container top-padding bottom-padding">
+  
+  <div class="body refbody">
+		    <div class="section" id="bhc1395127781203__section_N10012_N1000F_N10001">The TX and RX timestamp registers are
+			available when you turn on the <span class="ph uicontrol">Enable time
+				stamping</span> parameter. Otherwise, these registers are reserved.
+<div class="tablenoborder"><table class="table noshade" frame="border" id="bhc1395127781203__table_af3_3n2_cz" rules="all" summary="" cellspacing="0" cellpadding="4" border="1"><caption xmlns="http://www.w3.org/1999/xhtml"><span class="tablecap"><span class="tablecap"><span class="enumeration table-enumeration">Table 29.  </span>Timestamp Registers</span></span></caption>
+					          
+					          
+					          
+					          
+					          
+					          <thead class="thead" align="left">
+						            <tr class="row">
+							              <th class="entry" id="d45311e186" width="9.615384615384615%" valign="top" align="center">Word
+								Offset</th>
+
+							              <th class="entry" id="d45311e189" width="32.69230769230769%" valign="top" align="center">Register
+								Name</th>
+
+							              <th class="entry" id="d45311e192" width="38.46153846153846%" valign="top" align="center">Description</th>
+
+							              <th class="entry" id="d45311e195" width="9.615384615384615%" valign="top" align="center">Access</th>
+
+							              <th class="entry" id="d45311e198" width="9.615384615384615%" valign="top" align="center">HW Reset Value
+							</th>
+
+						            </tr>
+
+					          </thead>
+
+					          <tbody class="tbody">
+						            <tr class="row">
+							              <td class="entry" headers="d45311e186 " width="9.615384615384615%" valign="top" align="center">0x0100</td>
+
+							              <td class="entry" headers="d45311e189 " width="32.69230769230769%" valign="top" align="left">
+                        <samp class="ph codeph">tx_period_10G</samp>
+							              </td>
+
+							              <td class="entry" headers="d45311e192 " width="38.46153846153846%" valign="top" align="left">Specifies the clock period for the
+								timestamp adjustment on the datapaths for 10G
+								and
+								10M/100M/1G/2.5G/5G/10G (USXGMII) operations. The
+								MAC IP core multiplies the value of this register by the number of
+								stages separating the actual timestamp and XGMII bus.<ul class="ul" id="bhc1395127781203__ul_bf3_3n2_cz">
+									                  <li class="li">Bits 0 to 15—period in fractional
+										nanoseconds.</li>
+
+									                  <li class="li">Bits 16 to 19—period in nanoseconds.</li>
+
+									                  <li class="li">Bits 20 to 31—reserved. Set these bits to
+										0.</li>
+
+								                </ul>
+The default value is 3.2 ns for 312.5 MHz clock. Configure this
+								register before you enable the MAC IP core for operations.</td>
+
+							              <td class="entry" headers="d45311e195 " width="9.615384615384615%" valign="top" align="center">RW</td>
+
+							              <td class="entry" headers="d45311e198 " width="9.615384615384615%" valign="top" align="center">0x33333</td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d45311e186 " width="9.615384615384615%" valign="top" align="center">0x0102</td>
+
+							              <td class="entry" headers="d45311e189 " width="32.69230769230769%" valign="top" align="left">
+                        <samp class="ph codeph">tx_fns_adjustment_10G</samp>
+                     </td>
+
+							              <td class="entry" headers="d45311e192 " width="38.46153846153846%" valign="top" align="left">Static timing adjustment in fractional
+								nanoseconds on the datapaths for
+								10G
+								and 10M/100M/1G/2.5G/5G/10G (USXGMII)
+									operations.<ul class="ul" id="bhc1395127781203__ul_gl4_w42_cz">
+									                  <li class="li">Bits 0 to 15—adjustment period in
+										fractional nanoseconds.</li>
+
+									                  <li class="li">Bits 16 to 31—reserved. Set these bits to
+										0.</li>
+
+								                </ul>
+
+                        <p class="p">Configure this register before you enable
+									the MAC IP core for operations.</p>
+
+                        <p class="p">For
+									timing adjustment calculations, refer to the related
+								links.</p>
+
+                     </td>
+
+							              <td class="entry" headers="d45311e195 " width="9.615384615384615%" valign="top" align="center">RW</td>
+
+							              <td class="entry" headers="d45311e198 " width="9.615384615384615%" valign="top" align="center">0x0 </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d45311e186 " width="9.615384615384615%" valign="top" align="center">0x0104</td>
+
+							              <td class="entry" headers="d45311e189 " width="32.69230769230769%" valign="top" align="left">
+                        <samp class="ph codeph">tx_ns_adjustment_10G</samp>
+                     </td>
+
+							              <td class="entry" headers="d45311e192 " width="38.46153846153846%" valign="top" align="left">Static timing adjustment in nanoseconds
+								on the datapaths for 10G
+								and
+								10M/100M/1G/2.5G/5G/10G (USXGMII) operations.<ul class="ul" id="bhc1395127781203__ul_o1h_y42_cz">
+									                  <li class="li">Bits 0 to 15—adjustment period in
+										nanoseconds.</li>
+
+									                  <li class="li">Bits 16 to 31—reserved. Set these bits to
+										0.</li>
+
+								                </ul>
+
+                        <p class="p">Configure this register before you enable
+									the MAC IP core for operations.</p>
+
+                        <p class="p">For
+									timing adjustment calculations, refer to the related
+								links.</p>
+
+                     </td>
+
+							              <td class="entry" headers="d45311e195 " width="9.615384615384615%" valign="top" align="center">RW</td>
+
+							              <td class="entry" headers="d45311e198 " width="9.615384615384615%" valign="top" align="center">0x0 </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d45311e186 " width="9.615384615384615%" valign="top" align="center">0x0108</td>
+
+							              <td class="entry" headers="d45311e189 " width="32.69230769230769%" valign="top" align="left">
+                        <samp class="ph codeph">tx_period_mult_speed</samp>
+                     </td>
+
+							              <td class="entry" headers="d45311e192 " width="38.46153846153846%" valign="top" align="left">Specifies the clock
+								period for timestamp adjustment on the datapaths for 10M/100M/1G
+								operations. The MAC IP core multiplies the value of this register by
+								the number of stages separating the actual timestamp and GMII/MII
+									bus.<ul class="ul" id="bhc1395127781203__ul_zwt_z42_cz">
+									                  <li class="li">Bits
+										0
+										to 15—period in fractional
+										nanoseconds.</li>
+
+									                  <li class="li">Bits
+										16
+										to 19—period in nanoseconds.</li>
+
+									                  <li class="li">Bits
+										20
+										to 31—reserved. Set these bits to 0.</li>
+
+								                </ul>
+
+                        <p class="p">The default value is 8 ns for 125 MHz
+									clock. Configure this register before you enable the MAC IP core
+									for operations.</p>
+
+                        <p class="p">The IP core automatically
+									sets the clock period for 1G/2.5G configurations. For 1G, the
+									clock period is set to 16 ns for 62.5 MHz clock; for 2.5G, the
+									clock period is 6.4 ns for 156.25 MHz clock.</p>
+
+                     </td>
+
+							              <td class="entry" headers="d45311e195 " width="9.615384615384615%" valign="top" align="center">RW</td>
+
+							              <td class="entry" headers="d45311e198 " width="9.615384615384615%" valign="top" align="center">0x80000 </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d45311e186 " width="9.615384615384615%" valign="top" align="center">0x0120</td>
+
+							              <td class="entry" headers="d45311e189 " width="32.69230769230769%" valign="top" align="left">
+                        <samp class="ph codeph">rx_period_10G</samp>
+                     </td>
+
+							              <td class="entry" headers="d45311e192 " width="38.46153846153846%" valign="top" align="left">Specifies the clock period for the
+								timestamp adjustment on the datapaths for 10G
+								and
+								10M/100M/1G/2.5G/5G/10G (USXGMII) operations. The
+								MAC IP core multiplies the value of this register by the number of
+								stages separating the actual timestamp and XGMII bus.<ul class="ul" id="bhc1395127781203__ul_mqr_542_cz">
+									                  <li class="li">Bits 0 to 15—period in fractional
+										nanoseconds.</li>
+
+									                  <li class="li">Bits 16 to 19—period in nanoseconds.</li>
+
+									                  <li class="li">Bits 20 to 31—reserved. Set these bits to
+										0.</li>
+
+								                </ul>
+The default value is 3.2 ns for 312.5 MHz clock. Configure this
+								register before you enable the MAC IP core for operations.</td>
+
+							              <td class="entry" headers="d45311e195 " width="9.615384615384615%" valign="top" align="center">RW</td>
+
+							              <td class="entry" headers="d45311e198 " width="9.615384615384615%" valign="top" align="center">0x33333 </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d45311e186 " width="9.615384615384615%" valign="top" align="center">0x0122</td>
+
+							              <td class="entry" headers="d45311e189 " width="32.69230769230769%" valign="top" align="left">
+                        <samp class="ph codeph">rx_fns_adjustment_10G</samp>
+                     </td>
+
+							              <td class="entry" headers="d45311e192 " width="38.46153846153846%" valign="top" align="left">Static timing adjustment in fractional
+								nanoseconds on the datapaths for 10G
+								and
+								10M/100M/1G/2.5G/5G/10G (USXGMII) operations.<ul class="ul" id="bhc1395127781203__ul_gyx_w42_cz">
+									                  <li class="li">Bits 0 to 15—adjustment period in
+										fractional nanoseconds.</li>
+
+									                  <li class="li">Bits 16 to 31—reserved. Set these bits to
+										0.</li>
+
+								                </ul>
+
+                        <p class="p">Configure this register before you enable
+									the MAC IP core for operations.</p>
+
+                        <p class="p">For
+									timing adjustment calculations, refer to the related
+								links.</p>
+
+                     </td>
+
+							              <td class="entry" headers="d45311e195 " width="9.615384615384615%" valign="top" align="center">RW</td>
+
+							              <td class="entry" headers="d45311e198 " width="9.615384615384615%" valign="top" align="center">0x0 </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d45311e186 " width="9.615384615384615%" valign="top" align="center">0x0124</td>
+
+							              <td class="entry" headers="d45311e189 " width="32.69230769230769%" valign="top" align="left">
+                        <samp class="ph codeph">rx_ns_adjustment_10G</samp>
+                     </td>
+
+							              <td class="entry" headers="d45311e192 " width="38.46153846153846%" valign="top" align="left">Static timing adjustment in nanoseconds
+								on the datapaths for 10G
+								and
+								10M/100M/1G/2.5G/5G/10G (USXGMII) operations.<ul class="ul" id="bhc1395127781203__ul_e44_y42_cz">
+									                  <li class="li">Bits 0 to 15—adjustment period in
+										nanoseconds.</li>
+
+									                  <li class="li">Bits 16 to 31—reserved. Set these bits to
+										0.</li>
+
+								                </ul>
+
+                        <p class="p">Configure this register before you enable
+									the MAC IP core for operations.</p>
+
+                        <p class="p">For
+									timing adjustment calculations, refer to the related
+								links.</p>
+
+                     </td>
+
+							              <td class="entry" headers="d45311e195 " width="9.615384615384615%" valign="top" align="center">RW</td>
+
+							              <td class="entry" headers="d45311e198 " width="9.615384615384615%" valign="top" align="center">0x0 </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d45311e186 " width="9.615384615384615%" valign="top" align="center">0x0128</td>
+
+							              <td class="entry" headers="d45311e189 " width="32.69230769230769%" valign="top" align="left">
+                        <samp class="ph codeph">rx_period_mult_speed</samp>
+                     </td>
+
+							              <td class="entry" headers="d45311e192 " width="38.46153846153846%" valign="top" align="left">Specifies the clock
+								period for timestamp adjustment on the datapaths for 10M/100M/1G
+								operations. The MAC IP core multiplies the value of this register by
+								the number of stages separating the actual timestamp and GMII/MII
+									bus.<ul class="ul" id="bhc1395127781203__ul_dm1_1p2_cz">
+									                  <li class="li">Bits
+										0
+										to 15—period in fractional
+										nanoseconds.</li>
+
+									                  <li class="li">Bits
+										16
+										to 19—period in nanoseconds.</li>
+
+									                  <li class="li">Bits
+										20
+										to 31—reserved. Set these bits to 0.</li>
+
+								                </ul>
+
+                        <p class="p">The default value is 8 ns for 125 MHz
+									clock. Configure this register before you enable the MAC IP core
+									for operations.</p>
+
+                        <p class="p">The IP core automatically
+									sets the clock period for 1G/2.5G configurations. For 1G, the
+									clock period is set to 16 ns for 62.5 MHz clock; for 2.5G, the
+									clock period is 6.4 ns for 156.25 MHz clock.</p>
+
+                     </td>
+
+							              <td class="entry" headers="d45311e195 " width="9.615384615384615%" valign="top" align="center">RW</td>
+
+							              <td class="entry" headers="d45311e198 " width="9.615384615384615%" valign="top" align="center">0x80000 </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d45311e186 " width="9.615384615384615%" valign="top" align="center">0x10A</td>
+
+							              <td class="entry" headers="d45311e189 " width="32.69230769230769%" valign="top" align="left">
+                        <samp class="ph codeph">tx_fns_adjustment_mult_speed</samp>
+                     </td>
+
+							              <td class="entry" headers="d45311e192 " width="38.46153846153846%" valign="top" align="left">Static timing
+								adjustment in fractional nanoseconds on the datapaths for
+								10M/100M/1G/2.5G operations.<ul class="ul" id="bhc1395127781203__ul_vk4_bp2_cz">
+									                  <li class="li">Bits
+										0
+										to 15—adjustment period in fractional
+										nanoseconds.</li>
+
+									                  <li class="li">Bits
+										16
+										to 31—reserved. Set these bits to 0.</li>
+
+								                </ul>
+
+                        <p class="p">Configure
+									this register before you enable the MAC IP core for
+									operations.</p>
+
+                        <p class="p">For
+									timing adjustment calculations, refer to the related
+								links.</p>
+
+                     </td>
+
+							              <td class="entry" headers="d45311e195 " width="9.615384615384615%" valign="top" align="center">RW</td>
+
+							              <td class="entry" headers="d45311e198 " width="9.615384615384615%" valign="top" align="center">0x0 </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d45311e186 " width="9.615384615384615%" valign="top" align="center">0x10C</td>
+
+							              <td class="entry" headers="d45311e189 " width="32.69230769230769%" valign="top" align="left">
+                        <samp class="ph codeph">tx_ns_adjustment_mult_speed</samp>
+                     </td>
+
+							              <td class="entry" headers="d45311e192 " width="38.46153846153846%" valign="top" align="left">Static timing
+								adjustment in nanoseconds on the datapaths for 10M/100M/1G/2.5G
+									operations.<ul class="ul" id="bhc1395127781203__ul_vp5_cp2_cz">
+									                  <li class="li">Bits
+										0
+										to 15—adjustment period in
+										nanoseconds.</li>
+
+									                  <li class="li">Bits
+										16
+										to 31—reserved. Set these bits to 0.</li>
+
+								                </ul>
+
+                        <p class="p">Configure
+									this register before you enable the MAC IP core for
+									operations.</p>
+
+                        <p class="p">For
+									timing adjustment calculations, refer to the related
+								links.</p>
+
+                     </td>
+
+							              <td class="entry" headers="d45311e195 " width="9.615384615384615%" valign="top" align="center">RW</td>
+
+							              <td class="entry" headers="d45311e198 " width="9.615384615384615%" valign="top" align="center">0x0 </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d45311e186 " width="9.615384615384615%" valign="top" align="center">0x12A</td>
+
+							              <td class="entry" headers="d45311e189 " width="32.69230769230769%" valign="top" align="left">
+                        <samp class="ph codeph">rx_fns_adjustment_mult_speed</samp>
+                     </td>
+
+							              <td class="entry" headers="d45311e192 " width="38.46153846153846%" valign="top" align="left">Static timing
+								adjustment in fractional nanoseconds on the datapaths for
+								10M/100M/1G/2.5G operations.<ul class="ul" id="bhc1395127781203__ul_dkw_bp2_cz">
+									                  <li class="li">Bits
+										0
+										to 15—adjustment period in fractional
+										nanoseconds.</li>
+
+									                  <li class="li">Bits
+										16
+										to 31—reserved. Set these bits to 0.</li>
+
+								                </ul>
+
+                        <p class="p">Configure
+									this register before you enable the MAC IP core for
+									operations.</p>
+
+                        <p class="p">For
+									timing adjustment calculations, refer to the related
+								links.</p>
+
+                     </td>
+
+							              <td class="entry" headers="d45311e195 " width="9.615384615384615%" valign="top" align="center">RW</td>
+
+							              <td class="entry" headers="d45311e198 " width="9.615384615384615%" valign="top" align="center">0x0 </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d45311e186 " width="9.615384615384615%" valign="top" align="center">0x12C</td>
+
+							              <td class="entry" headers="d45311e189 " width="32.69230769230769%" valign="top" align="left">
+                        <samp class="ph codeph">rx_ns_adjustment_mult_speed</samp>
+                     </td>
+
+							              <td class="entry" headers="d45311e192 " width="38.46153846153846%" valign="top" align="left">Static timing
+								adjustment in nanoseconds on the datapaths for 10M/100M/1G/2.5G
+									operations.<ul class="ul" id="bhc1395127781203__ul_rgz_cp2_cz">
+									                  <li class="li">Bits
+										0
+										to 15—adjustment period in
+										nanoseconds.</li>
+
+									                  <li class="li">Bits
+										16
+										to 31—reserved. Set these bits to 0.</li>
+
+								                </ul>
+
+                        <p class="p">Configure
+									this register before you enable the MAC IP core for
+									operations.</p>
+
+                        <p class="p">For
+									timing adjustment calculations, refer to the related
+								links.</p>
+
+                     </td>
+
+							              <td class="entry" headers="d45311e195 " width="9.615384615384615%" valign="top" align="center">RW</td>
+
+							              <td class="entry" headers="d45311e198 " width="9.615384615384615%" valign="top" align="center">0x0 </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d45311e186 " width="9.615384615384615%" valign="top" align="center">0x110</td>
+
+							              <td class="entry" headers="d45311e189 " width="32.69230769230769%" valign="top" align="left">
+                        <samp class="ph codeph">tx_asymmetry</samp>
+                     </td>
+
+							              <td class="entry" headers="d45311e192 " width="38.46153846153846%" valign="top" align="left">Specifies the
+								asymmetry value and direction of arithmetic operation.<ul class="ul" id="bhc1395127781203__ul_phg_d42_cz">
+									                  <li class="li">Bits
+										0
+										to 16—asymmetry value.</li>
+
+									                  <li class="li">Bit 17—direction.<ul class="ul" id="bhc1395127781203__ul_qhg_d42_cz">
+											                      <li class="li">Set to 0—add asymmetry value to
+												correction
+												field
+												(CF).</li>
+
+											                      <li class="li">Set to 1—minus asymmetry value from
+												CF.</li>
+
+										                    </ul>
+
+                           </li>
+
+									                  <li class="li">Bit 18—enable bit.</li>
+
+								                </ul>
+
+                     </td>
+
+							              <td class="entry" headers="d45311e195 " width="9.615384615384615%" valign="top" align="center">RW</td>
+
+							              <td class="entry" headers="d45311e198 " width="9.615384615384615%" valign="top" align="center">0x0 </td>
+
+						            </tr>
+
+						
+						            <tr class="row">
+							              <td class="entry" headers="d45311e186 " width="9.615384615384615%" valign="top" align="center">0x112</td>
+
+							              <td class="entry" headers="d45311e189 " width="32.69230769230769%" valign="top" align="left">
+                        <samp class="ph codeph">tx_p2p</samp>
+                     </td>
+
+							              <td class="entry" headers="d45311e192 " width="38.46153846153846%" valign="top" align="left">
+								                <p class="p">Specifies the direction of arithmetic operation
+									for <samp class="ph codeph">meanPathDelay</samp>.</p>
+
+								                <ul class="ul" id="bhc1395127781203__ul_uwy_h2p_w1b">
+									                  <li class="li">Bit 0— direction.<ul class="ul" id="bhc1395127781203__ul_ecd_q2p_w1b">
+											                      <li class="li">Set to 0—add <samp class="ph codeph">meanPathDelay</samp> value to
+												CF.</li>
+
+											                      <li class="li">Set to 1—minus <samp class="ph codeph">meanPathDelay</samp> value from
+												CF.</li>
+
+										                    </ul>
+
+                           </li>
+
+									                  <li class="li">Bits 1 to 30—reserved. </li>
+
+								                </ul>
+
+							              </td>
+
+							              <td class="entry" headers="d45311e195 " width="9.615384615384615%" valign="top" align="center">RW</td>
+
+							              <td class="entry" headers="d45311e198 " width="9.615384615384615%" valign="top" align="center">0x0</td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d45311e186 " width="9.615384615384615%" valign="top" align="center">0x114</td>
+
+							              <td class="entry" headers="d45311e189 " width="32.69230769230769%" valign="top" align="left">
+                        <samp class="ph codeph">tx_cf_err_stat</samp>
+                     </td>
+
+							              <td class="entry" headers="d45311e192 " width="38.46153846153846%" valign="top" align="left">
+								                <ul class="ul" id="bhc1395127781203__ul_y2m_l2p_w1b">
+									                  <li class="li">Bits 0—error status bit to indicate that
+										ingress correction field is equal to the absolute maximum,
+										64’h7FF_FFFF_FFFF_FFFF.</li>
+
+									                  <li class="li">Bits 0 to 15—reserved.</li>
+
+									                  <li class="li">Bit 16—error status bit to indicate that
+										egress correction field is equal or larger than absolute
+										maximum, 64’h7FFF_FFFF_FFFF_FFFF.</li>
+
+									                  <li class="li">Bit 17—error status bit to indicate that
+										residence time is equal or larger than 4 seconds.</li>
+
+									                  <li class="li">Bit 18—error status bit to indicate that
+										residence time is a negative value.</li>
+
+									                  <li class="li">Bits 19 to 31—reserved.</li>
+
+								                </ul>
+
+							              </td>
+
+							              <td class="entry" headers="d45311e195 " width="9.615384615384615%" valign="top" align="center">RW1C</td>
+
+							              <td class="entry" headers="d45311e198 " width="9.615384615384615%" valign="top" align="center">0x0</td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d45311e186 " width="9.615384615384615%" valign="top" align="center">0x12E</td>
+
+							              <td class="entry" headers="d45311e189 " width="32.69230769230769%" valign="top" align="left">
+                        <samp class="ph codeph">rx_p2p_mpd_ns</samp>
+                     </td>
+
+							              <td class="entry" headers="d45311e192 " width="38.46153846153846%" valign="top" align="left">
+								                <p class="p">
+                           <samp class="ph codeph">meanPathDelay</samp>
+									valid and value in ns.</p>
+
+								                <p class="p">The peer-to-peer mechanism delivers <samp class="ph codeph">meanPathDelay</samp> for each ingress
+									port. This needs to be added to the
+									Sync
+									packet’s correction field before the packet is sent out on
+									egress port. Thus, the egress port might add any of the ingress ports'
+									'<samp class="ph codeph">meanPathDelay</samp>'.
+									The value to be added at the egress port should correspond to
+									the ingress port on which the
+									Sync
+									packet has arrived.</p>
+
+								                <ul class="ul" id="bhc1395127781203__ul_wvb_z3p_w1b">
+									                  <li class="li">Bit 30—Indicates <samp class="ph codeph">meanPathDelay</samp> is valid.</li>
+
+									                  <li class="li">Bits 0 to 29—<samp class="ph codeph">meanPathDelay</samp> value in nanosecond.</li>
+
+									                  <li class="li">Bit 31—reserved.</li>
+
+								                </ul>
+
+							              </td>
+
+							              <td class="entry" headers="d45311e195 " width="9.615384615384615%" valign="top" align="center">RW</td>
+
+							              <td class="entry" headers="d45311e198 " width="9.615384615384615%" valign="top" align="center">0x0</td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d45311e186 " width="9.615384615384615%" valign="top" align="center">0x130</td>
+
+							              <td class="entry" headers="d45311e189 " width="32.69230769230769%" valign="top" align="left">
+                        <samp class="ph codeph">rx_p2p_mpd_fns</samp>
+                     </td>
+
+							              <td class="entry" headers="d45311e192 " width="38.46153846153846%" valign="top" align="left">
+								                <ul class="ul" id="bhc1395127781203__ul_s1s_fjp_w1b">
+									                  <li class="li">Bits 0 to 15—<samp class="ph codeph">meanPathDelay</samp> value in fractional
+										nanosecond.</li>
+
+									                  <li class="li">Bits 16 to 31—reserved.</li>
+
+								                </ul>
+
+							              </td>
+
+							              <td class="entry" headers="d45311e195 " width="9.615384615384615%" valign="top" align="center">RW</td>
+
+							              <td class="entry" headers="d45311e198 " width="9.615384615384615%" valign="top" align="center">0x0</td>
+
+						            </tr>
+
+						
+					          </tbody>
+
+				        </table>
+</div>
+
+         
+      </div>
+ 
+  </div>
+ 
+<div class="related-links"><div class="relinfo"><strong>Related Information</strong><br>
+<div><a class="link" href="#nfa1429168877402">Calculating Timing Adjustments</a></div>
+</div>
+</div>
+
+</div>
+</div>
+ 
+      </section> 

@@ -1,0 +1,234 @@
+{
+    "rx_stats_unicastMACCtrlFrames": [
+        "0x01F6", 
+        64
+    ], 
+    "rx_stats_etherStatsOversizePkts": [
+        "0x01E0", 
+        64
+    ], 
+    "tx_stats_etherStatsPkts": [
+        "0x015C", 
+        64
+    ], 
+    "tx_stats_framesOK": [
+        "0x0142", 
+        64
+    ], 
+    "tx_stats_unicastMACCtrlFrames": [
+        "0x0176", 
+        64
+    ], 
+    "tx_stats_unicast_FramesOK": [
+        "0x014E", 
+        64
+    ], 
+    "rx_stats_etherStatsOctets": [
+        "0x01DA", 
+        64
+    ], 
+    "rx_stats_etherStatsPkts256to511Octets": [
+        "0x01E8", 
+        64
+    ], 
+    "tx_stats_etherStatsPkts1519toXOctets": [
+        "0x016E", 
+        64
+    ], 
+    "rx_stats_multicast_FramesErr": [
+        "0x01D4", 
+        64
+    ], 
+    "rx_stats_etherStatsPkts64Octets": [
+        "0x01E2", 
+        64
+    ], 
+    "rx_stats_etherStatsPkts": [
+        "0x01DC", 
+        64
+    ], 
+    "tx_stats_octetsOK": [
+        "0x0148", 
+        64
+    ], 
+    "rx_stats_etherStatsFragments": [
+        "0x01F0", 
+        64
+    ], 
+    "rx_stats_framesOK": [
+        "0x01C2", 
+        64
+    ], 
+    "rx_stats_etherStatsCRCErr": [
+        "0x01F4", 
+        64
+    ], 
+    "rx_stats_framesErr": [
+        "0x01C4", 
+        64
+    ], 
+    "rx_stats_octetsOK": [
+        "0x01C8", 
+        64
+    ], 
+    "rx_stats_etherStatsPkts512to1023Octets": [
+        "0x01EA", 
+        64
+    ], 
+    "tx_stats_etherStatsOversizePkts": [
+        "0x0160", 
+        64
+    ], 
+    "rx_stats_multicastMACCtrlFrames": [
+        "0x01F8", 
+        64
+    ], 
+    "tx_stats_etherStatsPkts64Octets": [
+        "0x0162", 
+        64
+    ], 
+    "tx_stats_pauseMACCtrl_Frames": [
+        "0x014A", 
+        64
+    ], 
+    "rx_stats_pauseMACCtrl_Frames": [
+        "0x01CA", 
+        64
+    ], 
+    "tx_stats_etherStatsPkts512to1023Octets": [
+        "0x016A", 
+        64
+    ], 
+    "rx_stats_unicast_FramesErr": [
+        "0x01D0", 
+        64
+    ], 
+    "tx_stats_ifErrors": [
+        "0x014C", 
+        64
+    ], 
+    "tx_stats_framesErr": [
+        "0x0144", 
+        64
+    ], 
+    "tx_stats_broadcast_FramesErr": [
+        "0x0158", 
+        64
+    ], 
+    "rx_stats_etherStatPkts1024to1518Octets": [
+        "0x01EC", 
+        64
+    ], 
+    "rx_stats_clr": [
+        "0x01C0", 
+        64
+    ], 
+    "tx_stats_etherStatsPkts128to255Octets": [
+        "0x0166", 
+        64
+    ], 
+    "tx_stats_PFCMACCtrlFrames": [
+        "0x017C", 
+        64
+    ], 
+    "tx_stats_multicast_FramesErr": [
+        "0x0154", 
+        64
+    ], 
+    "rx_stats_etherStatsPkts65to127Octets": [
+        "0x01E4", 
+        64
+    ], 
+    "tx_stats_broadcastMACCtrlFrames": [
+        "0x017A", 
+        64
+    ], 
+    "rx_stats_broadcast_FramesErr": [
+        "0x01D8", 
+        64
+    ], 
+    "rx_stats_unicast_FramesOK": [
+        "0x01CE", 
+        64
+    ], 
+    "rx_stats_etherStatsUndersizePkts": [
+        "0x01DE", 
+        64
+    ], 
+    "rx_stats_etherStatsJabbers": [
+        "0x01F2", 
+        64
+    ], 
+    "tx_stats_etherStatsPkts256to511Octets": [
+        "0x0168", 
+        64
+    ], 
+    "rx_stats_etherStatsPkts1519toXOctets": [
+        "0x01EE", 
+        64
+    ], 
+    "tx_stats_etherStatsUndersizePkts": [
+        "0x015E", 
+        64
+    ], 
+    "rx_stats_framesCRCErr": [
+        "0x01C6", 
+        64
+    ], 
+    "tx_stats_etherStatsOctets": [
+        "0x015A", 
+        64
+    ], 
+    "rx_stats_ifErrors": [
+        "0x01CC", 
+        64
+    ], 
+    "rx_stats_etherStatsPkts128to255Octets": [
+        "0x01E6", 
+        64
+    ], 
+    "rx_stats_broadcast_FramesOK": [
+        "0x01D6", 
+        64
+    ], 
+    "tx_stats_broadcast_FramesOK": [
+        "0x0156", 
+        64
+    ], 
+    "rx_stats_PFCMACCtrlFrames": [
+        "0x01FC", 
+        64
+    ], 
+    "tx_stats_etherStatsPkts65to127Octets": [
+        "0x0164", 
+        64
+    ], 
+    "tx_stats_multicastMACCtrlFrames": [
+        "0x0178", 
+        64
+    ], 
+    "tx_stats_clr": [
+        "0x0140", 
+        64
+    ], 
+    "tx_stats_multicast_FramesOK": [
+        "0x0152", 
+        64
+    ], 
+    "rx_stats_broadcastMACCtrlFrames": [
+        "0x01FA", 
+        64
+    ], 
+    "tx_stats_etherStatPkts1024to1518Octets": [
+        "0x016C", 
+        64
+    ], 
+    "tx_stats_unicast_FramesErr": [
+        "0x0150", 
+        64
+    ], 
+    "rx_stats_multicast_FramesOK": [
+        "0x01D2", 
+        64
+    ]
+}

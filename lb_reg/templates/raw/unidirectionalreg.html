@@ -1,0 +1,106 @@
+        <section class="tab-2 section-overflow">
+
+        <header class="anchor" id="bhc1395634816061">
+          <h1>
+          
+            Unidirectional Control Registers 
+          </h1>
+        </header> 
+        <div class="rich-text text parbase"><div class="container top-padding bottom-padding">
+ 
+	  <div class="body refbody">
+		    <div class="section" id="bhc1395634816061__section_N10012_N1000F_N10001">
+			      
+<div class="tablenoborder"><table class="table" frame="border" id="bhc1395634816061__table_N10019_N10016_N10001" rules="all" summary="" cellspacing="0" cellpadding="4" border="1"><caption xmlns="http://www.w3.org/1999/xhtml"><span class="tablecap"><span class="tablecap"><span class="enumeration table-enumeration">Table 27.  </span>Unidirectional Control Registers</span></span></caption>
+					          
+					          
+					          
+					          
+					          
+					          <thead class="thead" align="left">
+						            <tr class="row">
+							              <th class="entry" id="d42426e183" width="9.900990099009901%" valign="top" align="center">Word Offset</th>
+
+							              <th class="entry" id="d42426e186" width="29.702970297029697%" valign="top" align="center">Register
+								Name</th>
+
+							              <th class="entry" id="d42426e189" width="44.55445544554455%" valign="top" align="center">Description</th>
+
+							              <th class="entry" id="d42426e192" width="7.92079207920792%" valign="top" align="center">Access</th>
+
+							              <th class="entry" id="d42426e195" width="7.92079207920792%" valign="top" align="center">HW Reset
+								Value</th>
+
+						            </tr>
+
+					          </thead>
+
+					          <tbody class="tbody">
+						            <tr class="row">
+							              <td class="entry" headers="d42426e183 " width="9.900990099009901%" valign="top" align="center">0x0070</td>
+
+							              <td class="entry" headers="d42426e186 " width="29.702970297029697%" valign="top" align="left">
+                        <samp class="ph codeph">tx_unidir_control</samp>
+                        <a xmlns="http://www.w3.org/1999/xhtml" href="#fntarg_9" name="fnsrc_9"><sup>9</sup></a>
+                     </td>
+
+							              <td class="entry" headers="d42426e189 " width="44.55445544554455%" valign="top" align="left">
+								                <ul class="ul" id="bhc1395634816061__ul_F58F51AC206C4CD3AFAD905051CBE2C1">
+									                  <li class="li" id="bhc1395634816061__li_43FB9189EE76483EB62AC1BF8C17B7C9">Bit 0—configures the
+										unidirectional feature on the TX path. <p class="p">0:
+											Disables unidirectional feature. </p>
+
+                              <p class="p">1: Enables unidirectional feature.</p>
+
+									                  </li>
+
+									                  <li class="li">Bit 1—configures remote fault sequence generation when the
+										unidirectional feature is enabled on the TX path. <p class="p">0: Enable remote fault sequence
+											generation on detecting local fault. </p>
+
+                              <p class="p">1: Disable remote fault sequence
+											generation.</p>
+
+                           </li>
+
+									                  <li class="li">Bit 2—configures user-triggered remote fault notification
+										when the unidirectional feature is enabled on the TX
+											path.<p class="p">0: Default setting. </p>
+
+                              <p class="p">1: The IP core sends
+											remote fault notifications continuously until this bit
+											is cleared.</p>
+
+                           </li>
+
+									                  <li class="li" id="bhc1395634816061__li_EB006BD8CE7C4BCFB4906AAE9DEAF725">Bits 31:3—reserved. </li>
+
+								                </ul>
+
+								                <p class="p">Configure this register before you enable the MAC
+									IP core for operations. </p>
+
+							              </td>
+
+							              <td class="entry" headers="d42426e192 " width="7.92079207920792%" valign="top" align="center">RW</td>
+
+							              <td class="entry" headers="d42426e195 " width="7.92079207920792%" valign="top" align="center">0x0</td>
+
+						            </tr>
+
+					          </tbody>
+
+				        </table>
+</div>
+
+		    </div>
+
+	  </div>
+
+<div xmlns="http://www.w3.org/1999/xhtml" class="fn"><a href="#fnsrc_9" name="fntarg_9"><sup>9</sup></a>  This register is used when you
+									turn on <span xmlns="" class="ph uicontrol">Enable unidirectional feature</span>. It
+									is reserved when not used.</div>
+</div>
+</div>
+ 
+      </section> 

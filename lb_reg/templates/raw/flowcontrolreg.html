@@ -1,0 +1,439 @@
+        <section class="tab-2 section-overflow">
+
+        <header class="anchor" id="bhc1395127773623">
+          <h1>
+          
+            Flow Control Registers 
+          </h1>
+        </header> 
+        <div class="rich-text text parbase"><div class="container top-padding bottom-padding">
+ 
+	  <div class="body refbody">
+		    <div class="section" id="bhc1395127773623__section_N10012_N1000F_N10001">
+			      
+<div class="tablenoborder"><table class="table" frame="border" id="bhc1395127773623__table_qpz_kg1_zq" rules="all" summary="" cellspacing="0" cellpadding="4" border="1"><caption xmlns="http://www.w3.org/1999/xhtml"><span class="tablecap"><span class="tablecap"><span class="enumeration table-enumeration">Table 26.  </span>Flow Control Registers</span></span></caption>
+					
+					
+					          
+					
+					          
+					
+					          
+					
+					          
+					
+					          <thead class="thead" align="left">
+						            <tr class="row">
+							              <th class="entry" id="d40686e193" width="10.416666666666666%" valign="top" align="center">Word Offset </th>
+
+							              <th class="entry" id="d40686e196" width="31.249999999999993%" valign="top" align="center">Register Name </th>
+
+							              <th class="entry" id="d40686e199" width="41.666666666666664%" valign="top" align="center">Description </th>
+
+							              <th class="entry" id="d40686e202" width="8.333333333333332%" valign="top" align="center">Access </th>
+
+							              <th class="entry" id="d40686e205" width="8.333333333333332%" valign="top" align="center">HW Reset Value
+							</th>
+
+						            </tr>
+
+					          </thead>
+
+					          <tbody class="tbody">
+						            <tr class="row">
+							              <td class="entry" headers="d40686e193 " width="10.416666666666666%" valign="top" align="center">0x0040 </td>
+
+							              <td class="entry" headers="d40686e196 " width="31.249999999999993%" valign="top" align="left">
+                        <samp class="ph codeph">tx_pauseframe_control</samp>
+							              </td>
+
+							              <td class="entry" headers="d40686e199 " width="41.666666666666664%" valign="top" align="left">
+								                <ul class="ul" id="bhc1395127773623__ul_vb1_lg1_zq">
+									                  <li class="li">Bits 1:0—configures the transmission of
+										pause frames. <p class="p">00: No pause frame
+											transmission. </p>
+
+                              <p class="p">01: Trigger the
+											transmission of an XON pause frame (pause quanta = 0),
+											if the transmission is not disabled by other conditions.
+											</p>
+
+                              <p class="p">10: Trigger the transmission of
+											an XOFF pause frame (pause quanta = <samp class="ph codeph">tx_pauseframe_quanta</samp>
+											register), if the transmission is not disabled by other
+											conditions. </p>
+
+                              <p class="p">11: Reserved. This
+											setting does not trigger any action. </p>
+
+									                  </li>
+
+									                  <li class="li">Bits 31:2—reserved. </li>
+
+								                </ul>
+
+								                <p class="p">Changes to this self-clearing register affects
+									the next transmission of a pause frame.</p>
+
+							              </td>
+
+							              <td class="entry" headers="d40686e202 " width="8.333333333333332%" valign="top" align="center">RW </td>
+
+							              <td class="entry" headers="d40686e205 " width="8.333333333333332%" valign="top" align="center">0x0 </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d40686e193 " width="10.416666666666666%" valign="top" align="center">0x0042 </td>
+
+							              <td class="entry" headers="d40686e196 " width="31.249999999999993%" valign="top" align="left">
+                        <samp class="ph codeph">tx_pauseframe_quanta</samp>
+							              </td>
+
+							              <td class="entry" headers="d40686e199 " width="41.666666666666664%" valign="top" align="left">
+								                <ul class="ul" id="bhc1395127773623__ul_eg1_lg1_zq">
+									                  <li class="li">Bits 15:0—pause quanta in unit of quanta, 1
+										unit = 512 bits time. The MAC IP core uses this value when
+										it generates XOFF pause frames. An XOFF pause frame with a
+										quanta value of 0 is equivalent to an XON frame. </li>
+
+									                  <li class="li">Bits 31:16—reserved. </li>
+
+								                </ul>
+
+								                <p class="p">Configure this register before you enable the MAC
+									IP core for operations. </p>
+
+							              </td>
+
+							              <td class="entry" headers="d40686e202 " width="8.333333333333332%" valign="top" align="center">RW </td>
+
+							              <td class="entry" headers="d40686e205 " width="8.333333333333332%" valign="top" align="center">0x0 </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d40686e193 " width="10.416666666666666%" valign="top" align="center">0x0043 </td>
+
+							              <td class="entry" headers="d40686e196 " width="31.249999999999993%" valign="top" align="left">
+                        <samp class="ph codeph">tx_pauseframe_holdoff_quanta</samp>
+							              </td>
+
+							              <td class="entry" headers="d40686e199 " width="41.666666666666664%" valign="top" align="left">
+								                <ul class="ul" id="bhc1395127773623__ul_ck1_lg1_zq">
+									                  <li class="li">Bits 15:0—specifies the gap between two
+										consecutive transmissions of XOFF pause frames in unit of
+										quanta, 1 unit = 512 bits time. The gap prevents
+										back-to-back transmissions of pause frames, which may affect
+										the transmission of data frames. </li>
+
+									                  <li class="li">Bits 31:16—reserved. </li>
+
+								                </ul>
+
+								                <p class="p">Configure this register before you enable the MAC
+									IP core for operations. </p>
+
+							              </td>
+
+							              <td class="entry" headers="d40686e202 " width="8.333333333333332%" valign="top" align="center">RW </td>
+
+							              <td class="entry" headers="d40686e205 " width="8.333333333333332%" valign="top" align="center">0x1 </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d40686e193 " width="10.416666666666666%" valign="top" align="center">0x0044 </td>
+
+							              <td class="entry" headers="d40686e196 " width="31.249999999999993%" valign="top" align="left">
+                        <samp class="ph codeph">tx_pauseframe_enable</samp>
+                     </td>
+
+							              <td class="entry" headers="d40686e199 " width="41.666666666666664%" valign="top" align="left">
+								                <ul class="ul" id="bhc1395127773623__ul_wn1_lg1_zq">
+									                  <li class="li">Bit 0—configures the transmission of pause
+										frames. This bit affects pause frame requests from both
+										register and vector settings. <p class="p">0: Disables
+											pause frame transmission. </p>
+
+                              <p class="p">1:
+											Enables pause frame transmission, if TX path is enabled
+												by<samp class="ph codeph">
+												tx_packet_control</samp>. </p>
+
+									                  </li>
+
+									                  <li class="li">Bits 2:1—specifies the trigger for pause
+										frame requests. <p class="p">00: Accepts pause frame
+											requests only from vector setting, <samp class="ph codeph">avalon_st_pause_data</samp>.
+											</p>
+
+                              <p class="p">01: Accepts pause frame requests
+											only from register setting, <samp class="ph codeph">tx_pauseframe_control</samp>. </p>
+
+                              <p class="p">10 / 11: Reserved. </p>
+
+									                  </li>
+
+									                  <li class="li">Bits 31:3—reserved. </li>
+
+								                </ul>
+
+								                <p class="p">Configure this register before you enable the MAC
+									IP core for operations. </p>
+
+							              </td>
+
+							              <td class="entry" headers="d40686e202 " width="8.333333333333332%" valign="top" align="center">RW </td>
+
+							              <td class="entry" headers="d40686e205 " width="8.333333333333332%" valign="top" align="center">0x1 </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d40686e193 " width="10.416666666666666%" valign="top" align="center">0x0046 </td>
+
+							              <td class="entry" headers="d40686e196 " width="31.249999999999993%" valign="top" align="left">
+                        <samp class="ph codeph">tx_pfc_priority_enable</samp>
+                        
+                        <a xmlns="http://www.w3.org/1999/xhtml" class="xref" href="/content/altera-www/global/en_us/index/documentation/bhc1395127830032.html#bhc1395127773623__fn_fc_pfc"><sup><span class="enumeration fn-enumeration">8</span></sup></a>
+							              </td>
+
+							              <td class="entry" headers="d40686e199 " width="41.666666666666664%" valign="top" align="left">Enables
+								priority-based flow control on the TX datapath. <ul class="ul" id="bhc1395127773623__ul_ls1_lg1_zq">
+									                  <li class="li">Bits 7:0—setting bit <em class="ph i">n</em> enables priority-based flow control for priority
+										queue <em class="ph i">n</em>. For example, setting <samp class="ph codeph">tx_pfc_priority_enable[0]</samp>
+										enables queue 0. </li>
+
+									                  <li class="li">Bits 31:8—reserved. </li>
+
+								                </ul>
+
+                        <p class="p">Configure this register before you enable
+									the MAC IP core for operations.</p>
+
+                     </td>
+
+							              <td class="entry" headers="d40686e202 " width="8.333333333333332%" valign="top" align="center">RW </td>
+
+							              <td class="entry" headers="d40686e205 " width="8.333333333333332%" valign="top" align="center">0x0 </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d40686e193 " width="10.416666666666666%" valign="top" align="center">0x0048 </td>
+
+							              <td class="entry" headers="d40686e196 " width="31.249999999999993%" valign="top" align="left">
+                        <samp class="ph codeph">pfc_pause_quanta_0</samp>
+                        <a xmlns="http://www.w3.org/1999/xhtml" class="xref" href="/content/altera-www/global/en_us/index/documentation/bhc1395127830032.html#bhc1395127773623__fn_fc_pfc"><sup><span class="enumeration fn-enumeration">8</span></sup></a>
+							              </td>
+
+							              <td class="entry" headers="d40686e199 " rowspan="8" width="41.666666666666664%" valign="top" align="left">Specifies the pause quanta for each priority queue. <ul class="ul" id="bhc1395127773623__ul_gw1_lg1_zq">
+									                  <li class="li">Bits 15:0—<samp class="ph codeph">pfc_pause_quanta_<em class="ph i">n</em>[15:0]</samp> specifies the pause length for
+										priority queue <em class="ph i">n</em> in quanta unit,
+										where 1 unit = 512 bits time. </li>
+
+									                  <li class="li">Bits 31:16—reserved. </li>
+
+								                </ul>
+
+                        <p class="p">Configure these registers before you enable
+									the MAC IP core for operations. </p>
+
+							              </td>
+
+							              <td class="entry" headers="d40686e202 " rowspan="8" width="8.333333333333332%" valign="top" align="center">RW </td>
+
+							              <td class="entry" headers="d40686e205 " rowspan="8" width="8.333333333333332%" valign="top" align="center">0x0
+							</td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d40686e193 " width="10.416666666666666%" valign="top" align="center">0x0049 </td>
+
+							              <td class="entry" headers="d40686e196 " width="31.249999999999993%" valign="top" align="left">
+                        <samp class="ph codeph">pfc_pause_quanta_1</samp>
+                        <a xmlns="http://www.w3.org/1999/xhtml" class="xref" href="/content/altera-www/global/en_us/index/documentation/bhc1395127830032.html#bhc1395127773623__fn_fc_pfc"><sup><span class="enumeration fn-enumeration">8</span></sup></a>
+							              </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d40686e193 " width="10.416666666666666%" valign="top" align="center">0x004A </td>
+
+							              <td class="entry" headers="d40686e196 " width="31.249999999999993%" valign="top" align="left">
+                        <samp class="ph codeph">pfc_pause_quanta_2</samp>
+                        <a xmlns="http://www.w3.org/1999/xhtml" class="xref" href="/content/altera-www/global/en_us/index/documentation/bhc1395127830032.html#bhc1395127773623__fn_fc_pfc"><sup><span class="enumeration fn-enumeration">8</span></sup></a>
+							              </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d40686e193 " width="10.416666666666666%" valign="top" align="center">0x004B </td>
+
+							              <td class="entry" headers="d40686e196 " width="31.249999999999993%" valign="top" align="left">
+                        <samp class="ph codeph">pfc_pause_quanta_3</samp>
+                        <a xmlns="http://www.w3.org/1999/xhtml" class="xref" href="/content/altera-www/global/en_us/index/documentation/bhc1395127830032.html#bhc1395127773623__fn_fc_pfc"><sup><span class="enumeration fn-enumeration">8</span></sup></a>
+							              </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d40686e193 " width="10.416666666666666%" valign="top" align="center">0x004C </td>
+
+							              <td class="entry" headers="d40686e196 " width="31.249999999999993%" valign="top" align="left">
+                        <samp class="ph codeph">pfc_pause_quanta_4</samp>
+                        <a xmlns="http://www.w3.org/1999/xhtml" class="xref" href="/content/altera-www/global/en_us/index/documentation/bhc1395127830032.html#bhc1395127773623__fn_fc_pfc"><sup><span class="enumeration fn-enumeration">8</span></sup></a>
+							              </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d40686e193 " width="10.416666666666666%" valign="top" align="center">0x004D </td>
+
+							              <td class="entry" headers="d40686e196 " width="31.249999999999993%" valign="top" align="left">
+                        <samp class="ph codeph">pfc_pause_quanta_5</samp>
+                        <a xmlns="http://www.w3.org/1999/xhtml" class="xref" href="/content/altera-www/global/en_us/index/documentation/bhc1395127830032.html#bhc1395127773623__fn_fc_pfc"><sup><span class="enumeration fn-enumeration">8</span></sup></a>
+							              </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d40686e193 " width="10.416666666666666%" valign="top" align="center">0x004E </td>
+
+							              <td class="entry" headers="d40686e196 " width="31.249999999999993%" valign="top" align="left">
+                        <samp class="ph codeph">pfc_pause_quanta_6</samp>
+                        <a xmlns="http://www.w3.org/1999/xhtml" class="xref" href="/content/altera-www/global/en_us/index/documentation/bhc1395127830032.html#bhc1395127773623__fn_fc_pfc"><sup><span class="enumeration fn-enumeration">8</span></sup></a>
+							              </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d40686e193 " width="10.416666666666666%" valign="top" align="center">0x004F </td>
+
+							              <td class="entry" headers="d40686e196 " width="31.249999999999993%" valign="top" align="left">
+                        <samp class="ph codeph">pfc_pause_quanta_7</samp>
+                        <a xmlns="http://www.w3.org/1999/xhtml" class="xref" href="/content/altera-www/global/en_us/index/documentation/bhc1395127830032.html#bhc1395127773623__fn_fc_pfc"><sup><span class="enumeration fn-enumeration">8</span></sup></a>
+							              </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d40686e193 " width="10.416666666666666%" valign="top" align="center">0x0058 </td>
+
+							              <td class="entry" headers="d40686e196 " width="31.249999999999993%" valign="top" align="left">
+                        <samp class="ph codeph">pfc_holdoff_quanta_0</samp>
+                        <a xmlns="http://www.w3.org/1999/xhtml" class="xref" href="/content/altera-www/global/en_us/index/documentation/bhc1395127830032.html#bhc1395127773623__fn_fc_pfc"><sup><span class="enumeration fn-enumeration">8</span></sup></a>
+							              </td>
+
+							              <td class="entry" headers="d40686e199 " rowspan="8" width="41.666666666666664%" valign="top" align="left">Specifies the gap between two consecutive transmissions of XOFF
+								pause frames in unit of quanta, 1 unit = 512 bits time. The gap
+								prevents back-to-back transmissions of pause frames, which may
+								affect the transmission of data frames. <ul class="ul" id="bhc1395127773623__ul_uz1_lg1_zq">
+									                  <li class="li">Bits 15:0— <samp class="ph codeph">pfc_holdoff_quanta_<em class="ph i">n</em>[15:0]</samp> specifies the gap for priority
+										queue <em class="ph i">n</em>. </li>
+
+									                  <li class="li">Bits 31:16—reserved. </li>
+
+								                </ul>
+
+								                <p class="p">Configure these registers before you enable the
+									MAC IP core for operations. </p>
+
+							              </td>
+
+							              <td class="entry" headers="d40686e202 " rowspan="8" width="8.333333333333332%" valign="top" align="center">RW </td>
+
+							              <td class="entry" headers="d40686e205 " rowspan="8" width="8.333333333333332%" valign="top" align="center">0x1
+							</td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d40686e193 " width="10.416666666666666%" valign="top" align="center">0x0059 </td>
+
+							              <td class="entry" headers="d40686e196 " width="31.249999999999993%" valign="top" align="left">
+                        <samp class="ph codeph">pfc_holdoff_quanta_1</samp>
+                        <a xmlns="http://www.w3.org/1999/xhtml" class="xref" href="/content/altera-www/global/en_us/index/documentation/bhc1395127830032.html#bhc1395127773623__fn_fc_pfc"><sup><span class="enumeration fn-enumeration">8</span></sup></a>
+							              </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d40686e193 " width="10.416666666666666%" valign="top" align="center">0x005A </td>
+
+							              <td class="entry" headers="d40686e196 " width="31.249999999999993%" valign="top" align="left">
+                        <samp class="ph codeph">pfc_holdoff_quanta_2</samp>
+                        <a xmlns="http://www.w3.org/1999/xhtml" class="xref" href="/content/altera-www/global/en_us/index/documentation/bhc1395127830032.html#bhc1395127773623__fn_fc_pfc"><sup><span class="enumeration fn-enumeration">8</span></sup></a>
+							              </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d40686e193 " width="10.416666666666666%" valign="top" align="center">0x005B </td>
+
+							              <td class="entry" headers="d40686e196 " width="31.249999999999993%" valign="top" align="left">
+                        <samp class="ph codeph">pfc_holdoff_quanta_3</samp>
+                        <a xmlns="http://www.w3.org/1999/xhtml" class="xref" href="/content/altera-www/global/en_us/index/documentation/bhc1395127830032.html#bhc1395127773623__fn_fc_pfc"><sup><span class="enumeration fn-enumeration">8</span></sup></a>
+							              </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d40686e193 " width="10.416666666666666%" valign="top" align="center">0x005C </td>
+
+							              <td class="entry" headers="d40686e196 " width="31.249999999999993%" valign="top" align="left">
+                        <samp class="ph codeph">pfc_holdoff_quanta_4</samp>
+                        <a xmlns="http://www.w3.org/1999/xhtml" class="xref" href="/content/altera-www/global/en_us/index/documentation/bhc1395127830032.html#bhc1395127773623__fn_fc_pfc"><sup><span class="enumeration fn-enumeration">8</span></sup></a>
+							              </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d40686e193 " width="10.416666666666666%" valign="top" align="center">0x005D </td>
+
+							              <td class="entry" headers="d40686e196 " width="31.249999999999993%" valign="top" align="left">
+                        <samp class="ph codeph">pfc_holdoff_quanta_5</samp>
+                        <a xmlns="http://www.w3.org/1999/xhtml" class="xref" href="/content/altera-www/global/en_us/index/documentation/bhc1395127830032.html#bhc1395127773623__fn_fc_pfc"><sup><span class="enumeration fn-enumeration">8</span></sup></a>
+							              </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d40686e193 " width="10.416666666666666%" valign="top" align="center">0x005E </td>
+
+							              <td class="entry" headers="d40686e196 " width="31.249999999999993%" valign="top" align="left">
+                        <samp class="ph codeph">pfc_holdoff_quanta_6</samp>
+                        <a xmlns="http://www.w3.org/1999/xhtml" class="xref" href="/content/altera-www/global/en_us/index/documentation/bhc1395127830032.html#bhc1395127773623__fn_fc_pfc"><sup><span class="enumeration fn-enumeration">8</span></sup></a>
+							              </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d40686e193 " width="10.416666666666666%" valign="top" align="center">0x005F </td>
+
+							              <td class="entry" headers="d40686e196 " width="31.249999999999993%" valign="top" align="left">
+                        <samp class="ph codeph">pfc_holdoff_quanta_7</samp>
+                        <a xmlns="http://www.w3.org/1999/xhtml" class="xref" href="/content/altera-www/global/en_us/index/documentation/bhc1395127830032.html#bhc1395127773623__fn_fc_pfc"><sup><span class="enumeration fn-enumeration">8</span></sup></a>
+							              </td>
+
+						            </tr>
+
+					          </tbody>
+
+				        </table>
+</div>
+
+		    </div>
+
+	  </div>
+
+<div xmlns="http://www.w3.org/1999/xhtml" class="fn"><a id="bhc1395127773623__fn_fc_pfc"><sup>8</sup></a>  This register is used only when you turn on the
+										<span xmlns="" class="ph uicontrol">Enable preamble pass-through
+										mode</span> option. It is reserved when not
+									used.</div>
+</div>
+</div>
+ 
+      </section> 

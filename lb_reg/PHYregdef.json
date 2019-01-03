@@ -1,0 +1,66 @@
+{
+    "control": [
+        "0x00", 
+        32
+    ], 
+    "status": [
+        "0x01", 
+        32
+    ], 
+    "dev_ability": [
+        "0x04", 
+        32
+    ], 
+    "scratch": [
+        "0x10", 
+        32
+    ], 
+    "usxgmii_control": [
+        "0x400", 
+        32
+    ], 
+    "rev": [
+        "0x11", 
+        32
+    ], 
+    "partner_ability": [
+        "0x05", 
+        32
+    ], 
+    "phy_serial_loopback": [
+        "0x461", 
+        32
+    ], 
+    "phy_identifier": [
+        "0x02", 
+        32
+    ], 
+    "link_timer": [
+        "0x12", 
+        32
+    ], 
+    "usxgmii_status": [
+        "0x401", 
+        32
+    ], 
+    "an_expansion": [
+        "0x06", 
+        32
+    ], 
+    "usxgmii_partner_ability": [
+        "0x405", 
+        32
+    ], 
+    "device_next_page": [
+        "0x07", 
+        32
+    ], 
+    "partner_next_page": [
+        "0x08", 
+        32
+    ], 
+    "usxgmii_link_timer": [
+        "0x412", 
+        32
+    ]
+}

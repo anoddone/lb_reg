@@ -1,0 +1,1114 @@
+<div class="tablenoborder"><table border="1" cellpadding="4" cellspacing="0" class="table" frame="border" id="nfa1421131082795__table_BAE48FEEE34B42E8AA49E0598953E8BE" rules="all" summary=""><caption xmlns="http://www.w3.org/1999/xhtml"><span class="tablecap"><span class="tablecap"><span class="enumeration table-enumeration">Table 159. &nbsp;</span>PHY Register Definitions</span></span></caption>
+               
+               
+               
+               
+               
+               <thead align="left" class="thead">
+                  <tr class="row">
+                     <th align="left" class="entry" id="d148753e252" valign="top" width="15.625%"> Addr </th>
+
+                     <th align="left" class="entry" id="d148753e255" valign="top" width="18.749999999999996%"> Name </th>
+
+                     <th align="left" class="entry" id="d148753e258" valign="top" width="46.875%"> Description </th>
+
+                     <th align="center" class="entry" id="d148753e261" valign="top" width="7.8125%">Access</th>
+
+                     <th align="center" class="entry" id="d148753e264" valign="top" width="10.937499999999998%">HW Reset Value</th>
+
+                  </tr>
+
+               </thead>
+
+               <tbody class="tbody">
+                  <tr class="row props_product_ArriaV props_product_a10">
+                     <td align="left" class="entry" headers="d148753e252 " rowspan="5" valign="top" width="15.625%">
+                        <p class="p">0x00</p>
+
+                     </td>
+
+                     <td align="left" class="entry" headers="d148753e255 " rowspan="5" valign="top" width="18.749999999999996%"> 
+                        <samp class="ph codeph">control </samp> 
+                     </td>
+
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">
+                        <ul class="ul" id="nfa1421131082795__ul_djy_pr4_sq">
+                           <li class="li">Bit [15]: <samp class="ph codeph">RESET</samp>. Set this bit to 1 to trigger a soft reset. <p class="p">The PHY clears the bit when the reset is completed. The register values remain intact during the reset.</p>
+
+                           </li>
+
+                        </ul>
+
+                     </td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">
+                        <p class="p">RWC</p>
+
+                     </td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">0</td>
+
+                  </tr>
+
+                  <tr class="row props_product_ArriaV props_product_a10">
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">
+                        <ul class="ul" id="nfa1421131082795__ul_ifc_jxp_jt">
+                           <li class="li">Bit[14]: <samp class="ph codeph">LOOPBACK</samp>. Set this bit to 1 to enable loopback on the serial interface.</li>
+
+                        </ul>
+
+                     </td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">RW</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">0</td>
+
+                  </tr>
+
+                  <tr class="row props_product_ArriaV props_product_a10">
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">
+                        <ul class="ul" id="nfa1421131082795__ul_wvj_kxp_jt">
+                           <li class="li">Bit [12]: <samp class="ph codeph">AUTO_NEGOTIATION_ENABLE</samp>. Set this bit to 1 to enable auto-negotiation. <p class="p">Auto-negotiation is supported only in 1GbE. Therefore, set this bit to 0 when you switch to a speed other than 1GbE.</p>
+
+                           </li>
+
+                        </ul>
+
+                     </td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">RW</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">0</td>
+
+                  </tr>
+
+                  <tr class="row props_product_ArriaV props_product_a10">
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">
+                        <ul class="ul" id="nfa1421131082795__ul_ljt_lxp_jt">
+                           <li class="li">Bit [9]: <samp class="ph codeph">RESTART_AUTO_NEGOTIATION</samp>. Set this bit to 1 to restart auto-negotiation.<p class="p">The PHY clears the bit as soon as auto-negotiation is restarted.</p>
+
+                           </li>
+
+                        </ul>
+
+                     </td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">RWC</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">0</td>
+
+                  </tr>
+
+                  <tr class="row props_product_ArriaV props_product_a10">
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">
+                        <ul class="ul" id="nfa1421131082795__ul_c4m_nxp_jt">
+                           <li class="li">The rest of the bits are reserved.</li>
+
+                        </ul>
+
+                     </td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">—</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">—</td>
+
+                  </tr>
+
+                  <tr class="row props_product_ArriaV props_product_a10">
+                     <td align="left" class="entry" headers="d148753e252 " rowspan="4" valign="top" width="15.625%">
+                        <p class="p">0x01</p>
+
+                     </td>
+
+                     <td align="left" class="entry" headers="d148753e255 " rowspan="4" valign="top" width="18.749999999999996%">
+                        <samp class="ph codeph">status</samp>
+                     </td>
+
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">
+                        <ul class="ul" id="nfa1421131082795__ul_kc5_mr4_sq">
+                           <li class="li">Bit [5]: <samp class="ph codeph">AUTO_NEGOTIATION_COMPLETE</samp>. A value of "1" indicates that the auto-negotiation is completed.</li>
+
+                        </ul>
+
+                     </td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">
+                        <p class="p">RO</p>
+
+                     </td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">0</td>
+
+                  </tr>
+
+                  <tr class="row props_product_ArriaV props_product_a10">
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">
+                        <ul class="ul" id="nfa1421131082795__ul_cxn_z1z_jt">
+                           <li class="li">Bit [3]: <samp class="ph codeph">AUTO_NEGOTIATION_ABILITY</samp>. A value of "1" indicates that the PCS function supports auto-negotiation.</li>
+
+                        </ul>
+
+                     </td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">RO</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">1</td>
+
+                  </tr>
+
+                  <tr class="row props_product_ArriaV props_product_a10">
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">
+                        <ul class="ul" id="nfa1421131082795__ul_rld_jyp_jt">
+                           <li class="li">Bit [2]: <samp class="ph codeph">LINK_STATUS</samp>. A value of "0" indicates that the link is lost. Value of 1 indicates that the link is established.</li>
+
+                        </ul>
+
+                     </td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">RO</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">0</td>
+
+                  </tr>
+
+                  <tr class="row props_product_ArriaV props_product_a10">
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">
+                        <ul class="ul" id="nfa1421131082795__ul_ccf_lyp_jt">
+                           <li class="li">The rest of the bits are reserved.</li>
+
+                        </ul>
+
+                     </td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">—</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">—</td>
+
+                  </tr>
+
+                  <tr class="row props_product_ArriaV props_product_a10">
+                     <td align="left" class="entry" headers="d148753e252 " valign="top" width="15.625%">
+                        <p class="p">0x02:0x03</p>
+
+                     </td>
+
+                     <td align="left" class="entry" headers="d148753e255 " valign="top" width="18.749999999999996%">
+                        <samp class="ph codeph">phy_identifier</samp>
+                     </td>
+
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">
+                        <p class="p">The value set in the <strong class="ph b">PHY_IDENTIFIER</strong> parameter.</p>
+
+                     </td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">
+                        <p class="p">RO</p>
+
+                     </td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">Value of PHY_IDENTIFIER parameter</td>
+
+                  </tr>
+
+                  <tr class="row props_product_ArriaV props_product_a10">
+                     <td align="left" class="entry" headers="d148753e252 " rowspan="5" valign="top" width="15.625%">
+                        <p class="p">0x04</p>
+
+                     </td>
+
+                     <td align="left" class="entry" headers="d148753e255 " rowspan="5" valign="top" width="18.749999999999996%">
+                        <samp class="ph codeph">dev_ability</samp>
+                     </td>
+
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">Use this register to advertise the device abilities during auto-negotiation.</td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">—</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">—</td>
+
+                  </tr>
+
+                  <tr class="row props_product_ArriaV props_product_a10">
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">
+                        <ul class="ul" id="nfa1421131082795__ul_c3q_bbq_jt">
+                           <li class="li">Bits [13:12]: <samp class="ph codeph">RF</samp>. Specify the remote fault. <ul class="ul" id="nfa1421131082795__ul_fgz_sbq_jt">
+                                 <li class="li">00: No error.</li>
+
+                                 <li class="li">01: Link failure.</li>
+
+                                 <li class="li">10: Offline.</li>
+
+                                 <li class="li">11: Auto-negotiation error.</li>
+
+                              </ul>
+
+                           </li>
+
+                        </ul>
+
+                     </td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">RW</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">00</td>
+
+                  </tr>
+
+                  <tr class="row props_product_ArriaV props_product_a10">
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">
+                        <ul class="ul" id="nfa1421131082795__ul_js3_12q_jt">
+                           <li class="li">Bits [8:7]: <samp class="ph codeph">PS</samp>. Specify the PAUSE support. <ul class="ul" id="nfa1421131082795__ul_fhx_xkq_jt">
+                                 <li class="li">00: No PAUSE.</li>
+
+                                 <li class="li">01: Symmetric PAUSE.</li>
+
+                                 <li class="li">10: Asymmetric PAUSE towards the link partner.</li>
+
+                                 <li class="li">11: Asymmetric and symmetric PAUSE towards the link device. </li>
+
+                              </ul>
+
+                           </li>
+
+                        </ul>
+
+                     </td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">RW</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">11</td>
+
+                  </tr>
+
+                  <tr class="row props_product_ArriaV props_product_a10">
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">
+                        <ul class="ul" id="nfa1421131082795__ul_ist_vmq_jt">
+                           <li class="li">Bit [5]: <samp class="ph codeph">FD</samp>. Ensure that this bit is always set to 1.</li>
+
+                        </ul>
+
+                     </td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">RW</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">1</td>
+
+                  </tr>
+
+                  <tr class="row props_product_ArriaV props_product_a10">
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">
+                        <ul class="ul" id="nfa1421131082795__ul_lsz_zmq_jt">
+                           <li class="li">The rest of the bits are reserved.</li>
+
+                        </ul>
+
+                     </td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">—</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">—</td>
+
+                  </tr>
+
+                  <tr class="row props_product_ArriaV props_product_a10">
+                     <td align="left" class="entry" headers="d148753e252 " rowspan="7" valign="top" width="15.625%">0x05</td>
+
+                     <td align="left" class="entry" headers="d148753e255 " rowspan="7" valign="top" width="18.749999999999996%">
+                        <samp class="ph codeph">partner_ability</samp>
+                     </td>
+
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">The device abilities of the link partner during auto-negotiation.</td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">—</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">—</td>
+
+                  </tr>
+
+                  <tr class="row props_product_ArriaV props_product_a10">
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">
+                        <ul class="ul" id="nfa1421131082795__ul_gt5_51q_jt">
+                           <li class="li">Bit [14]: <samp class="ph codeph">ACK</samp>. A value of "1" indicates that the link partner has received three consecutive matching ability values from the device.</li>
+
+                        </ul>
+
+                     </td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">RO</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">0</td>
+
+                  </tr>
+
+                  <tr class="row props_product_ArriaV props_product_a10">
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">
+                        <ul class="ul" id="nfa1421131082795__ul_y4n_jnq_jt">
+                           <li class="li">Bits [13:12]: <samp class="ph codeph">RF</samp>. The remote fault. <ul class="ul" id="nfa1421131082795__ul_tqn_jnq_jt">
+                                 <li class="li">00: No error.</li>
+
+                                 <li class="li">01: Link failure.</li>
+
+                                 <li class="li">10: Offline.</li>
+
+                                 <li class="li">11: Auto-negotiation error.</li>
+
+                              </ul>
+
+                           </li>
+
+                        </ul>
+
+                     </td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">RO</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">0</td>
+
+                  </tr>
+
+                  <tr class="row props_product_ArriaV props_product_a10">
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">
+                        <ul class="ul" id="nfa1421131082795__ul_ecz_lnq_jt">
+                           <li class="li">Bits [8:7]: <samp class="ph codeph">PS</samp>. The PAUSE support. <ul class="ul" id="nfa1421131082795__ul_k2z_lnq_jt">
+                                 <li class="li">00: No PAUSE.</li>
+
+                                 <li class="li">01: Symmetric PAUSE.</li>
+
+                                 <li class="li">10: Asymmetric PAUSE towards the link partner.</li>
+
+                                 <li class="li">11: Asymmetric and symmetric PAUSE towards the link device.</li>
+
+                              </ul>
+
+                           </li>
+
+                        </ul>
+
+                     </td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">RO</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">0</td>
+
+                  </tr>
+
+                  <tr class="row props_product_ArriaV props_product_a10">
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">
+                        <ul class="ul" id="nfa1421131082795__ul_xxq_nnq_jt">
+                           <li class="li">Bit [6]: <samp class="ph codeph">HD</samp>. A value of "1" indicates that half-duplex is supported.</li>
+
+                        </ul>
+
+                     </td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">RO</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">0</td>
+
+                  </tr>
+
+                  <tr class="row props_product_ArriaV props_product_a10">
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">
+                        <ul class="ul" id="nfa1421131082795__ul_t2b_qnq_jt">
+                           <li class="li">Bit [5]: <samp class="ph codeph">FD</samp>. A value of "1" indicates that full-duplex is supported.</li>
+
+                        </ul>
+
+                     </td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">RO</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">0</td>
+
+                  </tr>
+
+                  <tr class="row props_product_ArriaV props_product_a10">
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">
+                        <ul class="ul" id="nfa1421131082795__ul_efx_rnq_jt">
+                           <li class="li">The rest of the bits are reserved.</li>
+
+                        </ul>
+
+                     </td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">—</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">—</td>
+
+                  </tr>
+
+                  <tr class="row props_product_ArriaV props_product_a10">
+                     <td align="left" class="entry" headers="d148753e252 " rowspan="3" valign="top" width="15.625%">0x06</td>
+
+                     <td align="left" class="entry" headers="d148753e255 " rowspan="3" valign="top" width="18.749999999999996%">
+                        <samp class="ph codeph">an_expansion</samp>
+                     </td>
+
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">The PCS capabilities and auto-negotiation status.</td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">—</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">—</td>
+
+                  </tr>
+
+                  <tr class="row props_product_ArriaV props_product_a10">
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">Bit [1]: <samp class="ph codeph">PAGE_RECEIVE</samp>. A value of "1" indicates that the partner_ability register has been updated. This bit is automatically cleared once it is read. </td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">RO</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">0</td>
+
+                  </tr>
+
+                  <tr class="row props_product_ArriaV props_product_a10">
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">Bit [0]: <samp class="ph codeph">LINK_PARTNER_AUTO_NEGOTIATION_ABLE</samp>. A value of "1" indicates that the link partner supports auto-negotiation.</td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">RO</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">0</td>
+
+                  </tr>
+
+                  <tr class="row props_product_ArriaV props_product_a10">
+                     <td align="left" class="entry" headers="d148753e252 " valign="top" width="15.625%">0x07</td>
+
+                     <td align="left" class="entry" headers="d148753e255 " valign="top" width="18.749999999999996%">
+                        <samp class="ph codeph">device_next_page</samp>
+                     </td>
+
+                     <td align="left" class="entry" headers="d148753e258 " rowspan="2" valign="middle" width="46.875%">The PHY does not support the next page feature. These registers are always set to 0.</td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">RO</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">0</td>
+
+                  </tr>
+
+                  <tr class="row props_product_ArriaV props_product_a10">
+                     <td align="left" class="entry" headers="d148753e252 " valign="top" width="15.625%">0x08</td>
+
+                     <td align="left" class="entry" headers="d148753e255 " valign="top" width="18.749999999999996%">
+                        <samp class="ph codeph">partner_next_page</samp>
+                     </td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">RO</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">0</td>
+
+                  </tr>
+
+                  <tr class="row props_product_ArriaV props_product_a10">
+                     <td align="left" class="entry" headers="d148753e252 " valign="top" width="15.625%">
+                        <p class="p">0x09:0x0F</p>
+
+                     </td>
+
+                     <td align="left" class="entry" headers="d148753e255 " valign="top" width="18.749999999999996%">Reserved</td>
+
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">
+                        <p class="p">—</p>
+
+                     </td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">
+                        <p class="p">—</p>
+
+                     </td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">—</td>
+
+                  </tr>
+
+                  <tr class="row props_product_ArriaV props_product_a10">
+                     <td align="left" class="entry" headers="d148753e252 " valign="top" width="15.625%">
+                        <p class="p">0x10</p>
+
+                     </td>
+
+                     <td align="left" class="entry" headers="d148753e255 " valign="top" width="18.749999999999996%">
+                        <samp class="ph codeph">scratch</samp>
+                     </td>
+
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">
+                        <p class="p">Provides a memory location to test read and write operations.</p>
+
+                     </td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">
+                        <p class="p">RW</p>
+
+                     </td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">0</td>
+
+                  </tr>
+
+                  <tr class="row props_product_ArriaV props_product_a10">
+                     <td align="left" class="entry" headers="d148753e252 " valign="top" width="15.625%">
+                        <p class="p">0x11</p>
+
+                     </td>
+
+                     <td align="left" class="entry" headers="d148753e255 " valign="top" width="18.749999999999996%">
+                        <samp class="ph codeph">rev</samp>
+                     </td>
+
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">
+                        <p class="p">The current version of the PHY IP core.</p>
+
+                     </td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">
+                        <p class="p">RO</p>
+
+                     </td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">Current version of the PHY</td>
+
+                  </tr>
+
+                  <tr class="row props_product_ArriaV props_product_a10">
+                     <td align="left" class="entry" headers="d148753e252 " valign="top" width="15.625%">0x12:0x13</td>
+
+                     <td align="left" class="entry" headers="d148753e255 " valign="top" width="18.749999999999996%">
+                        <samp class="ph codeph">link_timer</samp>
+                     </td>
+
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">21-bit auto-negotiation link timer. <ul class="ul" id="nfa1421131082795__ul_axr_hxw_qt">
+                           <li class="li">Offset 0x12: link_timer[15:0]. Bits [8:0] are always be set to 0.</li>
+
+                           <li class="li">Offset 0x13: link_timer[20:16] occupies the lower 5 bits. The remaining 11 bits are reserved and must always be set to 0.</li>
+
+                        </ul>
+
+                     </td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">RW</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">0</td>
+
+                  </tr>
+
+                  <tr class="row props_product_ArriaV props_product_a10">
+                     <td align="left" class="entry" headers="d148753e252 " valign="top" width="15.625%">
+                        <p class="p">0x14:0x1F</p>
+
+                     </td>
+
+                     <td align="left" class="entry" headers="d148753e255 " valign="top" width="18.749999999999996%">Reserved</td>
+
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">
+                        <p class="p">—</p>
+
+                     </td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">
+                        <p class="p">—</p>
+
+                     </td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">—</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td align="left" class="entry" headers="d148753e252 " rowspan="8" valign="top" width="15.625%">0x400</td>
+
+                     <td align="left" class="entry" headers="d148753e255 " rowspan="8" valign="top" width="18.749999999999996%">
+                        <samp class="ph codeph">usxgmii_control</samp>
+                     </td>
+
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">Control Register</td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">—</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">—</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">Bit [0]: <samp class="ph codeph">USXGMII_ENA</samp>:<ul class="ul" id="nfa1421131082795__ul_kpn_hyc_kv">
+                           <li class="li">0: 10GBASE-R mode</li>
+
+                           <li class="li">1: USXGMII mode</li>
+
+                        </ul>
+
+                     </td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">RW</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">0x0</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">Bit [1]: <samp class="ph codeph">USXGMII_AN_ENA</samp> is used when <samp class="ph codeph">USXGMII_ENA</samp> is set to 1:<ul class="ul" id="nfa1421131082795__ul_vtx_syc_kv">
+                           <li class="li">0: Disables USXGMII Auto-Negotiation and manually configures the operating speed with the <samp class="ph codeph">USXGMII_SPEED</samp> register.</li>
+
+                           <li class="li">1: Enables USXGMII Auto-Negotiation, and automatically configures operating speed with link partner ability advertised during USXGMII Auto-Negotiation.</li>
+
+                        </ul>
+
+                     </td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">RW</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">0x1</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">Bit [4:2]: <samp class="ph codeph">USXGMII_SPEED</samp> is the operating speed of the PHY in USXGMII mode and <samp class="ph codeph">USE_USXGMII_AN</samp> is set to 0.<ul class="ul" id="nfa1421131082795__ul_vsb_n2x_kv">
+                           <li class="li">3’b000: 
+                              <span class="ph props_product_a10 props_product_cyclone10">10M</span>
+                           </li>
+
+                           <li class="li">3’b001: 
+                              <span class="ph props_product_a10 props_product_cyclone10">100M</span>
+                           </li>
+
+                           <li class="li">3’b010: 1G</li>
+
+                           <li class="li">3’b011: 10G</li>
+
+                           <li class="li">3’b100: 2.5G</li>
+
+                           <li class="li">3’b101: 5G</li>
+
+                           <li class="li">3’b110: Reserved</li>
+
+                           <li class="li">3’b111: Reserved</li>
+
+                        </ul>
+
+                     </td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">RW</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">0x0</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">Bit [8:5]: Reserved</td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">—</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">—</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">Bit [9]: RESTART_AUTO_NEGOTIATION <p class="p">Write 1 to restart Auto-Negotiation sequence The bit is cleared by hardware when Auto-Negotiation is restarted.</p>
+
+                     </td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">RWC (hardware self-clear)</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">0x0</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">Bit [15:10]: Reserved</td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">—</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">—</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">Bit [30:16]: Reserved</td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">—</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">—</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td align="left" class="entry" headers="d148753e252 " rowspan="8" valign="top" width="15.625%">0x401</td>
+
+                     <td align="left" class="entry" headers="d148753e255 " rowspan="8" valign="top" width="18.749999999999996%">
+                        <samp class="ph codeph">usxgmii_status</samp>
+                     </td>
+
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">Status Register</td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">—</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">—</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">Bit [1:0]: Reserved</td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">—</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">—</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">Bit [2]: <samp class="ph codeph">LINK_STATUS</samp> indicates link status for USXGMII all speeds<ul class="ul" id="nfa1421131082795__ul_eyt_jny_kv">
+                           <li class="li">1: Link is established</li>
+
+                           <li class="li">0: Link synchronization is lost, a 0 is latched</li>
+
+                        </ul>
+
+                     </td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">RO</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">0x0</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">Bit [3]: Reserved</td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">—</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">—</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">Bit [4]: Reserved</td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">—</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">—</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">Bit [5]: <samp class="ph codeph">AUTO_NEGOTIATION_COMPLETE</samp>
+                        <p class="p">A value of 1 indicates the Auto-Negotiation process is completed.</p>
+
+                     </td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">RO</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">0x0</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">Bit [15:6]: Reserved</td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">—</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">—</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">Bit [31:16]: Reserved</td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">—</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">—</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td align="left" class="entry" headers="d148753e252 " valign="top" width="15.625%">0x402:0x404</td>
+
+                     <td align="left" class="entry" headers="d148753e255 " valign="top" width="18.749999999999996%">Reserved</td>
+
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">—</td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">—</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">—</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td align="left" class="entry" headers="d148753e252 " rowspan="11" valign="top" width="15.625%">0x405</td>
+
+                     <td align="left" class="entry" headers="d148753e255 " rowspan="11" valign="top" width="18.749999999999996%">
+                        <samp class="ph codeph">usxgmii_partner_ability</samp>
+                     </td>
+
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">Device abilities advertised to the link partner during Auto-Negotiation</td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">—</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">—</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">Bit [0]: Reserved</td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">—</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">—</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">Bit [6:1]: Reserved</td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">—</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">—</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">Bit [7]: <samp class="ph codeph">EEE_CLOCK_STOP_CAPABILITY</samp>
+                        <div class="p">Indicates whether or not energy efficient ethernet (EEE) clock stop is supported.<ul class="ul" id="nfa1421131082795__ul_k5h_3tf_qv">
+                              <li class="li">0: Not supported</li>
+
+                              <li class="li">1: Supported</li>
+
+                           </ul>
+
+                        </div>
+
+                     </td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">RO</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">0x0</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">Bit [8]: <samp class="ph codeph">EEE_CAPABILITY</samp>
+                        <div class="p">Indicates whether or not EEE is supported.<ul class="ul" id="nfa1421131082795__ul_fdd_xtf_qv">
+                              <li class="li">0: Not supported</li>
+
+                              <li class="li">1: Supported</li>
+
+                           </ul>
+
+                        </div>
+
+                     </td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">RO</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">0x0</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">Bit [11:9]: <samp class="ph codeph">SPEED</samp>
+                        <div class="p">
+                           <ul class="ul" id="nfa1421131082795__ul_elx_15f_qv">
+                              <li class="li">3'b000: 10M</li>
+
+                              <li class="li">3'b001: 100M</li>
+
+                              <li class="li">3'b010: 1G</li>
+
+                              <li class="li">3'b011: 10G</li>
+
+                              <li class="li">3'b100: 2.5G</li>
+
+                              <li class="li">3'b101: 5G</li>
+
+                              <li class="li">3'b110: Reserved</li>
+
+                              <li class="li">3'b111: Reserved</li>
+
+                           </ul>
+
+                        </div>
+
+                     </td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">RO</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">0x0</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">Bit [12]: <samp class="ph codeph">DUPLEX</samp>
+                        <div class="p">Indicates the duplex mode.<ul class="ul" id="nfa1421131082795__ul_zf3_l5f_qv">
+                              <li class="li">0: Half duplex</li>
+
+                              <li class="li">1: Full duplex</li>
+
+                           </ul>
+
+                        </div>
+
+                     </td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">RO</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">0x0</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">Bit [13]: Reserved</td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">—</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">—</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">Bit [14]: <samp class="ph codeph">ACKNOWLEDGE</samp>
+                        <p class="p">A value of 1 indicates that the device has received three consecutive matching ability values from its link partner.</p>
+
+                     </td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">RO</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">0x0</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">Bit [15]: <samp class="ph codeph">LINK</samp>
+                        <div class="p">Indicates the link status.<ul class="ul" id="nfa1421131082795__ul_ux4_x5f_qv">
+                              <li class="li">0: Link down</li>
+
+                              <li class="li">1: Link up</li>
+
+                           </ul>
+
+                        </div>
+
+                     </td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">RO</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">0x0</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">Bit [31:16]: Reserved</td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">—</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">—</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td align="left" class="entry" headers="d148753e252 " valign="top" width="15.625%">0x406:0x411</td>
+
+                     <td align="left" class="entry" headers="d148753e255 " valign="top" width="18.749999999999996%">Reserved</td>
+
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">—</td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">—</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">—</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td align="left" class="entry" headers="d148753e252 " valign="top" width="15.625%">0x412</td>
+
+                     <td align="left" class="entry" headers="d148753e255 " valign="top" width="18.749999999999996%">
+                        <samp class="ph codeph">usxgmii_link_timer</samp>
+                     </td>
+
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">
+                        <p class="p">Auto-Negotiation link timer. Sets the link timer value in bit [19:14] from 0 to 2 ms in approximately 0.05 ms steps. You must program the link timer to ensure that it matches the link timer value of the external NBASE-T PHY IP Core.</p>
+
+                        <p class="p">The reset value sets the link timer to approximately 1.6 ms.</p>
+
+                        <p class="p">Bits [13:0] are reserved and always set to 0.</p>
+
+                     </td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">
+                        <p class="p">[19:14]: RW</p>
+
+                        <p class="p"> [13:0]: RO</p>
+
+                     </td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">
+                        <p class="p">[19:14]: 0x1F</p>
+
+                        <p class="p"> [13:0]: 0x0</p>
+
+                     </td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td align="left" class="entry" headers="d148753e252 " valign="top" width="15.625%">0x413:0x41F</td>
+
+                     <td align="left" class="entry" headers="d148753e255 " valign="top" width="18.749999999999996%">Reserved</td>
+
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">—</td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">—</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">—</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td align="left" class="entry" headers="d148753e252 " rowspan="4" valign="top" width="15.625%">0x461</td>
+
+                     <td align="left" class="entry" headers="d148753e255 " rowspan="4" valign="top" width="18.749999999999996%">
+                        <samp class="ph codeph">phy_serial_loopback</samp>
+                     </td>
+
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">Configures the transceiver serial loopback in the PMA from TX to RX.</td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">—</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">—</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">Bit [0]<ul class="ul" id="nfa1421131082795__ul_mwy_kty_kv">
+                           <li class="li">0: Disables the PHY serial loopback</li>
+
+                           <li class="li">1: Enables the PHY serial loopback</li>
+
+                        </ul>
+
+                     </td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">RW</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">0x0</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">Bit [15:1]: Reserved</td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">—</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">—</td>
+
+                  </tr>
+
+                  <tr class="row">
+                     <td align="left" class="entry" headers="d148753e258 " valign="top" width="46.875%">Bit [31:16]: Reserved</td>
+
+                     <td align="center" class="entry" headers="d148753e261 " valign="top" width="7.8125%">—</td>
+
+                     <td align="center" class="entry" headers="d148753e264 " valign="top" width="10.937499999999998%">—</td>
+
+                  </tr>
+
+               </tbody>
+
+            </table>
+</div>

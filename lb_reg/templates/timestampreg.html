@@ -1,0 +1,420 @@
+<h1>Timestamp Registers</h1>
+<table class="table">
+<tbody>
+<tr>
+<th class="col0">Current Value</th>
+<th class="col1">Register Name</th>
+<th class="col2">HW Reset Value</th>
+<th class="col3">Description<button type="button"  class="btn btn-default hideclass" ><span class="glyphicon glyphicon-resize-vertical"></span></th>
+</th>
+<tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="tx_period_10G" value="0x33333" ></input>
+</form>
+</td>
+<td>tx_period_10G</td
+><td>0x33333</td
+><td>Specifies the clock period for the
+<br>timestamp adjustment on the datapaths for 10G
+<br>and
+<br>10M/100M/1G/2.5G/5G/10G (USXGMII) operations. The
+<br>MAC IP core multiplies the value of this register by the number of
+<br>stages separating the actual timestamp and XGMII bus.
+<br>Bits 0 to 15period in fractional
+<br>nanoseconds.
+<br>Bits 16 to 19period in nanoseconds.
+<br>Bits 20 to 31reserved. Set these bits to
+<br>0.
+<br>
+<br>The default value is 3.2 ns for 312.5 MHz clock. Configure this
+<br>register before you enable the MAC IP core for operations.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="tx_fns_adjustment_10G" value="0x0 " ></input>
+</form>
+</td>
+<td>tx_fns_adjustment_10G</td
+><td>0x0 </td
+><td>Static timing adjustment in fractional
+<br>nanoseconds on the datapaths for
+<br>10G
+<br>and 10M/100M/1G/2.5G/5G/10G (USXGMII)
+<br>operations.
+<br>Bits 0 to 15adjustment period in
+<br>fractional nanoseconds.
+<br>Bits 16 to 31reserved. Set these bits to
+<br>0.
+<br>
+<br>Configure this register before you enable
+<br>the MAC IP core for operations.
+<br>For
+<br>timing adjustment calculations, refer to the related
+<br>links.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="tx_ns_adjustment_10G" value="0x0 " ></input>
+</form>
+</td>
+<td>tx_ns_adjustment_10G</td
+><td>0x0 </td
+><td>Static timing adjustment in nanoseconds
+<br>on the datapaths for 10G
+<br>and
+<br>10M/100M/1G/2.5G/5G/10G (USXGMII) operations.
+<br>Bits 0 to 15adjustment period in
+<br>nanoseconds.
+<br>Bits 16 to 31reserved. Set these bits to
+<br>0.
+<br>
+<br>Configure this register before you enable
+<br>the MAC IP core for operations.
+<br>For
+<br>timing adjustment calculations, refer to the related
+<br>links.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="tx_period_mult_speed" value="0x80000 " ></input>
+</form>
+</td>
+<td>tx_period_mult_speed</td
+><td>0x80000 </td
+><td>Specifies the clock
+<br>period for timestamp adjustment on the datapaths for 10M/100M/1G
+<br>operations. The MAC IP core multiplies the value of this register by
+<br>the number of stages separating the actual timestamp and GMII/MII
+<br>bus.
+<br>Bits
+<br>0
+<br>to 15period in fractional
+<br>nanoseconds.
+<br>Bits
+<br>16
+<br>to 19period in nanoseconds.
+<br>Bits
+<br>20
+<br>to 31reserved. Set these bits to 0.
+<br>
+<br>The default value is 8 ns for 125 MHz
+<br>clock. Configure this register before you enable the MAC IP core
+<br>for operations.
+<br>The IP core automatically
+<br>sets the clock period for 1G/2.5G configurations. For 1G, the
+<br>clock period is set to 16 ns for 62.5 MHz clock; for 2.5G, the
+<br>clock period is 6.4 ns for 156.25 MHz clock.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_period_10G" value="0x33333 " ></input>
+</form>
+</td>
+<td>rx_period_10G</td
+><td>0x33333 </td
+><td>Specifies the clock period for the
+<br>timestamp adjustment on the datapaths for 10G
+<br>and
+<br>10M/100M/1G/2.5G/5G/10G (USXGMII) operations. The
+<br>MAC IP core multiplies the value of this register by the number of
+<br>stages separating the actual timestamp and XGMII bus.
+<br>Bits 0 to 15period in fractional
+<br>nanoseconds.
+<br>Bits 16 to 19period in nanoseconds.
+<br>Bits 20 to 31reserved. Set these bits to
+<br>0.
+<br>
+<br>The default value is 3.2 ns for 312.5 MHz clock. Configure this
+<br>register before you enable the MAC IP core for operations.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_fns_adjustment_10G" value="0x0 " ></input>
+</form>
+</td>
+<td>rx_fns_adjustment_10G</td
+><td>0x0 </td
+><td>Static timing adjustment in fractional
+<br>nanoseconds on the datapaths for 10G
+<br>and
+<br>10M/100M/1G/2.5G/5G/10G (USXGMII) operations.
+<br>Bits 0 to 15adjustment period in
+<br>fractional nanoseconds.
+<br>Bits 16 to 31reserved. Set these bits to
+<br>0.
+<br>
+<br>Configure this register before you enable
+<br>the MAC IP core for operations.
+<br>For
+<br>timing adjustment calculations, refer to the related
+<br>links.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_ns_adjustment_10G" value="0x0 " ></input>
+</form>
+</td>
+<td>rx_ns_adjustment_10G</td
+><td>0x0 </td
+><td>Static timing adjustment in nanoseconds
+<br>on the datapaths for 10G
+<br>and
+<br>10M/100M/1G/2.5G/5G/10G (USXGMII) operations.
+<br>Bits 0 to 15adjustment period in
+<br>nanoseconds.
+<br>Bits 16 to 31reserved. Set these bits to
+<br>0.
+<br>
+<br>Configure this register before you enable
+<br>the MAC IP core for operations.
+<br>For
+<br>timing adjustment calculations, refer to the related
+<br>links.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_period_mult_speed" value="0x80000 " ></input>
+</form>
+</td>
+<td>rx_period_mult_speed</td
+><td>0x80000 </td
+><td>Specifies the clock
+<br>period for timestamp adjustment on the datapaths for 10M/100M/1G
+<br>operations. The MAC IP core multiplies the value of this register by
+<br>the number of stages separating the actual timestamp and GMII/MII
+<br>bus.
+<br>Bits
+<br>0
+<br>to 15period in fractional
+<br>nanoseconds.
+<br>Bits
+<br>16
+<br>to 19period in nanoseconds.
+<br>Bits
+<br>20
+<br>to 31reserved. Set these bits to 0.
+<br>
+<br>The default value is 8 ns for 125 MHz
+<br>clock. Configure this register before you enable the MAC IP core
+<br>for operations.
+<br>The IP core automatically
+<br>sets the clock period for 1G/2.5G configurations. For 1G, the
+<br>clock period is set to 16 ns for 62.5 MHz clock; for 2.5G, the
+<br>clock period is 6.4 ns for 156.25 MHz clock.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="tx_fns_adjustment_mult_speed" value="0x0 " ></input>
+</form>
+</td>
+<td>tx_fns_adjustment_mult_speed</td
+><td>0x0 </td
+><td>Static timing
+<br>adjustment in fractional nanoseconds on the datapaths for
+<br>10M/100M/1G/2.5G operations.
+<br>Bits
+<br>0
+<br>to 15adjustment period in fractional
+<br>nanoseconds.
+<br>Bits
+<br>16
+<br>to 31reserved. Set these bits to 0.
+<br>
+<br>Configure
+<br>this register before you enable the MAC IP core for
+<br>operations.
+<br>For
+<br>timing adjustment calculations, refer to the related
+<br>links.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="tx_ns_adjustment_mult_speed" value="0x0 " ></input>
+</form>
+</td>
+<td>tx_ns_adjustment_mult_speed</td
+><td>0x0 </td
+><td>Static timing
+<br>adjustment in nanoseconds on the datapaths for 10M/100M/1G/2.5G
+<br>operations.
+<br>Bits
+<br>0
+<br>to 15adjustment period in
+<br>nanoseconds.
+<br>Bits
+<br>16
+<br>to 31reserved. Set these bits to 0.
+<br>
+<br>Configure
+<br>this register before you enable the MAC IP core for
+<br>operations.
+<br>For
+<br>timing adjustment calculations, refer to the related
+<br>links.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_fns_adjustment_mult_speed" value="0x0 " ></input>
+</form>
+</td>
+<td>rx_fns_adjustment_mult_speed</td
+><td>0x0 </td
+><td>Static timing
+<br>adjustment in fractional nanoseconds on the datapaths for
+<br>10M/100M/1G/2.5G operations.
+<br>Bits
+<br>0
+<br>to 15adjustment period in fractional
+<br>nanoseconds.
+<br>Bits
+<br>16
+<br>to 31reserved. Set these bits to 0.
+<br>
+<br>Configure
+<br>this register before you enable the MAC IP core for
+<br>operations.
+<br>For
+<br>timing adjustment calculations, refer to the related
+<br>links.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_ns_adjustment_mult_speed" value="0x0 " ></input>
+</form>
+</td>
+<td>rx_ns_adjustment_mult_speed</td
+><td>0x0 </td
+><td>Static timing
+<br>adjustment in nanoseconds on the datapaths for 10M/100M/1G/2.5G
+<br>operations.
+<br>Bits
+<br>0
+<br>to 15adjustment period in
+<br>nanoseconds.
+<br>Bits
+<br>16
+<br>to 31reserved. Set these bits to 0.
+<br>
+<br>Configure
+<br>this register before you enable the MAC IP core for
+<br>operations.
+<br>For
+<br>timing adjustment calculations, refer to the related
+<br>links.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="tx_asymmetry" value="0x0 " ></input>
+</form>
+</td>
+<td>tx_asymmetry</td
+><td>0x0 </td
+><td>Specifies the
+<br>asymmetry value and direction of arithmetic operation.
+<br>Bits
+<br>0
+<br>to 16asymmetry value.
+<br>Bit 17direction.
+<br>Set to 0add asymmetry value to
+<br>correction
+<br>field
+<br>(CF).
+<br>Set to 1minus asymmetry value from
+<br>CF.
+<br>
+<br>
+<br>Bit 18enable bit.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="tx_p2p" value="0x0" ></input>
+</form>
+</td>
+<td>tx_p2p</td
+><td>0x0</td
+><td>Specifies the direction of arithmetic operation
+<br>for meanPathDelay.
+<br>
+<br>Bit 0 direction.
+<br>Set to 0add meanPathDelay value to
+<br>CF.
+<br>Set to 1minus meanPathDelay value from
+<br>CF.
+<br>
+<br>
+<br>Bits 1 to 30reserved.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="tx_cf_err_stat" value="0x0" ></input>
+</form>
+</td>
+<td>tx_cf_err_stat</td
+><td>0x0</td
+><td>Bits 0error status bit to indicate that
+<br>ingress correction field is equal to the absolute maximum,
+<br>64h7FF_FFFF_FFFF_FFFF.
+<br>Bits 0 to 15reserved.
+<br>Bit 16error status bit to indicate that
+<br>egress correction field is equal or larger than absolute
+<br>maximum, 64h7FFF_FFFF_FFFF_FFFF.
+<br>Bit 17error status bit to indicate that
+<br>residence time is equal or larger than 4 seconds.
+<br>Bit 18error status bit to indicate that
+<br>residence time is a negative value.
+<br>Bits 19 to 31reserved.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_p2p_mpd_ns" value="0x0" ></input>
+</form>
+</td>
+<td>rx_p2p_mpd_ns</td
+><td>0x0</td
+><td>meanPathDelay
+<br>valid and value in ns.
+<br>The peer-to-peer mechanism delivers meanPathDelay for each ingress
+<br>port. This needs to be added to the
+<br>Sync
+<br>packets correction field before the packet is sent out on
+<br>egress port. Thus, the egress port might add any of the ingress ports'
+<br>'meanPathDelay'.
+<br>The value to be added at the egress port should correspond to
+<br>the ingress port on which the
+<br>Sync
+<br>packet has arrived.
+<br>
+<br>Bit 30Indicates meanPathDelay is valid.
+<br>Bits 0 to 29meanPathDelay value in nanosecond.
+<br>Bit 31reserved.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_p2p_mpd_fns" value="0x0" ></input>
+</form>
+</td>
+<td>rx_p2p_mpd_fns</td
+><td>0x0</td
+><td>Bits 0 to 15meanPathDelay value in fractional
+<br>nanosecond.
+<br>Bits 16 to 31reserved.</td
+></tr>
+</tbody></table>

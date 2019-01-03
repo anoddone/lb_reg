@@ -1,0 +1,1182 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+<h1>MAC Configuration and Status</h1>
+</div>
+
+<h1>Table 25.  MAC TX Configuration and Status Register</h1>
+<table class="table">
+<tbody>
+<tr>
+<th class="col0">Current Value</th>
+<th class="col1">Register Name</th>
+<th class="col2">HW Reset Value</th>
+<th class="col3">Description<button type="button"  class="btn btn-default hideclass" ><span class="glyphicon glyphicon-resize-vertical"></span></th>
+</th>
+<tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="MAC" value="000000000000" ></input>
+</form>
+</td>
+<td>MAC</td
+><td>000000000000</td
+><td >MAC address</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="tx_packet_control" value="0x0 " ></input>
+</form>
+</td>
+<td>tx_packet_control</td
+><td>0x0 </td
+><td >Bit
+<br>0configures the TX path. 0: Enables the
+<br>TX path. 
+<br>1: Disables the TX path.
+<br>The MAC IP core indicates a backpressure on the
+<br>Avalon-ST transmit data interface by deasserting the
+<br>avalon_st_tx_ready
+<br>signal. When disabled, the IP core stops generating new
+<br>pause and PFC frames.
+<br>
+<br>Bits 31:1reserved. 
+<br>
+<br>You can change the value of this register as
+<br>necessary. If the TX path is disabled while a frame is being
+<br>transmitted, the MAC IP core completes the transmission before
+<br>disabling the TX path.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="tx_transfer_status" value="0x0 " disabled ></input>
+</form>
+</td>
+<td>tx_transfer_status</td
+><td>0x0 </td
+><td >The MAC sets the following bits to indicate the
+<br>status of the TX datapath.
+<br>
+<br>Bits 7:0reserved. 
+<br>Bit 8: TX datapath status.0: The TX datapath is idle.
+<br>1: A TX data transfer is in
+<br>progress.
+<br>
+<br>Bits 11:9reserved. 
+<br>Bit 12: TX datapath reset status. 0: The TX datapath is not in
+<br>reset.
+<br>1: The TX datapath is in
+<br>reset.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="tx_pad_control" value="0x1" ></input>
+</form>
+</td>
+<td>tx_pad_control</td
+><td>0x1</td
+><td >Bit
+<br>0padding insertion enable on transmit. 0: Disables padding insertion. The client must ensure
+<br>that the length of the data frame meets the minimum
+<br>length as required by the IEEE 802.3 specifications.
+<br>
+<br>1: Enables padding insertion. The
+<br>MAC IP core inserts padding bytes into the data frames
+<br>from the client to meet the minimum length as required
+<br>by the IEEE 802.3 specifications. 
+<br>When padding insertion is enabled, you must set tx_crc_control[] to 0x3 to
+<br>enable CRC insertion. 
+<br>
+<br>Bits 31:1reserved. 
+<br>
+<br>Configure this register before you enable the MAC
+<br>IP core for operations.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="tx_crc_control" value="0x3" ></input>
+</form>
+</td>
+<td>tx_crc_control</td
+><td>0x3</td
+><td >Bit
+<br>0always set this bit to 1. 
+<br>Bit
+<br>1configures CRC insertion. 0: Disables
+<br>CRC insertion. The client must provide the CRC field and
+<br>ensure that the length of the data frame meets the
+<br>minimum required length. 
+<br>1:
+<br>Enables CRC insertion. The MAC IP core computes the CRC
+<br>field and inserts it into the data frame. 
+<br>
+<br>Bits 31:2reserved. 
+<br>
+<br>Configure this register before you enable the MAC
+<br>IP core for operations.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="tx_preamble_control" value="0x0" ></input>
+</form>
+</td>
+<td>tx_preamble_control</td
+><td>0x0</td
+><td >Bit
+<br>0configures the preamble passthrough mode on transmit. 0: Disables preamble passthrough. The
+<br>MAC IP core inserts the standard preamble specified by
+<br>the IEEE 802.3 specifications into the data frame.
+<br>
+<br>1: Enables preamble passthrough.
+<br>The MAC IP core identifies the first 8 bytes of the data
+<br>frame from the client as a custom preamble. 
+<br>
+<br>Bits 31:1reserved. 
+<br>
+<br>Configure this register before you enable the MAC
+<br>IP core for operations.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="tx_src_addr_override" value="0x0" ></input>
+</form>
+</td>
+<td>tx_src_addr_override</td
+><td>0x0</td
+><td >Bit
+<br>0configures source address override. 0:
+<br>Disables source address override. The client must fill
+<br>the source address field with a valid address.. 
+<br>1: Enables source address override. The
+<br>MAC IP core overwrites the source address field in data
+<br>frames with the primary MAC address specified in the
+<br>tx_primary_mac_addr0 and tx_primary_mac_addr1
+<br>registers. 
+<br>
+<br>Bits 31:1reserved. 
+<br>
+<br>Configure this register before you enable the MAC
+<br>IP core for operations.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="tx_frame_maxlength" value="0x5EE (1518)" ></input>
+</form>
+</td>
+<td>tx_frame_maxlength</td
+><td>0x5EE (1518)</td
+><td >Bits 15:0specify the maximum allowable frame length. The
+<br>MAC IP core uses this register only for the purpose of
+<br>collecting statistics. When the length of the data frame
+<br>from the client exceeds this value, the MAC IP core asserts
+<br>the avalon_st_txstatus_error[1] signal to flag the
+<br>frame as oversized. The MAC IP core then forwards the
+<br>oversized frame through the transmit datapath as is. 
+<br>Bits 31:16reserved. 
+<br>
+<br>Configure this register before you enable the MAC
+<br>IP core for operations.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="tx_vlan_detection" value="0x0" ></input>
+</form>
+</td>
+<td>tx_vlan_detection</td
+><td>0x0</td
+><td >Bit 0TX VLAN detection disable.0: The MAC detects VLAN and stacked
+<br>VLAN frames.
+<br>1: The MAC does not
+<br>detect VLAN and stacked VLAN frames. When received, the
+<br>MAC treats them as basic frames and considers their tags
+<br>as payload bytes.
+<br>
+<br>Bits 31:1reserved.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="tx_ipg_10g" value="0x1" ></input>
+</form>
+</td>
+<td>tx_ipg_10g</td
+><td>0x1</td
+><td >Bit 0use this bit to specify the average
+<br>IPG for operating speed of 10 Gbps.0:
+<br>Sets the average IPG to 8 bytes.
+<br>1: Sets the average IPG to 12 bytes.
+<br>
+<br>Bits 31:1reserved.
+<br>
+<br>The Unidirectional feature does not support an
+<br>average IPG of 8 bytes.
+<br>If you turn on Use
+<br>legacy Ethernet 10G MAC Avalon Memory-Mapped
+<br>interface, the word offset is 0x081E. Otherwise, the word offset
+<br>is 0x002E.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="tx_ipg_10M_100M_1G" value="0x0C" ></input>
+</form>
+</td>
+<td>tx_ipg_10M_100M_1G</td
+><td>0x0C</td
+><td >Bits 3:0use these bits to specify the
+<br>average IPG for operating speed of 10 Mbps, 100 Mbps or 1
+<br>Gbps. Valid values are between 8 to 15 bytes.
+<br>Bits 31:4reserved.
+<br>
+<br>If you turn on Use
+<br>legacy Ethernet 10G MAC Avalon Memory-Mapped
+<br>interface, the word offset is 0x081F. Otherwise, the word offset
+<br>is 0x002F.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="tx_underflow_counter0" value="0x0" disabled ></input>
+</form>
+</td>
+<td>tx_underflow_counter0</td
+><td>0x0</td
+><td >36-bit error counter that collects the number of
+<br>truncated TX frames when TX buffer underflow persists. 
+<br>
+<br>
+<br>tx_underflow_counter0:
+<br>Lower 32 bits of the error counter. 
+<br>
+<br>tx_underflow_counter1[3:0]: Upper 4 bits of
+<br>the error counter. 
+<br>
+<br>tx_underflow_counter1[31:4]reserved. 
+<br>
+<br>To read the counter, read the lower 32 bits
+<br>followed by the upper 4 bits. The IP core clears the counter
+<br>after a read.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="tx_underflow_counter1" value="" ></input>
+</form>
+</td>
+<td>tx_underflow_counter1</td
+><td></td
+><td ></td
+></tr>
+</tbody></table><h1>Table 28.  MAC RX Configuration and Status Register</h1>
+<table class="table">
+<tbody>
+<tr>
+<th class="col0">Current Value</th>
+<th class="col1">Register Name</th>
+<th class="col2">HW Reset Value</th>
+<th class="col3">Description<button type="button"  class="btn btn-default hideclass" ><span class="glyphicon glyphicon-resize-vertical"></span></th>
+</th>
+<tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_transfer_control" value="0x0 " ></input>
+</form>
+</td>
+<td>rx_transfer_control</td
+><td>0x0 </td
+><td >Bit 0RX path enable. 0: Enables the RX
+<br>path. 
+<br>1: Disables the RX path.
+<br>The MAC IP core drops all incoming frames. 
+<br>
+<br>Bits 31:1reserved. 
+<br>
+<br>A change of value in this register takes effect
+<br>at a packet boundary. Any transfer in progress is not affected.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_transfer_status" value="0x0 " disabled ></input>
+</form>
+</td>
+<td>rx_transfer_status</td
+><td>0x0 </td
+><td >The MAC sets the following bits to indicate the
+<br>status of the RX datapath.
+<br>
+<br>Bits 7:0reserved. 
+<br>Bit 8: RX datapath status.0: The RX datapath is idle.
+<br>1: An RX data transfer is in
+<br>progress.
+<br>
+<br>Bits 11:9reserved. 
+<br>Bit 12: RX datapath reset status. 0: The RX datapath is not in
+<br>reset.
+<br>1: The RX datapath is in
+<br>reset.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_padcrc_control" value="0x1 " ></input>
+</form>
+</td>
+<td>rx_padcrc_control</td
+><td>0x1 </td
+><td >Bits [1:0]Padding and CRC removal on receive. 00: Retains the padding bytes and CRC
+<br>field, and forwards them to the client. 
+<br>01: Retains only the padding bytes. The
+<br>MAC IP core removes the CRC field before it forwards the
+<br>RX frame to the client. 
+<br>11:
+<br>Removes the padding bytes and CRC field before the RX
+<br>frame is forwarded to the client. 
+<br>10: Reserved. 
+<br>
+<br>Bits 31:2reserved. 
+<br>
+<br>Configure this register before you enable the
+<br>MAC IP core for operations.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_crccheck_control" value="0x2 " ></input>
+</form>
+</td>
+<td>rx_crccheck_control</td
+><td>0x2 </td
+><td >CRC checking on receive. 
+<br>Bit 0always set this bit to 0. 
+<br>Bit 1CRC checking enable. 0: Ignores
+<br>the CRC field. 
+<br>1: Checks the CRC
+<br>field and reports the status to avalon_st_rx_error[1] and avalon_st_rxstatus_error.
+<br>
+<br>
+<br>Bits 31:2reserved. 
+<br>
+<br>Configure this register before you enable
+<br>the MAC IP core for operations.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_custom_preamble_forward" value="0x0 " ></input>
+</form>
+</td>
+<td>rx_custom_preamble_forward</td
+><td>0x0 </td
+><td >Bit 0configures the forwarding of the custom preamble to
+<br>the client. 0: Removes the custom
+<br>preamble from the RX frame. 
+<br>1:
+<br>Retains and forwards the custom preamble to the client.
+<br>
+<br>
+<br>Bits 31:1reserved. 
+<br>
+<br>Configure this register before you enable the
+<br>MAC IP core for operations.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_preamble_control" value="0x0 " ></input>
+</form>
+</td>
+<td>rx_preamble_control</td
+><td>0x0 </td
+><td >Bit 0preamble passthrough enable on receive. 0: Disables preamble passthrough. The
+<br>MAC IP core checks for START and SFD during packet
+<br>decapsulation process. 
+<br>1:
+<br>Enables preamble passthrough. The MAC IP core checks
+<br>only for START during packet decapsulation process.
+<br>
+<br>
+<br>Bits 31:1reserved. 
+<br>
+<br>Configure this register before you enable the
+<br>MAC IP core for operations.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_frame_control" value="0x3" ></input>
+</form>
+</td>
+<td>rx_frame_control</td
+><td>0x3</td
+><td >Configure this register before you enable the
+<br>MAC IP core for operations.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_frame_maxlength" value="1518 " ></input>
+</form>
+</td>
+<td>rx_frame_maxlength</td
+><td>1518 </td
+><td >Bits 15:0specify the maximum allowable frame length. The
+<br>MAC asserts the avalon_st_rx_error[3] signal when the length
+<br>of the RX frame exceeds the value of this register. 
+<br>Bits 16:31reserved. 
+<br>
+<br>Configure this register before you enable the MAC IP core for
+<br>operations.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_vlan_detection" value="0x0" ></input>
+</form>
+</td>
+<td>rx_vlan_detection</td
+><td>0x0</td
+><td >Bit 0RX VLAN detection disable.0: The MAC detects VLAN and stacked
+<br>VLAN frames. 
+<br>1: The MAC does not
+<br>detect VLAN and stacked VLAN frames. When received, the
+<br>MAC treats them as basic frames and considers their tags
+<br>as payload bytes.
+<br>
+<br>Bits 31:1reserved.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_frame_spaddr0_0" value="0x0
+" ></input>
+</form>
+</td>
+<td>rx_frame_spaddr0_0</td
+><td>0x0
+</td
+><td >You can
+<br>specify up to four 6-byte supplementary addresses: 
+<br>
+<br>rx_framedecoder_spaddr0_0/1
+<br>
+<br>
+<br>rx_framedecoder_spaddr1_0/1
+<br>
+<br>
+<br>rx_framedecoder_spaddr2_0/1
+<br>
+<br>
+<br>rx_framedecoder_spaddr3_0/1
+<br>
+<br>
+<br>Configure the supplementary addresses before you enable the MAC
+<br>RX datapath. Map the supplementary addresses to the respective
+<br>registers in the same manner as the primary MAC address. Refer to
+<br>the description of primary_mac_addr0 and primary_mac__addr1.The MAC IP core uses the
+<br>supplementary addresses to filter unicast frames when the following
+<br>conditions are set: 
+<br>The use of the supplementary addresses are enabled using
+<br>the respective bits in the rx_frame_control register. 
+<br>The en_allucast bit of
+<br>the rx_frame_control
+<br>register is set to 0.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_frame_spaddr0_1" value="" ></input>
+</form>
+</td>
+<td>rx_frame_spaddr0_1</td
+><td></td
+><td ></td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_frame_spaddr1_0" value="" ></input>
+</form>
+</td>
+<td>rx_frame_spaddr1_0</td
+><td></td
+><td ></td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_frame_spaddr1_1" value="" ></input>
+</form>
+</td>
+<td>rx_frame_spaddr1_1</td
+><td></td
+><td ></td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_frame_spaddr2_0" value="" ></input>
+</form>
+</td>
+<td>rx_frame_spaddr2_0</td
+><td></td
+><td ></td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_frame_spaddr2_1" value="" ></input>
+</form>
+</td>
+<td>rx_frame_spaddr2_1</td
+><td></td
+><td ></td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_frame_spaddr3_0" value="" ></input>
+</form>
+</td>
+<td>rx_frame_spaddr3_0</td
+><td></td
+><td ></td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_frame_spaddr3_1" value="" ></input>
+</form>
+</td>
+<td>rx_frame_spaddr3_1</td
+><td></td
+><td ></td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_pfc_control" value="0x1 " ></input>
+</form>
+</td>
+<td>rx_pfc_control</td
+><td>0x1 </td
+><td >Bits 7:0enables priority-based flow control on the RX
+<br>datapath. Setting bit n to 0 enables
+<br>priority-based flow control for priority queue n. For example, setting rx_pfc_control[0] to 0 enables
+<br>queue 0. 
+<br>Bits 15:9reserved. 
+<br>Bit 16configures the forwarding of priority-based control
+<br>frames to the client. 0: Drops the
+<br>control frames. 
+<br>1: Forwards the
+<br>control frames to the client. 
+<br>
+<br>Bits 31:17reserved. 
+<br>
+<br> Configure this register before you enable the MAC IP core for
+<br>operations.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_pktovrflow_error" value="0x0
+" disabled ></input>
+</form>
+</td>
+<td>rx_pktovrflow_error</td
+><td>0x0
+</td
+><td >36-bit error counter
+<br>that collects the number of RX frames that are truncated when a FIFO
+<br>buffer overflow persists: 
+<br>0x00FC = Lower 32 bits of the error
+<br>counter. 
+<br>0x00FD = Upper 4 bits of the error counter
+<br>occupy bits [3:0]. Bits [31:4] are unused. 
+<br>
+<br>To read the counter, read the lower 32 bits
+<br>followed by the upper 4 bits. The IP core clears the counter
+<br>after a read.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_pktovrflow_etherStatsDropEvents" value="0x0
+" disabled ></input>
+</form>
+</td>
+<td>rx_pktovrflow_etherStatsDropEvents</td
+><td>0x0
+</td
+><td >36-bit error counter
+<br>that collects the number of RX frames that are dropped when FIFO
+<br>buffer overflow persists: 
+<br>0x00FE = Lower 32 bits of the error
+<br>counter. 
+<br>0x00FF = Upper 4 bits of the error counter
+<br>occupy bits [3:0]. Bits [31:4] are unused. 
+<br>
+<br>To read the counter, read the lower 32 bits
+<br>followed by the upper 4 bits. The IP core clears the counter
+<br>after a read.</td
+></tr>
+</tbody></table><h1>Timestamp Registers</h1>
+<table class="table">
+<tbody>
+<tr>
+<th class="col0">Current Value</th>
+<th class="col1">Register Name</th>
+<th class="col2">HW Reset Value</th>
+<th class="col3">Description<button type="button"  class="btn btn-default hideclass" ><span class="glyphicon glyphicon-resize-vertical"></span></th>
+</th>
+<tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="tx_period_10G" value="0x33333" ></input>
+</form>
+</td>
+<td>tx_period_10G</td
+><td>0x33333</td
+><td>Specifies the clock period for the
+<br>timestamp adjustment on the datapaths for 10G
+<br>and
+<br>10M/100M/1G/2.5G/5G/10G (USXGMII) operations. The
+<br>MAC IP core multiplies the value of this register by the number of
+<br>stages separating the actual timestamp and XGMII bus.
+<br>Bits 0 to 15period in fractional
+<br>nanoseconds.
+<br>Bits 16 to 19period in nanoseconds.
+<br>Bits 20 to 31reserved. Set these bits to
+<br>0.
+<br>
+<br>The default value is 3.2 ns for 312.5 MHz clock. Configure this
+<br>register before you enable the MAC IP core for operations.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="tx_fns_adjustment_10G" value="0x0 " ></input>
+</form>
+</td>
+<td>tx_fns_adjustment_10G</td
+><td>0x0 </td
+><td>Static timing adjustment in fractional
+<br>nanoseconds on the datapaths for
+<br>10G
+<br>and 10M/100M/1G/2.5G/5G/10G (USXGMII)
+<br>operations.
+<br>Bits 0 to 15adjustment period in
+<br>fractional nanoseconds.
+<br>Bits 16 to 31reserved. Set these bits to
+<br>0.
+<br>
+<br>Configure this register before you enable
+<br>the MAC IP core for operations.
+<br>For
+<br>timing adjustment calculations, refer to the related
+<br>links.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="tx_ns_adjustment_10G" value="0x0 " ></input>
+</form>
+</td>
+<td>tx_ns_adjustment_10G</td
+><td>0x0 </td
+><td>Static timing adjustment in nanoseconds
+<br>on the datapaths for 10G
+<br>and
+<br>10M/100M/1G/2.5G/5G/10G (USXGMII) operations.
+<br>Bits 0 to 15adjustment period in
+<br>nanoseconds.
+<br>Bits 16 to 31reserved. Set these bits to
+<br>0.
+<br>
+<br>Configure this register before you enable
+<br>the MAC IP core for operations.
+<br>For
+<br>timing adjustment calculations, refer to the related
+<br>links.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="tx_period_mult_speed" value="0x80000 " ></input>
+</form>
+</td>
+<td>tx_period_mult_speed</td
+><td>0x80000 </td
+><td>Specifies the clock
+<br>period for timestamp adjustment on the datapaths for 10M/100M/1G
+<br>operations. The MAC IP core multiplies the value of this register by
+<br>the number of stages separating the actual timestamp and GMII/MII
+<br>bus.
+<br>Bits
+<br>0
+<br>to 15period in fractional
+<br>nanoseconds.
+<br>Bits
+<br>16
+<br>to 19period in nanoseconds.
+<br>Bits
+<br>20
+<br>to 31reserved. Set these bits to 0.
+<br>
+<br>The default value is 8 ns for 125 MHz
+<br>clock. Configure this register before you enable the MAC IP core
+<br>for operations.
+<br>The IP core automatically
+<br>sets the clock period for 1G/2.5G configurations. For 1G, the
+<br>clock period is set to 16 ns for 62.5 MHz clock; for 2.5G, the
+<br>clock period is 6.4 ns for 156.25 MHz clock.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_period_10G" value="0x33333 " ></input>
+</form>
+</td>
+<td>rx_period_10G</td
+><td>0x33333 </td
+><td>Specifies the clock period for the
+<br>timestamp adjustment on the datapaths for 10G
+<br>and
+<br>10M/100M/1G/2.5G/5G/10G (USXGMII) operations. The
+<br>MAC IP core multiplies the value of this register by the number of
+<br>stages separating the actual timestamp and XGMII bus.
+<br>Bits 0 to 15period in fractional
+<br>nanoseconds.
+<br>Bits 16 to 19period in nanoseconds.
+<br>Bits 20 to 31reserved. Set these bits to
+<br>0.
+<br>
+<br>The default value is 3.2 ns for 312.5 MHz clock. Configure this
+<br>register before you enable the MAC IP core for operations.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_fns_adjustment_10G" value="0x0 " ></input>
+</form>
+</td>
+<td>rx_fns_adjustment_10G</td
+><td>0x0 </td
+><td>Static timing adjustment in fractional
+<br>nanoseconds on the datapaths for 10G
+<br>and
+<br>10M/100M/1G/2.5G/5G/10G (USXGMII) operations.
+<br>Bits 0 to 15adjustment period in
+<br>fractional nanoseconds.
+<br>Bits 16 to 31reserved. Set these bits to
+<br>0.
+<br>
+<br>Configure this register before you enable
+<br>the MAC IP core for operations.
+<br>For
+<br>timing adjustment calculations, refer to the related
+<br>links.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_ns_adjustment_10G" value="0x0 " ></input>
+</form>
+</td>
+<td>rx_ns_adjustment_10G</td
+><td>0x0 </td
+><td>Static timing adjustment in nanoseconds
+<br>on the datapaths for 10G
+<br>and
+<br>10M/100M/1G/2.5G/5G/10G (USXGMII) operations.
+<br>Bits 0 to 15adjustment period in
+<br>nanoseconds.
+<br>Bits 16 to 31reserved. Set these bits to
+<br>0.
+<br>
+<br>Configure this register before you enable
+<br>the MAC IP core for operations.
+<br>For
+<br>timing adjustment calculations, refer to the related
+<br>links.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_period_mult_speed" value="0x80000 " ></input>
+</form>
+</td>
+<td>rx_period_mult_speed</td
+><td>0x80000 </td
+><td>Specifies the clock
+<br>period for timestamp adjustment on the datapaths for 10M/100M/1G
+<br>operations. The MAC IP core multiplies the value of this register by
+<br>the number of stages separating the actual timestamp and GMII/MII
+<br>bus.
+<br>Bits
+<br>0
+<br>to 15period in fractional
+<br>nanoseconds.
+<br>Bits
+<br>16
+<br>to 19period in nanoseconds.
+<br>Bits
+<br>20
+<br>to 31reserved. Set these bits to 0.
+<br>
+<br>The default value is 8 ns for 125 MHz
+<br>clock. Configure this register before you enable the MAC IP core
+<br>for operations.
+<br>The IP core automatically
+<br>sets the clock period for 1G/2.5G configurations. For 1G, the
+<br>clock period is set to 16 ns for 62.5 MHz clock; for 2.5G, the
+<br>clock period is 6.4 ns for 156.25 MHz clock.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="tx_fns_adjustment_mult_speed" value="0x0 " ></input>
+</form>
+</td>
+<td>tx_fns_adjustment_mult_speed</td
+><td>0x0 </td
+><td>Static timing
+<br>adjustment in fractional nanoseconds on the datapaths for
+<br>10M/100M/1G/2.5G operations.
+<br>Bits
+<br>0
+<br>to 15adjustment period in fractional
+<br>nanoseconds.
+<br>Bits
+<br>16
+<br>to 31reserved. Set these bits to 0.
+<br>
+<br>Configure
+<br>this register before you enable the MAC IP core for
+<br>operations.
+<br>For
+<br>timing adjustment calculations, refer to the related
+<br>links.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="tx_ns_adjustment_mult_speed" value="0x0 " ></input>
+</form>
+</td>
+<td>tx_ns_adjustment_mult_speed</td
+><td>0x0 </td
+><td>Static timing
+<br>adjustment in nanoseconds on the datapaths for 10M/100M/1G/2.5G
+<br>operations.
+<br>Bits
+<br>0
+<br>to 15adjustment period in
+<br>nanoseconds.
+<br>Bits
+<br>16
+<br>to 31reserved. Set these bits to 0.
+<br>
+<br>Configure
+<br>this register before you enable the MAC IP core for
+<br>operations.
+<br>For
+<br>timing adjustment calculations, refer to the related
+<br>links.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_fns_adjustment_mult_speed" value="0x0 " ></input>
+</form>
+</td>
+<td>rx_fns_adjustment_mult_speed</td
+><td>0x0 </td
+><td>Static timing
+<br>adjustment in fractional nanoseconds on the datapaths for
+<br>10M/100M/1G/2.5G operations.
+<br>Bits
+<br>0
+<br>to 15adjustment period in fractional
+<br>nanoseconds.
+<br>Bits
+<br>16
+<br>to 31reserved. Set these bits to 0.
+<br>
+<br>Configure
+<br>this register before you enable the MAC IP core for
+<br>operations.
+<br>For
+<br>timing adjustment calculations, refer to the related
+<br>links.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_ns_adjustment_mult_speed" value="0x0 " ></input>
+</form>
+</td>
+<td>rx_ns_adjustment_mult_speed</td
+><td>0x0 </td
+><td>Static timing
+<br>adjustment in nanoseconds on the datapaths for 10M/100M/1G/2.5G
+<br>operations.
+<br>Bits
+<br>0
+<br>to 15adjustment period in
+<br>nanoseconds.
+<br>Bits
+<br>16
+<br>to 31reserved. Set these bits to 0.
+<br>
+<br>Configure
+<br>this register before you enable the MAC IP core for
+<br>operations.
+<br>For
+<br>timing adjustment calculations, refer to the related
+<br>links.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="tx_asymmetry" value="0x0 " ></input>
+</form>
+</td>
+<td>tx_asymmetry</td
+><td>0x0 </td
+><td>Specifies the
+<br>asymmetry value and direction of arithmetic operation.
+<br>Bits
+<br>0
+<br>to 16asymmetry value.
+<br>Bit 17direction.
+<br>Set to 0add asymmetry value to
+<br>correction
+<br>field
+<br>(CF).
+<br>Set to 1minus asymmetry value from
+<br>CF.
+<br>
+<br>
+<br>Bit 18enable bit.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="tx_p2p" value="0x0" ></input>
+</form>
+</td>
+<td>tx_p2p</td
+><td>0x0</td
+><td>Specifies the direction of arithmetic operation
+<br>for meanPathDelay.
+<br>
+<br>Bit 0 direction.
+<br>Set to 0add meanPathDelay value to
+<br>CF.
+<br>Set to 1minus meanPathDelay value from
+<br>CF.
+<br>
+<br>
+<br>Bits 1 to 30reserved.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="tx_cf_err_stat" value="0x0" ></input>
+</form>
+</td>
+<td>tx_cf_err_stat</td
+><td>0x0</td
+><td>Bits 0error status bit to indicate that
+<br>ingress correction field is equal to the absolute maximum,
+<br>64h7FF_FFFF_FFFF_FFFF.
+<br>Bits 0 to 15reserved.
+<br>Bit 16error status bit to indicate that
+<br>egress correction field is equal or larger than absolute
+<br>maximum, 64h7FFF_FFFF_FFFF_FFFF.
+<br>Bit 17error status bit to indicate that
+<br>residence time is equal or larger than 4 seconds.
+<br>Bit 18error status bit to indicate that
+<br>residence time is a negative value.
+<br>Bits 19 to 31reserved.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_p2p_mpd_ns" value="0x0" ></input>
+</form>
+</td>
+<td>rx_p2p_mpd_ns</td
+><td>0x0</td
+><td>meanPathDelay
+<br>valid and value in ns.
+<br>The peer-to-peer mechanism delivers meanPathDelay for each ingress
+<br>port. This needs to be added to the
+<br>Sync
+<br>packets correction field before the packet is sent out on
+<br>egress port. Thus, the egress port might add any of the ingress ports'
+<br>'meanPathDelay'.
+<br>The value to be added at the egress port should correspond to
+<br>the ingress port on which the
+<br>Sync
+<br>packet has arrived.
+<br>
+<br>Bit 30Indicates meanPathDelay is valid.
+<br>Bits 0 to 29meanPathDelay value in nanosecond.
+<br>Bit 31reserved.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_p2p_mpd_fns" value="0x0" ></input>
+</form>
+</td>
+<td>rx_p2p_mpd_fns</td
+><td>0x0</td
+><td>Bits 0 to 15meanPathDelay value in fractional
+<br>nanosecond.
+<br>Bits 16 to 31reserved.</td
+></tr>
+</tbody></table><script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var url = "http://" + document.domain + ":" + location.port;
+            console.log( url);
+            var socket = io.connect(url + "/dd");
+            console.log("connected");
+            socket.emit("conn", [location.pathname.split('/').slice(-1)[0]])
+            $('td:nth-child(4)').toggle()
+
+            $(".reg_input").keydown(function(event){
+                console.log(event.which)
+                console.log($(this).attr("id"))
+                if (event.which == 13) {
+                    msg = [$(this).attr("id"),$(this).val(),location.pathname.split('/').slice(-1)[0]]
+                    console.log(msg)
+                    socket.emit("memwrt", msg);
+                }    
+                });
+
+            $(".radio-inline").focus(function(){
+                console.log("radio_inline")
+                console.log($(this))
+                });
+
+            $('#myForm input').on('change', function() {
+               var portname = ($('input[name=optradio]:checked', '#myForm').val()); 
+               console.log(portname)
+               socket.emit("port_select", [location.pathname.split('/').slice(-1)[0],portname])
+            });
+            
+            $(".reg_input").focus(function(){
+                console.log("input")
+                $(this).val("")
+                })
+                
+            $("#cityform").submit(function(event) {
+                console.log("submit")
+                socket.emit('city', {'city': $('#city').val()});
+                $('#city').val('');
+                return false;
+            });
+            
+            
+/*            $("*").submit(function(event) {
+                console.log("submit")
+                return false;
+            });
+*/            
+            $(".tipclass").mouseenter(function() {
+                var word = $(this).attr('title')
+                $(this).attr('title',"changed")
+                var ID = $(this).attr('id')
+                console.log("ID="+ID)
+                console.log("tipclass " + word + ID )
+                socket.emit("getval", ID) 
+                })
+                
+            socket.on('update_table', function(msg) {
+                console.log(msg)
+                update_table(msg)
+                
+            });
+            
+            socket.on('set_portname', function(msg) {
+                console.log(msg)
+                $('input[name=optradio][value=' + msg + ']').prop('checked', true);
+                
+            });
+            socket.on('getval', function(msg) {
+                m = msg
+                console.log(m[0] + m[1]);
+                x = document.getElementById(m[0]).title = m[1];
+                console.log(x)
+            });
+            
+            $(".hideclass").click(function(event) {
+                $('td:nth-child(4)').toggle()
+                return false
+            });
+
+            $("#panicbutton").click(function(event) {
+                console.log("panic button")
+                socket.emit("panic",{"panic": "some hell is breaking loose!"});
+                return false
+            });
+
+            socket.on('portstatus', function(port_obj) {
+                update_portstatus(port_obj);
+                console.log("got port_obj ");
+            });
+            
+            socket.on('city', function(msg) {
+                $("#cities-list").prepend('<h3>' + msg.city + '<h3>');
+            });
+            
+
+        });
+    </script>
+    
+
+<script type="text/javascript">
+    function update_portstatus( data ){
+         port_obj = JSON.parse(data)
+        for (portn in port_obj) {
+            port = port_obj[portn]
+            for (x in port) { 
+                document.getElementById(portn+x).innerHTML = port[x];
+            }
+        }
+    }
+    
+    function update_table( data ){
+         var tbl_obj = JSON.parse(data)
+        for (label in tbl_obj) {
+            console.log(label)
+            console.log(tbl_obj[label])
+            console.log(document.getElementById(label))
+            document.getElementById(label).setAttribute('value',tbl_obj[label]);
+            document.getElementById(label).reg_input = tbl_obj[label];
+            console.log(document.getElementById(label))
+            
+       }
+    }
+
+</script>
+
+
+{% endblock %}
+

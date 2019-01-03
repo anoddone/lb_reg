@@ -1,0 +1,70 @@
+{
+    "rx_p2p_mpd_ns": [
+        "0x12E", 
+        32
+    ], 
+    "rx_p2p_mpd_fns": [
+        "0x130", 
+        32
+    ], 
+    "rx_fns_adjustment_mult_speed": [
+        "0x12A", 
+        32
+    ], 
+    "rx_fns_adjustment_10G": [
+        "0x0122", 
+        32
+    ], 
+    "tx_period_10G": [
+        "0x0100", 
+        32
+    ], 
+    "rx_period_10G": [
+        "0x0120", 
+        32
+    ], 
+    "rx_ns_adjustment_10G": [
+        "0x0124", 
+        32
+    ], 
+    "tx_asymmetry": [
+        "0x110", 
+        32
+    ], 
+    "tx_ns_adjustment_10G": [
+        "0x0104", 
+        32
+    ], 
+    "tx_p2p": [
+        "0x112", 
+        32
+    ], 
+    "rx_period_mult_speed": [
+        "0x0128", 
+        32
+    ], 
+    "rx_ns_adjustment_mult_speed": [
+        "0x12C", 
+        32
+    ], 
+    "tx_period_mult_speed": [
+        "0x0108", 
+        32
+    ], 
+    "tx_cf_err_stat": [
+        "0x114", 
+        32
+    ], 
+    "tx_fns_adjustment_mult_speed": [
+        "0x10A", 
+        32
+    ], 
+    "tx_ns_adjustment_mult_speed": [
+        "0x10C", 
+        32
+    ], 
+    "tx_fns_adjustment_10G": [
+        "0x0102", 
+        32
+    ]
+}

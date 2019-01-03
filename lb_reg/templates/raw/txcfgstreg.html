@@ -1,0 +1,446 @@
+<div class="tablenoborder"><table class="table" frame="border" id="nfa1428998416666__table_g4p_vl1_sr" rules="all" summary="" cellspacing="0" cellpadding="4" border="1"><caption xmlns="http://www.w3.org/1999/xhtml"><span class="tablecap"><span class="tablecap"><span class="enumeration table-enumeration">Table 25.  </span>TX Configuration and Status Registers</span></span></caption>
+					          
+					          
+					          
+					          
+					          
+					          <thead class="thead" align="left">
+						            <tr class="row">
+							              <th class="entry" id="d39045e183" width="9.523809523809524%" valign="top" align="center">Word Offset </th>
+
+							              <th class="entry" id="d39045e186" width="28.57142857142857%" valign="top" align="center">Register Name</th>
+
+							              <th class="entry" id="d39045e189" width="42.857142857142854%" valign="top" align="center">Description</th>
+
+							              <th class="entry" id="d39045e192" width="9.523809523809524%" valign="top" align="center">Access</th>
+
+							              <th class="entry" id="d39045e195" width="9.523809523809524%" valign="top" align="center">HW Reset Value </th>
+
+						            </tr>
+
+					          </thead>
+
+					          <tbody class="tbody">
+						            <tr class="row">
+							              <td class="entry" headers="d39045e183 " width="9.523809523809524%" valign="top" align="center">0x0020</td>
+
+							              <td class="entry" headers="d39045e186 " width="28.57142857142857%" valign="top" align="left">
+                        <samp class="ph codeph">tx_packet_control</samp>
+                     </td>
+
+							              <td class="entry" headers="d39045e189 " width="42.857142857142854%" valign="top" align="left">
+								                <ul class="ul" id="nfa1428998416666__ul_F58F51AC206C4CD3AFAD905051CBE2C1">
+									                  <li class="li" id="nfa1428998416666__li_43FB9189EE76483EB62AC1BF8C17B7C9">Bit
+										0—configures the TX path. <p class="p">0: Enables the
+											TX path. </p>
+
+                              <p class="p">1: Disables the TX path.
+											The MAC IP core indicates a backpressure on the
+											Avalon-ST transmit data interface by deasserting the
+												<samp class="ph codeph">avalon_st_tx_ready</samp>
+											signal. When disabled, the IP core stops generating new
+											pause and PFC frames.</p>
+
+                           </li>
+
+									                  <li class="li" id="nfa1428998416666__li_EB006BD8CE7C4BCFB4906AAE9DEAF725">Bits 31:1—reserved. </li>
+
+								                </ul>
+
+								                <p class="p">You can change the value of this register as
+									necessary. If the TX path is disabled while a frame is being
+									transmitted, the MAC IP core completes the transmission before
+									disabling the TX path. </p>
+
+							              </td>
+
+							              <td class="entry" headers="d39045e192 " width="9.523809523809524%" valign="top" align="center">RW</td>
+
+							              <td class="entry" headers="d39045e195 " width="9.523809523809524%" valign="top" align="center">0x0 </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d39045e183 " width="9.523809523809524%" valign="top" align="center">0x0022 </td>
+
+							              <td class="entry" headers="d39045e186 " width="28.57142857142857%" valign="top" align="left">
+                        <samp class="ph codeph">tx_transfer_status</samp>
+							              </td>
+
+							              <td class="entry" headers="d39045e189 " width="42.857142857142854%" valign="top" align="left">
+								                <p class="p">The MAC sets the following bits to indicate the
+									status of the TX datapath.</p>
+
+								                <ul class="ul" id="nfa1428998416666__ul_74B114B5E89A40DD9315F66700E09125">
+									                  <li class="li" id="nfa1428998416666__li_3A2F0C2F9F8F4D2E86A4BC8A6262D673">Bits 7:0—reserved. </li>
+
+									                  <li class="li">Bit 8: TX datapath status.<p class="p">0: The TX datapath is idle.</p>
+
+                              <p class="p">1: A TX data transfer is in
+											progress.</p>
+
+                           </li>
+
+									                  <li class="li">Bits 11:9—reserved. </li>
+
+									                  <li class="li">Bit 12: TX datapath reset status. <p class="p">0: The TX datapath is not in
+											reset.</p>
+
+                              <p class="p">1: The TX datapath is in
+											reset.</p>
+
+                           </li>
+
+								                </ul>
+
+							              </td>
+
+							              <td class="entry" headers="d39045e192 " width="9.523809523809524%" valign="top" align="center">RO </td>
+
+							              <td class="entry" headers="d39045e195 " width="9.523809523809524%" valign="top" align="center">0x0 </td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d39045e183 " width="9.523809523809524%" valign="top" align="center">0x0024</td>
+
+							              <td class="entry" headers="d39045e186 " width="28.57142857142857%" valign="top" align="left">
+                        <samp class="ph codeph">tx_pad_control</samp>
+                     </td>
+
+							              <td class="entry" headers="d39045e189 " width="42.857142857142854%" valign="top" align="left">
+								                <ul class="ul" id="nfa1428998416666__ul_D63050F0A3BF49B4A36E5BC6562FFA77">
+									                  <li class="li" id="nfa1428998416666__li_5D6C4AF741D14AD8B01CAC339FF62991">Bit
+										0—padding insertion enable on transmit. <p class="p">0: Disables padding insertion. The client must ensure
+											that the length of the data frame meets the minimum
+											length as required by the IEEE 802.3 specifications.
+											</p>
+
+                              <p class="p">1: Enables padding insertion. The
+											MAC IP core inserts padding bytes into the data frames
+											from the client to meet the minimum length as required
+											by the IEEE 802.3 specifications. </p>
+
+                              <p class="p">When padding insertion is enabled, you must set <samp class="ph codeph">tx_crc_control[]</samp> to 0x3 to
+											enable CRC insertion. </p>
+
+									                  </li>
+
+									                  <li class="li" id="nfa1428998416666__li_2B2E864AA1AF4C48B1737D4348A7BD68">Bits 31:1—reserved. </li>
+
+								                </ul>
+
+								                <p class="p">Configure this register before you enable the MAC
+									IP core for operations. </p>
+
+							              </td>
+
+							              <td class="entry" headers="d39045e192 " width="9.523809523809524%" valign="top" align="center">RW</td>
+
+							              <td class="entry" headers="d39045e195 " width="9.523809523809524%" valign="top" align="center">0x1</td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d39045e183 " width="9.523809523809524%" valign="top" align="center">0x0026</td>
+
+							              <td class="entry" headers="d39045e186 " width="28.57142857142857%" valign="top" align="left">
+                        <samp class="ph codeph">tx_crc_control</samp>
+                     </td>
+
+							              <td class="entry" headers="d39045e189 " width="42.857142857142854%" valign="top" align="left">
+								                <ul class="ul" id="nfa1428998416666__ul_3EBFFF84C2A24E349812A0BE59134420">
+									                  <li class="li" id="nfa1428998416666__li_BAF19EBB90B84AA8907D392A3C454541">Bit
+										0—always set this bit to 1. </li>
+
+									                  <li class="li" id="nfa1428998416666__li_DCD5E963027F4D519E0686F0D1FA4ACF">Bit
+										1—configures CRC insertion. <p class="p">0: Disables
+											CRC insertion. The client must provide the CRC field and
+											ensure that the length of the data frame meets the
+											minimum required length. </p>
+
+                              <p class="p">1:
+											Enables CRC insertion. The MAC IP core computes the CRC
+											field and inserts it into the data frame. </p>
+
+                           </li>
+
+									                  <li class="li" id="nfa1428998416666__li_7FFF645A31F04C7C9B39A134129E0D1E">Bits 31:2—reserved. </li>
+
+								                </ul>
+
+								                <p class="p">Configure this register before you enable the MAC
+									IP core for operations. </p>
+
+							              </td>
+
+							              <td class="entry" headers="d39045e192 " width="9.523809523809524%" valign="top" align="center">RW</td>
+
+							              <td class="entry" headers="d39045e195 " width="9.523809523809524%" valign="top" align="center">0x3</td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d39045e183 " width="9.523809523809524%" valign="top" align="center">0x0028</td>
+
+							              <td class="entry" headers="d39045e186 " width="28.57142857142857%" valign="top" align="left">
+                        <samp class="ph codeph">tx_preamble_control</samp>
+                        <a xmlns="http://www.w3.org/1999/xhtml" href="#fntarg_7" name="fnsrc_7"><sup>7</sup></a>
+                     </td>
+
+							              <td class="entry" headers="d39045e189 " width="42.857142857142854%" valign="top" align="left">
+								                <ul class="ul" id="nfa1428998416666__ul_12452187D26D4F0E800E37C706E8682E">
+									                  <li class="li" id="nfa1428998416666__li_1124831164E9461AA1DC751D13E8714C">Bit
+										0—configures the preamble passthrough mode on transmit. <p class="p">0: Disables preamble passthrough. The
+											MAC IP core inserts the standard preamble specified by
+											the IEEE 802.3 specifications into the data frame.
+											</p>
+
+                              <p class="p">1: Enables preamble passthrough.
+											The MAC IP core identifies the first 8 bytes of the data
+											frame from the client as a custom preamble. </p>
+
+									                  </li>
+
+									                  <li class="li" id="nfa1428998416666__li_B3E2462A410844D5ACC2C8F34D9E3BF4">Bits 31:1—reserved. </li>
+
+								                </ul>
+
+								                <p class="p">Configure this register before you enable the MAC
+									IP core for operations. </p>
+
+							              </td>
+
+							              <td class="entry" headers="d39045e192 " width="9.523809523809524%" valign="top" align="center">RW </td>
+
+							              <td class="entry" headers="d39045e195 " width="9.523809523809524%" valign="top" align="center">0x0</td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d39045e183 " width="9.523809523809524%" valign="top" align="center">0x002A</td>
+
+							              <td class="entry" headers="d39045e186 " width="28.57142857142857%" valign="top" align="left">
+                        <samp class="ph codeph">tx_src_addr_override</samp>
+                     </td>
+
+							              <td class="entry" headers="d39045e189 " width="42.857142857142854%" valign="top" align="left">
+								                <ul class="ul" id="nfa1428998416666__ul_53F009E8A3C94BD0B4CD26AA4F1F3E79">
+									                  <li class="li" id="nfa1428998416666__li_183FEBD6BF044236A6FF8511A7CDA5DF">Bit
+										0—configures source address override. <p class="p">0:
+											Disables source address override. The client must fill
+											the source address field with a valid address.. </p>
+
+                              <p class="p">1: Enables source address override. The
+											MAC IP core overwrites the source address field in data
+											frames with the primary MAC address specified in the
+												<samp class="ph codeph">tx_primary_mac_addr0</samp> and <samp class="ph codeph">tx_primary_mac_addr1</samp>
+											registers. </p>
+
+									                  </li>
+
+									                  <li class="li" id="nfa1428998416666__li_7792C4C3CF3A4AE19EC7CCD83FD1BBE4">Bits 31:1—reserved. </li>
+
+								                </ul>
+
+								                <p class="p">Configure this register before you enable the MAC
+									IP core for operations. </p>
+
+							              </td>
+
+							              <td class="entry" headers="d39045e192 " width="9.523809523809524%" valign="top" align="center">RW</td>
+
+							              <td class="entry" headers="d39045e195 " width="9.523809523809524%" valign="top" align="center">0x0</td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d39045e183 " width="9.523809523809524%" valign="top" align="center">0x002C </td>
+
+							              <td class="entry" headers="d39045e186 " width="28.57142857142857%" valign="top" align="left">
+                        <samp class="ph codeph">tx_frame_maxlength</samp>
+                     </td>
+
+							              <td class="entry" headers="d39045e189 " width="42.857142857142854%" valign="top" align="left">
+								                <ul class="ul" id="nfa1428998416666__ul_726E970DD6D9473FBC3387FF7C2AE060">
+									                  <li class="li" id="nfa1428998416666__li_BCD96F7B282E4BACB0D6EE8C782B9CC5">Bits 15:0—specify the maximum allowable frame length. The
+										MAC IP core uses this register only for the purpose of
+										collecting statistics. When the length of the data frame
+										from the client exceeds this value, the MAC IP core asserts
+										the <samp class="ph codeph">avalon_st_txstatus_error[1]</samp> signal to flag the
+										frame as oversized. The MAC IP core then forwards the
+										oversized frame through the transmit datapath as is. </li>
+
+									                  <li class="li" id="nfa1428998416666__li_3C8844E326A644D39064D4E8077B8963">Bits 31:16—reserved. </li>
+
+								                </ul>
+
+								                <p class="p">Configure this register before you enable the MAC
+									IP core for operations. </p>
+
+							              </td>
+
+							              <td class="entry" headers="d39045e192 " width="9.523809523809524%" valign="top" align="center">RW</td>
+
+							              <td class="entry" headers="d39045e195 " width="9.523809523809524%" valign="top" align="center">0x5EE (1518)</td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d39045e183 " width="9.523809523809524%" valign="top" align="center">0x002D</td>
+
+							              <td class="entry" headers="d39045e186 " width="28.57142857142857%" valign="top" align="left">
+                        <samp class="ph codeph">tx_vlan_detection</samp>
+                     </td>
+
+							              <td class="entry" headers="d39045e189 " width="42.857142857142854%" valign="top" align="left">
+								                <ul class="ul" id="nfa1428998416666__ul_hxk_tgj_qr">
+									                  <li class="li">Bit 0—TX VLAN detection disable.<p class="p">0: The MAC detects VLAN and stacked
+											VLAN frames.</p>
+
+                              <p class="p">1: The MAC does not
+											detect VLAN and stacked VLAN frames. When received, the
+											MAC treats them as basic frames and considers their tags
+											as payload bytes.</p>
+
+                           </li>
+
+									                  <li class="li">Bits 31:1—reserved.</li>
+
+								                </ul>
+
+							              </td>
+
+							              <td class="entry" headers="d39045e192 " width="9.523809523809524%" valign="top" align="center">RW</td>
+
+							              <td class="entry" headers="d39045e195 " width="9.523809523809524%" valign="top" align="center">0x0</td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d39045e183 " width="9.523809523809524%" valign="top" align="center">
+								                <p class="p">0x002E</p>
+
+								                <p class="p">0x081E</p>
+
+							              </td>
+
+							              <td class="entry" headers="d39045e186 " width="28.57142857142857%" valign="top" align="left">
+                        <samp class="ph codeph">tx_ipg_10g</samp>
+                     </td>
+
+							              <td class="entry" headers="d39045e189 " width="42.857142857142854%" valign="top" align="left">
+								                <ul class="ul" id="nfa1428998416666__ul_aq5_hp1_sr">
+									                  <li class="li">Bit 0—use this bit to specify the average
+										IPG for operating speed of 10 Gbps.<p class="p">0:
+											Sets the average IPG to 8 bytes.</p>
+
+                              <p class="p">1: Sets the average IPG to 12 bytes.</p>
+
+                           </li>
+
+									                  <li class="li">Bits 31:1—reserved.</li>
+
+								                </ul>
+
+								                <p class="p">The Unidirectional feature does not support an
+									average IPG of 8 bytes.</p>
+
+								                <p class="p">If you turn on <span class="ph uicontrol">Use
+										legacy Ethernet 10G MAC Avalon Memory-Mapped
+										interface</span>, the word offset is <samp class="ph codeph">0x081E</samp>. Otherwise, the word offset
+									is <samp class="ph codeph">0x002E</samp>.</p>
+
+							              </td>
+
+							              <td class="entry" headers="d39045e192 " width="9.523809523809524%" valign="top" align="center">RW</td>
+
+							              <td class="entry" headers="d39045e195 " width="9.523809523809524%" valign="top" align="center">0x1</td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d39045e183 " width="9.523809523809524%" valign="top" align="center">
+								                <p class="p">0x002F</p>
+
+								                <p class="p">0x081F</p>
+
+							              </td>
+
+							              <td class="entry" headers="d39045e186 " width="28.57142857142857%" valign="top" align="left">
+                        <samp class="ph codeph">tx_ipg_10M_100M_1G</samp>
+                     </td>
+
+							              <td class="entry" headers="d39045e189 " width="42.857142857142854%" valign="top" align="left">
+								                <ul class="ul" id="nfa1428998416666__ul_gv4_wp1_sr">
+									                  <li class="li">Bits 3:0—use these bits to specify the
+										average IPG for operating speed of 10 Mbps, 100 Mbps or 1
+										Gbps. Valid values are between 8 to 15 bytes.</li>
+
+									                  <li class="li">Bits 31:4—reserved.</li>
+
+								                </ul>
+
+								                <p class="p">If you turn on <span class="ph uicontrol">Use
+										legacy Ethernet 10G MAC Avalon Memory-Mapped
+										interface</span>, the word offset is <samp class="ph codeph">0x081F</samp>. Otherwise, the word offset
+									is <samp class="ph codeph">0x002F</samp>.</p>
+
+							              </td>
+
+							              <td class="entry" headers="d39045e192 " width="9.523809523809524%" valign="top" align="center">RW</td>
+
+							              <td class="entry" headers="d39045e195 " width="9.523809523809524%" valign="top" align="center">0x0C</td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d39045e183 " width="9.523809523809524%" valign="top" align="center">0x003E</td>
+
+							              <td class="entry" headers="d39045e186 " width="28.57142857142857%" valign="top" align="left">
+                        <samp class="ph codeph">tx_underflow_counter0</samp>
+                     </td>
+
+							              <td class="entry" headers="d39045e189 " rowspan="2" width="42.857142857142854%" valign="top" align="left">
+								                <p class="p">36-bit error counter that collects the number of
+									truncated TX frames when TX buffer underflow persists. </p>
+
+								                <ul class="ul" id="nfa1428998416666__ul_DDDA0AC604C6461A85AF9414992F5C3D">
+									                  <li class="li" id="nfa1428998416666__li_EE2B1114C0354D53BEED292EC3F090A0">
+                              <samp class="ph codeph">tx_underflow_counter0</samp>:
+										Lower 32 bits of the error counter. </li>
+
+									                  <li class="li" id="nfa1428998416666__li_E9F6082B9AD54B96A8FD60A2A9572202">
+                              <samp class="ph codeph">tx_underflow_counter1[3:0]</samp>: Upper 4 bits of
+										the error counter. </li>
+
+									                  <li class="li" id="nfa1428998416666__li_131C48F9B46245C6AD374C54DC712657">
+                              <samp class="ph codeph">tx_underflow_counter1[31:4]</samp>—reserved. </li>
+
+								                </ul>
+
+								                <p class="p">To read the counter, read the lower 32 bits
+									followed by the upper 4 bits. The IP core clears the counter
+									after a read.</p>
+
+							              </td>
+
+							              <td class="entry" headers="d39045e192 " rowspan="2" width="9.523809523809524%" valign="top" align="center">RO</td>
+
+							              <td class="entry" headers="d39045e195 " rowspan="2" width="9.523809523809524%" valign="top" align="center">0x0</td>
+
+						            </tr>
+
+						            <tr class="row">
+							              <td class="entry" headers="d39045e183 " width="9.523809523809524%" valign="top" align="center">0x003F</td>
+
+							              <td class="entry" headers="d39045e186 " width="28.57142857142857%" valign="top" align="left">
+                        <samp class="ph codeph">tx_underflow_counter1</samp>
+                     </td>
+
+						            </tr>
+
+					          </tbody>
+
+				        </table>
+</div>
