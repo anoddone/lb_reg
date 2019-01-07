@@ -100,13 +100,13 @@ def extract_table_data( filename):
     #print len(rows)
     #print rows
 
-    for row in table.find_all(['th','tr']):
-        for cell in row(["th"]):
-            print cell.text
-    print "Done"
+#    for row in table.find_all(['th','tr']):
+#        for cell in row(["th"]):
+#            print cell.text
+#    print "Done"
 
-    table_data = [[cell.text.decode("utf-8",errors="ignore").replace('\t','').strip() for cell in row(["td","th"])]
-                             for row in table.find_all(["tr","th"])]
+    table_data = [[cell.text.decode("utf-8",errors="ignore").replace('\t','').strip() for cell in row("td")]
+                             for row in table.find_all("tr")]
     #print table_data
 
     with open("table_data/%s.json"%filename, 'w') as fp:
@@ -136,11 +136,11 @@ def process_table( filename, table_name, default_access="",default_default="",re
 
     table_data = [[cell.text for cell in row("td")]
                              for row in table.find_all("tr")]
-    #print table_data
+    print table_data
     with open("%stable_data.json"%filename, 'w') as fp:
         fp.write(json.dumps(table_data, indent=4))
     table_dict = {}
-    table_data = []
+    table_list = []
     if MAC:
         label ="MAC"
         offset = "0x10"
@@ -148,9 +148,9 @@ def process_table( filename, table_name, default_access="",default_default="",re
         desc = "MAC address"
         access = "RW"
         table_dict.update( {label : [offset,48] })
-        table_data.append( [value,label,default,desc,access])
+        table_list.append( [value,label,default,desc,access])
 
-
+    print "len(table_data) ", len(table_data)
     for row in table_data:
         if len(row) == 0:
             continue
@@ -181,9 +181,9 @@ def process_table( filename, table_name, default_access="",default_default="",re
         else:
             default = default_default
         table_dict.update( {label : [offset,regsize] })
-        table_data.append( [value,label,default,desc,access])
+        table_list.append( [value,label,default,desc,access])
            
-    html = makeTable(table_data, 
+    html = makeTable(table_list, 
             table_name=table_name,
             table_header=["Current Value","Register Name","HW Reset Value","Description"])
 #    print html
@@ -208,6 +208,8 @@ def extract_data(table_list):
         extract_table_data(table)
 
 if __name__ == '__main__':
+    process_table( 'txcfgstreg', "Table 25.  MAC TX Configuration and Status Register", MAC=True)
+    sys.exit()
 #    extract_data(['txcfgstreg','rxcfgstreg', 'timestampreg','rxtxstat','PHYregdef'])
     create_html( 'txcfgstreg', "Table 25.  MAC TX Configuration and Status Register")
     create_html( 'rxcfgstreg', "Table 28.  MAC RX Configuration and Status Register")

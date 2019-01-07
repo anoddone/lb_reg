@@ -1,18 +1,5 @@
 [
-    [
-        "Word Offset", 
-        "Register Name", 
-        "Description", 
-        "Access", 
-        "HW Reset Value"
-    ], 
-    [
-        "0x0010",
-        "primary_mac_addr0",
-        "6-byte primary MAC address. Configure this register with a non-zero value before you enable the MAC IP core for operations."
-        "RW",
-        "0x0"
-    ], 
+    [], 
     [
         "0x0020", 
         "tx_packet_control", 
@@ -92,9 +79,6 @@
     ], 
     [
         "0x003F", 
-        "tx_underflow_counter1",
-        "MSB 36-bit of error counter ",
-        "RO",
-        "0x0"
+        "tx_underflow_counter1"
     ]
 ]

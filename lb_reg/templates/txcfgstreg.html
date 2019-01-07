@@ -18,4 +18,256 @@
 ><td>000000000000</td
 ><td >MAC address</td
 ></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="tx_packet_control" value="0x0 " ></input>
+</form>
+</td>
+<td>tx_packet_control</td
+><td>0x0 </td
+><td >Bit
+<br>0configures the TX path. 0: Enables the
+<br>TX path. 
+<br>1: Disables the TX path.
+<br>The MAC IP core indicates a backpressure on the
+<br>Avalon-ST transmit data interface by deasserting the
+<br>avalon_st_tx_ready
+<br>signal. When disabled, the IP core stops generating new
+<br>pause and PFC frames.
+<br>
+<br>Bits 31:1reserved. 
+<br>
+<br>You can change the value of this register as
+<br>necessary. If the TX path is disabled while a frame is being
+<br>transmitted, the MAC IP core completes the transmission before
+<br>disabling the TX path.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="tx_transfer_status" value="0x0 " disabled ></input>
+</form>
+</td>
+<td>tx_transfer_status</td
+><td>0x0 </td
+><td >The MAC sets the following bits to indicate the
+<br>status of the TX datapath.
+<br>
+<br>Bits 7:0reserved. 
+<br>Bit 8: TX datapath status.0: The TX datapath is idle.
+<br>1: A TX data transfer is in
+<br>progress.
+<br>
+<br>Bits 11:9reserved. 
+<br>Bit 12: TX datapath reset status. 0: The TX datapath is not in
+<br>reset.
+<br>1: The TX datapath is in
+<br>reset.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="tx_pad_control" value="0x1" ></input>
+</form>
+</td>
+<td>tx_pad_control</td
+><td>0x1</td
+><td >Bit
+<br>0padding insertion enable on transmit. 0: Disables padding insertion. The client must ensure
+<br>that the length of the data frame meets the minimum
+<br>length as required by the IEEE 802.3 specifications.
+<br>
+<br>1: Enables padding insertion. The
+<br>MAC IP core inserts padding bytes into the data frames
+<br>from the client to meet the minimum length as required
+<br>by the IEEE 802.3 specifications. 
+<br>When padding insertion is enabled, you must set tx_crc_control[] to 0x3 to
+<br>enable CRC insertion. 
+<br>
+<br>Bits 31:1reserved. 
+<br>
+<br>Configure this register before you enable the MAC
+<br>IP core for operations.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="tx_crc_control" value="0x3" ></input>
+</form>
+</td>
+<td>tx_crc_control</td
+><td>0x3</td
+><td >Bit
+<br>0always set this bit to 1. 
+<br>Bit
+<br>1configures CRC insertion. 0: Disables
+<br>CRC insertion. The client must provide the CRC field and
+<br>ensure that the length of the data frame meets the
+<br>minimum required length. 
+<br>1:
+<br>Enables CRC insertion. The MAC IP core computes the CRC
+<br>field and inserts it into the data frame. 
+<br>
+<br>Bits 31:2reserved. 
+<br>
+<br>Configure this register before you enable the MAC
+<br>IP core for operations.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="tx_preamble_control" value="0x0" ></input>
+</form>
+</td>
+<td>tx_preamble_control</td
+><td>0x0</td
+><td >Bit
+<br>0configures the preamble passthrough mode on transmit. 0: Disables preamble passthrough. The
+<br>MAC IP core inserts the standard preamble specified by
+<br>the IEEE 802.3 specifications into the data frame.
+<br>
+<br>1: Enables preamble passthrough.
+<br>The MAC IP core identifies the first 8 bytes of the data
+<br>frame from the client as a custom preamble. 
+<br>
+<br>Bits 31:1reserved. 
+<br>
+<br>Configure this register before you enable the MAC
+<br>IP core for operations.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="tx_src_addr_override" value="0x0" ></input>
+</form>
+</td>
+<td>tx_src_addr_override</td
+><td>0x0</td
+><td >Bit
+<br>0configures source address override. 0:
+<br>Disables source address override. The client must fill
+<br>the source address field with a valid address.. 
+<br>1: Enables source address override. The
+<br>MAC IP core overwrites the source address field in data
+<br>frames with the primary MAC address specified in the
+<br>tx_primary_mac_addr0 and tx_primary_mac_addr1
+<br>registers. 
+<br>
+<br>Bits 31:1reserved. 
+<br>
+<br>Configure this register before you enable the MAC
+<br>IP core for operations.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="tx_frame_maxlength" value="0x5EE (1518)" ></input>
+</form>
+</td>
+<td>tx_frame_maxlength</td
+><td>0x5EE (1518)</td
+><td >Bits 15:0specify the maximum allowable frame length. The
+<br>MAC IP core uses this register only for the purpose of
+<br>collecting statistics. When the length of the data frame
+<br>from the client exceeds this value, the MAC IP core asserts
+<br>the avalon_st_txstatus_error[1] signal to flag the
+<br>frame as oversized. The MAC IP core then forwards the
+<br>oversized frame through the transmit datapath as is. 
+<br>Bits 31:16reserved. 
+<br>
+<br>Configure this register before you enable the MAC
+<br>IP core for operations.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="tx_vlan_detection" value="0x0" ></input>
+</form>
+</td>
+<td>tx_vlan_detection</td
+><td>0x0</td
+><td >Bit 0TX VLAN detection disable.0: The MAC detects VLAN and stacked
+<br>VLAN frames.
+<br>1: The MAC does not
+<br>detect VLAN and stacked VLAN frames. When received, the
+<br>MAC treats them as basic frames and considers their tags
+<br>as payload bytes.
+<br>
+<br>Bits 31:1reserved.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="tx_ipg_10g" value="0x1" ></input>
+</form>
+</td>
+<td>tx_ipg_10g</td
+><td>0x1</td
+><td >Bit 0use this bit to specify the average
+<br>IPG for operating speed of 10 Gbps.0:
+<br>Sets the average IPG to 8 bytes.
+<br>1: Sets the average IPG to 12 bytes.
+<br>
+<br>Bits 31:1reserved.
+<br>
+<br>The Unidirectional feature does not support an
+<br>average IPG of 8 bytes.
+<br>If you turn on Use
+<br>legacy Ethernet 10G MAC Avalon Memory-Mapped
+<br>interface, the word offset is 0x081E. Otherwise, the word offset
+<br>is 0x002E.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="tx_ipg_10M_100M_1G" value="0x0C" ></input>
+</form>
+</td>
+<td>tx_ipg_10M_100M_1G</td
+><td>0x0C</td
+><td >Bits 3:0use these bits to specify the
+<br>average IPG for operating speed of 10 Mbps, 100 Mbps or 1
+<br>Gbps. Valid values are between 8 to 15 bytes.
+<br>Bits 31:4reserved.
+<br>
+<br>If you turn on Use
+<br>legacy Ethernet 10G MAC Avalon Memory-Mapped
+<br>interface, the word offset is 0x081F. Otherwise, the word offset
+<br>is 0x002F.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="tx_underflow_counter0" value="0x0" disabled ></input>
+</form>
+</td>
+<td>tx_underflow_counter0</td
+><td>0x0</td
+><td >36-bit error counter that collects the number of
+<br>truncated TX frames when TX buffer underflow persists. 
+<br>
+<br>
+<br>tx_underflow_counter0:
+<br>Lower 32 bits of the error counter. 
+<br>
+<br>tx_underflow_counter1[3:0]: Upper 4 bits of
+<br>the error counter. 
+<br>
+<br>tx_underflow_counter1[31:4]reserved. 
+<br>
+<br>To read the counter, read the lower 32 bits
+<br>followed by the upper 4 bits. The IP core clears the counter
+<br>after a read.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="tx_underflow_counter1" value="" ></input>
+</form>
+</td>
+<td>tx_underflow_counter1</td
+><td></td
+><td ></td
+></tr>
 </tbody></table>

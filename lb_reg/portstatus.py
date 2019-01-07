@@ -31,7 +31,7 @@ class PortData():
         
     def activity(self, s):
         status = {}
-        data = s.read_reg32(self.PortAddress)
+        data = int(s.read_reg32(self.PortAddress),16)
         active = 'yes' if data & 0x1000 else 'no'
         lock   = 'no' if data & 0x100  else 'yes'
         sfp    = 'no' if data & 0x10   else 'yes'

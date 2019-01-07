@@ -202,6 +202,7 @@ def create_app():
         def conn(message):
             global currentPort
             print "conn message ",message
+            socketio.emit('set_portname', currentPort, namespace='/dd')
             if message[0] == 'phy_config':
                 data = json.dumps(reg.register_update(serial,['PHYregdef.json'], currentPort+'CSR'))
             elif message[0] == 'mac_config':
@@ -209,7 +210,6 @@ def create_app():
             elif message[0] == 'mac_statistics':
                 data = json.dumps(reg.register_update(serial,['rxtxstat.json'], currentPort))
             socketio.emit('update_table', data, namespace='/dd')
-            socketio.emit('set_portname', currentPort, namespace='/dd')
             
 
         @socketio.on('memwrt', namespace='/dd')
@@ -234,6 +234,11 @@ def create_app():
             print message
             socketio.emit('update_table',[ message , "and even more!"],namespace='/dd')
 
+        @socketio.on('get_portstatus', namespace='/dd')
+        def get_portstatus(message):
+            port_obj = ps.ps_json(serial)
+            socketio.emit('portstatus', port_obj, namespace='/dd')
+            
         print "run socketio"
         socketio.run(app, port=int(cfg["port"]) )
         print "socketio running"
