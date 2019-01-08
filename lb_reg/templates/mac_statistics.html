@@ -742,24 +742,58 @@
 </tbody></table><script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
     <script type="text/javascript">
+    var t0 = 0;
+    var upd_time = 4000;
+    var interval = 100;
+    var elapsed_time = 0;
+    
+    function upd_timer(socket){
+        if (elapsed_time < upd_time) {
+            elapsed_time += interval;
+        } else {
+            elapsed_time = 0
+            t0 = performance.now();
+            socket.emit("conn", [location.pathname.split('/').slice(-1)[0]]);
+        }
+    }
         $(document).ready(function() {
             var url = "http://" + document.domain + ":" + location.port;
             console.log( url);
             var socket = io.connect(url + "/dd");
             console.log("connected");
-            socket.emit("conn", [location.pathname.split('/').slice(-1)[0]])
+            t0 = performance.now();
+            socket.emit("conn", [location.pathname.split('/').slice(-1)[0]]);
             $('td:nth-child(4)').toggle()
+            setInterval(function(){ upd_timer(socket);}, interval);
 
             $(".reg_input").keydown(function(event){
                 console.log(event.which)
-                console.log($(this).attr("id"))
-                if (event.which == 13) {
+//                console.log($(this).attr("id"))
+                var id = $(this).attr("id")
+                var form_doc = document.getElementById(id).parentElement
+//                console.log(form_doc);
+                if (event.which == 13) { // carrage return
                     msg = [$(this).attr("id"),$(this).val(),location.pathname.split('/').slice(-1)[0]]
-                    console.log(msg)
+//                    console.log(msg)
                     socket.emit("memwrt", msg);
-                }    
-                });
+                    form_doc.reset();
+                    return false
+                }
+                if (event.which == 27) { // escape
+                    msg = [$(this).attr("id"),"",location.pathname.split('/').slice(-1)[0]]
+//                    console.log(msg)
+                    socket.emit("memwrt", msg);
+                    form_doc.reset();
+                    return false
+                }
+             });
 
+            $(".reg_input").focus(function(){
+                console.log("input")
+                var form_doc = document.getElementById($(this).attr("id")).parentElement
+                $(this).select()
+                })
+                
             $(".radio-inline").focus(function(){
                 console.log("radio_inline")
                 console.log($(this))
@@ -771,11 +805,7 @@
                socket.emit("port_select", [location.pathname.split('/').slice(-1)[0],portname])
             });
             
-            $(".reg_input").focus(function(){
-                console.log("input")
-                $(this).val("")
-                })
-                
+                 
             $("#cityform").submit(function(event) {
                 console.log("submit")
                 socket.emit('city', {'city': $('#city').val()});
@@ -784,24 +814,13 @@
             });
             
             
-/*            $("*").submit(function(event) {
-                console.log("submit")
-                return false;
-            });
-*/            
-            $(".tipclass").mouseenter(function() {
-                var word = $(this).attr('title')
-                $(this).attr('title',"changed")
-                var ID = $(this).attr('id')
-                console.log("ID="+ID)
-                console.log("tipclass " + word + ID )
-                socket.emit("getval", ID) 
-                })
                 
             socket.on('update_table', function(msg) {
-                console.log(msg)
-                update_table(msg)
-                
+                console.log("update_table");
+//                var t0 = performance.now()
+                update_table(msg);
+                var t1 = performance.now();
+                console.log("Time "+ (t1 -t0) + "ms");
             });
             
             socket.on('set_portname', function(msg) {
@@ -820,24 +839,24 @@
                 $('td:nth-child(4)').toggle()
                 return false
             });
-
-            $("#panicbutton").click(function(event) {
-                console.log("panic button")
-                socket.emit("panic",{"panic": "some hell is breaking loose!"});
-                return false
-            });
-
-            socket.on('portstatus', function(port_obj) {
+            
+             socket.on('portstatus', function(port_obj) {
                 update_portstatus(port_obj);
                 console.log("got port_obj ");
             });
             
-            socket.on('city', function(msg) {
-                $("#cities-list").prepend('<h3>' + msg.city + '<h3>');
-            });
-            
-
         });
+        
+    function upd_timer(socket){
+        if (elapsed_time < upd_time) {
+            elapsed_time += interval;
+        } else {
+            elapsed_time = 0
+            t0 = performance.now();
+            socket.emit("conn", [location.pathname.split('/').slice(-1)[0]]);
+        }
+    }
+        
     </script>
     
 
@@ -855,12 +874,12 @@
     function update_table( data ){
          var tbl_obj = JSON.parse(data)
         for (label in tbl_obj) {
-            console.log(label)
-            console.log(tbl_obj[label])
-            console.log(document.getElementById(label))
+//            console.log(label)
+//            console.log(tbl_obj[label])
+//            console.log(document.getElementById(label))
             document.getElementById(label).setAttribute('value',tbl_obj[label]);
             document.getElementById(label).reg_input = tbl_obj[label];
-            console.log(document.getElementById(label))
+//            console.log(document.getElementById(label))
             
        }
     }

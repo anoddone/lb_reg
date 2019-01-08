@@ -1062,14 +1062,32 @@
 
             $(".reg_input").keydown(function(event){
                 console.log(event.which)
-                console.log($(this).attr("id"))
-                if (event.which == 13) {
+//                console.log($(this).attr("id"))
+                var id = $(this).attr("id")
+                var form_doc = document.getElementById(id).parentElement
+//                console.log(form_doc);
+                if (event.which == 13) { // carrage return
                     msg = [$(this).attr("id"),$(this).val(),location.pathname.split('/').slice(-1)[0]]
-                    console.log(msg)
+//                    console.log(msg)
                     socket.emit("memwrt", msg);
-                }    
-                });
+                    form_doc.reset();
+                    return false
+                }
+                if (event.which == 27) { // escape
+                    msg = [$(this).attr("id"),"",location.pathname.split('/').slice(-1)[0]]
+//                    console.log(msg)
+                    socket.emit("memwrt", msg);
+                    form_doc.reset();
+                    return false
+                }
+             });
 
+            $(".reg_input").focus(function(){
+                console.log("input")
+                var form_doc = document.getElementById($(this).attr("id")).parentElement
+                $(this).select()
+                })
+                
             $(".radio-inline").focus(function(){
                 console.log("radio_inline")
                 console.log($(this))
@@ -1081,37 +1099,10 @@
                socket.emit("port_select", [location.pathname.split('/').slice(-1)[0],portname])
             });
             
-            $(".reg_input").focus(function(){
-                console.log("input")
-                $(this).val("")
-                })
-                
-            $("#cityform").submit(function(event) {
-                console.log("submit")
-                socket.emit('city', {'city': $('#city').val()});
-                $('#city').val('');
-                return false;
-            });
-            
-            
-/*            $("*").submit(function(event) {
-                console.log("submit")
-                return false;
-            });
-*/            
-            $(".tipclass").mouseenter(function() {
-                var word = $(this).attr('title')
-                $(this).attr('title',"changed")
-                var ID = $(this).attr('id')
-                console.log("ID="+ID)
-                console.log("tipclass " + word + ID )
-                socket.emit("getval", ID) 
-                })
                 
             socket.on('update_table', function(msg) {
                 console.log(msg)
                 update_table(msg)
-                
             });
             
             socket.on('set_portname', function(msg) {
@@ -1131,23 +1122,7 @@
                 return false
             });
 
-            $("#panicbutton").click(function(event) {
-                console.log("panic button")
-                socket.emit("panic",{"panic": "some hell is breaking loose!"});
-                return false
-            });
-
-            socket.on('portstatus', function(port_obj) {
-                update_portstatus(port_obj);
-                console.log("got port_obj ");
-            });
-            
-            socket.on('city', function(msg) {
-                $("#cities-list").prepend('<h3>' + msg.city + '<h3>');
-            });
-            
-
-        });
+       });
     </script>
     
 
