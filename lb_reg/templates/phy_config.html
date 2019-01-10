@@ -240,6 +240,11 @@
                 update_table(msg)
             });
             
+            socket.on('update_system', function(msg) {
+                console.log(msg)
+                update_system(msg)
+            });
+            
             socket.on('set_portname', function(msg) {
                 console.log(msg)
                 $('input[name=optradio][value=' + msg + ']').prop('checked', true);
@@ -275,16 +280,20 @@
     function update_table( data ){
          var tbl_obj = JSON.parse(data)
         for (label in tbl_obj) {
-            console.log(label)
-            console.log(tbl_obj[label])
-            console.log(document.getElementById(label))
             document.getElementById(label).setAttribute('value',tbl_obj[label]);
             document.getElementById(label).reg_input = tbl_obj[label];
-            console.log(document.getElementById(label))
             
        }
     }
 
+   function update_system( data ){
+         var tbl_obj = JSON.parse(data);
+        for (label in tbl_obj) {
+            document.getElementById(label).innerHTML = tbl_obj[label];
+            
+       }
+    }
+    
 </script>
 
 

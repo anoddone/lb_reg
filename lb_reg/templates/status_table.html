@@ -108,6 +108,11 @@
                 console.log("Time "+ (t1 -t0) + "ms");
             });
             
+            socket.on('update_system', function(msg) {
+                console.log(msg)
+                update_system(msg)
+            });
+            
 
         }); 
     </script>
@@ -131,7 +136,17 @@
         console.log("request_portstatus");
         socket.emit("get_portstatus", "get");
     }
-</script>
+   
+   function update_system( data ){
+         var tbl_obj = JSON.parse(data);
+        for (label in tbl_obj) {
+            document.getElementById(label).innerHTML = tbl_obj[label];
+            
+       }
+    }
+
+    
+ </script>
     <script type="text/javascript">
         console.log('Page loaded');
         $('.port_selection').hide();

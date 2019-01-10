@@ -7,7 +7,7 @@ import cgi
 from serialcom import SerialPort
 import portstatus
 from cfg_data import cfgData
-
+from system_reg import systemReg
 import os
 
 def mkpath( relative_path):
@@ -132,7 +132,7 @@ def create_app():
     bootstrap = Bootstrap(app)
     ps = portstatus.PortStatus(0xff200000)
     reg = Register(['rxcfgstreg.json','txcfgstreg.json','timestampreg.json','rxtxstat.json','PHYregdef.json'])
-
+    sysReg = systemReg(0xff200000)
     
     @app.route('/hello')
     def hello():
@@ -210,6 +210,8 @@ def create_app():
             elif message[0] == 'mac_statistics':
                 data = json.dumps(reg.register_update(serial,['rxtxstat.json'], currentPort))
             socketio.emit('update_table', data, namespace='/dd')
+            data = json.dumps(sysReg.read_all(serial, ["date_code","temperature"]))
+            socketio.emit('update_system', data, namespace='/dd')
             
 
         @socketio.on('memwrt', namespace='/dd')
@@ -238,7 +240,9 @@ def create_app():
         def get_portstatus(message):
             port_obj = ps.ps_json(serial)
             socketio.emit('portstatus', port_obj, namespace='/dd')
-            
+            data = json.dumps(sysReg.read_all(serial, ["date_code","temperature"]))
+            socketio.emit('update_system', data, namespace='/dd')
+           
         print "run socketio"
         socketio.run(app, port=int(cfg["port"]) )
         print "socketio running"
