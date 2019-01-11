@@ -15,12 +15,12 @@ class systemReg():
         "e_portstatus": 0x0010,
         "redundancy":   0x0014,
       
-        "fcnt25":       0x001c,
-        "fcnt125:":     0x0020,
-        "fcnt156_25":   0x0024,
-        "fcnt200":      0x0028,
-        "fcnt312_5":    0x002c,
-        "fcnt322_25":   0x0030,
+        "fcnt25":       (0x001c,"%d"),
+        "fcnt125":      (0x0020,"%d"),
+        "fcnt156_25":   (0x0024,"%d"),
+        "fcnt200":      (0x0028,"%d"),
+        "fcnt312_5":    (0x002c,"%d"),
+        "fcnt322_25":   (0x0030,"%d"),
         "date_code":    (0x0034,self.playdate),
         "temperature":  (0x0190,"%d F"),
         }
@@ -58,6 +58,11 @@ class systemReg():
         for name in namelist:
             d.update(self.read_reg_dict( s, name))
         return d
+        
+    def freq_counter(self, s):
+        return self.read_all(s,
+            ["fcnt25","fcnt125","fcnt156_25","fcnt200","fcnt312_5","fcnt322_25"])
+            
 
 def test():            
     sysReg = systemReg()

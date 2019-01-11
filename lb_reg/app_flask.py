@@ -242,6 +242,8 @@ def create_app():
             socketio.emit('portstatus', port_obj, namespace='/dd')
             data = json.dumps(sysReg.read_all(serial, ["date_code","temperature"]))
             socketio.emit('update_system', data, namespace='/dd')
+            data = json.dumps(sysReg.freq_counter(serial))
+            socketio.emit('update_system', data, namespace='/dd')
            
         print "run socketio"
         socketio.run(app, port=int(cfg["port"]) )
