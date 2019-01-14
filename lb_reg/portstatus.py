@@ -36,9 +36,9 @@ class PortData():
         lock   = 'no' if data & 0x100  else 'yes'
         sfp    = 'no' if data & 0x10   else 'yes'
         rate   = {0: '10G',1: 'na',2:'1G',3:'na',4:'2.5G',5:'5G',6:'na',7:'na'}[data & 0x07]
-        averate  = str(s.read_reg32(self.PortAddress+4))
-        avedelay = str(s.read_reg32(self.PortAddress+0xc))
-        dropped  = str(s.read_reg32(self.PortAddress+8))
+        averate  = "%d" % int(s.read_reg32(self.PortAddress+4),16)
+        avedelay = "%d" % (int(s.read_reg32(self.PortAddress+0xc),16)*2)
+        dropped  = "%d" % int(s.read_reg32(self.PortAddress+8),16)
        
         status = {self.port: {'active': active,'lock': lock, 'sfp': sfp,'rate':rate,'averate':averate,'avedelay':avedelay,'dropped':dropped}}
         return status
