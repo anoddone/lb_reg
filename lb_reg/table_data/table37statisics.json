@@ -1,0 +1,213 @@
+[
+    [], 
+    [
+        "0x18  0x19", 
+        "aMacID", 
+        "RO", 
+        "The MAC address. This register\nis wired to the primary MAC address in the mac_0 and mac_1\nregisters."
+    ], 
+    [
+        "0x1A", 
+        "aFramesTransmittedOK", 
+        "RO", 
+        "The number of frames that are\nsuccessfully transmitted including the pause frames."
+    ], 
+    [
+        "0x1B", 
+        "aFramesReceivedOK", 
+        "RO", 
+        "The number of frames that are\nsuccessfully received including the pause frames."
+    ], 
+    [
+        "0x1C", 
+        "aFrameCheckSequenceErrors", 
+        "RO", 
+        "The number of receive frames\nwith CRC error."
+    ], 
+    [
+        "0x1D", 
+        "aAlignmentErrors", 
+        "RO", 
+        "The number of receive frames\nwith alignment error."
+    ], 
+    [
+        "0x1E", 
+        "aOctetsTransmittedOK", 
+        "RO", 
+        "The number of data and padding\noctets that are successfully transmitted.This register contains the lower 32\nbits of the aOctetsTransmittedOK counter. The upper 32 bits of\nthis statistics counter reside at the dword offset 0x0F."
+    ], 
+    [
+        "0x1F", 
+        "aOctetsReceivedOK", 
+        "RO", 
+        "The number of data and padding\noctets that are successfully\nreceived,\nincluding pause frames. The lower 32 bits of the aOctetsReceivedOK counter. The upper 32 bits of\nthis statistics counter reside at the dword offset 0x3D."
+    ], 
+    [
+        "0x20", 
+        "aTxPAUSEMACCtrlFrames", 
+        "RO", 
+        "The number of pause frames\ntransmitted."
+    ], 
+    [
+        "0x21", 
+        "aRxPAUSEMACCtrlFrames", 
+        "RO", 
+        "The number received pause\nframes received."
+    ], 
+    [
+        "0x22", 
+        "ifInErrors", 
+        "RO", 
+        "The number of errored frames\nreceived."
+    ], 
+    [
+        "0x23", 
+        "ifOutErrors", 
+        "RO", 
+        "The number of transmit frames\nwith one the following errors: \nFIFO overflow error\nFIFO underflow error\nFrames that encounter late or excessive collision\noccasions\nErrors defined by the user application"
+    ], 
+    [
+        "0x24", 
+        "ifInUcastPkts", 
+        "RO", 
+        "The number of valid unicast frames received."
+    ], 
+    [
+        "0x25", 
+        "ifInMulticastPkts", 
+        "RO", 
+        "The number of valid multicast frames received. The count does not include pause frames."
+    ], 
+    [
+        "0x26", 
+        "ifInBroadcastPkts", 
+        "RO", 
+        "The number of valid broadcast frames received."
+    ], 
+    [
+        "0x27", 
+        "ifOutDiscards", 
+        "RO", 
+        "This statistics counter is not\nin use.The MAC\nfunction does not discard frames that are written to the FIFO\nbuffer by the user application."
+    ], 
+    [
+        "0x28", 
+        "ifOutUcastPkts", 
+        "RO", 
+        "The number of valid unicast and erroneous frames transmitted, as well as unicast frames transmitted during late and excessive collision occasions."
+    ], 
+    [
+        "0x29", 
+        "ifOutMulticastPkts", 
+        "RO", 
+        "The number of valid multicast frames transmitted, as well as multicast frames transmitted during late and excessive collision occasions, excluding pause frames."
+    ], 
+    [
+        "0x2A", 
+        "ifOutBroadcastPkts", 
+        "RO", 
+        "The number of valid and erroneous broadcast frames transmitted, as well as broadcast frames transmitted during late and excessive collision occasions."
+    ], 
+    [
+        "0x2B", 
+        "etherStatsDropEvents", 
+        "RO", 
+        "The number of frames that are\ndropped due to MAC internal errors when FIFO buffer overflow\npersists."
+    ], 
+    [
+        "0x2C", 
+        "etherStatsOctets", 
+        "RO", 
+        "The total number of octets\nreceived. This count includes both good and errored frames.This register is the\nlower 32 bits of etherStatsOctets. The\nupper 32 bits of this statistics counter reside at the dword\noffset 0x3E."
+    ], 
+    [
+        "0x2D", 
+        "etherStatsPkts", 
+        "RO", 
+        "The total number of good\nand errored frames received."
+    ], 
+    [
+        "0x2E", 
+        "etherStatsUndersizePkts", 
+        "RO", 
+        "The number of frames received\nwith length less than 64\nbytes,\nincluding pause frames. This count does not\ninclude errored frames."
+    ], 
+    [
+        "0x2F", 
+        "etherStatsOversizePkts", 
+        "RO", 
+        "The number of frames received\nthat are longer than the value configured in the frm_length\nregister. This count does not include errored frames."
+    ], 
+    [
+        "0x30", 
+        "etherStatsPkts64Octets", 
+        "RO", 
+        "The number of 64-byte frames\nreceived. This count includes good and errored frames."
+    ], 
+    [
+        "0x31", 
+        "etherStatsPkts65to127Octets", 
+        "RO", 
+        "The number of received good\nand errored frames between the length of 65 and 127 bytes."
+    ], 
+    [
+        "0x32", 
+        "etherStatsPkts128to255Octets", 
+        "RO", 
+        "The number of received good\nand errored frames between the length of 128 and 255 bytes."
+    ], 
+    [
+        "0x33", 
+        "etherStatsPkts256to511Octets", 
+        "RO", 
+        "The number of received good\nand errored frames between the length of 256 and 511 bytes."
+    ], 
+    [
+        "0x34", 
+        "etherStatsPkts512to1023Octets", 
+        "RO", 
+        "The number of received good\nand errored frames between the length of 512 and 1023 bytes."
+    ], 
+    [
+        "0x35", 
+        "etherStatsPkts1024to1518Octets", 
+        "RO", 
+        "The number of received good\nand errored frames between the length of 1024 and 1518\nbytes."
+    ], 
+    [
+        "0x36", 
+        "etherStatsPkts1519toXOctets", 
+        "RO", 
+        "The number of received\ngood and errored frames between the length of 1519 and the maximum\nframe length configured in the frm_length register."
+    ], 
+    [
+        "0x37", 
+        "etherStatsJabbers", 
+        "RO", 
+        "Too long frames with CRC\nerror."
+    ], 
+    [
+        "0x38", 
+        "etherStatsFragments", 
+        "RO", 
+        "Too short frames with CRC\nerror."
+    ], 
+    [
+        "0x3C", 
+        "msb_aOctetsTransmittedOK", 
+        "RO", 
+        "Upper 32 bits of\nthe respective statistics counters. By default all statistics\ncounters are 32 bits wide. These statistics counters can be extended\nto 64 bits by turning on the Enable 64-bit byte\ncounters parameter.To read the\ncounter, read the lower 32 bits first, then followed by the\nextended statistic counter bits."
+    ], 
+    [
+        "0x3D", 
+        "msb_aOctetsReceivedOK", 
+        "RO",
+        ""
+    ], 
+    [
+        "0x3E", 
+        "msb_etherStatsOctets", 
+        "RO",
+        ""
+    ]
+]

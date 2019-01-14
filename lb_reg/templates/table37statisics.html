@@ -1,0 +1,380 @@
+<h1>Table 37.  Statistics Counters</h1>
+<table class="table">
+<tbody>
+<tr>
+<th class="col0">Current Value</th>
+<th class="col1">Register Name</th>
+<th class="col2">Description<button type="button"  class="btn btn-default hideclass" ><span class="glyphicon glyphicon-resize-vertical"></span></th>
+</th>
+<tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="aMacID" value="" disabled ></input>
+</form>
+</td>
+<td>aMacID</td
+><td >The MAC address. This register
+<br>is wired to the primary MAC address in the mac_0 and mac_1
+<br>registers.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="aFramesTransmittedOK" value="" disabled ></input>
+</form>
+</td>
+<td>aFramesTransmittedOK</td
+><td >The number of frames that are
+<br>successfully transmitted including the pause frames.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="aFramesReceivedOK" value="" disabled ></input>
+</form>
+</td>
+<td>aFramesReceivedOK</td
+><td >The number of frames that are
+<br>successfully received including the pause frames.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="aFrameCheckSequenceErrors" value="" disabled ></input>
+</form>
+</td>
+<td>aFrameCheckSequenceErrors</td
+><td >The number of receive frames
+<br>with CRC error.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="aAlignmentErrors" value="" disabled ></input>
+</form>
+</td>
+<td>aAlignmentErrors</td
+><td >The number of receive frames
+<br>with alignment error.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="aOctetsTransmittedOK" value="" disabled ></input>
+</form>
+</td>
+<td>aOctetsTransmittedOK</td
+><td >The number of data and padding
+<br>octets that are successfully transmitted.This register contains the lower 32
+<br>bits of the aOctetsTransmittedOK counter. The upper 32 bits of
+<br>this statistics counter reside at the dword offset 0x0F.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="aOctetsReceivedOK" value="" disabled ></input>
+</form>
+</td>
+<td>aOctetsReceivedOK</td
+><td >The number of data and padding
+<br>octets that are successfully
+<br>received,
+<br>including pause frames. The lower 32 bits of the aOctetsReceivedOK counter. The upper 32 bits of
+<br>this statistics counter reside at the dword offset 0x3D.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="aTxPAUSEMACCtrlFrames" value="" disabled ></input>
+</form>
+</td>
+<td>aTxPAUSEMACCtrlFrames</td
+><td >The number of pause frames
+<br>transmitted.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="aRxPAUSEMACCtrlFrames" value="" disabled ></input>
+</form>
+</td>
+<td>aRxPAUSEMACCtrlFrames</td
+><td >The number received pause
+<br>frames received.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="ifInErrors" value="" disabled ></input>
+</form>
+</td>
+<td>ifInErrors</td
+><td >The number of errored frames
+<br>received.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="ifOutErrors" value="" disabled ></input>
+</form>
+</td>
+<td>ifOutErrors</td
+><td >The number of transmit frames
+<br>with one the following errors: 
+<br>FIFO overflow error
+<br>FIFO underflow error
+<br>Frames that encounter late or excessive collision
+<br>occasions
+<br>Errors defined by the user application</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="ifInUcastPkts" value="" disabled ></input>
+</form>
+</td>
+<td>ifInUcastPkts</td
+><td >The number of valid unicast frames received.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="ifInMulticastPkts" value="" disabled ></input>
+</form>
+</td>
+<td>ifInMulticastPkts</td
+><td >The number of valid multicast frames received. The count does not include pause frames.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="ifInBroadcastPkts" value="" disabled ></input>
+</form>
+</td>
+<td>ifInBroadcastPkts</td
+><td >The number of valid broadcast frames received.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="ifOutDiscards" value="" disabled ></input>
+</form>
+</td>
+<td>ifOutDiscards</td
+><td >This statistics counter is not
+<br>in use.The MAC
+<br>function does not discard frames that are written to the FIFO
+<br>buffer by the user application.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="ifOutUcastPkts" value="" disabled ></input>
+</form>
+</td>
+<td>ifOutUcastPkts</td
+><td >The number of valid unicast and erroneous frames transmitted, as well as unicast frames transmitted during late and excessive collision occasions.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="ifOutMulticastPkts" value="" disabled ></input>
+</form>
+</td>
+<td>ifOutMulticastPkts</td
+><td >The number of valid multicast frames transmitted, as well as multicast frames transmitted during late and excessive collision occasions, excluding pause frames.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="ifOutBroadcastPkts" value="" disabled ></input>
+</form>
+</td>
+<td>ifOutBroadcastPkts</td
+><td >The number of valid and erroneous broadcast frames transmitted, as well as broadcast frames transmitted during late and excessive collision occasions.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="etherStatsDropEvents" value="" disabled ></input>
+</form>
+</td>
+<td>etherStatsDropEvents</td
+><td >The number of frames that are
+<br>dropped due to MAC internal errors when FIFO buffer overflow
+<br>persists.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="etherStatsOctets" value="" disabled ></input>
+</form>
+</td>
+<td>etherStatsOctets</td
+><td >The total number of octets
+<br>received. This count includes both good and errored frames.This register is the
+<br>lower 32 bits of etherStatsOctets. The
+<br>upper 32 bits of this statistics counter reside at the dword
+<br>offset 0x3E.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="etherStatsPkts" value="" disabled ></input>
+</form>
+</td>
+<td>etherStatsPkts</td
+><td >The total number of good
+<br>and errored frames received.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="etherStatsUndersizePkts" value="" disabled ></input>
+</form>
+</td>
+<td>etherStatsUndersizePkts</td
+><td >The number of frames received
+<br>with length less than 64
+<br>bytes,
+<br>including pause frames. This count does not
+<br>include errored frames.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="etherStatsOversizePkts" value="" disabled ></input>
+</form>
+</td>
+<td>etherStatsOversizePkts</td
+><td >The number of frames received
+<br>that are longer than the value configured in the frm_length
+<br>register. This count does not include errored frames.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="etherStatsPkts64Octets" value="" disabled ></input>
+</form>
+</td>
+<td>etherStatsPkts64Octets</td
+><td >The number of 64-byte frames
+<br>received. This count includes good and errored frames.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="etherStatsPkts65to127Octets" value="" disabled ></input>
+</form>
+</td>
+<td>etherStatsPkts65to127Octets</td
+><td >The number of received good
+<br>and errored frames between the length of 65 and 127 bytes.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="etherStatsPkts128to255Octets" value="" disabled ></input>
+</form>
+</td>
+<td>etherStatsPkts128to255Octets</td
+><td >The number of received good
+<br>and errored frames between the length of 128 and 255 bytes.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="etherStatsPkts256to511Octets" value="" disabled ></input>
+</form>
+</td>
+<td>etherStatsPkts256to511Octets</td
+><td >The number of received good
+<br>and errored frames between the length of 256 and 511 bytes.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="etherStatsPkts512to1023Octets" value="" disabled ></input>
+</form>
+</td>
+<td>etherStatsPkts512to1023Octets</td
+><td >The number of received good
+<br>and errored frames between the length of 512 and 1023 bytes.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="etherStatsPkts1024to1518Octets" value="" disabled ></input>
+</form>
+</td>
+<td>etherStatsPkts1024to1518Octets</td
+><td >The number of received good
+<br>and errored frames between the length of 1024 and 1518
+<br>bytes.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="etherStatsPkts1519toXOctets" value="" disabled ></input>
+</form>
+</td>
+<td>etherStatsPkts1519toXOctets</td
+><td >The number of received
+<br>good and errored frames between the length of 1519 and the maximum
+<br>frame length configured in the frm_length register.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="etherStatsJabbers" value="" disabled ></input>
+</form>
+</td>
+<td>etherStatsJabbers</td
+><td >Too long frames with CRC
+<br>error.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="etherStatsFragments" value="" disabled ></input>
+</form>
+</td>
+<td>etherStatsFragments</td
+><td >Too short frames with CRC
+<br>error.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="msb_aOctetsTransmittedOK" value="" disabled ></input>
+</form>
+</td>
+<td>msb_aOctetsTransmittedOK</td
+><td >Upper 32 bits of
+<br>the respective statistics counters. By default all statistics
+<br>counters are 32 bits wide. These statistics counters can be extended
+<br>to 64 bits by turning on the Enable 64-bit byte
+<br>counters parameter.To read the
+<br>counter, read the lower 32 bits first, then followed by the
+<br>extended statistic counter bits.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="msb_aOctetsReceivedOK" value="" disabled ></input>
+</form>
+</td>
+<td>msb_aOctetsReceivedOK</td
+><td ></td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="msb_etherStatsOctets" value="" disabled ></input>
+</form>
+</td>
+<td>msb_etherStatsOctets</td
+><td ></td
+></tr>
+</tbody></table>
