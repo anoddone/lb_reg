@@ -1,11 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
+
 <div class="container">
 
-<h1>Port Status</h1>
+<h1>SFP Port Status</h1>
 <table id="ports" class="table table-hover">
-    <caption>Port Status</caption>
+    <caption>SFP Port Status</caption>
     <tbody>
     <tr>
     <th>Port</th>
@@ -13,11 +14,9 @@
     <th>Lock</th>
     <th>SFP</th>
     <th>Rate</th>
-    <th>Ave Rate</th>
-    <th>
-    <p>Dropped Packets</p>
-    </th>
-    <th>Average Packet Delay</th>
+    <th>Ave Rate/100ms</th>
+    <th>Dropped Packets</th>
+    <th>Average Packet Delay usec</th>
     </tr>
     <tr id="portA" >
     <td>A</td>
