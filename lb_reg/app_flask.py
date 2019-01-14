@@ -85,6 +85,12 @@ class Register():
             'portCRE': 0xff229000,
             'portDRE': 0xff22d000,
             'portERE': 0xff231000,
+            'portA1G': 0xff240000,  # port A is missing! using B address
+            'portB1G': 0xff240000,
+            'portC1G': 0xff240400,
+            'portD1G': 0xff240800,
+            'portE1G': 0xff240c00,
+           
 }
         return paddr[portname]
         
@@ -96,10 +102,11 @@ class Register():
         for reg_json in reg_list:
             with open(mkpath(reg_json),'r') as fp:
                 reg_dict = json.loads(fp.read())
-    #        print reg_dict    
+#            print reg_dict    
             for reg in reg_dict:
-    #            print reg
+#                print reg
                 data = reg_dict[reg]
+#                print data
                 offset = int(data[0],16)
                 offset*=4
                 if data[1] == 32:
@@ -164,6 +171,10 @@ def create_app():
     def mac_status():
         return render_template('mac_statistics.html', title="MAC Statistics")
     
+    @app.route('/ethernet_mac_statistics',methods=['POST','GET'] )
+    def ethernet_mac_statistics():
+        return render_template('ethernet_mac_statistics.html', title="ethernet MAC Statistics")
+    
     @app.route('/phy_config',methods=['POST','GET'] )
     def phy_config():
         return render_template('phy_config.html', title="PHY Config")
@@ -190,6 +201,8 @@ def create_app():
         @socketio.on('port_select', namespace='/dd')
         def port_select(message):
             global currentPort
+            if message[0] == 'ethernet_mac_statistics' and message[1] == "portA":
+                message[1] = currentPort
             print(message)
             currentPort = message[1]
             conn(message)
@@ -205,11 +218,18 @@ def create_app():
             socketio.emit('set_portname', currentPort, namespace='/dd')
             if message[0] == 'phy_config':
                 data = json.dumps(reg.register_update(serial,['PHYregdef.json'], currentPort+'CSR'))
+                socketio.emit('update_table', data, namespace='/dd')
             elif message[0] == 'mac_config':
                 data = json.dumps(reg.register_update(serial,['rxcfgstreg.json','txcfgstreg.json','timestampreg.json'], currentPort))
+                socketio.emit('update_table', data, namespace='/dd')
             elif message[0] == 'mac_statistics':
                 data = json.dumps(reg.register_update(serial,['rxtxstat.json'], currentPort))
-            socketio.emit('update_table', data, namespace='/dd')
+                socketio.emit('update_table', data, namespace='/dd')
+            elif message[0] == 'ethernet_mac_statistics':
+                if currentPort == "portA":
+                    currentPort = "portB"
+                data = json.dumps(reg.register_update(serial,['table37statisics.json'], currentPort+'1G'))
+                socketio.emit('update_table', data, namespace='/dd')
             data = json.dumps(sysReg.read_all(serial, ["date_code","temperature"]))
             socketio.emit('update_system', data, namespace='/dd')
             
