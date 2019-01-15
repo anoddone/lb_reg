@@ -97,9 +97,9 @@ def makeTable(table_data, table_name=None, table_header=None):
         try:
             value = row[0]
             label  = row[1]
-            default = row[2]
+            default = row[4]
             desc   = row[3].replace('\n','\n<br>')
-            access = row[4].strip()
+            access = row[2].strip()
         except:
             print "row short"
             print row
@@ -232,17 +232,17 @@ def process_table( filename, table_name, default_access="",default_default="",re
     #    print "%s\t%s\t\n" %(row[0], row[1][0]),
     #    print row[0].strip(),row[1].strip(),(row[2].encode( 'utf-8')).replace("\t","")
 
-def create_html(filename, table_header, **kwargs):
+def create_html(filename, table_name=None, table_header=None):
     with open("table_data/%s.json"% filename,'r') as fp:
         table_data = json.load(fp)
-        makeTable(table_data, table_name=None, table_header=table_header)                
+        html = makeTable(table_data, table_name=None, table_header=table_header)                
+        with open("templates/%s.html"% filename,'w') as fp1:
+            fp1.write(html)
 
 def create_eth_html(filename, table_name=None, table_header=None):
     with open("table_data/%s.json"% filename,'r') as fp:
         table_data = json.load(fp)
         html = makeEthTable(table_data, table_name=table_name, table_header=table_header)                
-        with open("templates/%s.html"% filename,'w') as fp1:
-            fp1.write(html)
 
 
 def extract_data(table_list):
@@ -251,8 +251,12 @@ def extract_data(table_list):
 
 if __name__ == '__main__':
 #    process_table( 'table37statisics', "Table 37.  Statistics Counters")
-    create_eth_html( 'table37statisics', table_name="Table 37.  Statistics Counters", table_header=["Current Value","Register Name","Description"])
-    
+#    create_eth_html( 'table37statisics', table_name="Table 37.  Statistics Counters", table_header=["Current Value","Register Name","Description"])
+
+# table 35
+#    process_table( 'table35config', "Table 35.Configuration Registers")
+#    create_html( 'table35config', table_name="Table 35.Configuration Registers", table_header=["Current Value","Register Name","HW Reset Value","Description"])
+   
     sys.exit()
 #    extract_data(['txcfgstreg','rxcfgstreg', 'timestampreg','rxtxstat','PHYregdef'])
     create_html( 'txcfgstreg', "Table 25.  MAC TX Configuration and Status Register")

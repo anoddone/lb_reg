@@ -25,9 +25,14 @@ class Register():
     def __init__(self, reg_list):
         self.reg_dict = {}
         for reg_json in reg_list:
+            reg_dict_size = len(self.reg_dict)
+            print reg_json
             with open(mkpath(reg_json),'r') as fp:
                 _dict = json.loads(fp.read())
+                _dict_size = len(_dict)
             self.reg_dict.update(_dict)
+            if (reg_dict_size + _dict_size) > len(self.reg_dict):
+                print "duplicate entries %d + %d = %d  actual %d" % (reg_dict_size, _dict_size, (reg_dict_size+_dict_size), len(self.reg_dict))
             
             
     def read(self, serial, portname, label):
@@ -50,10 +55,12 @@ class Register():
             print "bad write value: %s" % value
             return self.read(serial, portname, label)
         else:
+            print "write %x to %s" % (newval,label)
             data = self.reg_dict[label]
             offset = int(data[0],16)
             offset*=4
             baseaddr = self.baseaddr(portname)
+            print baseaddr,offset,portname
             if data[1] == 32:
                 serial.write_reg32(offset+baseaddr, newval)
             else:
@@ -97,7 +104,7 @@ class Register():
 
     def register_update( self, serial, reg_list, portname ):
         baseaddr = self.baseaddr(portname)
-        print( "%s  %08x" % (portname, baseaddr))
+        print( "%s  %08x  %s" % (portname, baseaddr, reg_list))
         data_dict = {}
         for reg_json in reg_list:
             with open(mkpath(reg_json),'r') as fp:
@@ -139,6 +146,7 @@ def create_app():
     bootstrap = Bootstrap(app)
     ps = portstatus.PortStatus(0xff200000)
     reg = Register(['rxcfgstreg.json','txcfgstreg.json','timestampreg.json','rxtxstat.json','PHYregdef.json'])
+    reg35 = Register(['table35config.json'])
     sysReg = systemReg(0xff200000)
     
     @app.route('/hello')
@@ -175,6 +183,10 @@ def create_app():
     def ethernet_mac_statistics():
         return render_template('ethernet_mac_statistics.html', title="ethernet MAC Statistics")
     
+    @app.route('/ethernet_mac_config',methods=['POST','GET'] )
+    def ethernet_mac_config():
+        return render_template('ethernet_mac_config.html', title="ethernet MAC Config")
+    
     @app.route('/phy_config',methods=['POST','GET'] )
     def phy_config():
         return render_template('phy_config.html', title="PHY Config")
@@ -201,7 +213,7 @@ def create_app():
         @socketio.on('port_select', namespace='/dd')
         def port_select(message):
             global currentPort
-            if message[0] == 'ethernet_mac_statistics' and message[1] == "portA":
+            if (message[0] == 'ethernet_mac_statistics' or 'message[0] == ethernet_mac_config'  ) and message[1] == "portA":
                 message[1] = currentPort
             print(message)
             currentPort = message[1]
@@ -230,6 +242,11 @@ def create_app():
                     currentPort = "portB"
                 data = json.dumps(reg.register_update(serial,['table37statisics.json'], currentPort+'1G'))
                 socketio.emit('update_table', data, namespace='/dd')
+            elif message[0] == 'ethernet_mac_config':
+                if currentPort == "portA":
+                    currentPort = "portB"
+                data = json.dumps(reg.register_update(serial,['table35config.json'], currentPort+'1G'))
+                socketio.emit('update_table', data, namespace='/dd')
             data = json.dumps(sysReg.read_all(serial, ["date_code","temperature"]))
             socketio.emit('update_system', data, namespace='/dd')
             
@@ -242,9 +259,12 @@ def create_app():
             print(message[1])
             if message[2] == 'phy_config':
                 port_extention = 'CSR'
+            elif message[2] =='ethernet_mac_config':
+                port_extention = '1G'
+                rsp = reg35.write(serial, currentPort+port_extention, message[0],message[1])
             else:
                 port_extention = ''
-            rsp = reg.write(serial, currentPort+port_extention, message[0],message[1])
+                rsp = reg.write(serial, currentPort+port_extention, message[0],message[1])
             print rsp
             data = json.dumps(rsp)
             print data

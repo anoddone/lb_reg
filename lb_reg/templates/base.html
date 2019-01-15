@@ -1,5 +1,11 @@
 {% extends 'bootstrap/base.html' %}
 
+{% block styles %}
+{{super()}}
+<link rel="stylesheet"
+      href="{{url_for('.static', filename='stylsheet.css')}}">
+{% endblock %}
+
 {% block title %}
     {% if title %}{{ title }}{% else %}Welcome to Microblog{% endif %}
 {% endblock %}
@@ -10,10 +16,16 @@
                 <a class="navbar-brand" href="mac_config">MAC Config</a>
             </div>
             <div class="navbar-header">
+                <a class="navbar-brand" href="ethernet_mac_config">ethernet MAC Config</a>
+            </div>
+            <div class="navbar-header">
                 <a class="navbar-brand" href="phy_config">PHY Config</a>
             </div>
             <div class="navbar-header">
-                <a class="navbar-brand" href="mac_statistics">MAC Statistics</a>
+                <a class="navbar-brand" href="mac_statistics">SFP MAC Statistics</a>
+            </div>
+            <div class="navbar-header">
+                <a class="navbar-brand" href="ethernet_mac_statistics">ethernet MAC Statistics</a>
             </div>
             <div class="navbar-header">
                 <a class="navbar-brand" href="status">Port Status</a>
@@ -39,7 +51,7 @@
           <form id="myForm" class="port_selection">
           <form id="port_option" class="port_selection" >
             <label class="radio-inline">
-              <input type="radio" name="optradio" value="portA" checked>portA
+              <input id="radio_button_A" type="radio" name="optradio" value="portA" checked>portA
             </label>
             <label class="radio-inline">
               <input type="radio" name="optradio" value="portB" >portB

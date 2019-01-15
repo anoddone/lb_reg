@@ -1,0 +1,497 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+<h1>ethernat MAC Configuration</h1>
+</div>
+
+<h1>Table 35.  ethernet MAC Configuration Registers</h1>
+<table class="table">
+<tbody>
+<tr>
+<th class="col0">Current Value</th>
+<th class="col1">Register Name</th>
+<th class="col2">HW Reset Value</th>
+<th class="col3">Description<button type="button"  class="btn btn-default hideclass" ><span class="glyphicon glyphicon-resize-vertical"></span></th>
+</th>
+<tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rev" value="<IP version
+  number>" disabled ></input>
+</form>
+</td>
+<td>rev</td
+><td><IP version
+  number></td
+><td >Bits[15:0]Set to the current
+<br>version of the
+<br>IP
+<br>core. 
+<br>Bits[31:16]Customer specific
+<br>revision, specified by the CUST_VERSION
+<br>parameter defined in the top-level file generated for the
+<br>instance of the
+<br>IP
+<br>core. These bits are set to 0 during the
+<br>configuration of the
+<br>IP
+<br>core.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="scratch" value="0" ></input>
+</form>
+</td>
+<td>scratch</td
+><td>0</td
+><td >Scratch register.
+<br>  Provides a memory location for you to test the device memory operation.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="command_config" value="0" ></input>
+</form>
+</td>
+<td>command_config</td
+><td>0</td
+><td >MAC configuration register. Use
+<br>this register to control and configure the MAC function. The MAC
+<br>function starts operation as soon as the transmit and receive enable
+<br>bits in this register are turned on.
+<br>Intel,
+<br>therefore, recommends that you configure this register last. See Command_Config Register (Dword Offset 0x02) for the bit description.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="mac_0" value="0" ></input>
+</form>
+</td>
+<td>mac_0</td
+><td>0</td
+><td >6-byte
+<br>  MAC primary address. The first four most significant bytes of the MAC address
+<br>  occupy 
+<br>  mac_0 in reverse
+<br>  order. The last two bytes of the MAC address occupy the two least significant
+<br>  bytes of 
+<br>  mac_1 in reverse
+<br>  order. 
+<br>  For example, if the MAC address is
+<br> 00-1C-23-17-4A-CB, the following assignments are made: 
+<br>  
+<br>
+<br>mac_0 = 0x17231c00 
+<br>  
+<br>
+<br>mac_1 = 0x0000CB4a 
+<br>  
+<br>Ensure that you configure these
+<br> registers with a valid MAC address if you disable the promiscuous mode (PROMIS_EN bit in 
+<br> command_config = 0).</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="mac_1" value="0" ></input>
+</form>
+</td>
+<td>mac_1</td
+><td>0</td
+><td ></td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="frm_length" value="1518" ></input>
+</form>
+</td>
+<td>frm_length</td
+><td>1518</td
+><td >Bits[15:0]16-bit maximum frame
+<br>length in bytes. The
+<br>IP
+<br>core checks the length of receive frames
+<br>against this value. Typical value is 1518. In 10/100 and
+<br>1000 Small MAC core variations, this register is RO and
+<br>the maximum frame length is fixed to 1518. 
+<br>
+<br>Bits[31:16]unused.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="pause_quant" value="0" ></input>
+</form>
+</td>
+<td>pause_quant</td
+><td>0</td
+><td >Bits[15:0]16-bit pause quanta.
+<br>Use this register to specify the pause quanta to be sent to
+<br>remote devices when the local device is congested. The
+<br>IP
+<br>core sets the pause quanta (P1, P2) field
+<br>in pause frames to the value of this register. 10/100 and
+<br>1000 Small MAC core variations do not support flow
+<br>control. 
+<br>
+<br>Bits[31:16]unused.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_section_empty" value="0" ></input>
+</form>
+</td>
+<td>rx_section_empty</td
+><td>0</td
+><td >Variable-length
+<br>  section-empty threshold of the receive FIFO buffer. Use the depth of your FIFO
+<br>  buffer to determine this threshold. This threshold is typically set to (FIFO
+<br>  Depth  16). 
+<br>  Set this threshold to a value that
+<br> is below the 
+<br> rx_almost_full
+<br> threshold and above the 
+<br> rx_section_full or 
+<br> rx_almost_empty
+<br> threshold. 
+<br>  
+<br>In 10/100 and 1000 Small MAC core
+<br> variations, this register is RO and the register is set to a fixed value of
+<br> (FIFO Depth  16).</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_section_full" value="0" ></input>
+</form>
+</td>
+<td>rx_section_full</td
+><td>0</td
+><td >Variable-length
+<br>  section-full threshold of the receive FIFO buffer. Use the depth of your FIFO
+<br>  buffer to determine this threshold. 
+<br>  For cut-through mode, this threshold
+<br> is typically set to 16. Set this threshold to a value that is above the 
+<br> rx_almost_empty
+<br> threshold. 
+<br>  
+<br>For store-and-forward mode, set this
+<br> threshold to 0. 
+<br>  
+<br>In 10/100 and 1000 Small MAC core
+<br> variations, this register is RO and the register is set to a fixed value of 16.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="tx_section_empty" value="0" ></input>
+</form>
+</td>
+<td>tx_section_empty</td
+><td>0</td
+><td >Variable-length
+<br>  section-empty threshold of the transmit FIFO buffer. Use the depth of your FIFO
+<br>  buffer to determine this threshold. This threshold is typically set to (FIFO
+<br>  Depth  16). 
+<br>  Set this threshold to a value below
+<br> the 
+<br> rx_almost_full
+<br> threshold and above the 
+<br> rx_section_full or 
+<br> rx_almost_empty
+<br> threshold. 
+<br>  
+<br>In 10/100 and 1000 Small MAC core
+<br> variations, this register is RO and the register is set to a fixed value of
+<br> (FIFO Depth  16).</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="tx_section_full" value="0" ></input>
+</form>
+</td>
+<td>tx_section_full</td
+><td>0</td
+><td >Variable-length
+<br>  section-full threshold of the transmit FIFO buffer. Use the depth of your FIFO
+<br>  buffer to determine this threshold. 
+<br>  For cut-through mode, this threshold
+<br> is typically set to 16. Set this threshold to a value above the 
+<br> tx_almost_empty
+<br> threshold. 
+<br>  
+<br>For store-and-forward mode, set this
+<br> threshold to 0. 
+<br>  
+<br>In 10/100 and 1000 Small MAC core
+<br> variations, this register is RO and the register is set to a fixed value of 16.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_almost_empty" value="0" ></input>
+</form>
+</td>
+<td>rx_almost_empty</td
+><td>0</td
+><td >Variable-length
+<br>  almost-empty threshold of the receive FIFO buffer. Use the depth of your FIFO
+<br>  buffer to determine this threshold. 
+<br>  Due to internal pipeline latency,
+<br> you must set this threshold to a value greater than 3. This threshold is
+<br> typically set to 8. 
+<br>  
+<br>In 10/100 and 1000 Small MAC core
+<br> variations, this register is RO and the register is set to a fixed value of 8.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="rx_almost_full" value="0" ></input>
+</form>
+</td>
+<td>rx_almost_full</td
+><td>0</td
+><td >Variable-length
+<br>  almost-full threshold of the receive FIFO buffer. Use the depth of your FIFO
+<br>  buffer to determine this threshold. 
+<br>  Due to internal pipeline latency,
+<br> you must set this threshold to a value greater than 3. This threshold is
+<br> typically set to 8. 
+<br>  
+<br>In 10/100 and 1000 Small MAC core
+<br> variations, this register is RO and the register is set to a fixed value of 8.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="tx_almost_empty" value="0" ></input>
+</form>
+</td>
+<td>tx_almost_empty</td
+><td>0</td
+><td >Variable-length
+<br>  almost-empty threshold of the transmit FIFO buffer. Use the depth of your FIFO
+<br>  buffer to determine this threshold. 
+<br>  Due to internal pipeline latency,
+<br> you must set this threshold to a value greater than 3. This threshold is
+<br> typically set to 8. 
+<br>  
+<br>In 10/100 and 1000 Small MAC core
+<br> variations, this register is RO and the register is set to a fixed value of 8.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="tx_almost_full" value="0" ></input>
+</form>
+</td>
+<td>tx_almost_full</td
+><td>0</td
+><td >Variable-length
+<br>  almost-full threshold of the transmit FIFO buffer. Use the depth of your FIFO
+<br>  buffer to determine this threshold. 
+<br>  You must set this register to a
+<br> value greater than or equal to 3. A value of 3 indicates 0 ready latency; a
+<br> value of 4 indicates 1 ready latency, and so forth. Because the maximum ready
+<br> latency on the Avalon-ST interface is 8, you can only set this register to a
+<br> maximum value of 11. This threshold is typically set to 3. 
+<br>  
+<br>In 10/100 and 1000 Small MAC core
+<br> variations, this register is RO and the register is set to a fixed value of3.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="mdio_addr0" value="0" ></input>
+</form>
+</td>
+<td>mdio_addr0</td
+><td>0</td
+><td >Bits[4:0]5-bit
+<br>PHY address. Set these registers to the addresses of any connected PHY devices
+<br>you want to access. The 
+<br>mdio_addr0 and 
+<br>mdio_addr1
+<br>registers contain the addresses of the PHY whose registers are mapped to MDIO
+<br>Space 0 and MDIO Space 1 respectively. 
+<br> 
+<br>Bits[31:5]unused.
+<br>Set to read-only value of 0.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="mdio_addr1" value="1" ></input>
+</form>
+</td>
+<td>mdio_addr1</td
+><td>1</td
+><td >RW</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="holdoff_quant" value="0xFFFF" ></input>
+</form>
+</td>
+<td>holdoff_quant</td
+><td>0xFFFF</td
+><td >Bit[15:0]16-bit
+<br>holdoff quanta. When you enable the flow control, use this register to specify
+<br>the gap between consecutive XOFF requests. 
+<br> 
+<br>Bits[31:16]unused.</td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="Reserved" value="0" ></input>
+</form>
+</td>
+<td>Reserved</td
+><td>0</td
+><td ></td
+></tr>
+<tr>
+<td>
+<form method="post">
+<input type="text" class="reg_input" id="tx_ipg_length" value="0" ></input>
+</form>
+</td>
+<td>tx_ipg_length</td
+><td>0</td
+><td >Bits[4:0]minimum
+<br>IPG. Valid values are between 8 and 26 byte-times. If this register is set to
+<br>an invalid value, the MAC still maintains a typical minimum IPG value of 12
+<br>bytes between packets, although a read back to the register reflects the
+<br>invalid value written.
+<br>In 10/100 and 1000 Small MAC
+<br>  core variations, this register is RO and the register is set to a fixed value
+<br>  of12. 
+<br>
+<br>Bits[31:5]unused. Set to read-only value 0.</td
+></tr>
+</tbody></table>
+
+<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var url = "http://" + document.domain + ":" + location.port;
+            console.log( url);
+            var socket = io.connect(url + "/dd");
+            console.log("connected");
+            $("#radio_button_A").hide();
+            socket.emit("conn", [location.pathname.split('/').slice(-1)[0]])
+            $('td:nth-child(4)').toggle()
+
+            $(".reg_input").keydown(function(event){
+                console.log(event.which)
+//                console.log($(this).attr("id"))
+                var id = $(this).attr("id")
+                var form_doc = document.getElementById(id).parentElement
+//                console.log(form_doc);
+                if (event.which == 13) { // carrage return
+                    msg = [$(this).attr("id"),$(this).val(),location.pathname.split('/').slice(-1)[0]]
+//                    console.log(msg)
+                    socket.emit("memwrt", msg);
+                    form_doc.reset();
+                    return false
+                }
+                if (event.which == 27) { // escape
+                    msg = [$(this).attr("id"),"",location.pathname.split('/').slice(-1)[0]]
+//                    console.log(msg)
+                    socket.emit("memwrt", msg);
+                    form_doc.reset();
+                    return false
+                }
+             });
+
+            $(".reg_input").focus(function(){
+                console.log("input")
+                var form_doc = document.getElementById($(this).attr("id")).parentElement
+                $(this).select()
+                })
+                
+            $(".radio-inline").focus(function(){
+                console.log("radio_inline")
+                console.log($(this))
+                });
+
+            $('#myForm input').on('change', function() {
+               var portname = ($('input[name=optradio]:checked', '#myForm').val()); 
+               console.log(portname)
+               socket.emit("port_select", [location.pathname.split('/').slice(-1)[0],portname])
+            });
+            
+                
+            socket.on('update_table', function(msg) {
+                update_table(msg)
+            });
+            
+            socket.on('update_system', function(msg) {
+                update_system(msg)
+            });
+            
+            socket.on('set_portname', function(msg) {
+                console.log(msg)
+                $('input[name=optradio][value=' + msg + ']').prop('checked', true);
+                
+            });
+            socket.on('getval', function(msg) {
+                m = msg
+                console.log(m[0] + m[1]);
+                x = document.getElementById(m[0]).title = m[1];
+                console.log(x)
+            });
+            
+            $(".hideclass").click(function(event) {
+                $('td:nth-child(4)').toggle()
+                return false
+            });
+
+       });
+    </script>
+    
+
+<script type="text/javascript">
+    function update_portstatus( data ){
+         port_obj = JSON.parse(data)
+        for (portn in port_obj) {
+            port = port_obj[portn]
+            for (x in port) { 
+                document.getElementById(portn+x).innerHTML = port[x];
+            }
+        }
+    }
+    
+    function update_table( data ){
+         var tbl_obj = JSON.parse(data)
+        for (label in tbl_obj) {
+            console.log(label,tbl_obj[label])
+            document.getElementById(label).setAttribute('value',tbl_obj[label]);
+            document.getElementById(label).reg_input = tbl_obj[label];
+            
+       }
+    }
+    
+   function update_system( data ){
+         var tbl_obj = JSON.parse(data);
+        for (label in tbl_obj) {
+            document.getElementById(label).innerHTML = tbl_obj[label];
+            
+       }
+    }
+
+</script>
+
+
+{% endblock %}
+

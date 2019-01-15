@@ -1,0 +1,142 @@
+[
+    [
+        "0x00", 
+        "rev", 
+        "RO", 
+        "Bits[15:0]Set to the current\nversion of the\nIP\ncore. \nBits[31:16]Customer specific\nrevision, specified by the CUST_VERSION\nparameter defined in the top-level file generated for the\ninstance of the\nIP\ncore. These bits are set to 0 during the\nconfiguration of the\nIP\ncore.", 
+        "<IP version\n  number>"
+    ], 
+    [
+        "0x01", 
+        "scratch\n(1)", 
+        "RW", 
+        "Scratch register.\n  Provides a memory location for you to test the device memory operation.", 
+        "0"
+    ], 
+    [
+        "0x02", 
+        "command_config", 
+        "RW", 
+        "MAC configuration register. Use\nthis register to control and configure the MAC function. The MAC\nfunction starts operation as soon as the transmit and receive enable\nbits in this register are turned on.\nIntel,\ntherefore, recommends that you configure this register last. See Command_Config Register (Dword Offset 0x02) for the bit description.", 
+        "0"
+    ], 
+    [
+        "0x03", 
+        "mac_0", 
+        "RW", 
+        "6-byte\n  MAC primary address. The first four most significant bytes of the MAC address\n  occupy \n  mac_0 in reverse\n  order. The last two bytes of the MAC address occupy the two least significant\n  bytes of \n  mac_1 in reverse\n  order. \n  For example, if the MAC address is\n 00-1C-23-17-4A-CB, the following assignments are made: \n  \n\nmac_0 = 0x17231c00 \n  \n\nmac_1 = 0x0000CB4a \n  \nEnsure that you configure these\n registers with a valid MAC address if you disable the promiscuous mode (PROMIS_EN bit in \n command_config = 0).", 
+        "0"
+    ], 
+    [
+        "0x04", 
+        "mac_1", 
+        "RW",
+        "",
+        "0"
+    ], 
+    [
+        "0x05", 
+        "frm_length", 
+        "RW", 
+        "Bits[15:0]16-bit maximum frame\nlength in bytes. The\nIP\ncore checks the length of receive frames\nagainst this value. Typical value is 1518. In 10/100 and\n1000 Small MAC core variations, this register is RO and\nthe maximum frame length is fixed to 1518. \n\nBits[31:16]unused.", 
+        "1518"
+    ], 
+    [
+        "0x06", 
+        "pause_quant", 
+        "RW", 
+        "Bits[15:0]16-bit pause quanta.\nUse this register to specify the pause quanta to be sent to\nremote devices when the local device is congested. The\nIP\ncore sets the pause quanta (P1, P2) field\nin pause frames to the value of this register. 10/100 and\n1000 Small MAC core variations do not support flow\ncontrol. \n\nBits[31:16]unused.", 
+        "0"
+    ], 
+    [
+        "0x07", 
+        "rx_section_empty", 
+        "RW", 
+        "Variable-length\n  section-empty threshold of the receive FIFO buffer. Use the depth of your FIFO\n  buffer to determine this threshold. This threshold is typically set to (FIFO\n  Depth  16). \n  Set this threshold to a value that\n is below the \n rx_almost_full\n threshold and above the \n rx_section_full or \n rx_almost_empty\n threshold. \n  \nIn 10/100 and 1000 Small MAC core\n variations, this register is RO and the register is set to a fixed value of\n (FIFO Depth  16).", 
+        "0"
+    ], 
+    [
+        "0x08", 
+        "rx_section_full", 
+        "RW", 
+        "Variable-length\n  section-full threshold of the receive FIFO buffer. Use the depth of your FIFO\n  buffer to determine this threshold. \n  For cut-through mode, this threshold\n is typically set to 16. Set this threshold to a value that is above the \n rx_almost_empty\n threshold. \n  \nFor store-and-forward mode, set this\n threshold to 0. \n  \nIn 10/100 and 1000 Small MAC core\n variations, this register is RO and the register is set to a fixed value of 16.", 
+        "0"
+    ], 
+    [
+        "0x09", 
+        "tx_section_empty", 
+        "RW", 
+        "Variable-length\n  section-empty threshold of the transmit FIFO buffer. Use the depth of your FIFO\n  buffer to determine this threshold. This threshold is typically set to (FIFO\n  Depth  16). \n  Set this threshold to a value below\n the \n rx_almost_full\n threshold and above the \n rx_section_full or \n rx_almost_empty\n threshold. \n  \nIn 10/100 and 1000 Small MAC core\n variations, this register is RO and the register is set to a fixed value of\n (FIFO Depth  16).", 
+        "0"
+    ], 
+    [
+        "0x0A", 
+        "tx_section_full", 
+        "RW", 
+        "Variable-length\n  section-full threshold of the transmit FIFO buffer. Use the depth of your FIFO\n  buffer to determine this threshold. \n  For cut-through mode, this threshold\n is typically set to 16. Set this threshold to a value above the \n tx_almost_empty\n threshold. \n  \nFor store-and-forward mode, set this\n threshold to 0. \n  \nIn 10/100 and 1000 Small MAC core\n variations, this register is RO and the register is set to a fixed value of 16.", 
+        "0"
+    ], 
+    [
+        "0x0B", 
+        "rx_almost_empty", 
+        "RW", 
+        "Variable-length\n  almost-empty threshold of the receive FIFO buffer. Use the depth of your FIFO\n  buffer to determine this threshold. \n  Due to internal pipeline latency,\n you must set this threshold to a value greater than 3. This threshold is\n typically set to 8. \n  \nIn 10/100 and 1000 Small MAC core\n variations, this register is RO and the register is set to a fixed value of 8.", 
+        "0"
+    ], 
+    [
+        "0x0C", 
+        "rx_almost_full", 
+        "RW", 
+        "Variable-length\n  almost-full threshold of the receive FIFO buffer. Use the depth of your FIFO\n  buffer to determine this threshold. \n  Due to internal pipeline latency,\n you must set this threshold to a value greater than 3. This threshold is\n typically set to 8. \n  \nIn 10/100 and 1000 Small MAC core\n variations, this register is RO and the register is set to a fixed value of 8.", 
+        "0"
+    ], 
+    [
+        "0x0D", 
+        "tx_almost_empty", 
+        "RW", 
+        "Variable-length\n  almost-empty threshold of the transmit FIFO buffer. Use the depth of your FIFO\n  buffer to determine this threshold. \n  Due to internal pipeline latency,\n you must set this threshold to a value greater than 3. This threshold is\n typically set to 8. \n  \nIn 10/100 and 1000 Small MAC core\n variations, this register is RO and the register is set to a fixed value of 8.", 
+        "0"
+    ], 
+    [
+        "0x0E", 
+        "tx_almost_full", 
+        "RW", 
+        "Variable-length\n  almost-full threshold of the transmit FIFO buffer. Use the depth of your FIFO\n  buffer to determine this threshold. \n  You must set this register to a\n value greater than or equal to 3. A value of 3 indicates 0 ready latency; a\n value of 4 indicates 1 ready latency, and so forth. Because the maximum ready\n latency on the Avalon-ST interface is 8, you can only set this register to a\n maximum value of 11. This threshold is typically set to 3. \n  \nIn 10/100 and 1000 Small MAC core\n variations, this register is RO and the register is set to a fixed value of3.", 
+        "0"
+    ], 
+    [
+        "0x0F", 
+        "mdio_addr0", 
+        "RW", 
+        "Bits[4:0]5-bit\nPHY address. Set these registers to the addresses of any connected PHY devices\nyou want to access. The \nmdio_addr0 and \nmdio_addr1\nregisters contain the addresses of the PHY whose registers are mapped to MDIO\nSpace 0 and MDIO Space 1 respectively. \n \nBits[31:5]unused.\nSet to read-only value of 0.", 
+        "0"
+    ], 
+    [
+        "0x10", 
+        "mdio_addr1",
+        "",
+        "RW", 
+        "1"
+    ], 
+    [
+        "0x11", 
+        "holdoff_quant", 
+        "RW", 
+        "Bit[15:0]16-bit\nholdoff quanta. When you enable the flow control, use this register to specify\nthe gap between consecutive XOFF requests. \n \nBits[31:16]unused.", 
+        "0xFFFF"
+    ], 
+    [
+        "0x12  0x16", 
+        "Reserved", 
+        "", 
+        "", 
+        "0"
+    ], 
+    [
+        "0x17", 
+        "tx_ipg_length", 
+        "RW", 
+        "Bits[4:0]minimum\nIPG. Valid values are between 8 and 26 byte-times. If this register is set to\nan invalid value, the MAC still maintains a typical minimum IPG value of 12\nbytes between packets, although a read back to the register reflects the\ninvalid value written.\nIn 10/100 and 1000 Small MAC\n  core variations, this register is RO and the register is set to a fixed value\n  of12. \n\nBits[31:5]unused. Set to read-only value 0.", 
+        "0"
+    ] 
+]
