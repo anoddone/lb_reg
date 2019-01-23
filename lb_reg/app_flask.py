@@ -21,24 +21,79 @@ class dummy:
         return "%0x" % regval
 
 
-class Register():
-    def __init__(self, reg_list):
-        self.reg_dict = {}
-        for reg_json in reg_list:
-            reg_dict_size = len(self.reg_dict)
-            print reg_json
-            with open(mkpath(reg_json),'r') as fp:
-                _dict = json.loads(fp.read())
-                _dict_size = len(_dict)
-            self.reg_dict.update(_dict)
-            if (reg_dict_size + _dict_size) > len(self.reg_dict):
-                print "duplicate entries %d + %d = %d  actual %d" % (reg_dict_size, _dict_size, (reg_dict_size+_dict_size), len(self.reg_dict))
+class PageData(object):
+    ## create a page to label list dictionary from the json label files
+    page_data = [
+        ['phy_config',['PHYregdef.json']],
+        ['mac_config',['rxcfgstreg.json','txcfgstreg.json','timestampreg.json']],
+        ['mac_statistics',['rxtxstat.json']],
+        ['ethernet_mac_statistics',['table37statisics.json']],
+        ['ethernet_mac_config',['table35config.json']]
+    ]
+    def __init__(self):
+        print "PageData created"
+        super(PageData, self).__init__()
+        self.pagelabels = {}
+        for page in self.page_data:
+            reg_labels = []
+            for reg_json in page[1]:
+#                print reg_json
+                with open(mkpath(reg_json),'r') as fp:
+                    _dict = json.loads(fp.read())
+                for label in _dict:
+                    reg_labels.append(label)
+            self.pagelabels.update({page[0]: reg_labels})
+
+    def get_page_labels(self,pagename):
+        label_list = []
+        try:
+            label_list = self.pagelabels[pagename]
+        except:
+            print "page name: %d not found" % pagename
+        return label_list
+        
             
+class RegGroup(object):
+    ## create a register group dictionary to label data dicionary
+    reg_group_data = [
+        ['CSR',['PHYregdef.json']],
+        ['SFP',['rxcfgstreg.json','txcfgstreg.json','timestampreg.json','rxtxstat.json']],
+        ['1G',['table37statisics.json','table35config.json']],
+        ['RE',[]],
+    ]
+    def __init__(self):
+        print "RegGroup created"
+        super(RegGroup, self).__init__()
+        self.regGroup = {}
+        for group in self.reg_group_data:
+#            print group
+            reg_list = group[1]
+            reg_dict = {}
+            for reg_json in reg_list:
+                reg_dict_size = len(reg_dict)
+                with open(mkpath(reg_json),'r') as fp:
+                    _dict = json.loads(fp.read())
+                _dict_size = len(_dict)
+                reg_dict.update(_dict)
+                if (reg_dict_size + _dict_size) > len(reg_dict):
+                    print "duplicate entries %d + %d = %d  actual %d" % (reg_dict_size, _dict_size, (reg_dict_size+_dict_size), len(reg_dict))
+            self.regGroup.update({group[0]: reg_dict})
+    
+    def get_reg_data(self, group, label):
+        regdict = self.regGroup[group]
+        data = regdict[label]
+        return data
+        
+        
+class Register(PageData,RegGroup):
+    def __init__(self):
+        print "Register created"
+        super(Register, self).__init__()
             
     def read(self, serial, portname, label):
-        data = self.reg_dict[label]
+        baseaddr, group = self.baseaddr(portname)
+        data = self.get_reg_data(group,label)
         offset = int(data[0],16)
-        baseaddr = self.baseaddr(portname)
         offset*=4
         if data[1] == 32:
             regval = serial.read_reg32(offset+baseaddr)
@@ -55,11 +110,12 @@ class Register():
             print "bad write value: %s" % value
             return self.read(serial, portname, label)
         else:
+            baseaddr, group = self.baseaddr(portname)
             print "write %x to %s" % (newval,label)
-            data = self.reg_dict[label]
+#            data = self.reg_dict[label]
+            data = self.get_reg_data(group,label)
             offset = int(data[0],16)
             offset*=4
-            baseaddr = self.baseaddr(portname)
             print baseaddr,offset,portname
             if data[1] == 32:
                 serial.write_reg32(offset+baseaddr, newval)
@@ -74,31 +130,31 @@ class Register():
         self.mem_write_log(portname,label,value)       
         return self.read(serial, portname, label)
 
-        
     def baseaddr(self,portname):
         paddr = {
-            'portA': 0xff220000,
-            'portB': 0xff224000,
-            'portC': 0xff228000,
-            'portD': 0xff22c000,
-            'portE': 0xff230000,
-            'portACSR': 0xff222000,
-            'portBCSR': 0xff226000,
-            'portCCSR': 0xff22a000,
-            'portDCSR': 0xff22e000,
-            'portECSR': 0xff232000,
-            'portARE': 0xff221000,
-            'portBRE': 0xff225000,
-            'portCRE': 0xff229000,
-            'portDRE': 0xff22d000,
-            'portERE': 0xff231000,
-            'portA1G': 0xff240000,  # port A is missing! using B address
-            'portB1G': 0xff240000,
-            'portC1G': 0xff240400,
-            'portD1G': 0xff240800,
-            'portE1G': 0xff240c00,
-}
-        return paddr[portname]
+            'portA': [0xff220000,"SFP"],
+            'portB': [0xff224000,"SFP"],
+            'portC': [0xff228000,"SFP"],
+            'portD': [0xff22c000,"SFP"],
+            'portE': [0xff230000,"SFP"],
+            'portACSR': [0xff222000,"CSR"],
+            'portBCSR': [0xff226000,"CSR"],
+            'portCCSR': [0xff22a000,"CSR"],
+            'portDCSR': [0xff22e000,"CSR"],
+            'portECSR': [0xff232000,"CSR"],
+            'portARE': [0xff221000,"RE"],
+            'portBRE': [0xff225000,"RE"],
+            'portCRE': [0xff229000,"RE"],
+            'portDRE': [0xff22d000,"RE"],
+            'portERE': [0xff231000,"RE"],
+            'portA1G': [0xff240000,"1G"],  # port A is missing! using B address
+            'portB1G': [0xff240000,"1G"],
+            'portC1G': [0xff240400,"1G"],
+            'portD1G': [0xff240800,"1G"],
+            'portE1G': [0xff240c00,"1G"],
+        }
+        data = paddr[portname]
+        return data[0],data[1]
         
     def mem_write_log(self, portname,regname,value):
         access_list=[]
@@ -109,31 +165,14 @@ class Register():
         with open(mkpath(filepath),'w') as fp:
             fp.write(json.dumps(access_list,indent=4))
 
-    def register_update( self, serial, reg_list, portname ):
-        baseaddr = self.baseaddr(portname)
-        print( "%s  %08x  %s" % (portname, baseaddr, reg_list))
+    def page_update( self, serial, pagename, portname ):
+        label_list = self.get_page_labels(pagename)
         data_dict = {}
-        for reg_json in reg_list:
-            with open(mkpath(reg_json),'r') as fp:
-                reg_dict = json.loads(fp.read())
-#            print reg_dict    
-            for reg in reg_dict:
-#                print reg
-                data = reg_dict[reg]
-#                print data
-                offset = int(data[0],16)
-                offset*=4
-                if data[1] == 32:
-                    regval = serial.read_reg32(offset+baseaddr)
-                elif data[1] == 64:
-                    regval = serial.read_reg64(offset+baseaddr)
-                elif data[1] == 48:
-                    regval = serial.read_reg48(offset+baseaddr)
-                    
-                data_dict.update({reg: regval})
+        for label in label_list:
+            data = self.read(serial, portname, label)
+            data_dict.update(data)
         return data_dict
 
-    
 currentPort = "portA"
 
 RUN_SOCKETIO = True
@@ -152,8 +191,7 @@ def create_app():
     app.secret_key = 'development key'
     bootstrap = Bootstrap(app)
     ps = portstatus.PortStatus(0xff200000)
-    reg = Register(['rxcfgstreg.json','txcfgstreg.json','timestampreg.json','rxtxstat.json','PHYregdef.json'])
-    reg35 = Register(['table35config.json'])
+    reg = Register()
     sysReg = systemReg(0xff200000)
     
     @app.route('/bs4')
@@ -237,23 +275,24 @@ def create_app():
             print "conn message ",message
             socketio.emit('set_portname', currentPort, namespace='/dd')
             if message[0] == 'phy_config':
-                data = json.dumps(reg.register_update(serial,['PHYregdef.json'], currentPort+'CSR'))
+                data = json.dumps(reg.page_update(serial,message[0], currentPort+'CSR'))
                 socketio.emit('update_table', data, namespace='/dd')
             elif message[0] == 'mac_config':
-                data = json.dumps(reg.register_update(serial,['rxcfgstreg.json','txcfgstreg.json','timestampreg.json'], currentPort))
+                data = json.dumps(reg.page_update(serial,message[0], currentPort))
+                print data
                 socketio.emit('update_table', data, namespace='/dd')
             elif message[0] == 'mac_statistics':
-                data = json.dumps(reg.register_update(serial,['rxtxstat.json'], currentPort))
+                data = json.dumps(reg.page_update(serial,message[0], currentPort))
                 socketio.emit('update_table', data, namespace='/dd')
             elif message[0] == 'ethernet_mac_statistics':
                 if currentPort == "portA":
                     currentPort = "portB"
-                data = json.dumps(reg.register_update(serial,['table37statisics.json'], currentPort+'1G'))
+                data = json.dumps(reg.page_update(serial,message[0], currentPort+'1G'))
                 socketio.emit('update_table', data, namespace='/dd')
             elif message[0] == 'ethernet_mac_config':
                 if currentPort == "portA":
                     currentPort = "portB"
-                data = json.dumps(reg.register_update(serial,['table35config.json'], currentPort+'1G'))
+                data = json.dumps(reg.page_update(serial,message[0], currentPort+'1G'))
                 socketio.emit('update_table', data, namespace='/dd')
             data = json.dumps(sysReg.read_all(serial, ["date_code","temperature"]))
             socketio.emit('update_system', data, namespace='/dd')
@@ -267,9 +306,10 @@ def create_app():
             print(message[1])
             if message[2] == 'phy_config':
                 port_extention = 'CSR'
+                rsp = reg.write(serial, currentPort+port_extention, message[0],message[1])
             elif message[2] =='ethernet_mac_config':
                 port_extention = '1G'
-                rsp = reg35.write(serial, currentPort+port_extention, message[0],message[1])
+                rsp = reg.write(serial, currentPort+port_extention, message[0],message[1])
             else:
                 port_extention = ''
                 rsp = reg.write(serial, currentPort+port_extention, message[0],message[1])
