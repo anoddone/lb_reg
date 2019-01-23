@@ -1,9 +1,5 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="container">
-<h1>MAC Configuration and Status</h1>
-</div>
-
 <h1>Table 25.  MAC TX Configuration and Status Register</h1>
 <table class="table">
 <tbody>
@@ -1049,8 +1045,12 @@
 <br>nanosecond.
 <br>Bits 16 to 31reserved.</td
 ></tr>
-</tbody></table><script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+</tbody></table>
+<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+
+<script src="{{url_for('.static', filename='lbscript.js')}}"></script>
+<!--
     <script type="text/javascript">
         $(document).ready(function() {
             var url = "http://" + document.domain + ":" + location.port;
@@ -1082,6 +1082,44 @@
                 }
              });
 
+            $("#play-btn").on('click',function(event) {
+                console.log($(this).attr("id"));
+                $(this).blur();
+                console.log($("#macrofile option:selected").val());
+                return true;
+            });
+            $("#save-btn").on('click',function(event) {
+                console.log($(this).attr("id"));
+                $(this).blur();
+                return true;
+            });
+            $("#clear-btn").on('click',function(event) {
+                console.log($(this).attr("id"));
+                $(this).blur();
+                return true;
+            });
+            $("#record-btn").on('click change',function(event) {
+                var cur_text = $(this).text();
+//                console.log(cur_text)
+                if (cur_text.search("Start") < 0) {
+//                    console.log("not Start match")
+                    cur_text = cur_text.replace("Stop","Start");
+                } else {
+                    cur_text = cur_text.replace("Start","Stop");
+                }
+                $(this).text(cur_text)
+                $(this).blur();
+//                console.log($(this).text())
+                return false;
+            });
+
+            $('#myForm input').on('change', function() {
+               var portname = ($('input[name=optradio]:checked', '#myForm').val()); 
+               console.log(portname)
+               socket.emit("port_select", [location.pathname.split('/').slice(-1)[0],portname])
+            });
+
+             
             $(".reg_input").focus(function(){
                 console.log("input")
                 var form_doc = document.getElementById($(this).attr("id")).parentElement
@@ -1092,13 +1130,6 @@
                 console.log("radio_inline")
                 console.log($(this))
                 });
-
-            $('#myForm input').on('change', function() {
-               var portname = ($('input[name=optradio]:checked', '#myForm').val()); 
-               console.log(portname)
-               socket.emit("port_select", [location.pathname.split('/').slice(-1)[0],portname])
-            });
-            
                 
             socket.on('update_table', function(msg) {
                 update_table(msg)
@@ -1125,10 +1156,59 @@
                 return false
             });
 
+            $("#file").change(function() { 
+                console.log($(this)); 
+                console.log($(this).val())
+            
+            });
+            
+            $('#filelist').on('change', function() {
+                console.log($(this)); 
+                console.log($(this).val())
+               /* Remove all options from the select list */
+               $(this).empty();
+                var my_list = ['another.json', 'andanother.json', 'evenmore.json'];
+               /* Insert the new ones from the array above */
+               console.log(my_list)
+               for (x in my_list) {
+                    console.log(x)
+                   $(this).append('<option value="'+my_list[x]+'">'+my_list[x]+'</option>');
+//                       .set('text', value)
+//                       .inject($('#filelist'));
+               };
+            });
+            
+            function update_portstatus( data ){
+                 port_obj = JSON.parse(data)
+                for (portn in port_obj) {
+                    port = port_obj[portn]
+                    for (x in port) { 
+                        document.getElementById(portn+x).innerHTML = port[x];
+                    }
+                }
+            }
+            
+            function update_table( data ){
+                 var tbl_obj = JSON.parse(data)
+                for (label in tbl_obj) {
+                    document.getElementById(label).setAttribute('value',tbl_obj[label]);
+                    document.getElementById(label).reg_input = tbl_obj[label];
+                    
+               }
+            }
+            
+           function update_system( data ){
+                 var tbl_obj = JSON.parse(data);
+                for (label in tbl_obj) {
+                    document.getElementById(label).innerHTML = tbl_obj[label];
+                    
+               }
+            }
+
        });
     </script>
-    
-
+<--
+<!--
 <script type="text/javascript">
     function update_portstatus( data ){
          port_obj = JSON.parse(data)
@@ -1158,7 +1238,7 @@
     }
 
 </script>
-
+-->
 
 {% endblock %}
 

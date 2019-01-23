@@ -71,7 +71,7 @@ class Register():
                 serial.write_reg32(offset+baseaddr, low)
                 serial.write_reg32(offset+baseaddr+4, hi)
                
-                
+        self.mem_write_log(portname,label,value)       
         return self.read(serial, portname, label)
 
         
@@ -97,10 +97,17 @@ class Register():
             'portC1G': 0xff240400,
             'portD1G': 0xff240800,
             'portE1G': 0xff240c00,
-           
 }
         return paddr[portname]
         
+    def mem_write_log(self, portname,regname,value):
+        access_list=[]
+        filepath = mkpath("config/config.json")
+        with open(mkpath(filepath),'r') as fp:
+            access_list = json.loads(fp.read())
+        access_list.append([regname,value,portname])
+        with open(mkpath(filepath),'w') as fp:
+            fp.write(json.dumps(access_list,indent=4))
 
     def register_update( self, serial, reg_list, portname ):
         baseaddr = self.baseaddr(portname)
@@ -149,9 +156,9 @@ def create_app():
     reg35 = Register(['table35config.json'])
     sysReg = systemReg(0xff200000)
     
-    @app.route('/hello')
-    def hello():
-        return 'Hello World'
+    @app.route('/bs4')
+    def bs4():
+        return render_template('bs4.html')
 
     @app.route('/', methods=['POST','GET'])
     def portstatus_json():
