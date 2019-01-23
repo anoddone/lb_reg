@@ -220,7 +220,8 @@ def create_app():
         @socketio.on('port_select', namespace='/dd')
         def port_select(message):
             global currentPort
-            if (message[0] == 'ethernet_mac_statistics' or 'message[0] == ethernet_mac_config'  ) and message[1] == "portA":
+            print("port_select ",message, currentPort)
+            if (message[0] == 'ethernet_mac_statistics' or message[0] == 'ethernet_mac_config'  ) and message[1] == "portA":
                 message[1] = currentPort
             print(message)
             currentPort = message[1]
