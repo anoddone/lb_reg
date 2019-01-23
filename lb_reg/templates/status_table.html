@@ -177,14 +177,14 @@
  -->
  
  <script type="text/javascript">
-    var interval = 00;
+    var interval = 3000;
     console.log('Page loaded');
     $('.port_selection').hide();
     start_interval_timer()
     
     function start_interval_timer() {
         if (interval > 0) {
-            interval_timer = setInterval(function(){socket.emit("conn", [location.pathname.split('/').slice(-1)[0]]);t0 = performance.now();}, interval);
+            interval_timer = setInterval(function(){socket.emit("get_portstatus", [location.pathname.split('/').slice(-1)[0]]);t0 = performance.now();}, interval);
             console.log("start_interval_timer")
         }
     }
