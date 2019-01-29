@@ -10,7 +10,6 @@
             socket = io.connect(url + "/dd");
             console.log("connected");
             socket.emit("conn", [location.pathname.split('/').slice(-1)[0]])
-            $('td:nth-child(4)').toggle()
 
             $(".reg_input").keydown(function(event){
                 console.log(event.which)
@@ -34,27 +33,38 @@
                 console.log($(this).attr("id"));
                 $(this).blur();
                 console.log($("#macrofile option:selected").val());
+                if ($("#macrofile option:selected").val() == "") {
+                    alert("Select a macro file");
+                }
+                else {
+                    socket.emit("macro",["play", $("#macrofile option:selected").val(),location.pathname.split('/').slice(-1)[0]]);
+                }
                 return true;
             });
             $("#save-btn").on('click',function(event) {
                 console.log($(this).attr("id"));
                 $(this).blur();
+                socket.emit("macro",["save",location.pathname.split('/').slice(-1)[0]]);
                 return true;
             });
             $("#clear-btn").on('click',function(event) {
                 console.log($(this).attr("id"));
                 $(this).blur();
+                socket.emit("macro",["clear",location.pathname.split('/').slice(-1)[0]]);
                 return true;
             });
             $("#record-btn").on('click change',function(event) {
                 var cur_text = $(this).text();
+//                console.log(cur_text)
                 if (cur_text.search("Start") < 0) {
+//                    console.log("not Start match")
                     cur_text = cur_text.replace("Stop","Start");
                 } else {
                     cur_text = cur_text.replace("Start","Stop");
                 }
                 $(this).text(cur_text)
                 $(this).blur();
+                socket.emit("macro",["record",location.pathname.split('/').slice(-1)[0]]);
                 return false;
             });
 
@@ -63,6 +73,25 @@
                console.log(portname)
                socket.emit("port_select", [location.pathname.split('/').slice(-1)[0],portname])
             });
+
+            socket.on('macro_status', function(data) {
+                 var data_obj = JSON.parse(data)
+                console.log(data_obj)
+                $("#record-btn").text('REC ' + data_obj[0])
+                $("#save-btn").text('Save (' + data_obj[1] + ')')
+                update_macrofile(data_obj[2])
+            });
+
+            
+            function update_macrofile(file_list) {
+                var select = $("#macrofile");
+                console.log(select)
+                select.html('<option value="">Select</option>');
+                for (file in file_list) {
+                    select.append("<option value='"+file_list[file]+ "'>" +file_list[file]+ "</option>");
+                }
+            }
+            
 
              
             $(".reg_input").focus(function(){

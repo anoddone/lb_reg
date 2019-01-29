@@ -385,175 +385,21 @@
 ></tr>
 </tbody></table>
 
-
-
-
 <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+<script type="text/javascript">
+    $('td:nth-child(3)').toggle();
+    
+        $(".hideclass").click(function(event) {
+        console.log("hideclass")
+        $('td:nth-child(3)').toggle()
+        return false
+    });
+</script>
 <script src="{{url_for('.static', filename='lbscript.js')}}"></script>
 
-<!--
-    <script type="text/javascript">
-    var t0 = 0;
-    var upd_time = 6000;
-    var interval = 6000;
-    var elapsed_time = 0;
-    var timer_sent = 0;
-    var socket = null; 
-    
-    function upd_timer(){
-        console.log("upd_timer")
-        if (timer_sent == 0) {
-            timer_sent+=1
-            t0 = performance.now();
-            socket.emit("conn", [location.pathname.split('/').slice(-1)[0]]);
-            setTimeout(function(){ upd_timer();}, interval);
-        }
-    }
-        $(document).ready(function() {
-            var url = "http://" + document.domain + ":" + location.port;
-            console.log( url);
-            socket = io.connect(url + "/dd");
-//            $("#radio_button_A").val("");
-            $("#radio_button_A").text("");
-            $("#radio_button_A").hide();
-            console.log("connected");
-            t0 = performance.now();
-//            upd_timer()
-            socket.emit("conn", [location.pathname.split('/').slice(-1)[0]]);
-            $('td:nth-child(4)').toggle()
-//            setTimeout(function(){ upd_timer();}, interval);
-
-            $(".reg_input").keydown(function(event){
-                console.log(event.which)
-//                console.log($(this).attr("id"))
-                var id = $(this).attr("id")
-                var form_doc = document.getElementById(id).parentElement
-//                console.log(form_doc);
-                if (event.which == 13) { // carrage return
-                    msg = [$(this).attr("id"),$(this).val(),location.pathname.split('/').slice(-1)[0]]
-//                    console.log(msg)
-                    socket.emit("memwrt", msg);
-                    form_doc.reset();
-                    return false
-                }
-                if (event.which == 27) { // escape
-                    msg = [$(this).attr("id"),"",location.pathname.split('/').slice(-1)[0]]
-//                    console.log(msg)
-                    socket.emit("memwrt", msg);
-                    form_doc.reset();
-                    return false
-                }
-             });
-
-            $(".reg_input").focus(function(){
-                console.log("input")
-                var form_doc = document.getElementById($(this).attr("id")).parentElement
-                $(this).select()
-                })
-                
-            $(".radio-inline").focus(function(){
-                console.log("radio_inline")
-                console.log($(this))
-                });
-
-            $('#myForm input').on('change', function() {
-               var portname = ($('input[name=optradio]:checked', '#myForm').val()); 
-               console.log(portname)
-               socket.emit("port_select", [location.pathname.split('/').slice(-1)[0],portname])
-            });
-            
-                 
-            $("#cityform").submit(function(event) {
-                console.log("submit")
-                socket.emit('city', {'city': $('#city').val()});
-                $('#city').val('');
-                return false;
-            });
-            
-            
-                
-            socket.on('update_table', function(msg) {
-                console.log("update_table");
-//                var t0 = performance.now()
-                update_table(msg);
-                if (timer_sent > 0) {
-                    timer_sent-=1;
-                    upd_timer()
-                }
-                var t1 = performance.now();
-                console.log("Time "+ (t1 -t0) + "ms");
-            });
-            
-            socket.on('update_system', function(msg) {
-                console.log(msg)
-                update_system(msg)
-            });
-            
-            socket.on('set_portname', function(msg) {
-                console.log(msg)
-                $('input[name=optradio][value=' + msg + ']').prop('checked', true);
-                
-            });
-            socket.on('getval', function(msg) {
-                m = msg
-                console.log(m[0] + m[1]);
-                x = document.getElementById(m[0]).title = m[1];
-                console.log(x)
-            });
-            
-            $(".hideclass").click(function(event) {
-                $('td:nth-child(3)').toggle()
-                return false
-            });
-            
-            socket.on('portstatus', function(port_obj) {
-                update_portstatus(port_obj);
-                console.log("got port_obj ");
-            });
-            
-        });
-        
-        
-    </script>
-    
 
 <script type="text/javascript">
-    function update_portstatus( data ){
-         port_obj = JSON.parse(data)
-        for (portn in port_obj) {
-            port = port_obj[portn]
-            for (x in port) { 
-                document.getElementById(portn+x).innerHTML = port[x];
-            }
-        }
-    }
-    
-    function update_table( data ){
-         var tbl_obj = JSON.parse(data)
-        for (label in tbl_obj) {
-//            console.log(label)
-//            console.log(tbl_obj[label])
-//            console.log(document.getElementById(label))
-            document.getElementById(label).setAttribute('value',tbl_obj[label]);
-            document.getElementById(label).reg_input = tbl_obj[label];
-//            console.log(document.getElementById(label))
-            
-       }
-    }
-
-   function update_system( data ){
-         var tbl_obj = JSON.parse(data);
-        for (label in tbl_obj) {
-            document.getElementById(label).innerHTML = tbl_obj[label];
-            
-       }
-    }
-    
-
-    </script>
--->
- <script type="text/javascript">
     var interval = 000;
     console.log('Page loaded');
     $("#radio_button_A").text("");

@@ -8,6 +8,7 @@ from serialcom import SerialPort
 import portstatus
 from cfg_data import cfgData
 from system_reg import systemReg
+from macro import Macro
 import os
 
 def mkpath( relative_path):
@@ -85,30 +86,32 @@ class RegGroup(object):
         return data
         
         
-class Register(PageData,RegGroup):
-    def __init__(self):
+class Register(PageData,RegGroup,Macro):
+    def __init__(self, **kwargs):
         print "Register created"
         super(Register, self).__init__()
+        self.__dict__.update(kwargs)
+        
             
-    def read(self, serial, portname, label):
+    def read(self, portname, label):
         baseaddr, group = self.baseaddr(portname)
         data = self.get_reg_data(group,label)
         offset = int(data[0],16)
         offset*=4
         if data[1] == 32:
-            regval = serial.read_reg32(offset+baseaddr)
+            regval = self.serial.read_reg32(offset+baseaddr)
         elif data[1] == 64:
-            regval = serial.read_reg64(offset+baseaddr)
+            regval = self.serial.read_reg64(offset+baseaddr)
         elif data[1] == 48:
-            regval = serial.read_reg48(offset+baseaddr)
+            regval = self.serial.read_reg48(offset+baseaddr)
         return {label: regval}
         
-    def write(self, serial, portname, label, value):
+    def write(self, portname, label, value):
         try:
             newval = int(value,16)
         except:
             print "bad write value: %s" % value
-            return self.read(serial, portname, label)
+            return self.read(portname, label)
         else:
             baseaddr, group = self.baseaddr(portname)
             print "write %x to %s" % (newval,label)
@@ -118,17 +121,17 @@ class Register(PageData,RegGroup):
             offset*=4
             print baseaddr,offset,portname
             if data[1] == 32:
-                serial.write_reg32(offset+baseaddr, newval)
+                self.serial.write_reg32(offset+baseaddr, newval)
             else:
                 low = newval & 0xffffffff
                 hi = newval >> 32 & 0xffffffff
                 if data[1] == 48:
                     hi = hi & 0xffffffff
-                serial.write_reg32(offset+baseaddr, low)
-                serial.write_reg32(offset+baseaddr+4, hi)
+                self.serial.write_reg32(offset+baseaddr, low)
+                self.serial.write_reg32(offset+baseaddr+4, hi)
                
-        self.mem_write_log(portname,label,value)       
-        return self.read(serial, portname, label)
+        self.write_log(portname,label,value)       
+        return self.read( portname, label)
 
     def baseaddr(self,portname):
         paddr = {
@@ -165,11 +168,11 @@ class Register(PageData,RegGroup):
         with open(mkpath(filepath),'w') as fp:
             fp.write(json.dumps(access_list,indent=4))
 
-    def page_update( self, serial, pagename, portname ):
+    def page_update( self, pagename, portname ):
         label_list = self.get_page_labels(pagename)
         data_dict = {}
         for label in label_list:
-            data = self.read(serial, portname, label)
+            data = self.read( portname, label)
             data_dict.update(data)
         return data_dict
 
@@ -191,7 +194,7 @@ def create_app():
     app.secret_key = 'development key'
     bootstrap = Bootstrap(app)
     ps = portstatus.PortStatus(0xff200000)
-    reg = Register()
+    reg = Register(serial=serial)
     sysReg = systemReg(0xff200000)
     
     @app.route('/bs4')
@@ -242,18 +245,23 @@ def create_app():
         @socketio.on('connect', namespace='/dd')
         def ws_conn():
             print "ws_conn"
-#            data = json.dumps(reg.register_update(serial,['rxcfgstreg.json','txcfgstreg.json','timestampreg.json','rxtxstat.json'], 'portA'))
-#            print data
-#            socketio.emit('update_table', data, namespace='/dd')
-#            port_obj = ps.ps_json(serial)
-#            self.socketio.emit('portstatus', port_obj, namespace='/dd')
-    #        genthread.connected = True
 
         @socketio.on('disconnect', namespace='/dd')
         def ws_disconn():
             print "ws_disconn"
         #    thread_stop_event.set()
         #    socketio.emit('portstatus', {'count': c}, namespace='/dd')
+
+        @socketio.on('macro', namespace='/dd')
+        def macro(msg):
+            print "macro"
+            reg.macro(msg)
+            data = reg.macro_status()
+            print data
+            if msg[0] == "play":
+                conn([msg[2],currentPort])
+            else:
+                socketio.emit('macro_status',data, namespace='/dd')
 
         @socketio.on('port_select', namespace='/dd')
         def port_select(message):
@@ -275,27 +283,30 @@ def create_app():
             print "conn message ",message
             socketio.emit('set_portname', currentPort, namespace='/dd')
             if message[0] == 'phy_config':
-                data = json.dumps(reg.page_update(serial,message[0], currentPort+'CSR'))
+                data = json.dumps(reg.page_update(message[0], currentPort+'CSR'))
                 socketio.emit('update_table', data, namespace='/dd')
             elif message[0] == 'mac_config':
-                data = json.dumps(reg.page_update(serial,message[0], currentPort))
+                data = json.dumps(reg.page_update(message[0], currentPort))
                 print data
                 socketio.emit('update_table', data, namespace='/dd')
             elif message[0] == 'mac_statistics':
-                data = json.dumps(reg.page_update(serial,message[0], currentPort))
+                data = json.dumps(reg.page_update(message[0], currentPort))
                 socketio.emit('update_table', data, namespace='/dd')
             elif message[0] == 'ethernet_mac_statistics':
                 if currentPort == "portA":
                     currentPort = "portB"
-                data = json.dumps(reg.page_update(serial,message[0], currentPort+'1G'))
+                data = json.dumps(reg.page_update(message[0], currentPort+'1G'))
                 socketio.emit('update_table', data, namespace='/dd')
             elif message[0] == 'ethernet_mac_config':
                 if currentPort == "portA":
                     currentPort = "portB"
-                data = json.dumps(reg.page_update(serial,message[0], currentPort+'1G'))
+                data = json.dumps(reg.page_update(message[0], currentPort+'1G'))
                 socketio.emit('update_table', data, namespace='/dd')
             data = json.dumps(sysReg.read_all(serial, ["date_code","temperature"]))
             socketio.emit('update_system', data, namespace='/dd')
+            data = reg.macro_status()
+            print data
+            socketio.emit('macro_status',data, namespace='/dd')
             
 
         @socketio.on('memwrt', namespace='/dd')
@@ -306,17 +317,18 @@ def create_app():
             print(message[1])
             if message[2] == 'phy_config':
                 port_extention = 'CSR'
-                rsp = reg.write(serial, currentPort+port_extention, message[0],message[1])
+                rsp = reg.write( currentPort+port_extention, message[0],message[1])
             elif message[2] =='ethernet_mac_config':
                 port_extention = '1G'
-                rsp = reg.write(serial, currentPort+port_extention, message[0],message[1])
+                rsp = reg.write( currentPort+port_extention, message[0],message[1])
             else:
                 port_extention = ''
-                rsp = reg.write(serial, currentPort+port_extention, message[0],message[1])
+                rsp = reg.write( currentPort+port_extention, message[0],message[1])
             print rsp
             data = json.dumps(rsp)
             print data
             socketio.emit('update_table', data, namespace='/dd')
+            socketio.emit('macro_status',reg.macro_status(), namespace='/dd')
 
         @socketio.on('getval', namespace='/dd')
         def getval(message):
