@@ -3,25 +3,6 @@ import random
 import serial
 from serialcom import SerialPort
 
-def readReg( s, addr):
-    s.write("md %x 1\n" % addr)
-    rstr = s.read_until('#').replace('\r','')
-    print rstr
-    rsp = rstr.split('\n')
-    print rsp[1]
-    data = rsp[1].split()
-    print data
-    return int(data[1], 16)
-    
-s = serial.Serial(port='COM11', baudrate=115200, write_timeout=1, timeout=5)
-
-print "%0x" % readReg( s, 0x60000000)
-
-s.close()
-
-
-
-    
 class PortData():
     def __init__(self, port, BaseAddress):
         self.port = port
