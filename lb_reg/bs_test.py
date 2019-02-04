@@ -38,8 +38,42 @@ def build_html( html_filename, table_list, page_name):
             content = fpr.read()
             fp.write(content)
 
-
-
+def makeEthTable(table_data, table_name=None, table_header=None):
+    nrow = len(table_data)
+    ncol = len(table_data[0])
+    html =""
+    if table_name:
+        html += '<h1>'+table_name+'</h1>\n'
+        html += '<table class="table">\n<tbody>\n'
+    if table_header:
+        html += '<tr>\n'
+        html += '<th class="col0">'+table_header[0]+'</th>\n'
+        html += '<th class="col1">'+table_header[1]+'</th>\n'
+        html += '<th class="col2">'+table_header[2]+ header_button + '</th>\n'
+        html += '<tr>\n'
+    for row in table_data:
+        value=label=default=desc=access=''
+        if len(row) == 0: continue
+        try:
+            value = row[0]
+            label  = row[1]
+            desc   = row[3].replace('\n','\n<br>')
+            access = row[2].strip()
+        except:
+            print "row short"
+            print row
+        if access == 'RO':
+            disable = 'disabled '
+        else:
+            disable = ""
+        html += '<tr>\n'
+        html +=  (form  % (label,default,disable))
+        html += '<td>' + label + '</td\n>'
+        html += '<td >' + desc + '</td\n>'
+        html += '</tr>\n'
+        
+    html += '</tbody></table>'
+    return html
 
 
 
@@ -63,9 +97,9 @@ def makeTable(table_data, table_name=None, table_header=None):
         try:
             value = row[0]
             label  = row[1]
-            default = row[2]
+            default = row[4]
             desc   = row[3].replace('\n','\n<br>')
-            access = row[4].strip()
+            access = row[2].strip()
         except:
             print "row short"
             print row
@@ -97,17 +131,18 @@ def extract_table_data( filename):
     tbody = table.tbody
 
     rows =  table.find_all(['tr'])
-    #print len(rows)
-    #print rows
+    print len(rows)
 
-    for row in table.find_all(['th','tr']):
-        for cell in row(["th"]):
-            print cell.text
-    print "Done"
+#    for row in table.find_all(['th','tr']):
+#        for cell in row(["th"]):
+#            print cell.text
+#    print "Done"
 
-    table_data = [[cell.text.decode("utf-8",errors="ignore").replace('\t','').strip() for cell in row(["td","th"])]
-                             for row in table.find_all(["tr","th"])]
-    #print table_data
+    try:
+        table_data = [[cell.text.decode("utf-8",errors="ignore").replace('\t','').strip() for cell in row("td")]
+                             for row in table.find_all("tr")]
+    except:
+        pass
 
     with open("table_data/%s.json"%filename, 'w') as fp:
         fp.write(json.dumps(table_data, indent=4))
@@ -134,13 +169,13 @@ def process_table( filename, table_name, default_access="",default_default="",re
     #for row in table.find_all('td'):
     #    print row
 
-    table_data = [[cell.text for cell in row("td")]
+    table_data = [[cell.text.decode("utf-8",errors="ignore").replace('\t','').strip().replace('\n',' ') for cell in row("td")]
                              for row in table.find_all("tr")]
-    #print table_data
+    print table_data
     with open("%stable_data.json"%filename, 'w') as fp:
         fp.write(json.dumps(table_data, indent=4))
     table_dict = {}
-    table_data = []
+    table_list = []
     if MAC:
         label ="MAC"
         offset = "0x10"
@@ -148,9 +183,9 @@ def process_table( filename, table_name, default_access="",default_default="",re
         desc = "MAC address"
         access = "RW"
         table_dict.update( {label : [offset,48] })
-        table_data.append( [value,label,default,desc,access])
+        table_list.append( [value,label,default,desc,access])
 
-
+    print "len(table_data) ", len(table_data)
     for row in table_data:
         if len(row) == 0:
             continue
@@ -181,9 +216,9 @@ def process_table( filename, table_name, default_access="",default_default="",re
         else:
             default = default_default
         table_dict.update( {label : [offset,regsize] })
-        table_data.append( [value,label,default,desc,access])
+        table_list.append( [value,label,default,desc,access])
            
-    html = makeTable(table_data, 
+    html = makeTable(table_list, 
             table_name=table_name,
             table_header=["Current Value","Register Name","HW Reset Value","Description"])
 #    print html
@@ -197,10 +232,17 @@ def process_table( filename, table_name, default_access="",default_default="",re
     #    print "%s\t%s\t\n" %(row[0], row[1][0]),
     #    print row[0].strip(),row[1].strip(),(row[2].encode( 'utf-8')).replace("\t","")
 
-def create_html(filename, table_header, **kwargs):
+def create_html(filename, table_name=None, table_header=None):
     with open("table_data/%s.json"% filename,'r') as fp:
         table_data = json.load(fp)
-        makeTable(table_data, table_name=None, table_header=table_header)                
+        html = makeTable(table_data, table_name=None, table_header=table_header)                
+        with open("templates/%s.html"% filename,'w') as fp1:
+            fp1.write(html)
+
+def create_eth_html(filename, table_name=None, table_header=None):
+    with open("table_data/%s.json"% filename,'r') as fp:
+        table_data = json.load(fp)
+        html = makeEthTable(table_data, table_name=table_name, table_header=table_header)                
 
 
 def extract_data(table_list):
@@ -208,6 +250,14 @@ def extract_data(table_list):
         extract_table_data(table)
 
 if __name__ == '__main__':
+#    process_table( 'table37statisics', "Table 37.  Statistics Counters")
+#    create_eth_html( 'table37statisics', table_name="Table 37.  Statistics Counters", table_header=["Current Value","Register Name","Description"])
+
+# table 35
+#    process_table( 'table35config', "Table 35.Configuration Registers")
+#    create_html( 'table35config', table_name="Table 35.Configuration Registers", table_header=["Current Value","Register Name","HW Reset Value","Description"])
+   
+    sys.exit()
 #    extract_data(['txcfgstreg','rxcfgstreg', 'timestampreg','rxtxstat','PHYregdef'])
     create_html( 'txcfgstreg', "Table 25.  MAC TX Configuration and Status Register")
     create_html( 'rxcfgstreg', "Table 28.  MAC RX Configuration and Status Register")

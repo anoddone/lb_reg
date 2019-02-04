@@ -3,25 +3,6 @@ import random
 import serial
 from serialcom import SerialPort
 
-def readReg( s, addr):
-    s.write("md %x 1\n" % addr)
-    rstr = s.read_until('#').replace('\r','')
-    print rstr
-    rsp = rstr.split('\n')
-    print rsp[1]
-    data = rsp[1].split()
-    print data
-    return int(data[1], 16)
-    
-s = serial.Serial(port='COM11', baudrate=115200, write_timeout=1, timeout=5)
-
-print "%0x" % readReg( s, 0x60000000)
-
-s.close()
-
-
-
-    
 class PortData():
     def __init__(self, port, BaseAddress):
         self.port = port
@@ -31,14 +12,14 @@ class PortData():
         
     def activity(self, s):
         status = {}
-        data = s.read_reg32(self.PortAddress)
+        data = int(s.read_reg32(self.PortAddress),16)
         active = 'yes' if data & 0x1000 else 'no'
         lock   = 'no' if data & 0x100  else 'yes'
         sfp    = 'no' if data & 0x10   else 'yes'
         rate   = {0: '10G',1: 'na',2:'1G',3:'na',4:'2.5G',5:'5G',6:'na',7:'na'}[data & 0x07]
-        averate  = str(s.read_reg32(self.PortAddress+4))
-        avedelay = str(s.read_reg32(self.PortAddress+0xc))
-        dropped  = str(s.read_reg32(self.PortAddress+8))
+        averate  = "%d" % int(s.read_reg32(self.PortAddress+4),16)
+        avedelay = "%d" % (int(s.read_reg32(self.PortAddress+0xc),16)*2)
+        dropped  = "%d" % int(s.read_reg32(self.PortAddress+8),16)
        
         status = {self.port: {'active': active,'lock': lock, 'sfp': sfp,'rate':rate,'averate':averate,'avedelay':avedelay,'dropped':dropped}}
         return status

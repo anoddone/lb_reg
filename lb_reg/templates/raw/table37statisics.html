@@ -1,0 +1,564 @@
+               
+<div class="tablenoborder"><table class="table ID-00001793" frame="border" id="bhc1410931503259__ID-328-00001882" rules="all" summary="" cellspacing="0" cellpadding="4" border="1"><caption xmlns="http://www.w3.org/1999/xhtml"><span class="tablecap"><span class="tablecap"><span class="enumeration table-enumeration">Table 37.  </span>Statistics Counters</span></span></caption>
+					          
+					          
+					          
+					          
+					          <thead class="thead ID-00000013" align="left">
+						            <tr class="row ID-00000013">
+							              <th class="entry ID-00000013" id="d43084e73" width="11.538461538461538%" valign="top">Dword <p class="p ID-0000021a">Offset </p>
+
+							              </th>
+
+							              <th class="entry ID-00000013" id="d43084e79" width="19.23076923076923%" valign="top">Name </th>
+
+							              <th class="entry ID-00000013" id="d43084e82" width="11.538461538461538%" valign="top">R/W </th>
+
+							              <th class="entry ID-00000013" id="d43084e85" width="57.692307692307686%" valign="top">Description </th>
+
+						            </tr>
+
+					          </thead>
+
+					          <tbody class="tbody ID-00000013">
+						            <tr class="row ID-00000013">
+							              <td class="entry ID-00000013" headers="d43084e73 " width="11.538461538461538%" valign="top">0x18 – 0x19 </td>
+
+							              <td class="entry ID-00000013" headers="d43084e79 " width="19.23076923076923%" valign="top">
+                        <samp class="ph codeph ID-000007b6">aMacID</samp>
+							              </td>
+
+							              <td class="entry ID-00000013" headers="d43084e82 " width="11.538461538461538%" valign="top">RO </td>
+
+							              <td class="entry ID-00000013" headers="d43084e85 " width="57.692307692307686%" valign="top">The MAC address. This register
+								is wired to the primary MAC address in the <samp class="ph codeph ID-000007b6">mac_0</samp> and <samp class="ph codeph ID-000007b6">mac_1</samp>
+								registers.</td>
+
+						            </tr>
+
+						            <tr class="row ID-00000013">
+							              <td class="entry ID-00000013" headers="d43084e73 " width="11.538461538461538%" valign="top">0x1A </td>
+
+							              <td class="entry ID-00000013" headers="d43084e79 " width="19.23076923076923%" valign="top">
+                        <samp class="ph codeph ID-000007b6">aFramesTransmittedOK</samp>
+							              </td>
+
+							              <td class="entry ID-00000013" headers="d43084e82 " width="11.538461538461538%" valign="top">RO </td>
+
+							              <td class="entry ID-00000013" headers="d43084e85 " width="57.692307692307686%" valign="top">The number of frames that are
+								successfully transmitted including the pause frames.</td>
+
+						            </tr>
+
+						            <tr class="row ID-00000013">
+							              <td class="entry ID-00000013" headers="d43084e73 " width="11.538461538461538%" valign="top">0x1B </td>
+
+							              <td class="entry ID-00000013" headers="d43084e79 " width="19.23076923076923%" valign="top">
+                        <samp class="ph codeph ID-000007b6">aFramesReceivedOK</samp>
+							              </td>
+
+							              <td class="entry ID-00000013" headers="d43084e82 " width="11.538461538461538%" valign="top">RO </td>
+
+							              <td class="entry ID-00000013" headers="d43084e85 " width="57.692307692307686%" valign="top">The number of frames that are
+								successfully received including the pause frames.</td>
+
+						            </tr>
+
+						            <tr class="row ID-00000013">
+							              <td class="entry ID-00000013" headers="d43084e73 " width="11.538461538461538%" valign="top">0x1C </td>
+
+							              <td class="entry ID-00000013" headers="d43084e79 " width="19.23076923076923%" valign="top">
+                        <samp class="ph codeph ID-000007b6">aFrameCheckSequenceErrors</samp>
+							              </td>
+
+							              <td class="entry ID-00000013" headers="d43084e82 " width="11.538461538461538%" valign="top">RO </td>
+
+							              <td class="entry ID-00000013" headers="d43084e85 " width="57.692307692307686%" valign="top">The number of receive frames
+								with CRC error.</td>
+
+						            </tr>
+
+						            <tr class="row ID-00000013">
+							              <td class="entry ID-00000013" headers="d43084e73 " width="11.538461538461538%" valign="top">0x1D </td>
+
+							              <td class="entry ID-00000013" headers="d43084e79 " width="19.23076923076923%" valign="top">
+                        <samp class="ph codeph ID-000007b6">aAlignmentErrors</samp>
+							              </td>
+
+							              <td class="entry ID-00000013" headers="d43084e82 " width="11.538461538461538%" valign="top">RO </td>
+
+							              <td class="entry ID-00000013" headers="d43084e85 " width="57.692307692307686%" valign="top">The number of receive frames
+								with alignment error.</td>
+
+						            </tr>
+
+						            <tr class="row ID-00000013">
+							              <td class="entry ID-00000013" headers="d43084e73 " width="11.538461538461538%" valign="top">0x1E </td>
+
+							              <td class="entry ID-00000013" headers="d43084e79 " width="19.23076923076923%" valign="top">
+                        <samp class="ph codeph ID-000007b6">aOctetsTransmittedOK</samp>
+							              </td>
+
+							              <td class="entry ID-00000013" headers="d43084e82 " width="11.538461538461538%" valign="top">RO </td>
+
+							              <td class="entry ID-00000013" headers="d43084e85 " width="57.692307692307686%" valign="top">The number of data and padding
+								octets that are successfully transmitted.<p class="p ID-00000154">This register contains the lower 32
+									bits of the <samp class="ph codeph ID-000007b6">aOctetsTransmittedOK</samp> counter. The upper 32 bits of
+									this statistics counter reside at the dword offset 0x0F.</p>
+
+							              </td>
+
+						            </tr>
+
+						            <tr class="row ID-00000013">
+							              <td class="entry ID-00000013" headers="d43084e73 " width="11.538461538461538%" valign="top">0x1F </td>
+
+							              <td class="entry ID-00000013" headers="d43084e79 " width="19.23076923076923%" valign="top">
+                        <samp class="ph codeph ID-000007b6">aOctetsReceivedOK</samp>
+							              </td>
+
+							              <td class="entry ID-00000013" headers="d43084e82 " width="11.538461538461538%" valign="top">RO </td>
+
+							              <td class="entry ID-00000013" headers="d43084e85 " width="57.692307692307686%" valign="top">The number of data and padding
+								octets that are successfully
+								received,
+								including pause frames. <p class="p ID-00000154">The lower 32 bits of the <samp class="ph codeph ID-000007b6">aOctetsReceivedOK</samp> counter. The upper 32 bits of
+									this statistics counter reside at the dword offset 0x3D.</p>
+
+							              </td>
+
+						            </tr>
+
+						            <tr class="row ID-00000013">
+							              <td class="entry ID-00000013" headers="d43084e73 " width="11.538461538461538%" valign="top">0x20 </td>
+
+							              <td class="entry ID-00000013" headers="d43084e79 " width="19.23076923076923%" valign="top">
+                        <samp class="ph codeph ID-000007b6">aTxPAUSEMACCtrlFrames</samp>
+							              </td>
+
+							              <td class="entry ID-00000013" headers="d43084e82 " width="11.538461538461538%" valign="top">RO </td>
+
+							              <td class="entry ID-00000013" headers="d43084e85 " width="57.692307692307686%" valign="top">The number of pause frames
+								transmitted.</td>
+
+						            </tr>
+
+						            <tr class="row ID-00000013">
+							              <td class="entry ID-00000013" headers="d43084e73 " width="11.538461538461538%" valign="top">0x21 </td>
+
+							              <td class="entry ID-00000013" headers="d43084e79 " width="19.23076923076923%" valign="top">
+                        <samp class="ph codeph ID-000007b6">aRxPAUSEMACCtrlFrames</samp>
+							              </td>
+
+							              <td class="entry ID-00000013" headers="d43084e82 " width="11.538461538461538%" valign="top">RO </td>
+
+							              <td class="entry ID-00000013" headers="d43084e85 " width="57.692307692307686%" valign="top">The number received pause
+								frames received.</td>
+
+						            </tr>
+
+						            <tr class="row ID-00000013">
+							              <td class="entry ID-00000013" headers="d43084e73 " width="11.538461538461538%" valign="top">0x22 </td>
+
+							              <td class="entry ID-00000013" headers="d43084e79 " width="19.23076923076923%" valign="top">
+                        <samp class="ph codeph ID-000007b6">ifInErrors</samp>
+							              </td>
+
+							              <td class="entry ID-00000013" headers="d43084e82 " width="11.538461538461538%" valign="top">RO </td>
+
+							              <td class="entry ID-00000013" headers="d43084e85 " width="57.692307692307686%" valign="top">The number of errored frames
+								received.</td>
+
+						            </tr>
+
+						            <tr class="row ID-00000013">
+							              <td class="entry ID-00000013" headers="d43084e73 " width="11.538461538461538%" valign="top">0x23 </td>
+
+							              <td class="entry ID-00000013" headers="d43084e79 " width="19.23076923076923%" valign="top">
+                        <samp class="ph codeph ID-000007b6">ifOutErrors</samp>
+							              </td>
+
+							              <td class="entry ID-00000013" headers="d43084e82 " width="11.538461538461538%" valign="top">RO </td>
+
+							              <td class="entry ID-00000013" headers="d43084e85 " width="57.692307692307686%" valign="top">The number of transmit frames
+								with one the following errors: <ul class="ul" id="bhc1410931503259__ul_E61687271FE1497F90E06BD3D5548747">
+									                  <li class="li" id="bhc1410931503259__li_60DC0C927FCE4A3488CDE532465B3A0D">FIFO overflow error</li>
+
+									                  <li class="li" id="bhc1410931503259__li_7BB42D2578784ECE99CE536AAB8709B8">FIFO underflow error</li>
+
+									
+									                  <li class="li">Frames that encounter late or excessive collision
+										occasions</li>
+
+									
+									                  <li class="li" id="bhc1410931503259__li_2AEF0B7A3C7B452DBF59538B0ECDCE23">Errors defined by the user application</li>
+
+								                </ul>
+
+							              </td>
+
+						            </tr>
+
+						            <tr class="row ID-00000013">
+							              <td class="entry ID-00000013" headers="d43084e73 " width="11.538461538461538%" valign="top">0x24 </td>
+
+							              <td class="entry ID-00000013" headers="d43084e79 " width="19.23076923076923%" valign="top">
+                        <samp class="ph codeph ID-000007b6">ifInUcastPkts</samp>
+							              </td>
+
+							              <td class="entry ID-00000013" headers="d43084e82 " width="11.538461538461538%" valign="top">RO </td>
+
+							              <td class="entry ID-00000013" headers="d43084e85 " width="57.692307692307686%" valign="top">The number of valid unicast frames received.</td>
+
+						            </tr>
+
+						            <tr class="row ID-00000013">
+							              <td class="entry ID-00000013" headers="d43084e73 " width="11.538461538461538%" valign="top">0x25 </td>
+
+							              <td class="entry ID-00000013" headers="d43084e79 " width="19.23076923076923%" valign="top">
+                        <samp class="ph codeph ID-000007b6">ifInMulticastPkts</samp>
+							              </td>
+
+							              <td class="entry ID-00000013" headers="d43084e82 " width="11.538461538461538%" valign="top">RO </td>
+
+							              <td class="entry ID-00000013" headers="d43084e85 " width="57.692307692307686%" valign="top">The number of valid multicast frames received. The count does not include pause frames.</td>
+
+						            </tr>
+
+						            <tr class="row ID-00000013">
+							              <td class="entry ID-00000013" headers="d43084e73 " width="11.538461538461538%" valign="top">0x26 </td>
+
+							              <td class="entry ID-00000013" headers="d43084e79 " width="19.23076923076923%" valign="top">
+                        <samp class="ph codeph ID-000007b6">ifInBroadcastPkts</samp>
+							              </td>
+
+							              <td class="entry ID-00000013" headers="d43084e82 " width="11.538461538461538%" valign="top">RO </td>
+
+							              <td class="entry ID-00000013" headers="d43084e85 " width="57.692307692307686%" valign="top">The number of valid broadcast frames received.</td>
+
+						            </tr>
+
+						            <tr class="row ID-00000013">
+							              <td class="entry ID-00000013" headers="d43084e73 " width="11.538461538461538%" valign="top">0x27 </td>
+
+							              <td class="entry ID-00000013" headers="d43084e79 " width="19.23076923076923%" valign="top">
+                        <samp class="ph codeph ID-000007b6">ifOutDiscards</samp>
+							              </td>
+
+							              <td class="entry ID-00000013" headers="d43084e82 " width="11.538461538461538%" valign="top">— </td>
+
+							              <td class="entry ID-00000013" headers="d43084e85 " width="57.692307692307686%" valign="top">This statistics counter is not
+								in use.<p class="p ID-00000154">The MAC
+									function does not discard frames that are written to the FIFO
+									buffer by the user application.</p>
+
+							              </td>
+
+						            </tr>
+
+						            <tr class="row ID-00000013">
+							              <td class="entry ID-00000013" headers="d43084e73 " width="11.538461538461538%" valign="top">0x28 </td>
+
+							              <td class="entry ID-00000013" headers="d43084e79 " width="19.23076923076923%" valign="top">
+                        <samp class="ph codeph ID-000007b6">ifOutUcastPkts</samp>
+							              </td>
+
+							              <td class="entry ID-00000013" headers="d43084e82 " width="11.538461538461538%" valign="top">RO </td>
+
+							              <td class="entry ID-00000013" headers="d43084e85 " width="57.692307692307686%" valign="top">The number of valid unicast and erroneous frames transmitted, as well as unicast frames transmitted during late and excessive collision occasions.</td>
+
+						            </tr>
+
+						            <tr class="row ID-00000013">
+							              <td class="entry ID-00000013" headers="d43084e73 " width="11.538461538461538%" valign="top">0x29 </td>
+
+							              <td class="entry ID-00000013" headers="d43084e79 " width="19.23076923076923%" valign="top">
+                        <samp class="ph codeph ID-000007b6">ifOutMulticastPkts</samp>
+							              </td>
+
+							              <td class="entry ID-00000013" headers="d43084e82 " width="11.538461538461538%" valign="top">RO </td>
+
+							              <td class="entry ID-00000013" headers="d43084e85 " width="57.692307692307686%" valign="top">The number of valid multicast frames transmitted, as well as multicast frames transmitted during late and excessive collision occasions, excluding pause frames.</td>
+
+						            </tr>
+
+						            <tr class="row ID-00000013">
+							              <td class="entry ID-00000013" headers="d43084e73 " width="11.538461538461538%" valign="top">0x2A </td>
+
+							              <td class="entry ID-00000013" headers="d43084e79 " width="19.23076923076923%" valign="top">
+                        <samp class="ph codeph ID-000007b6">ifOutBroadcastPkts</samp>
+							              </td>
+
+							              <td class="entry ID-00000013" headers="d43084e82 " width="11.538461538461538%" valign="top">RO </td>
+
+							              <td class="entry ID-00000013" headers="d43084e85 " width="57.692307692307686%" valign="top">The number of valid and erroneous broadcast frames transmitted, as well as broadcast frames transmitted during late and excessive collision occasions.</td>
+
+						            </tr>
+
+						            <tr class="row ID-00000013">
+							              <td class="entry ID-00000013" headers="d43084e73 " width="11.538461538461538%" valign="top">0x2B </td>
+
+							              <td class="entry ID-00000013" headers="d43084e79 " width="19.23076923076923%" valign="top">
+                        <samp class="ph codeph ID-000007b6">etherStatsDropEvents</samp>
+							              </td>
+
+							              <td class="entry ID-00000013" headers="d43084e82 " width="11.538461538461538%" valign="top">RO </td>
+
+							              <td class="entry ID-00000013" headers="d43084e85 " width="57.692307692307686%" valign="top">The number of frames that are
+								dropped due to MAC internal errors when FIFO buffer overflow
+								persists.</td>
+
+						            </tr>
+
+						            <tr class="row ID-00000013">
+							              <td class="entry ID-00000013" headers="d43084e73 " width="11.538461538461538%" valign="top">0x2C </td>
+
+							              <td class="entry ID-00000013" headers="d43084e79 " width="19.23076923076923%" valign="top">
+                        <samp class="ph codeph ID-000007b6">etherStatsOctets</samp>
+							              </td>
+
+							              <td class="entry ID-00000013" headers="d43084e82 " width="11.538461538461538%" valign="top">RO </td>
+
+							              <td class="entry ID-00000013" headers="d43084e85 " width="57.692307692307686%" valign="top">The total number of octets
+								received. This count includes both good and errored frames.<p class="p ID-00000154">This register is the
+									lower 32 bits of <samp class="ph codeph ID-000007b6">etherStatsOctets</samp>. The
+									upper 32 bits of this statistics counter reside at the dword
+									offset 0x3E.</p>
+
+							              </td>
+
+						            </tr>
+
+						            <tr class="row ID-00000013">
+							              <td class="entry ID-00000013" headers="d43084e73 " width="11.538461538461538%" valign="top">0x2D </td>
+
+							              <td class="entry ID-00000013" headers="d43084e79 " width="19.23076923076923%" valign="top">
+                        <samp class="ph codeph ID-000007b6">etherStatsPkts</samp>
+							              </td>
+
+							              <td class="entry ID-00000013" headers="d43084e82 " width="11.538461538461538%" valign="top">RO </td>
+
+							              <td class="entry ID-00000013" headers="d43084e85 " width="57.692307692307686%" valign="top">The total number of good
+								and errored frames received. </td>
+
+						            </tr>
+
+						            <tr class="row ID-00000013">
+							              <td class="entry ID-00000013" headers="d43084e73 " width="11.538461538461538%" valign="top">0x2E </td>
+
+							              <td class="entry ID-00000013" headers="d43084e79 " width="19.23076923076923%" valign="top">
+                        <samp class="ph codeph ID-000007b6">etherStatsUndersizePkts</samp>
+							              </td>
+
+							              <td class="entry ID-00000013" headers="d43084e82 " width="11.538461538461538%" valign="top">RO </td>
+
+							              <td class="entry ID-00000013" headers="d43084e85 " width="57.692307692307686%" valign="top">The number of frames received
+								with length less than 64
+								bytes,
+								including pause frames. This count does not
+								include errored frames.</td>
+
+						            </tr>
+
+						            <tr class="row ID-00000013">
+							              <td class="entry ID-00000013" headers="d43084e73 " width="11.538461538461538%" valign="top">0x2F </td>
+
+							              <td class="entry ID-00000013" headers="d43084e79 " width="19.23076923076923%" valign="top">
+                        <samp class="ph codeph ID-000007b6">etherStatsOversizePkts</samp>
+							              </td>
+
+							              <td class="entry ID-00000013" headers="d43084e82 " width="11.538461538461538%" valign="top">RO </td>
+
+							              <td class="entry ID-00000013" headers="d43084e85 " width="57.692307692307686%" valign="top">The number of frames received
+								that are longer than the value configured in the <samp class="ph codeph ID-000007b6">frm_length</samp>
+								register. This count does not include errored frames.</td>
+
+						            </tr>
+
+						            <tr class="row ID-00000013">
+							              <td class="entry ID-00000013" headers="d43084e73 " width="11.538461538461538%" valign="top">0x30 </td>
+
+							              <td class="entry ID-00000013" headers="d43084e79 " width="19.23076923076923%" valign="top">
+                        <samp class="ph codeph ID-000007b6">etherStatsPkts64Octets</samp>
+							              </td>
+
+							              <td class="entry ID-00000013" headers="d43084e82 " width="11.538461538461538%" valign="top">RO </td>
+
+							              <td class="entry ID-00000013" headers="d43084e85 " width="57.692307692307686%" valign="top">The number of 64-byte frames
+								received. This count includes good and errored frames.</td>
+
+						            </tr>
+
+						            <tr class="row ID-00000013">
+							              <td class="entry ID-00000013" headers="d43084e73 " width="11.538461538461538%" valign="top">0x31 </td>
+
+							              <td class="entry ID-00000013" headers="d43084e79 " width="19.23076923076923%" valign="top">
+                        <samp class="ph codeph ID-000007b6">etherStatsPkts65to127Octets</samp>
+							              </td>
+
+							              <td class="entry ID-00000013" headers="d43084e82 " width="11.538461538461538%" valign="top">RO </td>
+
+							              <td class="entry ID-00000013" headers="d43084e85 " width="57.692307692307686%" valign="top">The number of received good
+								and errored frames between the length of 65 and 127 bytes.</td>
+
+						            </tr>
+
+						            <tr class="row ID-00000013">
+							              <td class="entry ID-00000013" headers="d43084e73 " width="11.538461538461538%" valign="top">0x32 </td>
+
+							              <td class="entry ID-00000013" headers="d43084e79 " width="19.23076923076923%" valign="top">
+                        <samp class="ph codeph ID-000007b6">etherStatsPkts128to255Octets</samp>
+							              </td>
+
+							              <td class="entry ID-00000013" headers="d43084e82 " width="11.538461538461538%" valign="top">RO </td>
+
+							              <td class="entry ID-00000013" headers="d43084e85 " width="57.692307692307686%" valign="top">The number of received good
+								and errored frames between the length of 128 and 255 bytes.</td>
+
+						            </tr>
+
+						            <tr class="row ID-00000013">
+							              <td class="entry ID-00000013" headers="d43084e73 " width="11.538461538461538%" valign="top">0x33 </td>
+
+							              <td class="entry ID-00000013" headers="d43084e79 " width="19.23076923076923%" valign="top">
+                        <samp class="ph codeph ID-000007b6">etherStatsPkts256to511Octets</samp>
+							              </td>
+
+							              <td class="entry ID-00000013" headers="d43084e82 " width="11.538461538461538%" valign="top">RO </td>
+
+							              <td class="entry ID-00000013" headers="d43084e85 " width="57.692307692307686%" valign="top">The number of received good
+								and errored frames between the length of 256 and 511 bytes.</td>
+
+						            </tr>
+
+						            <tr class="row ID-00000013">
+							              <td class="entry ID-00000013" headers="d43084e73 " width="11.538461538461538%" valign="top">0x34 </td>
+
+							              <td class="entry ID-00000013" headers="d43084e79 " width="19.23076923076923%" valign="top">
+                        <samp class="ph codeph ID-000007b6">etherStatsPkts512to1023Octets</samp>
+							              </td>
+
+							              <td class="entry ID-00000013" headers="d43084e82 " width="11.538461538461538%" valign="top">RO </td>
+
+							              <td class="entry ID-00000013" headers="d43084e85 " width="57.692307692307686%" valign="top">The number of received good
+								and errored frames between the length of 512 and 1023 bytes.</td>
+
+						            </tr>
+
+						            <tr class="row ID-00000013">
+							              <td class="entry ID-00000013" headers="d43084e73 " width="11.538461538461538%" valign="top">0x35 </td>
+
+							              <td class="entry ID-00000013" headers="d43084e79 " width="19.23076923076923%" valign="top">
+                        <samp class="ph codeph ID-000007b6">etherStatsPkts1024to1518Octets</samp>
+							              </td>
+
+							              <td class="entry ID-00000013" headers="d43084e82 " width="11.538461538461538%" valign="top">RO </td>
+
+							              <td class="entry ID-00000013" headers="d43084e85 " width="57.692307692307686%" valign="top">The number of received good
+								and errored frames between the length of 1024 and 1518
+								bytes.</td>
+
+						            </tr>
+
+						            <tr class="row ID-00000013">
+							              <td class="entry ID-00000013" headers="d43084e73 " width="11.538461538461538%" valign="top">0x36 </td>
+
+							              <td class="entry ID-00000013" headers="d43084e79 " width="19.23076923076923%" valign="top">
+                        <samp class="ph codeph ID-000007b6">etherStatsPkts1519toXOctets</samp>
+							              </td>
+
+							              <td class="entry ID-00000013" headers="d43084e82 " width="11.538461538461538%" valign="top">RO </td>
+
+							              <td class="entry ID-00000013" headers="d43084e85 " width="57.692307692307686%" valign="top">The number of received
+								good and errored frames between the length of 1519 and the maximum
+								frame length configured in the <samp class="ph codeph ID-000007b6">frm_length</samp> register. </td>
+
+						            </tr>
+
+						            <tr class="row ID-00000013">
+							              <td class="entry ID-00000013" headers="d43084e73 " width="11.538461538461538%" valign="top">0x37 </td>
+
+							              <td class="entry ID-00000013" headers="d43084e79 " width="19.23076923076923%" valign="top">
+                        <samp class="ph codeph ID-000007b6">etherStatsJabbers</samp>
+							              </td>
+
+							              <td class="entry ID-00000013" headers="d43084e82 " width="11.538461538461538%" valign="top">RO </td>
+
+							              <td class="entry ID-00000013" headers="d43084e85 " width="57.692307692307686%" valign="top">Too long frames with CRC
+								error.</td>
+
+						            </tr>
+
+						            <tr class="row ID-00000013">
+							              <td class="entry ID-00000013" headers="d43084e73 " width="11.538461538461538%" valign="top">0x38 </td>
+
+							              <td class="entry ID-00000013" headers="d43084e79 " width="19.23076923076923%" valign="top">
+                        <samp class="ph codeph ID-000007b6">etherStatsFragments</samp>
+							              </td>
+
+							              <td class="entry ID-00000013" headers="d43084e82 " width="11.538461538461538%" valign="top">RO </td>
+
+							              <td class="entry ID-00000013" headers="d43084e85 " width="57.692307692307686%" valign="top">Too short frames with CRC
+								error.</td>
+
+						            </tr>
+
+						            <tr class="row ID-00000013">
+							              <td class="entry ID-00000013" headers="d43084e73 " width="11.538461538461538%" valign="top">0x39 </td>
+
+							              <td class="entry ID-00000013" headers="d43084e79 " width="19.23076923076923%" valign="top">Reserved </td>
+
+							              <td class="entry ID-00000013" headers="d43084e82 " width="11.538461538461538%" valign="top">— </td>
+
+							              <td class="entry ID-00000013" headers="d43084e85 " width="57.692307692307686%" valign="top">Unused.</td>
+
+						            </tr>
+
+
+						            <tr class="row ID-00000013">
+							              <td class="entry ID-00000013" headers="d43084e73 " width="11.538461538461538%" valign="top">0x3C </td>
+
+							              <td class="entry ID-00000013" headers="d43084e79 " width="19.23076923076923%" valign="top">
+                        <samp class="ph codeph ID-000007b6">msb_aOctetsTransmittedOK</samp>
+							              </td>
+
+							              <td class="entry ID-00000013" headers="d43084e82 " width="11.538461538461538%" valign="top">RO </td>
+
+							              <td class="entry ID-00000013" headers="d43084e85 " rowspan="3" width="57.692307692307686%" valign="top">Upper 32 bits of
+								the respective statistics counters. By default all statistics
+								counters are 32 bits wide. These statistics counters can be extended
+								to 64 bits by turning on the <span class="ph uicontrol ID-000000ae">Enable 64-bit byte
+									counters</span> parameter.<p class="p">To read the
+									counter, read the lower 32 bits first, then followed by the
+									extended statistic counter bits.</p>
+
+                     </td>
+
+						            </tr>
+
+						            <tr class="row ID-00000013">
+							              <td class="entry ID-00000013" headers="d43084e73 " width="11.538461538461538%" valign="top">0x3D </td>
+
+							              <td class="entry ID-00000013" headers="d43084e79 " width="19.23076923076923%" valign="top">
+                        <samp class="ph codeph ID-000007b6">msb_aOctetsReceivedOK</samp>
+							              </td>
+
+							              <td class="entry ID-00000013" headers="d43084e82 " width="11.538461538461538%" valign="top">RO </td>
+
+						            </tr>
+
+						            <tr class="row ID-00000013">
+							              <td class="entry ID-00000013" headers="d43084e73 " width="11.538461538461538%" valign="top">0x3E </td>
+
+							              <td class="entry ID-00000013" headers="d43084e79 " width="19.23076923076923%" valign="top">
+                        <samp class="ph codeph ID-000007b6">msb_etherStatsOctets</samp>
+							              </td>
+
+							              <td class="entry ID-00000013" headers="d43084e82 " width="11.538461538461538%" valign="top">RO </td>
+
+						            </tr>
+
+					          </tbody>
+
+				        </table>
+</div>

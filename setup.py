@@ -1,0 +1,37 @@
+from setuptools import setup
+
+setup(name='lb_reg',
+      version='0.1',
+      description='Load Balancer register tool',
+      url='http://github.com/storborg/funniest',
+      author='Marty Broeske',
+      author_email='martybroeske@ubnt.com',
+      license='MIT',
+      packages=['lb_reg'],
+      install_requires=[
+        'beautifulsoup4==4.6.3',
+        'cffi==1.11.5',
+        'Click==7.0',
+        'dominate==2.3.5',
+        'Flask==1.0.2',
+        'Flask-Bootstrap==3.3.7.1',
+        'Flask-SocketIO==3.1.0',
+        'gevent==1.3.7',
+        'greenlet==0.4.15',
+        'itsdangerous==1.1.0',
+        'Jinja2==2.10',
+        'lxml==4.2.5',
+        'MarkupSafe==1.1.0',
+        'pycparser==2.19',
+        'pyserial==3.4',
+        'python-engineio==3.0.0',
+        'python-socketio==2.1.1',
+        'six==1.11.0',
+        'visitor==0.1.3',
+        'Werkzeug==0.14.1'],
+      entry_points = {
+        'console_scripts': ['lb_reg=lb_reg.command_line:main'],
+    },
+      include_package_data=True,
+      zip_safe=False)
+      

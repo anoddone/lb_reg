@@ -1,0 +1,78 @@
+{
+    "mdio_addr0": [
+        "0x0F", 
+        32
+    ], 
+    "rx_section_empty": [
+        "0x07", 
+        32
+    ], 
+    "rx_section_full": [
+        "0x08", 
+        32
+    ], 
+    "scratch": [
+        "0x01", 
+        32
+    ], 
+    "tx_section_empty": [
+        "0x09", 
+        32
+    ], 
+    "rev": [
+        "0x00", 
+        32
+    ], 
+    "mdio_addr1": [
+        "0x10", 
+        32
+    ], 
+    "rx_almost_full": [
+        "0x0C", 
+        32
+    ], 
+    "mac_1": [
+        "0x04", 
+        32
+    ], 
+    "mac_0": [
+        "0x03", 
+        32
+    ], 
+    "holdoff_quant": [
+        "0x11", 
+        32
+    ], 
+    "tx_ipg_length": [
+        "0x17", 
+        32
+    ], 
+    "frm_length": [
+        "0x05", 
+        32
+    ], 
+    "tx_almost_full": [
+        "0x0E", 
+        32
+    ], 
+    "tx_almost_empty": [
+        "0x0D", 
+        32
+    ], 
+    "pause_quant": [
+        "0x06", 
+        32
+    ], 
+    "command_config": [
+        "0x02", 
+        32
+    ], 
+    "tx_section_full": [
+        "0x0A", 
+        32
+    ], 
+    "rx_almost_empty": [
+        "0x0B", 
+        32
+    ]
+}

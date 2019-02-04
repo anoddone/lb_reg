@@ -1,42 +1,100 @@
 {% extends 'bootstrap/base.html' %}
 
+{% block styles %}
+{{super()}}
+<link rel="stylesheet"  href="{{url_for('.static', filename='stylsheet.css')}}">
+{% endblock %}
+
 {% block title %}
     {% if title %}{{ title }}{% else %}Welcome to Microblog{% endif %}
 {% endblock %}
-{% block navbar %}
-    <nav class="navbar navbar-default" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="mac_config">MAC Config</a>
-            </div>
-            <div class="navbar-header">
-                <a class="navbar-brand" href="phy_config">PHY Config</a>
-            </div>
-            <div class="navbar-header">
-                <a class="navbar-brand" href="mac_statistics">MAC Statistics</a>
-            </div>
-        </div>
 
-        <div class="container">
-          <form id="myForm">
-            <label class="radio-inline">
-              <input type="radio" name="optradio" value="portA" checked>portA
-            </label>
-            <label class="radio-inline">
-              <input type="radio" name="optradio" value="portB" >portB
-            </label>
-            <label class="radio-inline">
-              <input type="radio" name="optradio" value="portC" >portC
-            </label>
-            <label class="radio-inline">
-              <input type="radio" name="optradio" value="portD" >portD
-            </label>
-            <label class="radio-inline">
-              <input type="radio" name="optradio" value="portE" >portE
-            </label>
-          </form>
+
+
+{% block navbar %}
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header ">
+      <a class="navbar-brand" href="#">Load Balancer</a>
+    </div>
+
+    <ul class="nav navbar-nav">
+      <li><a href="mac_config">MAC Config</a></li>
+      <li><a href="ethernet_mac_config">ethernet MAC Config</a></li>
+      <li><a href="phy_config">PHY Config</a></li>
+      <li><a href="mac_statistics">SFP MAC Statistics</a></li>
+      <li><a href="ethernet_mac_statistics">ethernet MAC Statistics</a></li>
+      <li><a href="status">Port Status</a></li>
+    </ul>
+  </div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-4">
+      <form id="myForm" class="port_selection">
+        <label class="radio-inline">
+          <input id="radio_button_A" type="radio" name="optradio" value="portA" checked>portA
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="optradio" value="portB" >portB
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="optradio" value="portC" >portC
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="optradio" value="portD" >portD
+        </label>
+        <label class="radio-inline">
+          <input type="radio" name="optradio" value="portE" >portE
+        </label>
+      </form>
+    </div>
+ 
+    <div class="col-sm-4"  >
+      <form class="form-inline" >
+        <div class="form-group">
+        <div class="btn-group btm-group-sm" >
+              <button type="button" class="btn btn-default btn-sm" id="record-btn" >REC Start</button>
+              <button type="button" class="btn btn-default btn-sm" id="clear-btn" >Clear</button>
+         </div
+        <div class="form-group">
+          <select class="form-control input-sm class="macro-grp" id="macrofile">
+            <option>Select</option>
+          </select>
+            <div class="btn-group btm-group-sm">
+
+            <input type="file" id="browse" name="browse" style="display: none">
+
+            <button type="button" for="browse" class="btn btn-default btn-sm " id="play-btn" > Play</button>
+              <button type="button" class="btn btn-default btn-sm " id="save-btn" > Save</button>
+            </div>
+
         </div>
-    </nav>
+     
+      </form>        
+    </div>
+    <div class="col-sm-4"">
+        <table>
+        <tbody>
+            <tr>
+            <td>Date Code:&nbsp;</td>
+            <td  id="date_code">&nbsp;</td>
+            </tr>
+            <tr>
+            <td>Temperature:&nbsp;</td>
+            <td id="temperature">&nbsp;</td>
+            </tr>
+        </tbody>
+        </table> 
+    </div>
+    
+    
+    
+  </div>
+</div>
+</nav>
+
+<div class="container" style="margin-top:100px"></div>    
 {% endblock %}
 <!-- Content Block -->
 {% block page_title %} {% endblock %}

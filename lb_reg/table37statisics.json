@@ -1,0 +1,142 @@
+{
+    "etherStatsFragments": [
+        "0x38", 
+        64
+    ], 
+    "aFrameCheckSequenceErrors": [
+        "0x1C", 
+        64
+    ], 
+    "etherStatsPkts64Octets": [
+        "0x30", 
+        64
+    ], 
+    "ifOutBroadcastPkts": [
+        "0x2A", 
+        64
+    ], 
+    "etherStatsPkts1024to1518Octets": [
+        "0x35", 
+        64
+    ], 
+    "etherStatsOctets": [
+        "0x2C", 
+        64
+    ], 
+    "etherStatsUndersizePkts": [
+        "0x2E", 
+        64
+    ], 
+    "ifInUcastPkts": [
+        "0x24", 
+        64
+    ], 
+    "aOctetsTransmittedOK": [
+        "0x1E", 
+        64
+    ], 
+    "aMacID": [
+        "0x18", 
+        64
+    ], 
+    "msb_etherStatsOctets": [
+        "0x3E", 
+        64
+    ], 
+    "aOctetsReceivedOK": [
+        "0x1F", 
+        64
+    ], 
+    "ifOutErrors": [
+        "0x23", 
+        64
+    ], 
+    "aAlignmentErrors": [
+        "0x1D", 
+        64
+    ], 
+    "ifOutUcastPkts": [
+        "0x28", 
+        64
+    ], 
+    "etherStatsPkts128to255Octets": [
+        "0x32", 
+        64
+    ], 
+    "msb_aOctetsReceivedOK": [
+        "0x3D", 
+        64
+    ], 
+    "aFramesReceivedOK": [
+        "0x1B", 
+        64
+    ], 
+    "etherStatsOversizePkts": [
+        "0x2F", 
+        64
+    ], 
+    "etherStatsPkts": [
+        "0x2D", 
+        64
+    ], 
+    "aFramesTransmittedOK": [
+        "0x1A", 
+        64
+    ], 
+    "ifInErrors": [
+        "0x22", 
+        64
+    ], 
+    "ifInMulticastPkts": [
+        "0x25", 
+        64
+    ], 
+    "aTxPAUSEMACCtrlFrames": [
+        "0x20", 
+        64
+    ], 
+    "etherStatsPkts512to1023Octets": [
+        "0x34", 
+        64
+    ], 
+    "aRxPAUSEMACCtrlFrames": [
+        "0x21", 
+        64
+    ], 
+    "ifOutDiscards": [
+        "0x27", 
+        64
+    ], 
+    "etherStatsPkts256to511Octets": [
+        "0x33", 
+        64
+    ], 
+    "ifOutMulticastPkts": [
+        "0x29", 
+        64
+    ], 
+    "etherStatsPkts65to127Octets": [
+        "0x31", 
+        64
+    ], 
+    "etherStatsDropEvents": [
+        "0x2B", 
+        64
+    ], 
+    "ifInBroadcastPkts": [
+        "0x26", 
+        64
+    ], 
+    "etherStatsJabbers": [
+        "0x37", 
+        64
+    ], 
+    "msb_aOctetsTransmittedOK": [
+        "0x3C", 
+        64
+    ], 
+    "etherStatsPkts1519toXOctets": [
+        "0x36", 
+        64
+    ]
+}
