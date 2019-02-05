@@ -1,0 +1,691 @@
+<div class="tablenoborder"><table class="table ID-00000213" frame="border" id="bhc1410931499854__ID-328-0000157f" rules="all" summary="" cellspacing="0" cellpadding="4" border="1"><caption xmlns="http://www.w3.org/1999/xhtml"><span class="tablecap"><span class="tablecap"><span class="enumeration table-enumeration">Table 35.  </span>Base Configuration
+		  Register Map</span></span></caption> 
+		              
+		              
+		              
+		              
+		              
+		             <thead class="thead ID-00000013" align="left"> 
+			               <tr class="row ID-00000013"> 
+				                 <th class="entry ID-00000013" id="d37173e44" width="10.714285714285715%" valign="top">Dword 
+				  <p class="p ID-0000021a">Offset 
+				  </p>
+ 
+				                 </th>
+ 
+				                 <th class="entry ID-00000013" id="d37173e50" width="17.857142857142858%" valign="top">Name 
+				</th>
+ 
+				                 <th class="entry ID-00000013" id="d37173e53" width="10.714285714285715%" valign="top">R/W 
+				</th>
+ 
+				                 <th class="entry ID-00000013" id="d37173e56" width="50%" valign="top">Description 
+				</th>
+ 
+				                 <th class="entry ID-00000013" id="d37173e59" width="10.714285714285715%" valign="top">HW Reset 
+				</th>
+ 
+			               </tr>
+ 
+		             </thead>
+ 
+		             <tbody class="tbody ID-00000013"> 
+			               <tr class="row ID-00000013"> 
+				                 <td class="entry ID-00000013" headers="d37173e44 " width="10.714285714285715%" valign="top">0x00 
+				</td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e50 " width="17.857142857142858%" valign="top">
+                        <samp class="ph codeph ID-000007b6">rev</samp> 
+				                 </td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e53 " width="10.714285714285715%" valign="top">RO 
+				</td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e56 " width="50%" valign="top"> 
+				                    <ul class="ul" id="bhc1410931499854__ul_316687FC4CC742D9A3C9B3CB5B4D9F5E"> 
+					                      <li class="li" id="bhc1410931499854__li_13381334851741D4BCB35CC277195211">Bits[15:0]—Set to the current
+										version of the
+										IP
+										core. </li>
+ 
+					                      <li class="li" id="bhc1410931499854__li_9BCDDF1AB44F4EA2ABD18C37BB76E96D">Bits[31:16]—Customer specific
+										revision, specified by the <samp class="ph codeph ID-000007b6">CUST_VERSION</samp>
+										parameter defined in the top-level file generated for the
+										instance of the
+										IP
+										core. These bits are set to 0 during the
+										configuration of the
+										IP
+										core. </li>
+ 
+				                    </ul>
+ 
+				                 </td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e59 " width="10.714285714285715%" valign="top">&lt;IP version
+				  number&gt; 
+				</td>
+ 
+			               </tr>
+ 
+			               <tr class="row ID-00000013"> 
+				                 <td class="entry ID-00000013" headers="d37173e44 " width="10.714285714285715%" valign="top">0x01 
+				</td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e50 " width="17.857142857142858%" valign="top">
+                        <samp class="ph codeph ID-000007b6">scratch</samp>
+                        <a xmlns="http://www.w3.org/1999/xhtml" class="xref ID-000001c7" href="/content/altera-www/global/en_us/index/documentation/bhc1410932355850.html#bhc1410931499854__ID-328-000016cf">(1)</a> 
+				                 </td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e53 " width="10.714285714285715%" valign="top">RW 
+				</td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e56 " width="50%" valign="top">Scratch register.
+				  Provides a memory location for you to test the device memory operation. 
+				</td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e59 " width="10.714285714285715%" valign="top">0 
+				</td>
+ 
+			               </tr>
+ 
+			               <tr class="row ID-00000013"> 
+				                 <td class="entry ID-00000013" headers="d37173e44 " width="10.714285714285715%" valign="top">0x02 
+				</td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e50 " width="17.857142857142858%" valign="top">
+                        <samp class="ph codeph ID-000007b6">command_config</samp> 
+				                 </td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e53 " width="10.714285714285715%" valign="top">RW 
+				</td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e56 " width="50%" valign="top">MAC configuration register. Use
+								this register to control and configure the MAC function. The MAC
+								function starts operation as soon as the transmit and receive enable
+								bits in this register are turned on.
+									<span class="keyword">Intel</span>,
+								therefore, recommends that you configure this register last. <p class="p ID-00000154">See <a xmlns="http://www.w3.org/1999/xhtml" class="xref ID-000001c7" href="#bhc1410931496224">Command_Config Register (Dword Offset 0x02)</a> for the bit description. </p>
+
+							              </td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e59 " width="10.714285714285715%" valign="top">0 
+				</td>
+ 
+			               </tr>
+ 
+			               <tr class="row ID-00000013"> 
+				                 <td class="entry ID-00000013" headers="d37173e44 " width="10.714285714285715%" valign="top">0x03 
+				</td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e50 " width="17.857142857142858%" valign="top">
+                        <samp class="ph codeph ID-000007b6">mac_0</samp> 
+				                 </td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e53 " width="10.714285714285715%" valign="top">RW 
+				</td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e56 " rowspan="2" width="50%" valign="top">6-byte
+				  MAC primary address. The first four most significant bytes of the MAC address
+				  occupy 
+				  <samp class="ph codeph ID-000007b6">mac_0</samp> in reverse
+				  order. The last two bytes of the MAC address occupy the two least significant
+				  bytes of 
+				  <samp class="ph codeph ID-000007b6">mac_1</samp> in reverse
+				  order. 
+				  <p class="p ID-00000154">For example, if the MAC address is
+					 00-1C-23-17-4A-CB, the following assignments are made: 
+				  </p>
+ 
+				                    <p class="p ID-00000154">
+                           <samp class="ph codeph ID-000007b6">mac_0</samp> = 0x17231c00 
+				  </p>
+ 
+				                    <p class="p ID-00000154">
+                           <samp class="ph codeph ID-000007b6">mac_1</samp> = 0x0000CB4a 
+				  </p>
+ 
+				                    <p class="p ID-00000154">Ensure that you configure these
+					 registers with a valid MAC address if you disable the promiscuous mode (<samp class="ph codeph ID-000007b6">PROMIS_EN</samp> bit in 
+					 <samp class="ph codeph ID-000007b6">command_config</samp> = 0).
+					 
+				  </p>
+ 
+				                 </td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e59 " width="10.714285714285715%" valign="top">0 
+				</td>
+ 
+			               </tr>
+ 
+			               <tr class="row ID-00000013"> 
+				                 <td class="entry ID-00000013" headers="d37173e44 " width="10.714285714285715%" valign="top">0x04 
+				</td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e50 " width="17.857142857142858%" valign="top">
+                        <samp class="ph codeph ID-000007b6">mac_1</samp> 
+				                 </td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e53 " width="10.714285714285715%" valign="top">RW 
+				</td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e59 " width="10.714285714285715%" valign="top">0 
+				</td>
+ 
+			               </tr>
+ 
+			               <tr class="row ID-00000013"> 
+				                 <td class="entry ID-00000013" headers="d37173e44 " width="10.714285714285715%" valign="top">0x05 
+				</td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e50 " width="17.857142857142858%" valign="top">
+                        <samp class="ph codeph ID-000007b6">frm_length</samp> 
+				                 </td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e53 " width="10.714285714285715%" valign="top">RW/ 
+				  <p class="p ID-0000022f">RO 
+				  </p>
+ 
+				                 </td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e56 " width="50%" valign="top"> 
+				                    <ul class="ul" id="bhc1410931499854__ul_619DDD3762364F4392FD351BEBCC685D"> 
+					                      <li class="li" id="bhc1410931499854__li_F1F62BBA15744065AF665701B20B274A">Bits[15:0]—16-bit maximum frame
+										length in bytes. The
+										IP
+										core checks the length of receive frames
+										against this value. Typical value is 1518. <p class="p ID-00001507">In 10/100 and
+											1000 Small MAC core variations, this register is RO and
+											the maximum frame length is fixed to 1518. </p>
+
+									                  </li>
+ 
+					                      <li class="li" id="bhc1410931499854__li_AFFB7CE9D5EA4978B769CA7D7011C13D">Bits[31:16]—unused. 
+					 </li>
+ 
+				                    </ul>
+ 
+				                 </td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e59 " width="10.714285714285715%" valign="top">1518 
+				</td>
+ 
+			               </tr>
+ 
+			               <tr class="row ID-00000013"> 
+				                 <td class="entry ID-00000013" headers="d37173e44 " width="10.714285714285715%" valign="top">0x06 
+				</td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e50 " width="17.857142857142858%" valign="top">
+                        <samp class="ph codeph ID-000007b6">pause_quant</samp> 
+				                 </td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e53 " width="10.714285714285715%" valign="top">RW 
+				</td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e56 " width="50%" valign="top"> 
+				                    <ul class="ul" id="bhc1410931499854__ul_C087345B39FD4891840C244F0A90310D"> 
+					                      <li class="li" id="bhc1410931499854__li_8A074E3049994DEFA8D11BB721932918">Bits[15:0]—16-bit pause quanta.
+										Use this register to specify the pause quanta to be sent to
+										remote devices when the local device is congested. The
+										IP
+										core sets the pause quanta (P1, P2) field
+										in pause frames to the value of this register. <p class="p ID-00001507">10/100 and
+											1000 Small MAC core variations do not support flow
+											control. </p>
+
+									                  </li>
+ 
+					                      <li class="li" id="bhc1410931499854__li_C24E8D87515F425BBC8B4AD4DFD4A4EA">Bits[31:16]—unused. 
+					 </li>
+ 
+				                    </ul>
+ 
+				                 </td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e59 " width="10.714285714285715%" valign="top">0 
+				</td>
+ 
+			               </tr>
+ 
+			               <tr class="row ID-00000013"> 
+				                 <td class="entry ID-00000013" headers="d37173e44 " width="10.714285714285715%" valign="top">0x07 
+				</td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e50 " width="17.857142857142858%" valign="top">
+                        <samp class="ph codeph ID-000007b6">rx_section_empty</samp> 
+				                 </td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e53 " width="10.714285714285715%" valign="top">RW/ 
+				  <p class="p ID-0000022f">RO 
+				  </p>
+ 
+				                 </td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e56 " width="50%" valign="top">Variable-length
+				  section-empty threshold of the receive FIFO buffer. Use the depth of your FIFO
+				  buffer to determine this threshold. This threshold is typically set to (FIFO
+				  Depth – 16). 
+				  <p class="p ID-00000154">Set this threshold to a value that
+					 is below the 
+					 <samp class="ph codeph ID-000007b6">rx_almost_full</samp>
+					 threshold and above the 
+					 <samp class="ph codeph ID-000007b6">rx_section_full</samp> or 
+					 <samp class="ph codeph ID-000007b6">rx_almost_empty</samp>
+					 threshold. 
+				  </p>
+ 
+				                    <p class="p ID-00000154">In 10/100 and 1000 Small MAC core
+					 variations, this register is RO and the register is set to a fixed value of
+					 (FIFO Depth – 16). 
+				  </p>
+ 
+				                 </td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e59 " width="10.714285714285715%" valign="top">0 
+				</td>
+ 
+			               </tr>
+ 
+			               <tr class="row ID-00000013"> 
+				                 <td class="entry ID-00000013" headers="d37173e44 " width="10.714285714285715%" valign="top">0x08 
+				</td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e50 " width="17.857142857142858%" valign="top">
+                        <samp class="ph codeph ID-000007b6">rx_section_full</samp> 
+				                 </td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e53 " width="10.714285714285715%" valign="top">RW/ 
+				  <p class="p ID-0000022f">RO 
+				  </p>
+ 
+				                 </td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e56 " width="50%" valign="top">Variable-length
+				  section-full threshold of the receive FIFO buffer. Use the depth of your FIFO
+				  buffer to determine this threshold. 
+				  <p class="p ID-00000154">For cut-through mode, this threshold
+					 is typically set to 16. Set this threshold to a value that is above the 
+					 <samp class="ph codeph ID-000007b6">rx_almost_empty</samp>
+					 threshold. 
+				  </p>
+ 
+				                    <p class="p ID-00000154">For store-and-forward mode, set this
+					 threshold to 0. 
+				  </p>
+ 
+				                    <p class="p ID-00000154">In 10/100 and 1000 Small MAC core
+					 variations, this register is RO and the register is set to a fixed value of 16.
+					 
+				  </p>
+ 
+				                 </td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e59 " width="10.714285714285715%" valign="top">0 
+				</td>
+ 
+			               </tr>
+ 
+			               <tr class="row ID-00000013"> 
+				                 <td class="entry ID-00000013" headers="d37173e44 " width="10.714285714285715%" valign="top">0x09 
+				</td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e50 " width="17.857142857142858%" valign="top">
+                        <samp class="ph codeph ID-000007b6">tx_section_empty</samp> 
+				                 </td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e53 " width="10.714285714285715%" valign="top">RW/ 
+				  <p class="p ID-0000022f">RO 
+				  </p>
+ 
+				                 </td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e56 " width="50%" valign="top">Variable-length
+				  section-empty threshold of the transmit FIFO buffer. Use the depth of your FIFO
+				  buffer to determine this threshold. This threshold is typically set to (FIFO
+				  Depth – 16). 
+				  <p class="p ID-00000154">Set this threshold to a value below
+					 the 
+					 <samp class="ph codeph ID-000007b6">rx_almost_full</samp>
+					 threshold and above the 
+					 <samp class="ph codeph ID-000007b6">rx_section_full</samp> or 
+					 <samp class="ph codeph ID-000007b6">rx_almost_empty</samp>
+					 threshold. 
+				  </p>
+ 
+				                    <p class="p ID-00000154">In 10/100 and 1000 Small MAC core
+					 variations, this register is RO and the register is set to a fixed value of
+					 (FIFO Depth – 16). 
+				  </p>
+ 
+				                 </td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e59 " width="10.714285714285715%" valign="top">0 
+				</td>
+ 
+			               </tr>
+ 
+			               <tr class="row ID-00000013"> 
+				                 <td class="entry ID-00000013" headers="d37173e44 " width="10.714285714285715%" valign="top">0x0A 
+				</td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e50 " width="17.857142857142858%" valign="top">
+                        <samp class="ph codeph ID-000007b6">tx_section_full</samp> 
+				                 </td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e53 " width="10.714285714285715%" valign="top">RW/ 
+				  <p class="p ID-0000022f">RO 
+				  </p>
+ 
+				                 </td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e56 " width="50%" valign="top">Variable-length
+				  section-full threshold of the transmit FIFO buffer. Use the depth of your FIFO
+				  buffer to determine this threshold. 
+				  <p class="p ID-00000154">For cut-through mode, this threshold
+					 is typically set to 16. Set this threshold to a value above the 
+					 <samp class="ph codeph ID-000007b6">tx_almost_empty</samp>
+					 threshold. 
+				  </p>
+ 
+				                    <p class="p ID-00000154">For store-and-forward mode, set this
+					 threshold to 0. 
+				  </p>
+ 
+				                    <p class="p ID-00000154">In 10/100 and 1000 Small MAC core
+					 variations, this register is RO and the register is set to a fixed value of 16.
+					 
+				  </p>
+ 
+				                 </td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e59 " width="10.714285714285715%" valign="top">0 
+				</td>
+ 
+			               </tr>
+ 
+			               <tr class="row ID-00000013"> 
+				                 <td class="entry ID-00000013" headers="d37173e44 " width="10.714285714285715%" valign="top">0x0B 
+				</td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e50 " width="17.857142857142858%" valign="top">
+                        <samp class="ph codeph ID-000007b6">rx_almost_empty</samp> 
+				                 </td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e53 " width="10.714285714285715%" valign="top">RW/ 
+				  <p class="p ID-0000022f">RO 
+				  </p>
+ 
+				                 </td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e56 " width="50%" valign="top">Variable-length
+				  almost-empty threshold of the receive FIFO buffer. Use the depth of your FIFO
+				  buffer to determine this threshold. 
+				  <p class="p ID-00000154">Due to internal pipeline latency,
+					 you must set this threshold to a value greater than 3. This threshold is
+					 typically set to 8. 
+				  </p>
+ 
+				                    <p class="p ID-00000154">In 10/100 and 1000 Small MAC core
+					 variations, this register is RO and the register is set to a fixed value of 8. 
+				  </p>
+ 
+				                 </td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e59 " width="10.714285714285715%" valign="top">0 
+				</td>
+ 
+			               </tr>
+ 
+			               <tr class="row ID-00000013"> 
+				                 <td class="entry ID-00000013" headers="d37173e44 " width="10.714285714285715%" valign="top">0x0C 
+				</td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e50 " width="17.857142857142858%" valign="top">
+                        <samp class="ph codeph ID-000007b6">rx_almost_full</samp> 
+				                 </td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e53 " width="10.714285714285715%" valign="top">RW/ 
+				  <p class="p ID-0000022f">RO 
+				  </p>
+ 
+				                 </td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e56 " width="50%" valign="top">Variable-length
+				  almost-full threshold of the receive FIFO buffer. Use the depth of your FIFO
+				  buffer to determine this threshold. 
+				  <p class="p ID-00000154">Due to internal pipeline latency,
+					 you must set this threshold to a value greater than 3. This threshold is
+					 typically set to 8. 
+				  </p>
+ 
+				                    <p class="p ID-00000154">In 10/100 and 1000 Small MAC core
+					 variations, this register is RO and the register is set to a fixed value of 8. 
+				  </p>
+ 
+				                 </td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e59 " width="10.714285714285715%" valign="top">0 
+				</td>
+ 
+			               </tr>
+ 
+			               <tr class="row ID-00000013"> 
+				                 <td class="entry ID-00000013" headers="d37173e44 " width="10.714285714285715%" valign="top">0x0D 
+				</td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e50 " width="17.857142857142858%" valign="top">
+                        <samp class="ph codeph ID-000007b6">tx_almost_empty</samp> 
+				                 </td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e53 " width="10.714285714285715%" valign="top">RW/ 
+				  <p class="p ID-0000022f">RO 
+				  </p>
+ 
+				                 </td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e56 " width="50%" valign="top">Variable-length
+				  almost-empty threshold of the transmit FIFO buffer. Use the depth of your FIFO
+				  buffer to determine this threshold. 
+				  <p class="p ID-00000154">Due to internal pipeline latency,
+					 you must set this threshold to a value greater than 3. This threshold is
+					 typically set to 8. 
+				  </p>
+ 
+				                    <p class="p ID-00000154">In 10/100 and 1000 Small MAC core
+					 variations, this register is RO and the register is set to a fixed value of 8. 
+				  </p>
+ 
+				                 </td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e59 " width="10.714285714285715%" valign="top">0 
+				</td>
+ 
+			               </tr>
+ 
+			               <tr class="row ID-00000013"> 
+				                 <td class="entry ID-00000013" headers="d37173e44 " width="10.714285714285715%" valign="top">0x0E 
+				</td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e50 " width="17.857142857142858%" valign="top">
+                        <samp class="ph codeph ID-000007b6">tx_almost_full</samp> 
+				                 </td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e53 " width="10.714285714285715%" valign="top">RW/ 
+				  <p class="p ID-0000022f">RO 
+				  </p>
+ 
+				                 </td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e56 " width="50%" valign="top">Variable-length
+				  almost-full threshold of the transmit FIFO buffer. Use the depth of your FIFO
+				  buffer to determine this threshold. 
+				  <p class="p ID-00000154">You must set this register to a
+					 value greater than or equal to 3. A value of 3 indicates 0 ready latency; a
+					 value of 4 indicates 1 ready latency, and so forth. Because the maximum ready
+					 latency on the Avalon-ST interface is 8, you can only set this register to a
+					 maximum value of 11. This threshold is typically set to 3. 
+				  </p>
+ 
+				                    <p class="p ID-00000154">In 10/100 and 1000 Small MAC core
+					 variations, this register is RO and the register is set to a fixed value of 3. 
+				  </p>
+ 
+				                 </td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e59 " width="10.714285714285715%" valign="top">0 
+				</td>
+ 
+			               </tr>
+ 
+			               <tr class="row ID-00000013"> 
+				                 <td class="entry ID-00000013" headers="d37173e44 " width="10.714285714285715%" valign="top">0x0F 
+				</td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e50 " width="17.857142857142858%" valign="top">
+                        <samp class="ph codeph ID-000007b6">mdio_addr0</samp> 
+				                 </td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e53 " width="10.714285714285715%" valign="top">RW 
+				</td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e56 " rowspan="2" width="50%" valign="top"> 
+				                    <ul class="ul" id="bhc1410931499854__ul_610E286210E140388186D4517688E712"> 
+					                      <li class="li" id="bhc1410931499854__li_3EC352AEB8624509B5BD8B12AC44866D">Bits[4:0]—5-bit
+						PHY address. Set these registers to the addresses of any connected PHY devices
+						you want to access. The 
+						<samp class="ph codeph ID-000007b6">mdio_addr0</samp> and 
+						<samp class="ph codeph ID-000007b6">mdio_addr1</samp>
+						registers contain the addresses of the PHY whose registers are mapped to MDIO
+						Space 0 and MDIO Space 1 respectively. 
+					 </li>
+ 
+					                      <li class="li" id="bhc1410931499854__li_1E798FFD76FE4F56BBEB7F97EE675CE3">Bits[31:5]—unused.
+						Set to read-only value of 0. 
+					 </li>
+ 
+				                    </ul>
+ 
+				                 </td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e59 " width="10.714285714285715%" valign="top">0 
+				</td>
+ 
+			               </tr>
+ 
+			               <tr class="row ID-00000013"> 
+				                 <td class="entry ID-00000013" headers="d37173e44 " width="10.714285714285715%" valign="top">0x10 
+				</td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e50 " width="17.857142857142858%" valign="top">
+                        <samp class="ph codeph ID-000007b6">mdio_addr1</samp> 
+				                 </td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e53 " width="10.714285714285715%" valign="top">RW 
+				</td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e59 " width="10.714285714285715%" valign="top">1 
+				</td>
+ 
+			               </tr>
+ 
+			               <tr class="row ID-00000013"> 
+				                 <td class="entry ID-00000013" headers="d37173e44 " width="10.714285714285715%" valign="top">0x11 
+				</td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e50 " width="17.857142857142858%" valign="top">
+                        <samp class="ph codeph ID-000007b6">holdoff_quant</samp> 
+				                 </td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e53 " width="10.714285714285715%" valign="top">RW 
+				</td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e56 " width="50%" valign="top"> 
+				                    <ul class="ul" id="bhc1410931499854__ul_6D26404BB6C14CE0B23FAEFEC5728025"> 
+					                      <li class="li" id="bhc1410931499854__li_FFE3CC13B6DF4C468F91946ED629D931">Bit[15:0]—16-bit
+						holdoff quanta. When you enable the flow control, use this register to specify
+						the gap between consecutive XOFF requests. 
+					 </li>
+ 
+					                      <li class="li" id="bhc1410931499854__li_C4CFFCE015B7454280F2A0FDE16A31E4">Bits[31:16]—unused. 
+					 </li>
+ 
+				                    </ul>
+ 
+				                 </td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e59 " width="10.714285714285715%" valign="top">0xFFFF 
+				</td>
+ 
+			               </tr>
+ 
+			               <tr class="row ID-00000013"> 
+				                 <td class="entry ID-00000013" headers="d37173e44 " width="10.714285714285715%" valign="top">0x12 – 0x16 
+				</td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e50 " width="17.857142857142858%" valign="top">Reserved 
+				</td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e53 " width="10.714285714285715%" valign="top">— 
+				</td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e56 " width="50%" valign="top">— 
+				</td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e59 " width="10.714285714285715%" valign="top">0 
+				</td>
+ 
+			               </tr>
+ 
+			               <tr class="row ID-00000013"> 
+				                 <td class="entry ID-00000013" headers="d37173e44 " width="10.714285714285715%" valign="top">0x17 
+				</td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e50 " width="17.857142857142858%" valign="top">
+                        <samp class="ph codeph ID-000007b6">tx_ipg_length</samp> 
+				                 </td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e53 " width="10.714285714285715%" valign="top">RW 
+				</td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e56 " width="50%" valign="top"> 
+				                    <ul class="ul" id="bhc1410931499854__ul_9568E82E0706419E9751C9EEFF15D1F4"> 
+					                      <li class="li" id="bhc1410931499854__li_477CD3599BC14CE2B935F58FBEFD4FB6">Bits[4:0]—minimum
+						IPG. Valid values are between 8 and 26 byte-times. If this register is set to
+						an invalid value, the MAC still maintains a typical minimum IPG value of 12
+						bytes between packets, although a read back to the register reflects the
+						invalid value written.
+						<p class="p ID-00001507">In 10/100 and 1000 Small MAC
+						  core variations, this register is RO and the register is set to a fixed value
+						  of 12. 
+						</p>
+ 
+						                        <p class="p">Bits[31:5]—unused. Set to read-only value 0. 
+						</p>
+ 
+					                      </li>
+ 
+				                    </ul>
+ 
+				                 </td>
+ 
+				                 <td class="entry ID-00000013" headers="d37173e59 " width="10.714285714285715%" valign="top">0 
+				</td>
+ 
+			               </tr>
+ 
+			               <tr class="row ID-00000013"> 
+				                 <td class="entry ID-00000013" colspan="5" headers="d37173e44 d37173e50 d37173e53 d37173e56 d37173e59 " valign="top">Note to <a xmlns="http://www.w3.org/1999/xhtml" class="xref ID-000001c7" href="/content/altera-www/global/en_us/index/documentation/bhc1410932355850.html#bhc1410931499854__ID-328-0000157f">Table 35</a> : <ol class="ol" id="bhc1410931499854__ol_E720709AE45143F3B1ABE87CC9CB1625">
+									                  <li class="li ID-00000cbf" id="bhc1410931499854__ID-328-000016cf">Register is not available in
+										10/100 and 1000 Small MAC variations. </li>
+
+								                </ol>
+
+							              </td>
+ 
+			               </tr>
+ 
+		             </tbody>
+ 
+		          </table>
+</div>
