@@ -1,0 +1,47 @@
+version: 1
+disable_existing_loggers: False
+formatters:
+    file_fmt:
+        format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+    console_fmt:
+        format: "%(levelname)s - %(message)s"
+handlers:
+    console:
+        class: logging.StreamHandler
+        level: DEBUG
+        formatter: console_fmt
+        stream: ext://sys.stdout
+
+    info_file_handler:
+        class: logging.handlers.RotatingFileHandler
+        level: INFO
+        formatter: file_fmt
+        filename: info.log
+        maxBytes: 10485760 # 10MB
+        backupCount: 20
+        encoding: utf8
+
+    error_file_handler:
+        class: logging.handlers.RotatingFileHandler
+        level: ERROR
+        formatter: file_fmt
+        filename: errors.log
+        maxBytes: 10485760 # 10MB
+        backupCount: 20
+        encoding: utf8
+
+loggers:
+    paramiko:
+        level: INFO
+        handlers: [console]
+        propagate: no
+        
+    winssh:
+        level: DEBUG
+        handlers: [console]
+        propagate: no
+        
+
+root:
+    level: DEBUG
+    handlers: [console, info_file_handler, error_file_handler]
