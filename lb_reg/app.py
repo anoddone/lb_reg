@@ -4,9 +4,9 @@ from flask_socketio import SocketIO
 from flask_bootstrap import Bootstrap
 import json
 import cgi
-from serialcom import SerialPort
-import portstatus
-from cfg_data import cfgData
+from .serialcom import SerialPort
+from . import portstatus
+from .cfg_data import cfgData
 
 import os
 
@@ -47,7 +47,7 @@ class Register():
         try:
             newval = int(value,16)
         except:
-            print "bad write value: %s" % value
+            print("bad write value: %s" % value)
             return self.read(serial, portname, label)
         else:
             data = self.reg_dict[label]
@@ -91,7 +91,7 @@ class Register():
 
     def register_update( self, serial, reg_list, portname ):
         baseaddr = self.baseaddr(portname)
-        print( "%s  %08x" % (portname, baseaddr))
+        print(( "%s  %08x" % (portname, baseaddr)))
         data_dict = {}
         for reg_json in reg_list:
             with open(mkpath(reg_json),'r') as fp:
@@ -170,7 +170,7 @@ def create_app():
 
         @socketio.on('connect', namespace='/dd')
         def ws_conn():
-            print "ws_conn"
+            print("ws_conn")
 #            data = json.dumps(reg.register_update(serial,['rxcfgstreg.json','txcfgstreg.json','timestampreg.json','rxtxstat.json'], 'portA'))
 #            print data
 #            socketio.emit('update_table', data, namespace='/dd')
@@ -180,7 +180,7 @@ def create_app():
 
         @socketio.on('disconnect', namespace='/dd')
         def ws_disconn():
-            print "ws_disconn"
+            print("ws_disconn")
         #    thread_stop_event.set()
         #    socketio.emit('portstatus', {'count': c}, namespace='/dd')
 
@@ -193,12 +193,12 @@ def create_app():
 
         @socketio.on('panic', namespace='/dd')
         def ws_city(message):
-            print(message['panic'])
+            print((message['panic']))
 
         @socketio.on('conn', namespace='/dd')
         def conn(message):
             global currentPort
-            print "conn message ",message
+            print("conn message ",message)
             if message[0] == 'phy_config':
                 data = json.dumps(reg.register_update(serial,['PHYregdef.json'], currentPort+'CSR'))
             elif message[0] == 'mac_config':
@@ -213,27 +213,27 @@ def create_app():
         def memwrt(message):
             global currentPort
             print('memwrt')
-            print(message[0])
-            print(message[1])
+            print((message[0]))
+            print((message[1]))
             if message[2] == 'phy_config':
                 port_extention = 'CSR'
             else:
                 port_extention = ''
             rsp = reg.write(serial, currentPort+port_extention, message[0],message[1])
-            print rsp
+            print(rsp)
             data = json.dumps(rsp)
-            print data
+            print(data)
             socketio.emit('update_table', data, namespace='/dd')
 
         @socketio.on('getval', namespace='/dd')
         def getval(message):
             print('getval')
-            print message
+            print(message)
             socketio.emit('update_table',[ message , "and even more!"],namespace='/dd')
 
-        print "run socketio"
+        print("run socketio")
         socketio.run(app )
-        print "socketio running"
+        print("socketio running")
     else:
         app.run( port=5010)
 

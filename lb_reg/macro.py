@@ -13,7 +13,7 @@ class Macro(object):
         
         
     def macro(self,msg):
-        print msg,msg[0]
+        print(msg,msg[0])
         cmd = msg[0]
         if cmd == 'record':
             self.record_btn(msg)
@@ -24,14 +24,14 @@ class Macro(object):
         elif cmd == 'save':
             self.save(msg)
         else:
-            print "unknown message: ",msg
+            print("unknown message: ",msg)
     
     def record_btn(self,msg):
         if self.record:
             self.record=False
         else:
             self.record=True
-        print self.record
+        print(self.record)
             
     def clear(self,msg):
         self.rec_buffer = []
@@ -50,7 +50,7 @@ class Macro(object):
         return
         
     def save(self,msg):
-        print msg
+        print(msg)
 #        if self.entries == 0:
 #            return
         filename = self.mk_filename()
@@ -64,18 +64,18 @@ class Macro(object):
         return
         
     def write_log(self, portname, label, value):
-        print "write_log()"
+        print("write_log()")
         if not self.record:
             return
         self.entries+=1
         self.rec_buffer.append([label,value,portname])
-        print self.entries, self.rec_buffer
+        print(self.entries, self.rec_buffer)
         
     def str_match(self, match, slist):
-        print match,slist
+        print(match,slist)
         itmatched = False
         for s in slist:
-            print s,match
+            print(s,match)
             if s == match:
                 itmatched = True
                 
@@ -87,18 +87,18 @@ class Macro(object):
         basename = 'm' + "{:%y%m%d}".format(datetime.datetime.today())
         for i in range(max):
             filename = basename + str(i) + '.json'
-            print files
-            print filename
+            print(files)
+            print(filename)
             if self.str_match( filename,files) == False:
 #           if [x for x in files if x == filename] == False:
                 return os.path.join(self.dir_path,filename)
-        print "too many duplicate filenames: ",filename
+        print("too many duplicate filenames: ",filename)
         return None
                 
          
 #           if [x for x in files if x == filename] == False:
 #               return filename
-        print "too many duplicate filenames: ",filename
+        print("too many duplicate filenames: ",filename)
         return ""
             
         

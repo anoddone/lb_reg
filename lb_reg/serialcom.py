@@ -23,7 +23,7 @@ class SerialPort():
                 break
             except Exception as e:
                 print(e)
-                raw_input("Correct and press return")
+                input("Correct and press return")
         return self.s
         
     #====================================================================
@@ -55,9 +55,9 @@ class SerialPort():
         
     def write_reg32(self, addr, value):
         cmd = "mw %x %x" % (addr,value)
-        print cmd
+        print(cmd)
         reg = self.write_wait(cmd).split()[1]
-        print reg
+        print(reg)
         return reg
         
     def read_reg64(self, addr):
@@ -69,7 +69,7 @@ class SerialPort():
         low4 = self.read_reg32(addr)
         hi2  = self.read_reg32(addr+4)
         all = (hi2+low4)[4:16]   #str(hi2[12:16])+str(low4)
-        print hi2,low4,all
+        print(hi2,low4,all)
         return all
         
 
@@ -100,7 +100,7 @@ class uut():
     
     def serial( self ):
         if self.comport == None:
-            print "Serial comport not defined"
+            print("Serial comport not defined")
             return False
 #        self.s = af5ghz_serial( comport=self.comport, username=self.username, password=self.password )
         # Need to handle error case
@@ -120,9 +120,9 @@ if __name__ == '__main__':
     s = SerialPort(comport='COM11')
     s.connect()
     data = s.read_reg32(0x60000040)
-    print data
+    print(data)
     data = s.read_reg32(0x60000080)
-    print data
+    print(data)
 
 
 
@@ -140,9 +140,9 @@ def readReg( s, addr):
     s.write("md %x 1" % addr)
     rstr = s.read_until('#')
     rsp = rstr.split('/n')
-    print rsp[1]
+    print(rsp[1])
     data = rsp[1].split( " ")
-    print data
+    print(data)
     return int(data[1], 16)
     
 #s = serial.Serial(port='COM11', baudrate=115200, write_timeout=1, timeout=.1)
