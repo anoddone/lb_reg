@@ -22,6 +22,6 @@ def setup_logging(
             config = yaml.safe_load(f.read())
         logging.config.dictConfig(config)
     else:
-        print "default logging"
+        print("default logging")
         logging.basicConfig(level=default_level)
 

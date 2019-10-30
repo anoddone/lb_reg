@@ -70,7 +70,7 @@ def test():
     s.connect()
 
 #    print "read_all: ", sysReg.read_all(s, ["date_code","temperature"])
-    print "Date Code: ",sysReg.read_reg_dict( s,"date_code" )
+    print("Date Code: ",sysReg.read_reg_dict( s,"date_code" ))
 #    print "Temperature: ",sysReg.read_reg_dict( s,"temperature" )
 #    print "None: ",sysReg.read_reg_dict( s,"None" )
     

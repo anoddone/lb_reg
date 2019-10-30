@@ -25,7 +25,7 @@ class cfgData:
                 json_data = json.load(fp)
             self.argdict.update(json_data)
         except Exception as e:
-            print e
+            print(e)
             
 
     def write_json(self,filename):
@@ -34,11 +34,11 @@ class cfgData:
             with open(filename,'w') as fp:
                 fp.write(json.dumps(self.argdict, indent=4))
         except Exception as e:
-            print e
+            print(e)
  
     def print_cfg(self):
         for key in self.argdict:
-            print "%s=%s" % (key,self.argdict[key])
+            print("%s=%s" % (key,self.argdict[key]))
             
             
     def __getitem__(self, name):
@@ -54,18 +54,18 @@ class cfgData:
 
 if __name__ == '__main__':
     cfg = cfgData( portaddr="5000", comport='com11', oneorg='one', twoarg='two')
-    print cfg.argdict
+    print(cfg.argdict)
     cfg.cmdline_args()
-    print cfg.argdict
-    print cfg['comport']
-    print 'get ',cfg.get('comport',"Noway")
-    print 'get ',cfg.get('comport1',"Noway")
-    print 'get ',cfg.get('comport1')
+    print(cfg.argdict)
+    print(cfg['comport'])
+    print('get ',cfg.get('comport',"Noway"))
+    print('get ',cfg.get('comport1',"Noway"))
+    print('get ',cfg.get('comport1'))
     cfg.read_json("dummy.json")
     cfg.write_json("dummy.json")
     cfg1 = cfgData()
     cfg1.read_json('dummy.json')
-    print cfg1.argdict
+    print(cfg1.argdict)
     
     
     

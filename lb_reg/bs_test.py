@@ -1,12 +1,13 @@
 
 from bs4 import BeautifulSoup
-import urllib2
+import urllib.request, urllib.error, urllib.parse
 import sys
 import json
-print sys.getdefaultencoding()
-reload(sys)  
+import importlib
+print(sys.getdefaultencoding())
+importlib.reload(sys)  
 sys.setdefaultencoding('cp1252')
-print sys.getdefaultencoding()
+print(sys.getdefaultencoding())
 
 form =  '<td>\n' +\
         '<form method="post">\n' +\
@@ -25,10 +26,10 @@ htmlhdr2=  '<h1>%s</h1>\n' + \
 # build the html page.
 # assembly includes: FLASK header, page name, html tables, and the javascript.html
 def build_html( html_filename, table_list, page_name):
-    print page_name
-    print htmlhdr
+    print(page_name)
+    print(htmlhdr)
     with open( 'templates/%s.html'% html_filename, 'w') as fp:
-        print (htmlhdr2 % page_name )
+        print((htmlhdr2 % page_name ))
         fp.write(htmlhdr + (htmlhdr2 % page_name))
         for table in table_list:
             with open("templates/%s.html"% table,'r') as fpr:
@@ -60,8 +61,8 @@ def makeEthTable(table_data, table_name=None, table_header=None):
             desc   = row[3].replace('\n','\n<br>')
             access = row[2].strip()
         except:
-            print "row short"
-            print row
+            print("row short")
+            print(row)
         if access == 'RO':
             disable = 'disabled '
         else:
@@ -101,8 +102,8 @@ def makeTable(table_data, table_name=None, table_header=None):
             desc   = row[3].replace('\n','\n<br>')
             access = row[2].strip()
         except:
-            print "row short"
-            print row
+            print("row short")
+            print(row)
         if access == 'RO':
             disable = 'disabled '
         else:
@@ -131,7 +132,7 @@ def extract_table_data( filename):
     tbody = table.tbody
 
     rows =  table.find_all(['tr'])
-    print len(rows)
+    print(len(rows))
 
 #    for row in table.find_all(['th','tr']):
 #        for cell in row(["th"]):
@@ -171,7 +172,7 @@ def process_table( filename, table_name, default_access="",default_default="",re
 
     table_data = [[cell.text.decode("utf-8",errors="ignore").replace('\t','').strip().replace('\n',' ') for cell in row("td")]
                              for row in table.find_all("tr")]
-    print table_data
+    print(table_data)
     with open("%stable_data.json"%filename, 'w') as fp:
         fp.write(json.dumps(table_data, indent=4))
     table_dict = {}
@@ -185,12 +186,12 @@ def process_table( filename, table_name, default_access="",default_default="",re
         table_dict.update( {label : [offset,48] })
         table_list.append( [value,label,default,desc,access])
 
-    print "len(table_data) ", len(table_data)
+    print("len(table_data) ", len(table_data))
     for row in table_data:
         if len(row) == 0:
             continue
         value = "0x12345"
-        print row
+        print(row)
         offset = row[0].strip().split('\n')[0]
         offset = offset.split(':')[0]
         if offset.count('0x') == 0:
@@ -199,7 +200,7 @@ def process_table( filename, table_name, default_access="",default_default="",re
         try:
             label = row[1].strip().split()[0]
         except:
-            print "missing label"
+            print("missing label")
             continue
         if label == 'Reserved':
             continue

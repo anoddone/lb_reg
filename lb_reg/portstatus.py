@@ -8,7 +8,7 @@ class PortData():
         self.port = port
         self.BaseAddress = BaseAddress
         self.PortAddress = {'A': 0x40, 'B': 0x80, 'C': 0xc0, 'D': 0x100, 'E': 0x140}[port] + BaseAddress
-        print(hex(self.PortAddress))
+        print((hex(self.PortAddress)))
         
     def activity(self, s):
         status = {}
