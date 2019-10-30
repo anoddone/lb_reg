@@ -28,7 +28,7 @@ setup(name='lb_reg',
         'python-socketio==2.1.1',
         'six==1.11.0',
         'visitor==0.1.3',
-        'Werkzeug==0.15.3'],
+        'Werkzeug==0.16.0'],
       entry_points = {
         'console_scripts': ['lb_reg=lb_reg.command_line:main'],
     },
